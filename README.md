@@ -3,9 +3,9 @@
 
 Contributors: Kevin Montgomery
 Tags: adaptive, javascript, responsive, foundation, less, woocommerce, github
-Requires at least: 4.0
-Tested up to: 4.9.8
-License: MIT License
+Requires at least: 5.0.0
+Tested up to: 5.0.0
+License: GNU General Public License v2 or later
 
 ## Features
  - Foundation 6.4.2
