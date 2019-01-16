@@ -1,7 +1,8 @@
-
 package.json
 *.cmd
-node_modules/*
+node_modules/
 package-lock.json
 cypress.json
-cypress/*
+cypress/
+foundation-sites/*
+!foundation-sites/_build/*
