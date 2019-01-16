@@ -1,2 +1,5 @@
 
 package.json
+*.cmd
+node_modules/*
+package-lock.json
