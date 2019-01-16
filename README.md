@@ -9,7 +9,7 @@ License: GNU General Public License v2 or later
 
 ## Features
  - Foundation 6.4.2
- - Less 2.7.2
+ - SASS
  - Woocommerce
  - Github Updater
  - Incorporates QODE Central Wordpress theme shortcodes
