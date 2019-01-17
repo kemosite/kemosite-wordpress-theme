@@ -1,0 +1,1027 @@
+@charset "utf-8";
+
+/* [LAYOUT NOTES] **
+
+CSS Grids are for LAYOUT, 2 dimensions
+Define layouts, then place box content into them.
+Layouts might need to change according to media query. Grids are better suited for this. Grid can change, as can relationship between box to grid according to media query.
+
+CSS Flexbox is for a BOX, either row or column.
+Place into a layout grid.
+*/
+
+/* [Speech Media] */
+@media speech {}
+
+/* [All Media] */
+@media all {
+
+	.speech {
+
+		position:absolute;
+		left:-10000px;
+		top:auto;
+		width:1px;
+		height:1px;
+		overflow:hidden;
+
+	}
+
+	div.css-search div.em-search-main .em-search-submit img {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.woocommerce-page #primary,
+	.has-sidebar.woocommerce-page:not(.error404) #primary { 
+		width: 100%;
+	}
+
+	ul, ol {
+		list-style-position: outside;
+		padding-left: 1em;
+	}
+
+	.woocommerce ul.products,
+	.woocommerce-page ul.products,
+	.page div.content main .p402_premium ul.products,
+	ul.products,
+	.gallery,
+	.flex-container
+	 {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-items: stretch;
+		align-content: flex-start;
+		width: 100%;
+		margin: 1em auto;
+		max-width: 100%;
+	}
+
+	.card { height: 100%; }
+
+	.cropped.image {
+	    background-position:center center;
+	    background-repeat:no-repeat;
+	    overflow:hidden;
+	    margin: 1em auto;
+	}
+	.cropped.image img {
+	    min-height:100%;
+	    min-width:100%;
+	    opacity:0
+	}
+
+	.fb-comments.fb_iframe_widget {
+		text-align: center;
+		display: block;
+	}
+	.fb-comments.fb_iframe_widget span {
+		max-width: 59rem;
+		max-width: 59ch;
+		width: 100%;
+	}
+
+	form.contact-form {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.contact-form select { padding-right: 2em; }
+
+	.contact-form input[type="email"], .contact-form input[type="text"], .contact-form input[type="url"] { width: 100% !important;	}
+
+	a.button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	footer {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		margin: 1em 0;
+		justify-content: flex-start;
+	}
+
+	footer div.footer {
+		width: 100%;
+		justify-content: center;
+		align-items: baseline;
+	}
+
+	footer .footer-menu,
+	footer .jetpack-social-widget-list {
+		margin-left: 0;
+		padding-left: 0;
+		display: flex;
+	}
+
+	.widget_text.copyright { margin-top: .5em; }
+
+	.jetpack-social-widget-item svg {
+		width: 3rem;
+		width: 3ch;
+		height: 3rem;
+		height: 3ch;
+		border: 1px solid var(--black_tint);
+		border-radius: .25em;
+		padding: .125em;
+	}
+
+}
+
+/* [Print Media] */
+@media print {
+
+	body {
+		background: white;
+		color: black;
+		margin: 0;
+	}
+
+}
+
+/* [Screen Media] */
+@media screen {
+
+	/* BASE LAYOUT STYLE */
+	body {
+		
+		-webkit-font-smoothing: antialiased;
+		font-smooth: always;
+		
+		/* apply a natural box layout model to all elements */
+		* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+		/* Hide horizontal scrolling, if content is butting against the edge of the viewport. */
+		overflow-x: hidden;
+		
+	}
+
+	.mobile.logo.position {
+		display: inline-block;
+		height: 7rem;
+		height: 7ch;
+		width: 100%;
+		text-align: center;
+		margin: 1rem;
+	}
+
+	.logo.position img {
+		height: 5rem;
+		height: 5ch;
+	}
+
+	.mobile.logo.position img {
+		height: 100%;
+	}
+
+	.is-dropdown-submenu-parent.opens-right > .is-dropdown-submenu {
+		left: 0;
+		top: 100%;
+	}
+
+	a, a:link, a:hover, a:focus, a:active,
+	input, input:link, input:hover, input:focus, input:active,
+	button, button:link, button:hover, button:focus, button:active,
+	.button, .button:link, .button:hover, .button:focus, .button:active,
+	ul.products li.product .button {
+		transition: 125ms ease-in-out;
+	}
+
+	.wrap { margin: 1rem auto; }
+
+	/* [Control Grid Parameters] */
+	.off-canvas-wrapper {
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0;
+	}
+
+	.cell { 
+		padding: 0 1rem;
+		flex: 0 1 auto;
+		width: auto;
+	}
+
+	.grid-x { margin-top: .5em; }
+
+	ul { line-height: 1; }
+
+	select, input:not([type="checkbox"]), textarea, button, .button, .button.expanded, [type="search"] {
+		min-height: 56px;
+		min-width: 80px;
+		margin: 1rem;
+		padding: 1rem;
+		border-radius: .25rem;
+		height: auto;
+	}
+
+	/* override margin for search input */
+	form.search-form input,
+	form.search-form button { 
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.mailpoet_form .mailpoet_text, .mailpoet_form .mailpoet_textarea { width: 100% !important; }
+
+	hr,
+	.woocommerce-breadcrumb, .woocommerce-pagination {
+		margin: 1.5rem auto;
+		max-width: 59rem;
+	}
+
+	ul.page-numbers { text-align: center; }
+
+	.callout.secondary {
+		max-width: 59rem;
+		margin: 2rem auto;
+	}
+
+	.button.expanded {
+		width: auto;
+	}
+
+	.close-button {
+		top: 0;
+		right: 0;
+	}
+
+	.clear-off-canvas-close-button {
+		margin-top: 5rem;
+	}
+
+	/** [MENU STYLES] **/
+
+	/* [Mobile Menu] */
+	.main_mobile_menu {
+		position: fixed;
+		width: 100vw;
+		grid-area: menu;
+		background-color: white;
+		z-index: 1;
+		top: 0;
+		display: flex;
+	}
+
+	/* [Screen Menu] */
+	.main_screen_menu {
+		width: 100%;
+		grid-area: menu;
+		/* z-index: 1; */
+		top: 0;
+	}
+
+	.top-bar { padding: 0; }
+
+	.section {
+		grid-area: section;
+	}
+	.section h1 {
+		text-align: center;
+		color: white;
+		font-weight: bold;
+	}
+
+	.content {
+		grid-area: content;
+		margin: 0 1rem;
+	}
+
+	/* [Desktop Menu] */
+
+	.menu.nested {margin-left: 0 }
+	.menu li { font-weight: bold; }
+	.menu .nested li { font-weight: normal; }
+
+	.off-canvas-menu > li > a,
+	.off-canvas-menu .sub-menu > li > a {
+		border-bottom: 1px solid;
+	}
+
+	.media-object {
+		width: 100%;
+		margin: auto;
+	}
+	.media-object .thumbnail {
+		background-position:center center;
+	    background-repeat:no-repeat;
+	    overflow:hidden;
+	    max-width: 100%;
+	    max-height: 100%;
+	    background-size: cover;
+	}
+	.media-object .thumbnail img { 
+		min-height:100%;
+	    min-width:100%;
+	    opacity:0;
+	}
+
+	
+	/* [Foundation Top-Bar Menu Example] *
+	**
+	.menu .menu-text { padding: 0; }
+	.sub-menu {
+		display: none;
+		transition-delay: 5s;
+	}
+
+	.home.url.item  a {
+		padding: .7rem 1rem;
+	}
+
+	.dropdown.menu > li.menu-item-has-children:hover > a + .sub-menu,
+	.dropdown.menu > li.menu-item-has-children > a:hover + .sub-menu,
+	.dropdown.menu > li.menu-item-has-children > .sub-menu:hover
+	{
+		display: flex;
+		list-style: none;
+		position: absolute;
+		z-index: 1;
+		border: 1px solid #cacaca;
+		left: 0;
+		right: 1em;
+		top: auto;
+		margin: 0;
+		transition-delay: 5s;
+	}
+	*/
+
+	/* [Sharedaddy and Comments Alignment] */
+	.sharedaddy {
+		text-align: center;
+	}
+
+	.fb-comments {
+		max-width: 59rem;
+		max-width: 59ch;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+}
+
+/* [Set Up Base Breakpoints and Orientations] */
+
+@media only screen and (max-width: 39rem) and (orientation: portrait) {
+	
+	/*
+	** Define grid for portrait mode
+	** Slide between section and content
+	** Menu options remain fixed
+	** 
+	** https://css-tricks.com/snippets/css/complete-guide-grid/
+	** https://medium.com/flexbox-and-grids/how-to-efficiently-master-the-css-grid-in-a-jiffy-585d0c213577
+	*/
+
+	/* [Define Grid Container] */
+	.grid-layout-container {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 6rem calc(33vh - 1rem) 1fr;
+		grid-template-areas:	"menu"
+								"section"
+								"content";
+		grid-gap: 0;
+		overflow: auto;
+	}
+
+	.cell { 
+		padding: 0 1rem;
+		flex: 0 1 auto;
+		width: 100%;
+	}
+
+	.section > section {
+		height: calc(33vh - 2rem);
+	}
+
+	.single div.content main .p402_premium {
+		columns: auto 1;
+		margin: 2rem auto;
+		column-gap: 2rem;
+	}
+
+	.woocommerce ul.products[class*="columns-"] li.product, .woocommerce-page ul.products[class*="columns-"] li.product {
+		width: 100%;
+	}
+
+	ul.products li.product,
+	.woocommerce ul.products li.product,
+	.woocommerce-page ul.products li.product,
+	.gallery-item,
+	.flex-item {
+		flex: 0 1 auto;
+		align-self: stretch;
+		margin: var(--set_column_margin);
+		float: none;
+		width: 100%;
+		max-width: var(--set_full_column_width);
+		text-align: center;
+	}
+
+	.grid-x + hr {
+		display: none;
+		margin: 0;
+	}
+
+	.footer-menu li {
+		display: inline-block;
+		padding: 0 .25rem;
+	}
+
+}
+
+@media only screen and (max-width: 39rem) and (orientation: landscape) {
+
+	/* [Define Grid Container] */
+	.grid-layout-container {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 6rem calc(33vh - 2rem) 1fr;
+		grid-template-areas:	"menu"
+								"section"	
+								"content";
+		grid-gap: 0;
+	}
+
+	.cell { 
+		padding: 0 1rem;
+		flex: 0 1 auto;
+		width: 100%;
+	}
+	
+	.section > section {
+		height: calc(33vh - 3rem);
+	}
+
+	.section > section header h1 {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: .125rem .25rem;
+	}
+
+	.single div.content main .p402_premium {
+		columns: auto 1;
+		margin: 2rem auto;
+		column-gap: 2rem;
+	}
+
+	.woocommerce ul.products[class*="columns-"] li.product, .woocommerce-page ul.products[class*="columns-"] li.product {
+		width: 100%;
+	}
+
+	ul.products li.product,
+	.woocommerce ul.products li.product,
+	.woocommerce-page ul.products li.product,
+	.gallery-item,
+	.flex-item {
+		flex: 0 1 auto;
+		align-self: stretch;
+		margin: var(--set_column_margin);
+		float: none;
+		width: 100%;
+		max-width: var(--set_full_column_width);
+		text-align: center;
+	}
+
+	.media-object {
+		width: 39rem;
+		width: 39ch;
+		margin: auto;
+	}
+	.media-object .thumbnail {
+		background-position:center center;
+	    background-repeat:no-repeat;
+	    overflow:hidden;
+	    max-width: 9rem;
+	    max-height: 9rem;
+	    background-size: cover;
+	}
+	.media-object .thumbnail img { 
+		min-height:100%;
+	    min-width:100%;
+	    opacity:0;
+	}
+
+	.footer-menu li {
+		display: inline-block;
+		padding: 0 1rem;
+	}
+
+}
+
+@media only screen and (min-width: 39rem) and (max-width: 59rem) and (orientation: portrait) {
+	/* [Define Grid Container] */
+	.grid-layout-container {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 6rem calc(33vh - 3rem) 1fr;
+		grid-template-areas:	"menu"
+								"section"
+								"content";
+		grid-gap: 0;
+		overflow: auto;
+	}
+
+	.top-bar input {
+		max-width: 16rem;
+		max-width: 16ch;
+	}
+
+	.mailpoet_form input.mailpoet_text,
+	form.contact-form,
+	.contact-form input[type="email"], .contact-form input[type="text"], .contact-form input[type="url"],
+	select,
+	textarea {
+		max-width: 39rem;
+		max-width: 39ch;
+	}
+
+	img {
+		max-width: 39rem;
+		max-width: 39ch;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+
+	.section > section {
+		height: calc(33vh - 3rem);
+	}
+
+	.section > section header h1 {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: .125rem .25rem;
+	}
+
+	.single div.content main .p402_premium {
+		columns: 39ch auto;
+		margin: 2rem auto;
+		column-gap: 2rem;
+	}
+
+	.page div.content main .p402_premium p,
+	.page div.content main .p402_premium ul,
+	.page div.content main .p402_premium ol,
+	.page div.content main .p402_premium table,
+	.page div.content main .p402_premium blockquote {
+		max-width: 39rem;
+		max-width: 39ch;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	div.columns {
+		column-count: auto;
+		column-gap: 1rem;
+		column-width: 39rem;
+		column-width: 39ch;
+	}
+
+	div.span-all.columns {
+		column-count: 1;
+		max-width: 39rem;
+		max-width: 39ch;
+	}
+
+	.grid-x .cell hr {
+		display: none;
+		margin: 0;
+	}
+
+	ul.products li.product,
+	.woocommerce ul.products li.product,
+	.woocommerce-page ul.products li.product,
+	.gallery-item,
+	.flex-item {
+		flex: 0 1 auto;
+		align-self: stretch;
+		margin: var(--set_column_margin);
+		float: none;
+		width: 100%;
+		max-width: var(--set_double_column_width);
+		text-align: center;
+	}
+
+	.media-object {
+		width: 39rem;
+		width: 39ch;
+		margin: auto;
+	}
+	.media-object .thumbnail {
+		background-position:center center;
+	    background-repeat:no-repeat;
+	    overflow:hidden;
+	    max-width: 9rem;
+	    max-height: 9rem;
+	    background-size: cover;
+	}
+	.media-object .thumbnail img { 
+		min-height:100%;
+	    min-width:100%;
+	    opacity:0;
+	}
+
+	.footer-menu li {
+		display: inline-block;
+		padding: 0 1rem;
+	}
+	
+}
+@media only screen and (min-width: 39rem) and (max-width: 59rem) and (orientation: landscape) {
+	
+	/* [Define Grid Container] */
+	.grid-layout-container {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 6rem calc(33vh - 2rem) 1fr;
+		grid-template-areas:	"menu"
+								"section"	
+								"content";
+		grid-gap: 0;
+	}
+
+	.top-bar input {
+		max-width: 16rem;
+		max-width: 16ch;
+	}
+
+	.mailpoet_form input.mailpoet_text,
+	form.contact-form,
+	.contact-form input[type="email"], .contact-form input[type="text"], .contact-form input[type="url"],
+	select,
+	textarea {
+		max-width: 39rem;
+		max-width: 39ch;
+	}
+
+	img {
+		max-width: 39rem;
+		max-width: 39ch;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+	
+	.section > section {
+		height: calc(33vh - 3rem);
+	}
+
+	.section > section header h1 {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: .125rem .25rem;
+	}
+
+	.single div.content main .p402_premium {
+		columns: 39ch auto;
+		margin: 2rem auto;
+		column-gap: 2rem;
+	}
+
+	.page div.content main .p402_premium p,
+	.page div.content main .p402_premium ul,
+	.page div.content main .p402_premium ol,
+	.page div.content main .p402_premium table,
+	.page div.content main .p402_premium blockquote {
+		max-width: 39rem;
+		max-width: 39ch;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.woocommerce-page.columns-3 ul.products li.product, .woocommerce.columns-3 ul.products li.product {
+		width: 32%;
+		clear: none;
+	}
+
+	div.columns {
+		column-count: auto;
+		column-gap: 1rem;
+		column-width: 39rem;
+		column-width: 39ch;
+	}
+
+	div.span-all.columns {
+		column-count: 1;
+		max-width: 39rem;
+		max-width: 39ch;
+	}
+
+	.grid-x .cell hr {
+		display: none;
+		margin: 0;
+	}
+
+	ul.products li.product,
+	.woocommerce ul.products li.product,
+	.woocommerce-page ul.products li.product,
+	.gallery-item,
+	.flex-item {
+		flex: 0 1 auto;
+		align-self: stretch;
+		margin: var(--set_column_margin);
+		float: none;
+		width: 100%;
+		max-width: var(--set_double_column_width);
+		text-align: center;
+	}
+
+	.media-object {
+		width: 39rem;
+		width: 39ch;
+		margin: auto;
+	}
+	.media-object .thumbnail {
+		background-position:center center;
+	    background-repeat:no-repeat;
+	    overflow:hidden;
+	    max-width: 9rem;
+	    max-height: 9rem;
+	    background-size: cover;
+	}
+	.media-object .thumbnail img { 
+		min-height:100%;
+	    min-width:100%;
+	    opacity:0;
+	}
+
+	.footer-menu li {
+		display: inline-block;
+		padding: 0 1rem;
+	}
+
+}
+
+@media only screen and (min-width: 59rem) and (orientation: portrait) {
+	/* [Define Grid Container] */
+	.grid-layout-container {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 2rem calc(33vh - 2rem) 1fr;
+		grid-template-areas:	"menu"
+								"section"
+								"content";
+		grid-gap: 0;
+		overflow: auto;
+	}
+
+	.dropdown.menu {
+		align-items: center;
+	}
+
+	.menu .menu-text { padding: 0; }
+
+	li.display.logo.position { margin: 0; }
+
+	/* form.search-form { margin-right: 1rem; } */
+
+	.top-bar input {
+		max-width: 16rem;
+		max-width: 16ch;
+	}
+
+	.mailpoet_form input.mailpoet_text,
+	form.contact-form,
+	.contact-form input[type="email"], .contact-form input[type="text"], .contact-form input[type="url"],
+	select,
+	textarea {
+		max-width: 59rem !important;
+		max-width: 59ch !important;
+	}
+
+	img {
+		max-width: 59rem;
+		max-width: 59ch;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+
+	.section > section {
+		height: calc(33vh - 3rem);
+	}
+
+	.section > section header h1 {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: .125rem .25rem;
+	}
+
+	.single div.content main .p402_premium {
+		columns: 59ch auto;
+		margin: 2rem auto;
+		column-gap: 2rem;
+	}
+
+	.page div.content main .p402_premium p,
+	.page div.content main .p402_premium ul,
+	.page div.content main .p402_premium ol,
+	.page div.content main .p402_premium table,
+	.page div.content main .p402_premium blockquote {
+		max-width: 59rem;
+		max-width: 59ch;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	div.columns {
+		column-count: auto;
+		column-gap: 1rem;
+		column-width: 59rem;
+		column-width: 59ch;
+	}
+
+	div.span-all.columns {
+		column-count: 1;
+		max-width: 59rem;
+		max-width: 59ch;
+	}
+
+	.grid-x .cell hr {
+		display: none;
+		margin: 0;
+	}
+
+	ul.products li.product,
+	.woocommerce ul.products li.product,
+	.woocommerce-page ul.products li.product,
+	.gallery-item,
+	.flex-item {
+		flex: 0 1 auto;
+		align-self: stretch;
+		margin: var(--set_column_margin);
+		float: none;
+		width: 100%;
+		max-width: var(--set_column_width);
+		text-align: center;
+	}
+
+}
+@media only screen and (min-width: 59rem) and (orientation: landscape) {
+	
+	.top-bar.stacked-for-large .top-bar-left, .top-bar.stacked-for-large .top-bar-right {
+		flex: 0 1 auto;
+	}
+
+	/* [Define Grid Container] */
+	.grid-layout-container {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 5rem calc(33vh - 2rem) 1fr;
+		grid-template-areas:	"menu"
+								"section"	
+								"content";
+		grid-gap: 0;
+	}
+
+	.dropdown.menu {
+		align-items: center;
+	}
+
+	.menu .menu-text { padding: 0; }
+
+	li.display.logo.position { margin: 0; }
+
+	form.search-form { margin-right: 1rem; }
+
+	.top-bar input {
+		max-width: 16rem;
+		max-width: 16ch;
+	}
+
+	.mailpoet_form input.mailpoet_text,
+	form.contact-form,
+	.contact-form input[type="email"], .contact-form input[type="text"], .contact-form input[type="url"],
+	select,
+	textarea {
+		max-width: 59rem !important;
+		max-width: 59ch !important;
+	}
+
+	img {
+		max-width: 59em;
+		max-width: 59ch;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+
+	.section > section {
+		height: calc(33vh - 3rem);
+	}
+
+	.section > section header h1 {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: .125rem .25rem;
+	}
+
+	.single div.content main .p402_premium {
+		columns: 59ch auto;
+		margin: 2rem auto;
+		column-gap: 2rem;
+	}
+
+	.page div.content main .p402_premium p,
+	.page div.content main .p402_premium ul,
+	.page div.content main .p402_premium ol,
+	.page div.content main .p402_premium table,
+	.page div.content main .p402_premium blockquote,
+	div.content main .term-description {
+		max-width: 59rem;
+		max-width: 59ch;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	div.columns {
+		column-count: auto;
+		column-gap: 1rem;
+		column-width: 59rem;
+		column-width: 59ch;
+	}
+
+	div.span-all.columns {
+		column-count: 1;
+		max-width: 59rem;
+		max-width: 59ch;
+	}
+
+	.grid-x .cell hr {
+		display: none;
+		margin: 0;
+	}
+
+	.woocommerce-page.columns-3 ul.products li.product, .woocommerce.columns-3 ul.products li.product
+
+	ul.products li.product,
+	.woocommerce ul.products li.product,
+	.woocommerce-page ul.products li.product,
+	.gallery-item,
+	.flex-item {
+		flex: 0 1 auto;
+		align-self: stretch;
+		margin: var(--set_column_margin);
+		float: none;
+		width: 100%;
+		max-width: var(--set_column_width);
+		text-align: center;
+	}
+
+	.media-object {
+		width: 59rem;
+		width: 59ch;
+		margin: auto;
+	}
+	.media-object .thumbnail {
+		background-position:center center;
+	    background-repeat:no-repeat;
+	    overflow:hidden;
+	    max-width: 9rem;
+	    max-height: 9rem;
+	    background-size: cover;
+	}
+	.media-object .thumbnail img { 
+		min-height:100%;
+	    min-width:100%;
+	    opacity:0;
+	}
+
+	.woocommerce ul.products li.product .onsale {
+		top: 0;
+		right: 0;
+		left: auto;
+		margin: -.5em -.5em 0 0;
+	}
+
+	.woocommerce span.onsale {
+		min-height: 3.236em;
+		min-width: 3.236em;
+		padding: .202em;
+		font-size: 1em;
+		font-weight: 700;
+		position: absolute;
+		text-align: center;
+		line-height: 3.236;
+		top: -.5em;
+		left: -.5em;
+		margin: 0;
+		border-radius: 100%;
+		font-size: .857em;
+		z-index: 9;
+	}
+
+	.footer-menu li {
+		display: inline-block;
+		padding: 0 1rem;
+	}
+
+}

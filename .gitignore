@@ -4,5 +4,5 @@ node_modules/
 package-lock.json
 cypress.json
 cypress/
-foundation-sites/*
-!foundation-sites/_build/*
+foundation-sites/
+foundation-icons/.DS_Store

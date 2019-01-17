@@ -1,0 +1,186 @@
+@charset "utf-8";
+/* CSS Document */
+
+body { 
+    text-rendering: optimizeLegibility;
+    font-family: var(--body_copy_font_family_name);
+}
+body * { font-size: inherit; }
+
+/* HEADER GROUPS */
+h1 { font-size: 1.75em; font-weight: normal; }	/* Reserve for page titles */ 
+h2 { font-size: 1.5em; font-weight: normal; }	/* Subtitles */
+h3 { font-size: 1.25em; font-weight: normal; }   /* [Section title+] */
+h4 { font-size: 1em; font-weight: bold; }      /* [Normal] */
+h5 { font-size: .875em; font-weight: bold; }	
+h6 { font-size: .75em; font-weight: bold; }    /* [Small] */
+
+h1,h2,h3,h4,h5,h6 { 
+    margin-top: 1em;
+    text-align: center;
+    font-family: var(--h1_h6_font_family_name);
+}
+
+.product h1, .type-product h1,
+.product h2, .type-product h2,
+.product h3, .type-product h3,
+.product h4, .type-product h4,
+.product h5, .type-product h5,
+.product h6, .type-product h6 {
+    text-align: left;
+}
+
+.woocommerce-breadcrumb { text-align: center; }
+
+.product .woocommerce-Tabs-panel h1, .product .woocommerce-Tabs-panel--description h1, .type-product .woocommerce-Tabs-panel h1, .type-product .woocommerce-Tabs-panel--description h1,
+.product .woocommerce-Tabs-panel h2, .product .woocommerce-Tabs-panel--description h2, .type-product .woocommerce-Tabs-panel h2, .type-product .woocommerce-Tabs-panel--description h2,
+.product .woocommerce-Tabs-panel h3, .product .woocommerce-Tabs-panel--description h3, .type-product .woocommerce-Tabs-panel h3, .type-product .woocommerce-Tabs-panel--description h3,
+.product .woocommerce-Tabs-panel h4, .product .woocommerce-Tabs-panel--description h4, .type-product .woocommerce-Tabs-panel h4, .type-product .woocommerce-Tabs-panel--description h4,
+.product .woocommerce-Tabs-panel h5, .product .woocommerce-Tabs-panel--description h5, .type-product .woocommerce-Tabs-panel h5, .type-product .woocommerce-Tabs-panel--description h5,
+.product .woocommerce-Tabs-panel h6, .product .woocommerce-Tabs-panel--description h6, .type-product .woocommerce-Tabs-panel h6, .type-product .woocommerce-Tabs-panel--description h6,
+.related.products h1,
+.related.products h2,
+.related.products h3,
+.related.products h4,
+.related.products h5,
+.related.products h6,
+.product-category h1,
+.product-category h2,
+.product-category h3,
+.product-category h4,
+.product-category h5,
+.product-category h6,
+.card-section h1,
+.card-section h2,
+.card-section h3,
+.card-section h4,
+.card-section h5,
+.card-section h6 {
+    text-align: center;
+}
+
+div.section h1,
+div.section h2,
+div.section h3,
+div.section h4,
+div.section h5,
+div.section h6 { 
+    margin: 0;
+}
+
+div.section header h1 { font-size: 2em; }
+
+.media-object h4 {
+    margin-top: 0;
+    text-align: left;
+}
+
+p,ul,ol { margin-bottom: .5em; }
+li { margin-top: .5em; margin-bottom: .5em; line-height: 1.4em}
+
+/* [DEFAULT LINK FORMATTING] */
+
+/* emails */
+a[href^="mailto:"]:after {
+    font-family: 'modern_pictogramsnormal';
+    content: "m";
+    margin-left: .25em;
+}
+
+/* pdfs */
+a[href$=".pdf"]:after {
+    font-family: 'modern_pictogramsnormal';
+    content: "K";
+    margin-left: .25em;
+}
+
+/* highlight links that open in a new window */
+a[target="_blank"]:after,
+a[target="new"]:after {
+    font-family: 'modern_pictogramsnormal';
+    content: "W";
+    margin-left: .25em;
+}
+
+/* Remove pictograms from certain links */
+.jetpack-social-widget-item a[target="_blank"]::after,
+.jetpack-social-widget-item a[target="new"]::after {
+    content: "";
+}
+
+li.jetpack-social-widget-item {
+    list-style: none;
+    display: inline-block;
+}
+
+/*
+p > a:hover,
+li > a:hover,
+h1 > a:hover,
+h2 > a:hover,
+h3 > a:hover,
+h4 > a:hover,
+h5 > a:hover,
+h6 > a:hover {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0) inset, 0px 0.125em 0px rgb(0, 0, 0);
+}
+*/
+
+/* A neat way of styling your blockquotes to add a bit more punch to them. */
+
+blockquote {
+     background:#f9f9f9;
+     border-left:10px solid #ccc;
+     margin:1.5em 10px;
+     padding:.5em 10px;
+     quotes:"\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+     color:#ccc;
+     content:open-quote;
+     font-size:4em;
+     line-height:.1em;
+     margin-right:.25em;
+     vertical-align:-.4em;
+}
+blockquote p {
+     display:inline;
+}
+
+select, input, input[type="search"], textarea, button, a.button, .button { 
+    font-size: 1em;
+    padding: .5em 1em;
+    font-family: var(--button_font_family_name);
+}
+
+div.section header h1 {
+    font-family: var(--header_font_family_name);
+}
+
+.woocommerce-loop-product__title,
+.WooZone-price-info { 
+    font-size: 1rem;
+    display: block;
+}
+
+.related.products .WooZone-price-info { display: none; }
+
+.woocommerce-loop-product__title .price { margin-top: 1em; }
+.woocommerce-Price-amount { font-family: var(--header_font_family_name); }
+.summary .woocommerce-Price-amount, .entry-summary .woocommerce-Price-amount { font-size: 1.75em; }
+
+.button.small { font-size: .875em; }
+.button.medium { font-size: 1em; }
+.button.large { font-size: 1.25em; }
+
+div.columns p {
+    line-height: 1.5em;
+    vertical-align: baseline;
+    margin-bottom: 1.5em;
+}
+
+footer { font-size: 1rem; }
+
+.copyright { 
+    text-align: center;
+}

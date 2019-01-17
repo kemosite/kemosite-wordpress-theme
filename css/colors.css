@@ -1,0 +1,133 @@
+/*------------------------------------------------------------------
+[Color Stylesheet]
+-------------------------------------------------------------------*/
+
+/* Shades of black **
+@black-70: #4d4d4d;
+@black-80: #333333;
+@black-90: #1a1a1a;
+@black-100: #000000;
+
+/* Basic colour declarations **
+@black: @black-70;
+@blue: #2C5F72;
+*/
+
+body {
+	color: var(--black-tint);
+}
+
+*::selection {
+	background-color: var(--primary_invert_color);
+	color: white;
+}
+
+.off-canvas {
+	/* filter: brightness(120%); */
+	background-color: var(--light_black_tint);
+}
+
+.top-bar, .top-bar ul {
+	background-color: #fff;
+}
+
+.callout {
+	background-color: #fff;
+	border: 1px solid var(--primary_color);
+	border-radius: .25rem;
+}
+
+.callout.secondary {
+	background-color: #fff;
+	border: 1px solid var(--primary_bright_color);
+}
+
+div.section { 
+	/* background-color: var(--header_background_color); */
+	color: var(--header_font_color);
+	background-color: var(--header_background_color);
+}
+
+div.section header {
+	background-color: var(--header_background_color);
+}
+
+h1,h2,h3,h4,h5,h6 { color: var(--primary_color); }
+
+h1 a, h1 a:link,
+h2 a, h2 a:link,
+h3 a, h3 a:link,
+h4 a, h4 a:link,
+h5 a, h5 a:link,
+h6 a, h6 a:link,
+p a, p a:link,
+li a, li a:link,
+.woocommerce-breadcrumb a:not(img), .woocommerce-breadcrumb a:link:not(img) {
+	color: var(--primary_dark_color);
+}
+
+h1 a:hover, h1 a:focus,
+h2 a:hover, h2 a:focus,
+h3 a:hover, h3 a:focus,
+h4 a:hover, h4 a:focus,
+h5 a:hover, h5 a:focus,
+h6 a:hover, h6 a:focus,
+p a:hover, p a:focus,
+li a:hover, li a:focus,
+li.product a:hover, li.product a:focus,
+.woocommerce-breadcrumb a:hover:not(img), .woocommerce-breadcrumb a:focus:not(img) {
+	color: var(--primary_color);
+}
+
+table tbody tr:nth-child(2n) {
+	background-color: var(--light_black_tint);
+}
+
+table tbody, table tfoot, table thead {
+	border: 1px solid var(--light_black_tint);
+	background-color: white;
+}
+
+li.menu-item a:hover, li.menu-item.is-active > a, li.menu-item.is-active > a:link {
+	background-color: var(--primary_bright_color);
+	color: var(--primary_font_auto_color);
+}
+
+p a.button, li.product .button, .button, a.button, button, button.button, input.mailpoet_submit, input.pushbutton-wide, a.close-button,
+.onsale, .woocommerce-pagination span.page-numbers, .woocommerce-pagination a.page-numbers, .woocommerce-pagination a.next.page-numbers, .woocommerce-pagination a.prev.page-numbers, /* WooCommerce */
+div.css-search div.em-search-main .em-search-submit /* Events */ {
+	-webkit-box-shadow: 0 1px 0 #0f0f0f;
+	box-shadow: 0 1px 0 #0f0f0f;
+	-webkit-transition: -webkit-box-shadow ease-in-out 130ms;
+	transition: -webkit-box-shadow ease-in-out 130ms;
+	transition: box-shadow ease-in-out 130ms;
+	transition: box-shadow ease-in-out 130ms,-webkit-box-shadow ease-in-out 130ms;
+	text-transform: uppercase;
+	line-height: 1.5em;
+	background: none;
+	background-color: var(--primary_dark_color);
+	color: var(--primary_font_auto_color);
+}
+
+p a.button:hover, p a.button:focus, li.product .button:hover, li.product .button:focus, .button:hover, .button:focus, a.button:hover, a.button:focus, button:hover, button:focus, input.mailpoet_submit:hover, input.mailpoet_submit:focus, input.pushbutton-wide:hover, input.pushbutton-wide:focus, button.button:hover, button.button:focus, a.close-button:hover, a.close-button:focus,
+.woocommerce-pagination span.page-numbers:hover, .woocommerce-pagination span.page-numbers:focus, .woocommerce-pagination a.page-numbers:hover, .woocommerce-pagination a.page-numbers:focus, /* WooCommerce */
+div.css-search div.em-search-main .em-search-submit:hover, div.css-search div.em-search-main .em-search-submit:focus /* Events */ {
+	-webkit-box-shadow: 0 2px 0 #0f0f0f;
+	box-shadow: 0 2px 0 #0f0f0f;
+	background: none;
+	background-color: var(--primary_bright_color);
+	color: var(--primary_font_auto_color);
+}
+
+.dropdown.menu li.is-active > a { color: var(--primary_font_auto_color); }
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after { border-color: var(--primary_dark_color) transparent transparent; }
+
+.woocommerce-pagination { border-top: 1px solid var(--primary_bright_color); }
+hr, .woocommerce-breadcrumb { border-bottom: 1px solid var(--primary_bright_color); }
+
+footer { background-color: var(--light_black_tint); }
+
+.jetpack-social-widget-item a[target="_blank"]::after,
+.jetpack-social-widget-item a[target="new"]::after {
+    content: "";
+}

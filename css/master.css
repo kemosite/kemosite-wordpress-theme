@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+/*------------------------------------------------------------------
+[Master Stylesheet]
+// Original idea from Smashing Magazine //
+-------------------------------------------------------------------*/
+
+/* [Colour, Typography, and Layout CSS - Corresponding to supported WordPress version] */
+@import "colors.css";
+@import "typography.css";
+@import "layout.css";
