@@ -24,6 +24,11 @@ if ( ! function_exists( 'kemosite_wordpress_theme_dependencies' ) ) :
 		endif;
 		//plugin is activated
 
+		// Check for Woocommerce
+		if (!is_plugin_active('woocommerce/woocommerce.php')):
+			echo '<div class="error"><p>Warning: WooCommerce not detected. WooCommerce features might not work as expected.</p></div>';
+		endif;
+
 	}
 endif;
 add_action( 'admin_notices', 'kemosite_wordpress_theme_dependencies' );

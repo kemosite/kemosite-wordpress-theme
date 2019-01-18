@@ -5,4 +5,4 @@ package-lock.json
 cypress.json
 cypress/
 foundation-sites/
-foundation-icons/.DS_Store
+*.DS_Store
