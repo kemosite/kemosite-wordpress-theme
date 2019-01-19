@@ -1,8 +1,10 @@
 package.json
 *.cmd
+*.bat
 node_modules/
 package-lock.json
 cypress.json
 cypress/
-foundation-sites/
+foundation-sites/*
+!foundation-sites/dist/
 *.DS_Store

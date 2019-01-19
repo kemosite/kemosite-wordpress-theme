@@ -1,14 +1,14 @@
 # kemosite-wordpress-theme
-## A useful theme for Wordpress 5.0.0
+## A useful theme for Wordpress 5.0.3
 
 Contributors: Kevin Montgomery
 Tags: adaptive, javascript, responsive, foundation, less, woocommerce, github
 Requires at least: 5.0.0
-Tested up to: 5.0.0
+Tested up to: 5.0.3
 License: GNU General Public License v2 or later
 
 ## Features
- - Foundation 6.4.2
+ - Foundation Framework
  - SASS
  - Woocommerce
  - Github Updater
