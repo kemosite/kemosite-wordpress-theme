@@ -1,5 +1,23 @@
 @charset "utf-8";
-/* CSS Document */
+/*-------------------------------------------------------------------
+[TYPOGRAPHY: TABLE OF CONTENTS]
+---------------------------------------------------------------------
+
+# Font variables are defined as CSS variables in functions.php
+
+# html, body
+# accessibility
+# header
+# navigation
+# content
+# media
+# widgets
+# rss
+# search
+# ads
+# footer
+
+-------------------------------------------------------------------*/
 
 body { 
     text-rendering: optimizeLegibility;

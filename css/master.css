@@ -1,11 +1,40 @@
 @charset "utf-8";
 
-/*------------------------------------------------------------------
-[Master Stylesheet]
+/*-------------------------------------------------------------------
+[MASTER STYLESHEET CONTENTS]
+---------------------------------------------------------------------
+
 // Original idea from Smashing Magazine //
+https://www.smashingmagazine.com/2008/05/improving-code-readability-with-css-styleguides/
+
+// Augmented by principles of CSS Guidelines //
+https://cssguidelin.es/#table-of-contents
+
+# TO DO #
+Organize contents into structure and skin, in the order of:
+- Block: The root of a component (Layout).
+- Element: A component part of a Block (Typography, Forms, Buttons).
+- Modifier: A variant or extension of a Block (Colours).
+
 -------------------------------------------------------------------*/
 
-/* [Colour, Typography, and Layout CSS - Corresponding to supported WordPress version] */
+/*-------------------------------------------------------------------
+[MIXINS]
+// Not yet defined //
+-------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------
+[COLOURS]
+-------------------------------------------------------------------*/
 @import "colors.css";
+
+/*-------------------------------------------------------------------
+[TYPOGRAPHY]
+-------------------------------------------------------------------*/
 @import "typography.css";
+
+/*-------------------------------------------------------------------
+[LAYOUT]
+# Needs to come first in a future iteration #
+-------------------------------------------------------------------*/
 @import "layout.css";

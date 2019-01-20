@@ -1,6 +1,25 @@
 @charset "utf-8";
+/*-------------------------------------------------------------------
+[LAYOUT: TABLE OF CONTENTS]
+---------------------------------------------------------------------
 
-/* [LAYOUT NOTES] **
+# html, body
+# accessibility
+# header
+# navigation
+# content
+# media
+# widgets
+# rss
+# search
+# ads
+# footer
+
+-------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------
+[LAYOUT NOTES]
+---------------------------------------------------------------------
 
 CSS Grids are for LAYOUT, 2 dimensions
 Define layouts, then place box content into them.
@@ -8,7 +27,8 @@ Layouts might need to change according to media query. Grids are better suited f
 
 CSS Flexbox is for a BOX, either row or column.
 Place into a layout grid.
-*/
+
+-------------------------------------------------------------------*/
 
 /* [Speech Media] */
 @media speech {}

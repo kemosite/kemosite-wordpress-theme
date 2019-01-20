@@ -1,17 +1,23 @@
-/*------------------------------------------------------------------
-[Color Stylesheet]
+@charset "utf-8";
+/*-------------------------------------------------------------------
+[COLOUR: TABLE OF CONTENTS]
+---------------------------------------------------------------------
+
+# Color codes are defined as CSS variables in functions.php
+
+# html, body
+# accessibility
+# header
+# navigation
+# content
+# media
+# widgets
+# rss
+# search
+# ads
+# footer
+
 -------------------------------------------------------------------*/
-
-/* Shades of black **
-@black-70: #4d4d4d;
-@black-80: #333333;
-@black-90: #1a1a1a;
-@black-100: #000000;
-
-/* Basic colour declarations **
-@black: @black-70;
-@blue: #2C5F72;
-*/
 
 body {
 	color: var(--black-tint);
