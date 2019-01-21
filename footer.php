@@ -85,6 +85,8 @@
 
 <?php wp_footer(); ?>
 
+<script>$(document).foundation();</script>
+
 <noscript>
 <style>
 .off-canvas-wrapper { display: block; }

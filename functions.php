@@ -653,12 +653,12 @@ function register_my_menus() {
 	unregister_nav_menu( 'top' );
 	unregister_nav_menu( 'social' );
 	
-	register_nav_menu( 'top-bar-menu', __( 'Top Bar Menu', 'kemosite-blank-theme' ) );
-	register_nav_menu( 'off-canvas-menu', __( 'Off Canvas Menu', 'kemosite-blank-theme' ) );
-	register_nav_menu( 'footer-column-one', __( 'Footer Column One', 'kemosite-blank-theme' ) );
-	register_nav_menu( 'footer-column-two', __( 'Footer Column Two', 'kemosite-blank-theme' ) );
-	register_nav_menu( 'footer-menu', __( 'Footer Menu', 'kemosite-blank-theme' ) );
-	register_nav_menu( 'off-canvas-footer-menu', __( 'Off Canvas Footer Menu', 'kemosite-blank-theme' ) );
+	register_nav_menu( 'top-bar-menu', __( 'Top Bar Menu', 'kemosite-wordpress-theme' ) );
+	register_nav_menu( 'off-canvas-menu', __( 'Off Canvas Menu', 'kemosite-wordpress-theme' ) );
+	register_nav_menu( 'footer-column-one', __( 'Footer Column One', 'kemosite-wordpress-theme' ) );
+	register_nav_menu( 'footer-column-two', __( 'Footer Column Two', 'kemosite-wordpress-theme' ) );
+	register_nav_menu( 'footer-menu', __( 'Footer Menu', 'kemosite-wordpress-theme' ) );
+	register_nav_menu( 'off-canvas-footer-menu', __( 'Off Canvas Footer Menu', 'kemosite-wordpress-theme' ) );
 	
 
 }
@@ -670,12 +670,12 @@ function cd_customizer_css() {
 	
 	
 	/* [SET BLACK TINE] */
-	$black_tint = get_theme_mod('kemosite_blank_colours_black', '#4d4d4d');
-	$dark_black_tint = get_theme_mod('kemosite_blank_colours_dark_black', '#262626');
-	$light_black_tint = get_theme_mod('kemosite_blank_colours_light_black', '#d9d9d9');
+	$black_tint = get_theme_mod('kemosite_wordpress_colours_black', '#4d4d4d');
+	$dark_black_tint = get_theme_mod('kemosite_wordpress_colours_dark_black', '#262626');
+	$light_black_tint = get_theme_mod('kemosite_wordpress_colours_light_black', '#d9d9d9');
 
 	/* [SET PRIMARY COLOURS] */
-	$primary_color = get_theme_mod('kemosite_blank_colours_primary', '#4d4d4d');
+	$primary_color = get_theme_mod('kemosite_wordpress_colours_primary', '#4d4d4d');
 
 	// Parse background colour for RGB value. Calculate luminousity. Determine black : white text.
 	$hex = (substr($primary_color, 0, 1) === "#") ? substr($primary_color, 1) : $primary_color;
@@ -688,14 +688,14 @@ function cd_customizer_css() {
 
 	$primary_font_auto_color = ($yiq >= 128) ? 'black' : 'white';
 
-	$primary_bright_color = get_theme_mod('kemosite_blank_colours_bright_primary', '#4d4d4d');
-	$primary_dark_color = get_theme_mod('kemosite_blank_colours_dark_primary', '#4d4d4d');
+	$primary_bright_color = get_theme_mod('kemosite_wordpress_colours_bright_primary', '#4d4d4d');
+	$primary_dark_color = get_theme_mod('kemosite_wordpress_colours_dark_primary', '#4d4d4d');
 
-	$primary_invert_color = get_theme_mod('kemosite_blank_colours_invert_primary', '#4d4d4d');
+	$primary_invert_color = get_theme_mod('kemosite_wordpress_colours_invert_primary', '#4d4d4d');
 
 
 	/* [HEADER BACKGROUND] */
-	$header_background_color = get_theme_mod('kemosite_blank_header_bg_color', '#4d4d4d');
+	$header_background_color = get_theme_mod('kemosite_wordpress_header_bg_color', '#4d4d4d');
 	
 	// Parse background colour for RGB value. Calculate luminousity. Determine black : white text.
 	$hex = (substr($header_background_color, 0, 1) === "#") ? substr($header_background_color, 1) : $header_background_color;
@@ -709,7 +709,7 @@ function cd_customizer_css() {
 	$header_font_color = ($yiq >= 128) ? 'black' : 'white';
 
 	/* [HEADER FONT] */
-	$header_font = get_theme_mod('kemosite_blank_header_font');
+	$header_font = get_theme_mod('kemosite_wordpress_header_font');
 	echo '<link href="https://fonts.googleapis.com/css?family='.$header_font.'" rel="stylesheet">';
 	$header_font_family_name = explode(":", $header_font);
 	// urldecode ( string $str )
@@ -717,17 +717,17 @@ function cd_customizer_css() {
 
 
 	/* [H1-H6 FONT] */
-	$h1_h6_font = get_theme_mod('kemosite_blank_fonts_h1_h6');
+	$h1_h6_font = get_theme_mod('kemosite_wordpress_fonts_h1_h6');
 	echo '<link href="https://fonts.googleapis.com/css?family='.$h1_h6_font.'" rel="stylesheet">';
 	$h1_h6_font_family_name = explode(":", $h1_h6_font);
 
 	/* [BODY COPY FONT] */
-	$body_copy_font = get_theme_mod('kemosite_blank_fonts_body');
+	$body_copy_font = get_theme_mod('kemosite_wordpress_fonts_body');
 	echo '<link href="https://fonts.googleapis.com/css?family='.$body_copy_font.'" rel="stylesheet">';
 	$body_copy_font_family_name = explode(":", $body_copy_font);
 
 	/* [BUTTON FONT] */
-	$button_font = get_theme_mod('kemosite_blank_fonts_buttons');
+	$button_font = get_theme_mod('kemosite_wordpress_fonts_buttons');
 	echo '<link href="https://fonts.googleapis.com/css?family='.$button_font.'" rel="stylesheet">';
 	$button_font_family_name = explode(":", $button_font);
 
