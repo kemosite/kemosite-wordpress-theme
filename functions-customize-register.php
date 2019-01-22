@@ -159,14 +159,14 @@ function my_customize_register( $wp_customize ) {
 	*/
 
 	/* [ADD A COLOUR OPTIONS SECTIONS] */
-	$wp_customize->add_section( 'kemosite_blank_colours' , array(
-	  'title' => __( 'Body Colour Options', 'kemosite-blank-theme' ),
+	$wp_customize->add_section( 'kemosite_wordpress_colours' , array(
+	  'title' => __( 'Body Colour Options', 'kemosite-wordpress-theme' ),
 	  'description' => 'Body Colour options for the theme.',
 	  'priority' => 50, // Before Widgets.
 	  'capability' => 'edit_theme_options'
 	) );
 
-	$wp_customize->add_setting( 'kemosite_blank_colours_black', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_colours_black', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -176,14 +176,14 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '', // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_blank_colours_black', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_black', array(
 		'priority' => 10, // Within the section.
-		'label' => __( 'Black Tint', 'kemosite-blank-theme' ),
-		'section' => 'kemosite_blank_colours',
+		'label' => __( 'Black Tint', 'kemosite-wordpress-theme' ),
+		'section' => 'kemosite_wordpress_colours',
 		'default' => $colour_selection['black']
 	) ) );
 
-	$wp_customize->add_setting( 'kemosite_blank_colours_dark_black', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_colours_dark_black', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -193,14 +193,14 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '', // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_blank_colours_dark_black', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_dark_black', array(
 		'priority' => 10, // Within the section.
-		'label' => __( 'Dark Black Tint', 'kemosite-blank-theme' ),
-		'section' => 'kemosite_blank_colours',
+		'label' => __( 'Dark Black Tint', 'kemosite-wordpress-theme' ),
+		'section' => 'kemosite_wordpress_colours',
 		'default' => $colour_selection['dark_black']
 	) ) );
 
-	$wp_customize->add_setting( 'kemosite_blank_colours_light_black', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_colours_light_black', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -210,14 +210,14 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '', // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_blank_colours_light_black', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_light_black', array(
 		'priority' => 10, // Within the section.
-		'label' => __( 'Light Black Tint', 'kemosite-blank-theme' ),
-		'section' => 'kemosite_blank_colours',
+		'label' => __( 'Light Black Tint', 'kemosite-wordpress-theme' ),
+		'section' => 'kemosite_wordpress_colours',
 		'default' => $colour_selection['light_black']
 	) ) );
 
-	$wp_customize->add_setting( 'kemosite_blank_colours_primary', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_colours_primary', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -227,14 +227,14 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '', // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_blank_colours_primary', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_primary', array(
 		'priority' => 10, // Within the section.
-		'label' => __( 'Primary Colour', 'kemosite-blank-theme' ),
-		'section' => 'kemosite_blank_colours',
+		'label' => __( 'Primary Colour', 'kemosite-wordpress-theme' ),
+		'section' => 'kemosite_wordpress_colours',
 		'default' => $colour_selection['primary']
 	) ) );
 
-	$wp_customize->add_setting( 'kemosite_blank_colours_bright_primary', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_colours_bright_primary', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -244,14 +244,14 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '', // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_blank_colours_bright_primary', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_bright_primary', array(
 		'priority' => 10, // Within the section.
-		'label' => __( 'Bright Primary Colour', 'kemosite-blank-theme' ),
-		'section' => 'kemosite_blank_colours',
+		'label' => __( 'Bright Primary Colour', 'kemosite-wordpress-theme' ),
+		'section' => 'kemosite_wordpress_colours',
 		'default' => $colour_selection['bright_primary']
 	) ) );
 
-	$wp_customize->add_setting( 'kemosite_blank_colours_dark_primary', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_colours_dark_primary', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -261,14 +261,14 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '', // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_blank_colours_dark_primary', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_dark_primary', array(
 		'priority' => 10, // Within the section.
-		'label' => __( 'Dark Primary Colour', 'kemosite-blank-theme' ),
-		'section' => 'kemosite_blank_colours',
+		'label' => __( 'Dark Primary Colour', 'kemosite-wordpress-theme' ),
+		'section' => 'kemosite_wordpress_colours',
 		'default' => $colour_selection['dark_primary']
 	) ) );
 
-	$wp_customize->add_setting( 'kemosite_blank_colours_invert_primary', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_colours_invert_primary', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -278,15 +278,15 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '', // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_blank_colours_invert_primary', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_invert_primary', array(
 		'priority' => 10, // Within the section.
-		'label' => __( 'Invert Primary Colour', 'kemosite-blank-theme' ),
-		'section' => 'kemosite_blank_colours',
+		'label' => __( 'Invert Primary Colour', 'kemosite-wordpress-theme' ),
+		'section' => 'kemosite_wordpress_colours',
 		'default' => $colour_selection['invert_primary']
 	) ) );
 
 	/*
-	$wp_customize->add_setting( 'kemosite_blank_colours_bright_invert_primary', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_colours_bright_invert_primary', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -296,10 +296,10 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '', // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_blank_colours_bright_invert_primary', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_bright_invert_primary', array(
 		'priority' => 10, // Within the section.
-		'label' => __( 'Bright Invert Primary Colour', 'kemosite-blank-theme' ),
-		'section' => 'kemosite_blank_colours',
+		'label' => __( 'Bright Invert Primary Colour', 'kemosite-wordpress-theme' ),
+		'section' => 'kemosite_wordpress_colours',
 		'default' => $colour_selection['bright_invert_primary']
 	) ) );
 	*/
@@ -307,7 +307,7 @@ function my_customize_register( $wp_customize ) {
 
 	/* [ADD A FONT OPTIONS SECTIONS] */
 	$wp_customize->add_section( 'kemosite_blank_fonts' , array(
-	  'title' => __( 'Body Font Options', 'kemosite-blank-theme' ),
+	  'title' => __( 'Body Font Options', 'kemosite-wordpress-theme' ),
 	  'description' => 'Body copy font options for the theme.',
 	  'priority' => 50, // Before Widgets.
 	  'capability' => 'edit_theme_options'
@@ -327,7 +327,7 @@ function my_customize_register( $wp_customize ) {
 		'type' => 'select',
 		'priority' => 10, // Within the section.
 		'section' => 'kemosite_blank_fonts', // Required, core or custom.
-		'label' => __( 'Header Font', 'kemosite-blank-theme' ),
+		'label' => __( 'Header Font', 'kemosite-wordpress-theme' ),
 		'description' => __( 'Font to use for H1-H6 tags.' ),
 		'choices' => $font_selection
 		// 'active_callback' => 'is_front_page',
@@ -347,7 +347,7 @@ function my_customize_register( $wp_customize ) {
 		'type' => 'select',
 		'priority' => 10, // Within the section.
 		'section' => 'kemosite_blank_fonts', // Required, core or custom.
-		'label' => __( 'Body Copy Font', 'kemosite-blank-theme' ),
+		'label' => __( 'Body Copy Font', 'kemosite-wordpress-theme' ),
 		'description' => __( 'Font to use for body copy.' ),
 		'choices' => $font_selection
 		// 'active_callback' => 'is_front_page',
@@ -367,7 +367,7 @@ function my_customize_register( $wp_customize ) {
 		'type' => 'select',
 		'priority' => 10, // Within the section.
 		'section' => 'kemosite_blank_fonts', // Required, core or custom.
-		'label' => __( 'Buttons Font', 'kemosite-blank-theme' ),
+		'label' => __( 'Buttons Font', 'kemosite-wordpress-theme' ),
 		'description' => __( 'Font to use for buttons.' ),
 		'choices' => $font_selection
 		// 'active_callback' => 'is_front_page',
@@ -376,14 +376,14 @@ function my_customize_register( $wp_customize ) {
 
 
 	/* [ADD A HEADER OPTIONS SECTIONS] */
-	$wp_customize->add_section( 'kemosite_blank_header' , array(
-	  'title' => __( 'Header Options', 'kemosite-blank-theme' ),
+	$wp_customize->add_section( 'kemosite_wordpress_header' , array(
+	  'title' => __( 'Header Options', 'kemosite-wordpress-theme' ),
 	  'description' => 'Header options for the theme.',
 	  'priority' => 50, // Before Widgets.
 	  'capability' => 'edit_theme_options'
 	) );
 
-	$wp_customize->add_setting( 'kemosite_blank_header_font', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_header_font', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -393,17 +393,17 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '' // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'kemosite_blank_header_font', array(
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'kemosite_wordpress_header_font', array(
 		'type' => 'select',
 		'priority' => 10, // Within the section.
-		'section' => 'kemosite_blank_header', // Required, core or custom.
-		'label' => __( 'Header Font', 'kemosite-blank-theme' ),
+		'section' => 'kemosite_wordpress_header', // Required, core or custom.
+		'label' => __( 'Header Font', 'kemosite-wordpress-theme' ),
 		'description' => '',
 		'choices' => $font_selection
 		// 'active_callback' => 'is_front_page',
 	) ) );
 
-	$wp_customize->add_setting( 'kemosite_blank_header_bg_color', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_header_bg_color', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -413,14 +413,14 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '' // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_blank_header_bg_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_header_bg_color', array(
 		'priority' => 10, // Within the section.
-		'label' => __( 'Header Background Colour', 'kemosite-blank-theme' ),
-		'section' => 'kemosite_blank_header',
+		'label' => __( 'Header Background Colour', 'kemosite-wordpress-theme' ),
+		'section' => 'kemosite_wordpress_header',
 		'default' => $colour_selection['primary']
 	) ) );
 
-	$wp_customize->add_setting( 'kemosite_blank_header_bg_image', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_header_bg_image', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -430,10 +430,10 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '' // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'kemosite_blank_header_bg_image', array(
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'kemosite_wordpress_header_bg_image', array(
 	   'priority' => 10, // Within the section.
-	   'label'      => __( 'Header Background Image', 'kemosite-blank-theme' ),
-	   'section'    => 'kemosite_blank_header'
+	   'label'      => __( 'Header Background Image', 'kemosite-wordpress-theme' ),
+	   'section'    => 'kemosite_wordpress_header'
     ) ) );
 
 	/*
