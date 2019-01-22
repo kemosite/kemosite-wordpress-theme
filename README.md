@@ -1,4 +1,4 @@
-# kemosite-wordpress-theme
+# kemosite-wordpress-theme 5.0.3.1
 ## A useful theme for Wordpress 5.0.3
 
 Contributors: Kevin Montgomery
