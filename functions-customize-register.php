@@ -306,14 +306,14 @@ function my_customize_register( $wp_customize ) {
 
 
 	/* [ADD A FONT OPTIONS SECTIONS] */
-	$wp_customize->add_section( 'kemosite_blank_fonts' , array(
+	$wp_customize->add_section( 'kemosite_wordpress_fonts' , array(
 	  'title' => __( 'Body Font Options', 'kemosite-wordpress-theme' ),
 	  'description' => 'Body copy font options for the theme.',
 	  'priority' => 50, // Before Widgets.
 	  'capability' => 'edit_theme_options'
 	) );
 
-	$wp_customize->add_setting( 'kemosite_blank_fonts_h1_h6', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_fonts_h1_h6', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -323,17 +323,17 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '', // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'kemosite_blank_fonts_h1_h6', array(
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'kemosite_wordpress_fonts_h1_h6', array(
 		'type' => 'select',
 		'priority' => 10, // Within the section.
-		'section' => 'kemosite_blank_fonts', // Required, core or custom.
+		'section' => 'kemosite_wordpress_fonts', // Required, core or custom.
 		'label' => __( 'Header Font', 'kemosite-wordpress-theme' ),
 		'description' => __( 'Font to use for H1-H6 tags.' ),
 		'choices' => $font_selection
 		// 'active_callback' => 'is_front_page',
 	) ) );
 
-	$wp_customize->add_setting( 'kemosite_blank_fonts_body', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_fonts_body', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -343,17 +343,17 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '', // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'kemosite_blank_fonts_body', array(
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'kemosite_wordpress_fonts_body', array(
 		'type' => 'select',
 		'priority' => 10, // Within the section.
-		'section' => 'kemosite_blank_fonts', // Required, core or custom.
+		'section' => 'kemosite_wordpress_fonts', // Required, core or custom.
 		'label' => __( 'Body Copy Font', 'kemosite-wordpress-theme' ),
 		'description' => __( 'Font to use for body copy.' ),
 		'choices' => $font_selection
 		// 'active_callback' => 'is_front_page',
 	) ) );
 
-	$wp_customize->add_setting( 'kemosite_blank_fonts_buttons', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_fonts_buttons', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -363,10 +363,10 @@ function my_customize_register( $wp_customize ) {
 		'sanitize_js_callback' => '', // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'kemosite_blank_fonts_buttons', array(
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'kemosite_wordpress_fonts_buttons', array(
 		'type' => 'select',
 		'priority' => 10, // Within the section.
-		'section' => 'kemosite_blank_fonts', // Required, core or custom.
+		'section' => 'kemosite_wordpress_fonts', // Required, core or custom.
 		'label' => __( 'Buttons Font', 'kemosite-wordpress-theme' ),
 		'description' => __( 'Font to use for buttons.' ),
 		'choices' => $font_selection
