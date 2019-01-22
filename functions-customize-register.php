@@ -476,6 +476,6 @@ function mytheme_output_mod_options_console() {
 	// 'console.log(' . json_encode(get_theme_mod('header_image')) . ');' . 
 	'</script>';
 }
-// add_action( 'after_setup_theme', 'mytheme_output_mod_options_console' );
+add_action( 'after_setup_theme', 'mytheme_output_mod_options_console' );
 
 ?>

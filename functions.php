@@ -734,7 +734,7 @@ function cd_customizer_css() {
 
 
 	/* [HEADER IMAGE] */
-	$default_header_image = get_theme_mod('header_image');
+	$default_header_image = get_theme_mod('kemosite_wordpress_header_bg_image');
 
 
 
