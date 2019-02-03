@@ -4,7 +4,7 @@
 function my_customize_register( $wp_customize ) {
 
 	// Primary
-	$primary = '#5F4B8B';  // Colour of the year, 2018
+	$primary = '#ff6f61';  // Colour of the year, 2018
 
 	/* [REMOVE UNNEEDED CONTROLS] */
 	/*
@@ -317,7 +317,7 @@ function my_customize_register( $wp_customize ) {
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
-		'default' => '',
+		'default' => $font_selection['Roboto+Condensed'],
 		'transport' => 'refresh', // or postMessage
 		'sanitize_callback' => '',
 		'sanitize_js_callback' => '', // Basically to_json.
@@ -337,7 +337,7 @@ function my_customize_register( $wp_customize ) {
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
-		'default' => '',
+		'default' => $font_selection['Open+Sans:300'],
 		'transport' => 'refresh', // or postMessage
 		'sanitize_callback' => '',
 		'sanitize_js_callback' => '', // Basically to_json.
@@ -357,7 +357,7 @@ function my_customize_register( $wp_customize ) {
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
-		'default' => '',
+		'default' => $font_selection['Roboto+Condensed'],
 		'transport' => 'refresh', // or postMessage
 		'sanitize_callback' => '',
 		'sanitize_js_callback' => '', // Basically to_json.
@@ -387,7 +387,7 @@ function my_customize_register( $wp_customize ) {
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
-		'default' => '',
+		'default' => $font_selection['Roboto+Condensed:700'],
 		'transport' => 'refresh', // or postMessage
 		'sanitize_callback' => '',
 		'sanitize_js_callback' => '' // Basically to_json.
