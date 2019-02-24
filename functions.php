@@ -153,6 +153,7 @@ require_once ("functions-woocommerce.php");
 require_once ("functions-enqueue-scripts.php");
 require_once ("functions-dashboard-setup.php");
 require_once ("functions-customize-register.php");
+require_once ("functions-customize-sections.php");
 require_once ("functions-shortcodes.php");
 
 /*

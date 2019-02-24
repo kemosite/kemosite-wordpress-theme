@@ -1,6 +1,10 @@
 <?php
 
-/* Add shortcodes from Central theme; Convert to nearest Foundation equivalent.
+/**
+ * Shortcodes from Central theme; Convert to nearest Foundation equivalent.
+ *
+ * @package kemosite-wordpress-theme
+ */
 
 /* [Apply Shortcodes] */
 add_filter('widget_text', 'do_shortcode');
@@ -74,6 +78,7 @@ function accordion_item_shortcode_method($attributes, $content) {
         $output .= '<li class="accordian-item" data-accordion-item>' . "\n";
         
         if ($attributes['title'] !== NULL): $output .= '<a href="#" class="accordion-title">'.$attributes['title'].'</a>' . "\n"; endif;
+        if ($attributes['caption'] !== NULL): $output .= '<a href="#" class="accordion-title">'.$attributes['caption'].'</a>' . "\n"; endif;
 
         $output .= '<div class="accordion-content" data-tab-content>' . "\n";
         
