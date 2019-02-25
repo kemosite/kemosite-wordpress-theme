@@ -113,6 +113,7 @@ Place into a layout grid.
 
 	.contact-form input[type="email"], .contact-form input[type="text"], .contact-form input[type="url"] { width: 100% !important;	}
 
+	a.wp-block-button__link,
 	a.button {
 		display: flex;
 		justify-content: center;
@@ -209,6 +210,7 @@ Place into a layout grid.
 	input, input:link, input:hover, input:focus, input:active,
 	button, button:link, button:hover, button:focus, button:active,
 	.button, .button:link, .button:hover, .button:focus, .button:active,
+	.wp-block-button__link, .wp-block-button__link:link, .wp-block-button__link:hover, .wp-block-button__link:focus, .wp-block-button__link:active,
 	ul.products li.product .button {
 		transition: 125ms ease-in-out;
 	}
@@ -233,7 +235,7 @@ Place into a layout grid.
 
 	ul { line-height: 1; }
 
-	select, input:not([type="checkbox"]), textarea, button, .button, .button.expanded, [type="search"] {
+	select, input:not([type="checkbox"]), textarea, button, .button, .button.expanded, .wp-block-button__link, [type="search"] {
 		min-height: 56px;
 		min-width: 80px;
 		margin: 1rem;
@@ -422,7 +424,8 @@ Place into a layout grid.
 		height: calc(33vh - 2rem);
 	}
 
-	.single div.content main .p402_premium {
+	.single div.content main .p402_premium,
+	.single div.content main article div {
 		columns: auto 1;
 		margin: 2rem auto;
 		column-gap: 2rem;
@@ -487,7 +490,8 @@ Place into a layout grid.
 		padding: .125rem .25rem;
 	}
 
-	.single div.content main .p402_premium {
+	.single div.content main .p402_premium,
+	.single div.content main article div {
 		columns: auto 1;
 		margin: 2rem auto;
 		column-gap: 2rem;
@@ -582,7 +586,8 @@ Place into a layout grid.
 		padding: .125rem .25rem;
 	}
 
-	.single div.content main .p402_premium {
+	.single div.content main .p402_premium,
+	.single div.content main article div {
 		columns: 39ch auto;
 		margin: 2rem auto;
 		column-gap: 2rem;
@@ -701,7 +706,8 @@ Place into a layout grid.
 		padding: .125rem .25rem;
 	}
 
-	.single div.content main .p402_premium {
+	.single div.content main .p402_premium,
+	.single div.content main article div {
 		columns: 39ch auto;
 		margin: 2rem auto;
 		column-gap: 2rem;
@@ -836,7 +842,8 @@ Place into a layout grid.
 		padding: .125rem .25rem;
 	}
 
-	.single div.content main .p402_premium {
+	.single div.content main .p402_premium,
+	.single div.content main article div {
 		columns: 59ch auto;
 		margin: 2rem auto;
 		column-gap: 2rem;
@@ -945,7 +952,8 @@ Place into a layout grid.
 		padding: .125rem .25rem;
 	}
 
-	.single div.content main .p402_premium {
+	.single div.content main .p402_premium,
+	.single div.content main article div {
 		columns: 59ch auto;
 		margin: 2rem auto;
 		column-gap: 2rem;
