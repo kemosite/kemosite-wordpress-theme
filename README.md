@@ -1,10 +1,10 @@
-# kemosite-wordpress-theme 5.0.3.6
-## A useful theme for Wordpress 5.0.3
+# kemosite-wordpress-theme 5.1.0.1
+## A useful theme for Wordpress 5.1
 
 Contributors: Kevin Montgomery
-Tags: adaptive, javascript, responsive, foundation, less, woocommerce, github
+Tags: adaptive, javascript, responsive, foundation, less, woocommerce, github, multi-column, custom-colours, custom-menu, custom-logo
 Requires at least: 5.0.0
-Tested up to: 5.0.3
+Tested up to: 5.1
 License: GNU General Public License v2 or later
 
 ## Features
