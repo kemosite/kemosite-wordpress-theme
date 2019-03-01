@@ -68,7 +68,7 @@ h4 a, h4 a:link,
 h5 a, h5 a:link,
 h6 a, h6 a:link,
 p a, p a:link,
-li a, li a:link,
+li:not(.accordian-item) a, li:not(.accordian-item) a:link,
 .woocommerce-breadcrumb a:not(img), .woocommerce-breadcrumb a:link:not(img) {
 	color: var(--primary_dark_color);
 }
