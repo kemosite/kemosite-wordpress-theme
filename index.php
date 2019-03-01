@@ -11,7 +11,7 @@
  *
  * @package kemosite-wordpress-theme
  * @since 5.0.0
- * @version 5.0.0
+ * @version 5.1.0.2
  */
 
 get_header();
