@@ -82,23 +82,12 @@ get_header();
 
 				</header>
 
-				<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
-					<div>
-						<a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail( 'twentyseventeen-featured-image' ); ?>
-						</a>
-					</div>
-				<?php endif; ?>
-
-				<?php
-				// Show the selected front page content.
-				the_content(
-					sprintf(
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ),
-						get_the_title()
-					)
-				);
-				?>
+				<div>
+					<?php
+					the_content( sprintf( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kemosite-wordpress-theme' ), get_the_title() ));
+					wp_link_pages();
+					?>
+				</div>
 
 			</article>
 

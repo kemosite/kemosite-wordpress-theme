@@ -604,6 +604,13 @@ Place into a layout grid.
 		margin-left: auto;
 	}
 
+	.search div.content main article p {
+		max-width: 39rem;
+		max-width: 39ch;
+		margin-right: auto;
+		margin-left: auto;	
+	}
+
 	div.columns {
 		column-count: auto;
 		column-gap: 1rem;
@@ -722,6 +729,13 @@ Place into a layout grid.
 		max-width: 39ch;
 		margin-right: auto;
 		margin-left: auto;
+	}
+
+	.search div.content main article p {
+		max-width: 39rem;
+		max-width: 39ch;
+		margin-right: auto;
+		margin-left: auto;	
 	}
 
 	.woocommerce-page.columns-3 ul.products li.product, .woocommerce.columns-3 ul.products li.product {
@@ -860,6 +874,13 @@ Place into a layout grid.
 		margin-left: auto;
 	}
 
+	.search div.content main article p {
+		max-width: 59rem;
+		max-width: 59ch;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
 	div.columns {
 		column-count: auto;
 		column-gap: 1rem;
@@ -965,6 +986,13 @@ Place into a layout grid.
 	.page div.content main .p402_premium table,
 	.page div.content main .p402_premium blockquote,
 	div.content main .term-description {
+		max-width: 59rem;
+		max-width: 59ch;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.search div.content main article p {
 		max-width: 59rem;
 		max-width: 59ch;
 		margin-right: auto;
