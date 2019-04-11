@@ -84,7 +84,7 @@ get_header();
 
 				<div>
 					<?php
-					the_content( sprintf( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kemosite-wordpress-theme' ), get_the_title() ));
+					the_content( sprintf( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kemosite-wordpress-theme' ), get_the_title() );
 					wp_link_pages();
 					?>
 				</div>

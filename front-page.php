@@ -19,8 +19,11 @@ get_header();
 
 	<section class="grid-x grid-padding-x align-middle align-center">
 		<header>
-			<!-- <h1><?php bloginfo( 'name' ); ?></h1> -->
+			
+			<h1><?php bloginfo( 'name' ); ?></h1>
+			
 			<?php
+			/*
 			if ( is_single() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			} elseif ( is_front_page() && is_home() ) {
@@ -28,7 +31,9 @@ get_header();
 			} else {
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			}
+			*/
 			?>
+
 		</header>
 	</section>
 

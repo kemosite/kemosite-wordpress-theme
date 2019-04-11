@@ -974,7 +974,7 @@ Place into a layout grid.
 	}
 
 	.single div.content main .p402_premium,
-	.single div.content main article div {
+	.single div.content main article div.the.content {
 		columns: 59ch auto;
 		margin: 2rem auto;
 		column-gap: 2rem;
