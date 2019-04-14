@@ -8,3 +8,4 @@ cypress/
 foundation-sites/*
 !foundation-sites/dist/
 *.DS_Store
+version_update.php

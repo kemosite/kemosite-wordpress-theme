@@ -48,6 +48,9 @@ function rss_post_thumbnail($content) {
 /* [Load Scripts] */
 function load_scripts_method() {
 	
+	// Retrieve Custom Fields from post.
+	$custom_fields = get_post_custom();
+
 	// Favicon
 	add_action('wp_head', 'ilc_favicon');
 
@@ -68,10 +71,14 @@ function load_scripts_method() {
 	wp_register_script('foundation-app', get_template_directory_uri().'/js/app.js', '', '6.5.1', 'true');
 	wp_enqueue_script('foundation-app');
 
-	// Graph.js
-	wp_deregister_script('chart-js');
-	wp_register_script('chart-js', get_template_directory_uri().'/js/vendor/Chart.min.js', '', '2.7.3');
-	wp_enqueue_script('chart-js');
+	// Load Graph.js if declared in page Custom Fields
+	// print_r($custom_fields['load-graph-js'][0]);
+
+	if(isset($custom_fields['load-graph-js'][0]) && $custom_fields['load-graph-js'][0] == "true"):
+		wp_deregister_script('chart-js');
+		wp_register_script('chart-js', get_template_directory_uri().'/js/vendor/Chart.min.js', '', '2.8.0');
+		wp_enqueue_script('chart-js');
+	endif;
 
 	// LESS
 	// add_action('wp_head', 'less_master_stylesheet');

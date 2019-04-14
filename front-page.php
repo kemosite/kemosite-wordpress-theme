@@ -67,7 +67,7 @@ get_header();
 
 				<?php
 				
-				if ($latest_post):
+				if (isset($latest_post)):
 					
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id($latest_post->object_id), 'single-post-thumbnail');
 					$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($latest_post->object_id), 'single-post-thumbnail', wp_get_attachment_metadata($latest_post->object_id) );
