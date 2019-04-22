@@ -26,6 +26,8 @@ function kemosite_wordpress_nextsteps_widget_display() {
     <h1>Security</h1>
     <h3><strong>wp-config.php</strong></h3>
 	<p>If you ever need to regenerate the secret keys, you can visit the official generator provided by WordPress.org at <a href="https://api.wordpress.org/secret-key/1.1/salt/">https://api.wordpress.org/secret-key/1.1/salt/</a>.</p>
+	<h3><strong>iThemes SSL</strong></h3>
+	<p>Do not force site to use iThemes Security SSL feature. It's breaking pages with infinite redirects!</p>
 	<h1>Plug-Ins</h1>
 	<h3><strong>Required Plugins</strong></h3>
 	<p>kemosite typography plug-in for Wordpress<br>
