@@ -15,7 +15,7 @@ get_header();
 	<section class="grid-x grid-padding-x align-middle align-center">
 		<header>
 			
-			<h1><?php bloginfo( 'name' ); ?></h1>
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			
 			<?php
 			/*
@@ -62,27 +62,29 @@ get_header();
 
 				<?php
 
-				if (isset($latest_post)):
+				if (isset($post)):
 
-					$image = wp_get_attachment_image_src( get_post_thumbnail_id($latest_post->object_id), 'single-post-thumbnail');
-					$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($latest_post->object_id), 'single-post-thumbnail', wp_get_attachment_metadata($latest_post->object_id) );
-					$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($latest_post->object_id), 'single-post-thumbnail', wp_get_attachment_metadata($latest_post->object_id) );
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+					$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
+					$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
 					?>
 					<?php if ($image && $image_srcset && $image_sizes): ?>
 						<div class="featured image"><img style="width: 100%;" src="<?php echo $image[0]; ?>" srcset="<?php echo esc_attr( $image_srcset ); ?>" sizes="<?php echo esc_attr( $image_sizes ); ?>"></div>
 					<?php endif; ?>
 
+					<!--
 					<header>
 
 						<?php
 						if ( is_front_page() && is_home() ) {
-							echo '<h2 class="entry-title"><a href="' . esc_url($latest_post->guid) . '" rel="bookmark">'.$latest_post->post_title.'</a></h2>';
+							echo '<h2 class="entry-title"><a href="' . esc_url($post->guid) . '" rel="bookmark">'.$post->post_title.'</a></h2>';
 						} else {
-							echo '<h1 class="entry-title"><a href="' . esc_url($latest_post->guid) . '" rel="bookmark">'.$latest_post->post_title.'</a></h1>';
+							echo '<h1 class="entry-title"><a href="' . esc_url($post->guid) . '" rel="bookmark">'.$post->post_title.'</a></h1>';
 						}
 						?>
 
 					</header>
+					-->
 
 				<?php endif; ?>
 
