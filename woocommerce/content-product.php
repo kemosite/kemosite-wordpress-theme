@@ -39,8 +39,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	    	<h4><?php echo $product->name; ?></h4>
 	    	<p><?php do_action( 'woocommerce_after_shop_loop_item_title' ); ?></p>
 	  	</div>
+	  	<?php // do_action( 'woocommerce_after_shop_loop_item' ); ?>
 	</div>
-	<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
 
 	<!--
 	<pre>
