@@ -20,14 +20,14 @@ function my_theme_wrapper_end() {
 }
 */
 
-if ( ! function_exists( 'kemosite_blank_woocommerce_template_loop_add_to_cart' ) ) {
+if ( ! function_exists( 'kemosite_wordpress_woocommerce_template_loop_add_to_cart' ) ) {
 
     /**
      * Get the add to cart template for the loop.
      *
      * @param array $args Arguments.
      */
-    function kemosite_blank_woocommerce_template_loop_add_to_cart( $args = array() ) {
+    function kemosite_wordpress_woocommerce_template_loop_add_to_cart( $args = array() ) {
 
         global $product;
 
@@ -54,11 +54,12 @@ if ( ! function_exists( 'kemosite_blank_woocommerce_template_loop_add_to_cart' )
                 $args['attributes']['aria-label'] = strip_tags( $args['attributes']['aria-label'] );
             }
 
-            wc_get_template( 'kemosite-blank-woocommerce-add-to-cart.php', $args );
+            wc_get_template( 'loop/add-to-cart.php', $args );
+            
         }
     }
 }
-add_action( 'woocommerce_before_shop_loop_item_title', 'kemosite_blank_woocommerce_template_loop_add_to_cart', 10 );
+add_action( 'woocommerce_before_shop_loop_item_title', 'kemosite_wordpress_woocommerce_template_loop_add_to_cart', 10 );
 
 /* [CUSTOM WOOCOMMERCE ADJUSTMENTS] */
 remove_action( 'woocommerce_before_subcategory_title', 'woocommerce_subcategory_thumbnail', 10);
@@ -124,7 +125,7 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
         
         global $post;
 
-        if ( has_post_thumbnail() ) {
+        if ( has_post_thumbnail($post->ID) ) {
 
             $props                  = wc_get_product_attachment_props( get_post_thumbnail_id(), $post );
             $image_size             = apply_filters( 'single_product_archive_thumbnail_size', $size );
@@ -133,14 +134,7 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
             $thumbnail_id           = get_post_thumbnail_id();
         }
 
-        /*
-        echo "<pre>";
-        print_r("dimensions");
-        print_r($dimensions);
-        echo "</pre>";
-        */
-
-        if ( $thumbnail_id ) {
+        if ( isset($thumbnail_id) ) {
             $image = wp_get_attachment_image_src( $thumbnail_id, $small_thumbnail_size  );
             $image = $image[0];
         } else {

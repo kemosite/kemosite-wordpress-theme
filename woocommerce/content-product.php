@@ -36,16 +36,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 	<!-- <div class="card-divider">This is a header</div> -->
 	  	<?php do_action( 'woocommerce_before_shop_loop_item_title' ); ?>
 	  	<div class="card-section">
-	    	<h4><?php echo $product->name; ?></h4>
+	    	<h4><?php do_action( 'woocommerce_shop_loop_item_title' ); // echo $product->name; ?></h4>
 	    	<p><?php do_action( 'woocommerce_after_shop_loop_item_title' ); ?></p>
 	  	</div>
-	  	<?php // do_action( 'woocommerce_after_shop_loop_item' ); ?>
 	</div>
-
-	<!--
-	<pre>
-	<?php print_r($product); ?>
-	</pre>
-	-->
+	<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
 
 </li>
