@@ -1,4 +1,4 @@
-# kemosite-wordpress-theme 5.1.1.9
+# kemosite-wordpress-theme 5.1.1.10
 ## A useful theme for Wordpress 5.1
 
 Contributors: Kevin Montgomery
