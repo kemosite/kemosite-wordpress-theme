@@ -1,6 +1,11 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying all pages
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,44 +15,118 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<?php if (have_posts()) : ?>
 
-		<?php if ( have_posts() ) : ?>
+<div class="section">
 
-			<header class="page-header">
+	<section class="grid-x grid-padding-x align-middle align-center">
+		<header>
+			<!-- <h1><?php bloginfo( 'name' ); ?></h1> -->
+			<?php
+			the_archive_title( '<h1 class="entry-title">', '</h1>' );
+			?>
+		</header>
+	</section>
+
+</div>
+
+<div class="content">
+
+<!-- Display all categories, then display posts by popularity or date published -->
+
+<?php while ( have_posts() ) : the_post(); ?>
+
+	<main role="main">
+
+		<section>
+
+			<!--
+			<header>
 				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
+				if ( is_single() ) {
+					the_title( '<h1 class="entry-title">', '</h1>' );
+				} elseif ( is_front_page() && is_home() ) {
+					the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+				} else {
+					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+				}
 				?>
-			</header><!-- .page-header -->
+			</header>
+		-->
+
+			<article>
+
+				<?php
+
+				if (isset($latest_post)):
+
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id($latest_post->object_id), 'single-post-thumbnail');
+					$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($latest_post->object_id), 'single-post-thumbnail', wp_get_attachment_metadata($latest_post->object_id) );
+					$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($latest_post->object_id), 'single-post-thumbnail', wp_get_attachment_metadata($latest_post->object_id) );
+					?>
+					<?php if ($image && $image_srcset && $image_sizes): ?>
+						<div><img style="width: 100%;" src="<?php echo $image[0]; ?>" srcset="<?php echo esc_attr( $image_srcset ); ?>" sizes="<?php echo esc_attr( $image_sizes ); ?>"></div>
+					<?php endif; ?>
+
+					<header>
+
+						<?php
+						if ( is_front_page() && is_home() ) {
+							echo '<h2 class="entry-title"><a href="' . esc_url($latest_post->guid) . '" rel="bookmark">'.$latest_post->post_title.'</a></h2>';
+						} else {
+							echo '<h1 class="entry-title"><a href="' . esc_url($latest_post->guid) . '" rel="bookmark">'.$latest_post->post_title.'</a></h1>';
+						}
+						?>
+
+					</header>
+
+				<?php endif; ?>
+
+				<div>
+					<?php
+					the_post();
+
+					/*
+					 * Include the Post-Type-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', get_post_type() );
+
+					/*
+					the_content( sprintf( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kemosite-wordpress-theme' ), get_the_title() );
+					wp_link_pages();
+					*/
+
+					?>
+				</div>
+
+			</article>
 
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+			
+			/*
+			echo "<pre>";
+			if (function_exists('stats_get_csv')) { print_r(stats_get_csv('postviews')); }
+			echo "</pre>";
+			*/
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+			?>
 
-			endwhile;
+		</section>
 
-			the_posts_navigation();
+	</main>
 
-		else :
+	<!-- <hr> -->
 
-			get_template_part( 'template-parts/content', 'none' );
+<?php endwhile; ?>
 
-		endif;
-		?>
+<?php the_posts_navigation(); ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+<?php else: get_template_part( 'template-parts/content', 'none' ); endif; ?>
 
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>

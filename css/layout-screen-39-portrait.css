@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+/*
+** Define grid for portrait mode
+** Slide between section and content
+** Menu options remain fixed
+** 
+*/
+
+/* [Define Grid Container] */
+.grid-layout-container {
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 6rem calc(33vh - 6rem) 1fr;
+	grid-template-areas:	"menu"
+							"section"
+							"content";
+	grid-gap: 0;
+	overflow: auto;
+}
+
+.cell { 
+	padding: 0 1rem;
+	flex: 0 1 auto;
+	width: 100%;
+}
+
+main .nav-next {
+	text-align: center;
+	margin: 1em auto;
+}
+
+.single div.content main .p402_premium,
+.single div.content main article div {
+	columns: auto 1;
+	margin: 2rem auto;
+	column-gap: 2rem;
+}
+
+.woocommerce ul.products[class*="columns-"] li.product, .woocommerce-page ul.products[class*="columns-"] li.product {
+	width: 100%;
+}
+
+ul.products li.product,
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product,
+.gallery-item,
+.flex-item {
+	flex: 0 1 auto;
+	align-self: stretch;
+	margin: var(--set_column_margin);
+	float: none;
+	width: 100%;
+	max-width: var(--set_full_column_width);
+	text-align: center;
+}
+
+.grid-x + hr {
+	display: none;
+	margin: 0;
+}
+
+.footer-menu li {
+	display: inline-block;
+	padding: 0 .25rem;
+}

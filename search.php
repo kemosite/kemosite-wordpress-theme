@@ -8,106 +8,48 @@
  */
 
 get_header();
+
 ?>
-
-<div class="section">
-
-	<section class="grid-x grid-padding-x align-middle align-center">
-		<header>
-			<!-- <h1><?php bloginfo( 'name' ); ?></h1> -->
-			<?php
-			if ( is_single() ) {
-				echo '<h1 class="entry-title">Search Results</h1>';
-			} elseif ( is_front_page() && is_home() ) {
-				echo '<h3 class="entry-title">Search Results</h3>';
-			} else {
-				echo '<h2 class="entry-title">Search Results</h2>';
-			}
-			?>
-		</header>
-	</section>
-
-</div>
 
 <div class="content">
 
 <!-- Display all categories, then display posts by popularity or date published -->
 
-<?php while ( have_posts() ) : the_post(); ?>
+<?php  if ( have_posts() ): ?>
 
-	<main role="main">
+	<h2>
+		<?php
+		/* translators: %s: search query. */
+		printf( esc_html__( 'Here are your search results for: "%s"', 'kemosite-wordpress-theme' ), '<span>' . get_search_query() . '</span>' );
+		?>
+	</h2>
 
-		<section>
+	<?php
 
-			<!--
-			<header>
-				<?php
-				if ( is_single() ) {
-					the_title( '<h1 class="entry-title">', '</h1>' );
-				} elseif ( is_front_page() && is_home() ) {
-					the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-				} else {
-					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-				}
-				?>
-			</header>
-			-->
+	while ( have_posts() ) : the_post();
 
-			<article>
+		/*
+		 * Include the Post-Type-specific template for the content.
+		 * If you want to override this in a child theme, then include a file
+		 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+		 */
+		get_template_part( 'template-parts/content', 'search' );
 
-				<header class="entry-header">
-					<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+		// If comments are open or we have at least one comment, load up the comment template.
+		/*
+		if ( comments_open() || get_comments_number() ) :
+			comments_template();
+		endif;
+		*/
 
-					<?php if ( 'post' === get_post_type() ) : ?>
-					<div class="entry-meta">
-						<?php
-						kemosite_wordpress_theme_posted_on();
-						kemosite_wordpress_theme_posted_by();
-						?>
-					</div><!-- .entry-meta -->
-					<?php endif; ?>
-				</header><!-- .entry-header -->
+	endwhile;
 
-				<?php
-				/*
+else:
 
-				<?php kemosite_wordpress_theme_post_thumbnail(); ?>
+	get_template_part( 'template-parts/content', 'none' );
 
-				*/
-				?>
+endif;
 
-				<div class="entry-summary">
-					<?php the_excerpt(); ?>
-				</div><!-- .entry-summary -->
-
-				<?php
-				/*
-				<footer class="entry-footer">
-					<?php kemosite_wordpress_theme_entry_footer(); ?>
-				</footer>
-				*/
-				?>
-
-			</article>
-
-			<?php
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-			
-			/*
-			echo "<pre>";
-			if (function_exists('stats_get_csv')) { print_r(stats_get_csv('postviews')); }
-			echo "</pre>";
-			*/
-
-			?>
-
-		</section>
-
-	</main>
-
-<?php endwhile; ?>
+?>
 
 <?php get_footer(); ?>

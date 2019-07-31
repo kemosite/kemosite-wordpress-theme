@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+.speech {
+
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+
+}
+
+div.css-search div.em-search-main .em-search-submit img {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.woocommerce-page #primary,
+.has-sidebar.woocommerce-page:not(.error404) #primary { 
+	width: 100%;
+}
+
+ul, ol {
+	list-style-position: outside;
+	padding-left: 1em;
+}
+
+ol.flex-control-thumbs {
+	display:flex;
+	justify-content: center;
+}
+ol.flex-control-thumbs li {
+	list-style-type: none;
+	margin: 1rem;
+}
+
+.woocommerce ul.products,
+.woocommerce-page ul.products,
+.page div.content main .p402_premium ul.products,
+ul.products,
+.gallery,
+.flex-container
+ {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: flex-start;
+	width: 100%;
+	margin: 1em auto;
+	max-width: 100%;
+}
+
+.card { height: 100%; }
+
+.cropped.image {
+    background-position:center center;
+    background-repeat:no-repeat;
+    overflow:hidden;
+    margin: 1em auto;
+}
+.cropped.image img {
+    min-height:100%;
+    min-width:100%;
+    opacity:0
+}
+
+.fb-comments.fb_iframe_widget {
+	text-align: center;
+	display: block;
+}
+.fb-comments.fb_iframe_widget span {
+	max-width: 59rem;
+	max-width: 59ch;
+	width: 100%;
+}
+
+form.contact-form {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.contact-form select { padding-right: 2em; }
+
+.contact-form input[type="email"], .contact-form input[type="text"], .contact-form input[type="url"] { width: 100% !important;	}
+
+a.wp-block-button__link,
+a.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+footer {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	margin: 1em 0;
+	justify-content: flex-start;
+}
+
+footer div.footer {
+	width: 100%;
+	justify-content: center;
+	align-items: baseline;
+}
+
+footer .footer-menu,
+footer .jetpack-social-widget-list {
+	margin-left: 0;
+	padding-left: 0;
+	display: flex;
+	list-style-type: none;
+}
+
+footer .site-info {
+	margin: 1em auto;
+	text-align: center;
+}
+
+.widget_text.copyright { margin-top: .5em; }
+
+.jetpack-social-widget-item svg {
+	width: 3rem;
+	width: 3ch;
+	height: 3rem;
+	height: 3ch;
+	border: 1px solid var(--black_tint);
+	border-radius: .25em;
+	padding: .125em;
+}

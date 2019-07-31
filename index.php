@@ -11,10 +11,40 @@
  *
  * @package kemosite-wordpress-theme
  * @since 5.0.0
- * @version 5.1.1.4
+ * @version 5.2.2
+ *
+ * REST API Documentation
+ * https://developer.wordpress.org/rest-api/
+ * 
+ * REST API can be extended if necessary
  */
 
 get_header();
+
+/*
+Load header template.
+For the parameter, if the file is called "header-special.php" then specify "special".
+
+<?php
+if ( is_home() ) :
+  get_header( 'home' );
+elseif ( is_404() ) :
+  get_header( '404' );
+else :
+  get_header();
+endif;
+*/
+
+?>
+
+<?php
+
+/**
+ * This will be our first test of using the REST API
+ */
+
+if (kemosite_have_posts()) :
+
 ?>
 
 <div class="section">
@@ -22,7 +52,7 @@ get_header();
 	<section class="grid-x grid-padding-x align-middle align-center">
 		<header>
 			
-			<h1><?php bloginfo( 'name' ); ?></h1>
+			<h1><?php kemosite_blog_name(); ?></h1>
 			
 			<?php
 			/*
@@ -97,8 +127,20 @@ get_header();
 
 				<div>
 					<?php
+					the_post();
+
+					/*
+					 * Include the Post-Type-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', get_post_type() );
+
+					/*
 					the_content( sprintf( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kemosite-wordpress-theme' ), get_the_title() );
 					wp_link_pages();
+					*/
+
 					?>
 				</div>
 
@@ -123,5 +165,7 @@ get_header();
 	</main>
 
 <?php endwhile; ?>
+
+<?php else: get_template_part( 'template-parts/content', 'none' ); endif; ?>
 
 <?php get_footer(); ?>

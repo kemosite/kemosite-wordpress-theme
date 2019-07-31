@@ -8,6 +8,7 @@
  */
 
 define( 'GITHUB_UPDATER_OVERRIDE_DOT_ORG', true ); // Override Dot Org will skip any updates from wordpress.org for plugins with identical slugs.
+define( 'SAVEQUERIES', true );
 
 /* [Declare Depedencies] */
 if ( ! function_exists( 'kemosite_wordpress_theme_dependencies' ) ) :
@@ -144,11 +145,20 @@ add_action( 'after_setup_theme', 'kemosite_wordpress_theme_content_width', 0 );
 add_action( 'widgets_init', 'kemosite_wordpress_theme_widgets_init' );
 */
 
+function my_post_function($query) {
+ 
+	$query->set('nopaging', true);
+	return $query;
+ 
+}
+add_action( 'pre_get_posts', 'my_post_function');
+
 /**
  * Enqueue scripts and styles.
  */
 
 /* [Includes] */
+// require_once ("functions-headless.php");
 require_once ("functions-woocommerce.php");
 require_once ("functions-enqueue-scripts.php");
 require_once ("functions-dashboard-setup.php");
@@ -156,42 +166,25 @@ require_once ("functions-customize-register.php");
 require_once ("functions-customize-sections.php");
 require_once ("functions-shortcodes.php");
 
-/*
-function kemosite_wordpress_theme_scripts() {
-	wp_enqueue_style( 'kemosite-wordpress-theme-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'kemosite-wordpress-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'kemosite-wordpress-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'kemosite_wordpress_theme_scripts' );
-*/
-
 /**
  * Implement the Custom Header feature.
  */
-// require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
  */
-// require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/template-tags.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-// require get_template_directory() . '/inc/template-functions.php';
-
-
+require get_template_directory() . '/inc/template-functions.php';
 
 /**
  * Customizer additions.
  */
-// require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.

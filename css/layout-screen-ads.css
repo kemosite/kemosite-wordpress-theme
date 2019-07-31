@@ -1,0 +1,209 @@
+@charset "utf-8";
+
+/*-------------------------------------------------------------------
+[ADS]
+-------------------------------------------------------------------*/
+
+/*
+
+- Wide ads can be used as "small ads" or content separators.
+- Box ads can go at the bottom of the page.
+- Tall ads can display on the side if space permits.
+
+# AD SIZES #
+
+# SMALL/WIDE ADS - Width met & 33% height met #
+# 234 x 60 - Half Banner
+# 320 x 50 - Mobile Leaderboard
+# 320 x 100 - Large Mobile Banner
+# 460 x 60 - Banner
+
+# BIG/SQUARE ADS - Width met & minimum 100% height met #
+# 125 x 125 - Button
+# 180 x 150 - Small Rectangle
+# 200 x 200 - Small Square
+# 250 x 250 - Square
+# 300 x 250 - Medium Rectangle
+# 336 x 280 - Large Rectangle
+# 728 x 90 - Leaderboard
+# 970 x 90 - Large Leaderboard
+# 970 x 250 - Billboard
+
+# TALL ADS - Content + width met & minimum 100% height met #
+# 120 x 240 - Vertical Banner
+# 120 x 600 - Skyscraper
+# 160 x 600 - Wide Skyscraper
+# 300 x 600 - Half Page
+# 300 x 1050 - Portrait
+
+*/
+
+/* SMALL AD PROPERTIES */
+.small_ad, .big_ad {
+	background-color: grey;
+	margin: 1rem auto;
+}
+.sidebar_ad {
+	display: none;
+	background-color: grey;
+	margin: 1rem;
+}
+
+/* SMALL/WIDE AD QUERIES */
+@media screen and (min-width: calc(234px + 4rem)) and (min-height: calc(60px * 3)) {
+	.small_ad {
+		width: 234px;
+		height: 60px;
+	}
+}
+
+@media screen and (min-width: calc(320px + 4rem)) and (min-height: calc(50px * 3)) {
+	.small_ad {
+		width: 320px;
+		height: 50px;
+	}
+}
+
+@media screen and (min-width: calc(320px + 4rem)) and (min-height: calc(100px * 3)) {
+	.small_ad {
+		width: 320px;
+		height: 100px;
+	}
+}
+
+@media screen and (min-width: calc(460px + 4rem)) and (min-height: calc(60px * 3)) {
+	.small_ad {
+		width: 460px;
+		height: 60px;
+	}
+}
+
+@media screen and (min-width: 64em) and (orientation: landscape) {
+	.small_ad {
+		width: 234px;
+		height: 60px;
+	}
+}
+
+
+@media screen and (min-width: 64em + 1rem) and (orientation: landscape) {
+	.small_ad {
+		width: 320px;
+		height: 100px;
+	}
+}
+
+
+/* BIG/BOTTOM AD QUERIES */
+@media screen and (min-width: calc(125px + 4rem)) and (min-height: calc(125px + 33vh)) {
+	.big_ad {
+		width: 125px;
+		height: 125px;
+	}
+}
+
+@media screen and (min-width: calc(180px + 4rem)) and (min-height: calc(150px + 33vh)) {
+	.big_ad {
+		width: 180px;
+		height: 150px;
+	}
+}
+
+@media screen and (min-width: calc(200px + 4rem)) and (min-height: calc(200px + 33vh)) {
+	.big_ad {
+		width: 200px;
+		height: 200px;
+	}
+}
+
+@media screen and (min-width: calc(250px + 4rem)) and (min-height: calc(250px + 33vh)) {
+	.big_ad {
+		width: 250px;
+		height: 250px;
+	}
+}
+
+@media screen and (min-width: calc(300px + 4rem)) and (min-height: calc(250px + 33vh)) {
+	.big_ad {
+		width: 300px;
+		height: 250px;
+	}
+}
+
+@media screen and (min-width: calc(336px + 4rem)) and (min-height: calc(280px + 33vh)) {
+	.big_ad {
+		width: 336px;
+		height: 280px;
+	}
+}
+
+@media screen and (min-width: calc(728px + 4rem)) and (min-height: calc(90px + 33vh)) {
+	.big_ad {
+		width: 728px;
+		height: 90px;
+	}
+}
+
+@media screen and (min-width: calc(970px + 4rem)) and (min-height: calc(90px + 33vh)) {
+	.big_ad {
+		width: 970px;
+		height: 90px;
+	}
+}
+
+@media screen and (min-width: calc(970px + 4rem)) and (min-height: calc(250px + 33vh)) {
+	.big_ad {
+		width: 970px;
+		height: 250px;
+	}
+}
+
+/* SIDEBAR AD QUERIES */
+@media screen and (min-width: calc(64em + 120px + 4rem)) and (min-height: calc(240px + 4rem)) {
+	.sidebar_ad {
+		display: block;
+		width: 120px;
+		height: 240px;
+	}
+}
+
+@media screen and (min-width: calc(64em + 120px + 4rem)) and (min-height: calc(600px + 4rem)) {
+	.sidebar_ad {
+		display: block;
+		width: 120px;
+		height: 600px;
+	}
+}
+
+@media screen and (min-width: calc(64em + 160px + 4rem)) and (min-height: calc(600px + 4rem)) {
+	.sidebar_ad {
+		display: block;
+		width: 160px;
+		height: 600px;
+	}
+}
+
+@media screen and (min-width: calc(64em + 300px + 4rem)) and (min-height: calc(600px + 4rem)) {
+	.sidebar_ad {
+		display: block;
+		width: 300px;
+		height: 600px;
+	}
+}
+
+@media screen and (min-width: calc(64em + 300px + 4rem)) and (min-height: calc(1050px + 4rem)) {
+	.sidebar_ad {
+		display: block;
+		width: 300px;
+		height: 1050px;
+	}
+}
+
+/*
+# TALL ADS - Content + width met & minimum 100% height met #
+# 120 x 240 - Vertical Banner
+# 120 x 600 - Skyscraper
+# 160 x 600 - Wide Skyscraper
+# 300 x 600 - Half Page
+# 300 x 1050 - Portrait
+*/

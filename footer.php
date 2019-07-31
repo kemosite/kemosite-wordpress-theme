@@ -37,7 +37,9 @@
 </html>
 */ ?>
 
-<hr>
+<div class="big_ad">
+	<?php if( function_exists('the_ad_placement') ) { the_ad_placement('big-ad'); } ?>
+</div>
 
 <footer>
 
@@ -73,9 +75,23 @@
 
 	<?php endif; ?>
 
+	<div class="site-info">
+		<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'kemosite-wordpress-theme' ) ); ?>">
+			<?php
+			/* translators: %s: CMS name, i.e. WordPress. */
+			printf( esc_html__( 'Proudly powered by %s', 'kemosite-wordpress-theme' ), 'WordPress' );
+			?>
+		</a>
+		<span class="sep"> | </span>
+			<?php
+			/* translators: 1: Theme name, 2: Theme author. */
+			printf( esc_html__( 'Theme: %1$s by %2$s.', 'kemosite-wordpress-theme' ), 'kemosite-wordpress-theme', '<a href="https://github.com/kemosite/kemosite-wordpress-theme">Kevin Montgomery</a>' );
+			?>
+	</div><!-- .site-info -->
+
 </footer>
 
-</div> <!-- .content placement -->
+</div><!-- .content -->
 
 </div><!-- .grid-layout-container -->
 
@@ -86,6 +102,16 @@
 <?php wp_footer(); ?>
 
 <script>$(document).foundation();</script>
+
+<?php
+if ( current_user_can( 'administrator' ) ):
+	
+	global $wpdb;
+	echo '<script>console.log("Showing query to administrator:");</script>';
+	echo '<script>console.log('.json_encode($wpdb->queries).');</script>';
+
+endif;
+?>
 
 <noscript>
 <style>

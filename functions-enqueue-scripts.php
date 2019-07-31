@@ -64,11 +64,11 @@ function load_scripts_method() {
 	wp_enqueue_script('foundation-what-input');
 
 	wp_deregister_script('foundation');
-	wp_register_script('foundation', get_template_directory_uri().'/js/vendor/foundation.min.js', '', '6.5.3', 'true');
+	wp_register_script('foundation', get_template_directory_uri().'/js/vendor/foundation.min.js', array('jquery'), '6.5.3', 'true');
 	wp_enqueue_script('foundation');
 
 	wp_deregister_script('foundation-app');
-	wp_register_script('foundation-app', get_template_directory_uri().'/js/app.js', '', '6.5.3', 'true');
+	wp_register_script('foundation-app', get_template_directory_uri().'/js/app.js', array('foundation'), '6.5.3', 'true');
 	wp_enqueue_script('foundation-app');
 
 	// Load Graph.js if declared in page Custom Fields
@@ -91,13 +91,22 @@ function load_scripts_method() {
 
 	// JQuery
 	wp_deregister_script('my-jquery');
-	wp_register_script('my-jquery', get_template_directory_uri().'/js/my-jquery.js', '', '3.3.1', 'true');
+	wp_register_script('my-jquery', get_template_directory_uri().'/js/my-jquery.js', array('jquery'), '3.3.1', 'true');
 	wp_enqueue_script('my-jquery');
 
 	// Mediaelement
 	wp_deregister_script('mediaelement');
 	wp_register_script('mediaelement', get_template_directory_uri().'/js/vendor/mediaelement-and-player.min.js', '', '4.2.9', 'true');
 	wp_enqueue_script('mediaelement');
+
+	// Underscores Navigation
+	wp_deregister_script('kemosite-wordpress-theme-navigation');
+	wp_register_script('kemosite-wordpress-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script('kemosite-wordpress-theme-navigation');
+
+	wp_deregister_script('kemosite-wordpress-theme-skip-link-focus-fix');
+	wp_register_script('kemosite-wordpress-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script('kemosite-wordpress-theme-skip-link-focus-fix');
 		
 	// Add menus
 	// add_action( 'init', 'register_my_menus' );	
@@ -118,5 +127,128 @@ function load_scripts_method() {
 }
 
 add_action('wp_enqueue_scripts', 'load_scripts_method');
+
+// Defer and Async external scripts.
+// Defer = A script that will not run until after the page has loaded:
+// Async = A script that will be run asynchronously as soon as it is available:
+
+function defer_async_scripts( $tag, $handle, $src ) {
+  
+  $defer = array( 
+    'foundation-what-input',
+    'foundation-app',
+    'chart-js',
+    'mediaelement',
+    'kemosite-wordpress-theme-navigation',
+    'kemosite-wordpress-theme-skip-link-focus-fix'
+  );
+
+  $async = array(
+  	'my-jquery'
+  );
+
+  if ( in_array( $handle, $defer ) ) {
+     return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
+  }
+
+  if ( in_array( $handle, $async ) ) {
+     return '<script src="' . $src . '" async="async" type="text/javascript"></script>' . "\n";
+  }
+    
+    return $tag;
+} 
+add_filter( 'script_loader_tag', 'defer_async_scripts', 10, 3 );
+
+// add_filter( 'style_loader_tag', 'resource_hints_method', 10, 4;
+
+function resource_hints_method($hints, $relation_type) {
+	
+	global $wp_styles;
+	global $wp_scripts;
+
+	/* IN ORDER OF COMMMITMENT */
+	// dns-prefetch - used to indicate an origin that will be used to fetch required resources, and that the user agent SHOULD resolve as early as possible. Helpful when you know you’ll connect to a domain soon, and you want to speed up the initial connection.
+	// preconnect - used to indicate an origin that will be used to fetch required resources. Initiating an early connection. Helpful when you know you’ll download something from a third-party domain soon, but you don’t know what exactly.
+	// prefetch - used to identify a resource that might be required by the next navigation. Asks the browser to download and cache a resource (like, a script or a stylesheet) in the background.
+	// prerender - used to identify a resource that might be required by the next navigation. Helpful when you’re really sure a user will visit a specific page next, and you want to render it faster.
+
+	/* PRELOAD DIRECTIVES */
+	// audio
+	// video
+	// track
+	// script
+	// style
+	// font
+	// image
+	// fetch crossorigin
+	// embed
+	// object
+	// document
+
+	/*
+	<link rel="dns-prefetch" href="//widget.com">
+	<link rel="preconnect" href="//cdn.example.com">
+	<link rel="prefetch" href="//example.com/logo-hires.jpg" as="image">
+	<link rel="prerender" href="//example.com/next-page.html">
+	*/
+
+    $dns_prefetch_domains = array( 
+    	'https://fonts.googleapis.com/'
+	);
+
+    $prefetch_style = array( 
+    	'foundation',
+		'kemosite-theme-master-styles'
+	);
+
+    // Make sure JS declarations are not already declared assets for deferred or async loading.
+	$prefetch_script = array( 
+    	'jquery',
+    	'foundation',
+    	'my-jquery'
+	);
+
+   if ($relation_type === 'dns-prefetch'):
+
+    	foreach($dns_prefetch_domains as $tag):
+
+    		$hints[] = array(
+	    		'href' => $tag
+	    	);
+
+    	endforeach;
+
+	elseif ($relation_type === 'prefetch'):
+    	
+    	// Prefetch theme logo
+    	$hints[] = array(
+    		'as' => 'image',
+    		'href' => wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]
+    	);
+
+    	foreach($prefetch_style as $tag):
+
+    		$hints[] = array(
+	    		'as' => 'style',
+	    		'href' => $wp_styles->registered[$tag]->src
+	    	);
+
+    	endforeach;
+
+    	foreach($prefetch_script as $tag):
+
+    		$hints[] = array(
+	    		'as' => 'script',
+	    		'href' => $wp_scripts->registered[$tag]->src
+	    	);
+
+    	endforeach;
+
+    endif;
+
+    return $hints;
+
+}
+add_filter( 'wp_resource_hints', 'resource_hints_method', 10, 2 );
 
 ?>

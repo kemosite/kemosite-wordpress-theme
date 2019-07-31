@@ -8,20 +8,20 @@ function columns_shortcode_method($attributes, $content) {
 
 	if ($attributes !== NULL):
 
-		if (is_numeric($attributes['small'])): $output .= 'small-'.$attributes['small'] . ' '; endif;
-		if (is_numeric($attributes['medium'])): $output .= 'medium-'.$attributes['medium'] . ' '; endif;
-		if (is_numeric($attributes['large'])): $output .= 'large-'.$attributes['large'] . ' '; endif;
+		if (isset($attributes['small']) && is_numeric($attributes['small'])): $output .= 'small-'.$attributes['small'] . ' '; endif;
+		if (isset($attributes['medium']) && is_numeric($attributes['medium'])): $output .= 'medium-'.$attributes['medium'] . ' '; endif;
+		if (isset($attributes['large']) && is_numeric($attributes['large'])): $output .= 'large-'.$attributes['large'] . ' '; endif;
 		
-		if ($attributes['small'] == "auto"): $output .= 'small-'.$attributes['small'] . ' '; endif;
-		if ($attributes['medium'] == "auto"): $output .= 'medium-'.$attributes['medium'] . ' '; endif;
-		if ($attributes['large'] == "auto"): $output .= 'large-'.$attributes['large'] . ' '; endif;
+		if (isset($attributes['small']) && $attributes['small'] == "auto"): $output .= 'small-'.$attributes['small'] . ' '; endif;
+		if (isset($attributes['medium']) && $attributes['medium'] == "auto"): $output .= 'medium-'.$attributes['medium'] . ' '; endif;
+		if (isset($attributes['large']) && $attributes['large'] == "auto"): $output .= 'large-'.$attributes['large'] . ' '; endif;
 		
-		if ($attributes['small'] == "shrink"): $output .= 'small-'.$attributes['small'] . ' '; endif;
-		if ($attributes['medium'] == "shrink"): $output .= 'medium-'.$attributes['medium'] . ' '; endif;
-		if ($attributes['large'] == "shrink"): $output .= 'large-'.$attributes['large'] . ' '; endif;
+		if (isset($attributes['small']) && $attributes['small'] == "shrink"): $output .= 'small-'.$attributes['small'] . ' '; endif;
+		if (isset($attributes['medium']) && $attributes['medium'] == "shrink"): $output .= 'medium-'.$attributes['medium'] . ' '; endif;
+		if (isset($attributes['large']) && $attributes['large'] == "shrink"): $output .= 'large-'.$attributes['large'] . ' '; endif;
 		
-		if ($attributes['auto'] == "true"): $output .= 'auto '; endif;
-		if ($attributes['shrink'] == "true"): $output .= 'shrink '; endif;
+		if (isset($attributes['auto']) && $attributes['auto'] == "true"): $output .= 'auto '; endif;
+		if (isset($attributes['shrink']) && $attributes['shrink'] == "true"): $output .= 'shrink '; endif;
 
 	endif;
 

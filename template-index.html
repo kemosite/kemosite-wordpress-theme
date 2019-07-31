@@ -1,0 +1,40 @@
+<!--
+  get_header( string $name = null )
+  Load header template.
+  For the parameter, if the file is called "header-special.php" then specify "special".
+
+  <?php
+  if ( is_home() ) :
+      get_header( 'home' );
+  elseif ( is_404() ) :
+      get_header( '404' );
+  else :
+      get_header();
+  endif;
+  ?>
+  
+-->
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Bikeport by Kevin Montgomery - The Bikeport</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+  </head>
+
+  <body>
+
+    <h1>Hello, world!</h1>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.min.js"></script>
+    <script>$(document).foundation();</script>
+
+  </body>
+
+</html>

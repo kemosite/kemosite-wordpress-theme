@@ -1,0 +1,232 @@
+@charset "utf-8";
+
+/* BASE LAYOUT STYLE */
+body {
+	
+	-webkit-font-smoothing: antialiased;
+	font-smooth: always;
+
+	/* Hide horizontal scrolling, if content is butting against the edge of the viewport. */
+	overflow-x: hidden;
+	
+}
+
+/* apply a natural box layout model to all elements */
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.mobile.logo.position {
+	display: inline-block;
+	height: 7rem;
+	height: 7ch;
+	width: 100%;
+	text-align: center;
+	margin: 1rem;
+}
+
+.logo.position img {
+	height: 5rem;
+	height: 5ch;
+}
+
+.mobile.logo.position img {
+	height: 100%;
+}
+
+.is-dropdown-submenu-parent.opens-right > .is-dropdown-submenu {
+	left: 0;
+	top: 100%;
+}
+
+a, a:link, a:hover, a:focus, a:active,
+input, input:link, input:hover, input:focus, input:active,
+button, button:link, button:hover, button:focus, button:active,
+.button, .button:link, .button:hover, .button:focus, .button:active,
+.wp-block-button__link, .wp-block-button__link:link, .wp-block-button__link:hover, .wp-block-button__link:focus, .wp-block-button__link:active,
+ul.products li.product .button {
+	transition: 125ms ease-in-out;
+}
+
+.wrap { margin: 1rem auto; }
+
+/* [Control Grid Parameters] */
+.off-canvas-wrapper {
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+}
+
+.cell { 
+	padding: 0 1rem;
+	flex: 0 1 auto;
+	width: auto;
+}
+
+.grid-x { margin: 2rem auto; }
+
+ul { line-height: 1; }
+
+select, input:not([type="checkbox"]), textarea, button, .button, .button.expanded, .wp-block-button__link, [type="search"] {
+	min-height: 56px;
+	min-width: 80px;
+	margin: 1rem auto;
+	padding: 1rem;
+	border-radius: .25rem;
+	height: auto;
+	max-width: 59ch;
+}
+
+form.search-form .screen-reader-text {
+	display: none;
+}
+
+/* override margin for search input */
+form.search-form input,
+form.search-form button { 
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+form.search-form label {
+	display: inline-block;
+}
+
+.mailpoet_form .mailpoet_text, .mailpoet_form .mailpoet_textarea { width: 100% !important; }
+
+hr,
+.woocommerce-breadcrumb, .woocommerce-pagination {
+	margin: 1.5rem auto;
+	max-width: 59rem;
+}
+
+ul.page-numbers { text-align: center; }
+
+.callout.secondary {
+	max-width: 59rem;
+	margin: 2rem auto;
+}
+
+.button.expanded {
+	width: auto;
+}
+
+.close-button {
+	top: 0;
+	right: 0;
+}
+
+.clear-off-canvas-close-button {
+	margin-top: 5rem;
+}
+
+/** [MENU STYLES] **/
+
+/* [Mobile Menu] */
+.main_mobile_menu {
+	position: fixed;
+	width: 100vw;
+	grid-area: menu;
+	background-color: white;
+	z-index: 1;
+	top: 0;
+	display: flex;
+}
+
+/* [Screen Menu] */
+.main_screen_menu {
+	width: 100%;
+	grid-area: menu;
+	/* z-index: 1; */
+	top: 0;
+}
+
+.top-bar { padding: 0; }
+
+.section {
+	grid-area: section;
+	display: flex;
+}
+.section { align-items: center; }
+.section h1 {
+	text-align: center;
+	color: white;
+	font-weight: bold;
+}
+
+.the.exerpt img { width: 100%; }
+
+.content {
+	grid-area: content;
+	margin: 0 1rem;
+}
+
+/* [Desktop Menu] */
+
+.menu.nested {margin-left: 0 }
+.menu li { font-weight: bold; }
+.menu .nested li { font-weight: normal; }
+
+.off-canvas-menu > li > a,
+.off-canvas-menu .sub-menu > li > a {
+	border-bottom: 1px solid;
+}
+
+.media-object {
+	width: 100%;
+	margin: auto;
+}
+.media-object .thumbnail {
+	background-position:center center;
+    background-repeat:no-repeat;
+    overflow:hidden;
+    max-width: 100%;
+    max-height: 100%;
+    background-size: cover;
+}
+.media-object .thumbnail img { 
+	min-height:100%;
+    min-width:100%;
+    opacity:0;
+}
+
+
+/* [Foundation Top-Bar Menu Example] *
+**
+.menu .menu-text { padding: 0; }
+.sub-menu {
+	display: none;
+	transition-delay: 5s;
+}
+
+.home.url.item  a {
+	padding: .7rem 1rem;
+}
+
+.dropdown.menu > li.menu-item-has-children:hover > a + .sub-menu,
+.dropdown.menu > li.menu-item-has-children > a:hover + .sub-menu,
+.dropdown.menu > li.menu-item-has-children > .sub-menu:hover
+{
+	display: flex;
+	list-style: none;
+	position: absolute;
+	z-index: 1;
+	border: 1px solid #cacaca;
+	left: 0;
+	right: 1em;
+	top: auto;
+	margin: 0;
+	transition-delay: 5s;
+}
+*/
+
+/* [Sharedaddy and Comments Alignment] */
+.sharedaddy {
+	text-align: center;
+}
+
+.fb-comments {
+	max-width: 59rem;
+	max-width: 59ch;
+	margin-right: auto;
+	margin-left: auto;
+}

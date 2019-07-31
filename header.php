@@ -8,32 +8,43 @@
  *
  * @package kemosite-wordpress-theme
  */
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js no-svg">
+
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<title><?php wp_title(); ?><?php // bloginfo( 'name' ); ?></title>
 
 	<!-- favicon.ico in the root directory -->
 	
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="screen" />
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-	
-	<?php wp_head(); ?>
+	<link rel="pingback" href="<?php get_bloginfo('pingback_url'); ?>" />
 
-	<!-- Turn off the layout until the page has loaded -->
-	<style>
-	.off-canvas-wrapper { display: none; }
-	</style>
+	<?php 
+	/* Always have wp_head() just before the closing </head>
+     * tag of your theme, or you will break many plugins, which
+     * generally use this hook to add elements to <head> such
+     * as styles, scripts, and meta tags.
+     */
+    wp_head();	
+	?>
 
 </head>
 
 <body <?php body_class(); ?>>
+
+<?
+/**
+ * Displays the class names for the body element.
+ * (string|string[]) (Optional) Space-separated string or array of class names to add to the class list.
+ * Default value: ''
+ */
+?>
 
 <div class="off-canvas-wrapper">
 
@@ -91,7 +102,7 @@
 		
 		<!-- Your page content lives here -->
 		
-		<div class="grid-layout-container">
+		<div class="grid-layout-container"> <!-- Start Layout Grid! -->
 
 			<div class="main_mobile_menu hide-for-large">
 
@@ -109,7 +120,7 @@
 
 						<ul id="top-bar-menu" class="dropdown menu" data-dropdown-menu>
 
-							<li class="menu-text display logo position"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]; ?>"></a></li>
+							<li class="menu-text display logo position" aria-label="Image of website logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="Return to home page"><img src="<?php echo wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]; ?>"></a></li>
 					
 							<?php
 							if ( has_nav_menu( 'top-bar-menu' ) ) :
@@ -145,3 +156,73 @@
 				</div>
 			</div>
 			<!-- End Top Bar -->
+
+	<div class="section header">
+
+		<section class="grid-x grid-padding-x align-middle align-center">
+			
+			<!--
+			  --  This "grand header" treatment should only be applied once, at the top of the page.
+			  --  Can display post, page, category or taxonomy name.
+			  -->
+
+			<!--
+			  -- [EXAMPLES]
+			  --
+				is_404 — Is the query a 404 (returns no results)?
+				is_archive — Is the query for an existing archive page?
+				is_attachment — Is the query for an existing attachment page?
+				is_author — Is the query for an existing author archive page?
+				is_category — Is the query for an existing category archive page?
+				is_comment_feed — Is the query for a comments feed?
+				is_comments_popup — Whether the current URL is within the comments popup window. — deprecated	
+				is_date — Is the query for an existing date archive?
+				is_day — Is the query for an existing day archive?
+				is_embed — Is the query for an embedded post?
+				is_feed — Is the query for a feed?
+				is_front_page — Is the query for the front page of the site?
+				is_home — Is the query for the blog homepage?
+				is_main_query — Is the query the main query?
+				is_month — Is the query for an existing month archive?
+				is_page — Is the query for an existing single page?
+				is_paged — Is the query for paged result and not for the first page?
+				is_post_type_archive — Is the query for an existing post type archive page?
+				is_preview — Is the query for a post or page preview?
+				is_privacy_policy — Is the query for the Privacy Policy page?
+				is_robots — Is the query for the robots file?
+				is_search — Is the query for a search?
+				is_single — Is the query for an existing single post?
+				is_singular — Is the query for an existing single post of any post type (post, attachment, page, custom post types)?
+				is_tag — Is the query for an existing tag archive page?
+				is_tax — Is the query for an existing custom taxonomy archive page? 
+			  -->
+
+			<header>
+				
+				<!-- <h1><?php bloginfo( 'name' ); ?></h1> -->
+				
+				<?php
+				if ( is_front_page() || is_home() ):
+					the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+				elseif ( is_single() ):
+					the_title( '<h1 class="entry-title">', '</h1>' );
+				elseif ( is_search() ):
+					?>
+					<h1 class="page-title">
+						<?php
+						/* translators: %s: search query. */
+						// printf( esc_html__( 'Search Results for: %s', 'kemosite-wordpress-theme' ), '<span>' . get_search_query() . '</span>' );
+						?>
+						Search Results
+					</h1>
+					<?php
+				else:
+					the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+				endif;
+				?>
+
+			</header>
+
+		</section>
+
+	</div>
