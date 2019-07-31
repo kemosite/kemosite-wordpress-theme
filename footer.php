@@ -101,7 +101,12 @@
 
 <?php wp_footer(); ?>
 
-<script>$(document).foundation();</script>
+<script>
+$( document ).ready(function() {
+	$(document).foundation();
+	console.log("Foundation is loaded.");
+});
+</script>
 
 <?php
 if ( current_user_can( 'administrator' ) ):
