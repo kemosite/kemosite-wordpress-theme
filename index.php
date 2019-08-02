@@ -10,8 +10,8 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package kemosite-wordpress-theme
- * @since 5.0.0
- * @version 5.2.2.2
+ * @since 5.2
+ * @version 5.2.2.3
  *
  * REST API Documentation
  * https://developer.wordpress.org/rest-api/

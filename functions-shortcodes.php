@@ -280,6 +280,24 @@ function table_cell_body_shortcode_method($attributes, $content) {
 }
 add_shortcode('table_cell_body', 'table_cell_body_shortcode_method');
 
+/* Recent products shortcode */
+function kemosite_woocommerce_recent_products_method($attributes, $content) {
+
+    $limit = (int) $attributes['limit'];
+
+    $args = array(
+        'limit' => $limit,
+        'orderby' => 'date',
+        'order' => 'DESC',
+    );
+
+    $shortcode = new WC_Shortcode_Products( $args );
+
+    return $shortcode->get_content();
+
+}
+add_shortcode('kemosite_woocommerce_recent_products', 'kemosite_woocommerce_recent_products_method');
+
 /* [More Shortcodes] */
 require_once ("functions-shortcodes-row.php");
 require_once ("functions-shortcodes-columns.php");

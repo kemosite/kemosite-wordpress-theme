@@ -1,9 +1,9 @@
-# kemosite-wordpress-theme 5.2.2.2
+# kemosite-wordpress-theme 5.2.2.3
 ## A useful theme for Wordpress 5.2
 
 Contributors: Kevin Montgomery
 Tags: adaptive, javascript, responsive, foundation, less, woocommerce, github, multi-column, custom-colours, custom-menu, custom-logo, custom-background, featured-images, threaded-comments, translation-ready, light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready, flexbox
-Requires at least: 5.0.0
+Requires at least: 5.2
 Tested up to: 5.2.2
 Requires PHP: 7.2
 License: GNU General Public License v2 or later

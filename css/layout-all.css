@@ -26,6 +26,8 @@ ul, ol {
 	padding-left: 1em;
 }
 
+.woocommerce .woocommerce-breadcrumb { margin: 1em auto; }
+
 ol.flex-control-thumbs {
 	display:flex;
 	justify-content: center;
@@ -52,6 +54,16 @@ ul.products,
 	max-width: 100%;
 }
 
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product {
+	margin: 1em auto;
+}
+
+.woocommerce span.onsale {
+	position: relative;
+	top: -1rem;
+	left: -1rem;
+}
+
 .card { height: 100%; }
 
 .cropped.image {
@@ -65,6 +77,8 @@ ul.products,
     min-width:100%;
     opacity:0
 }
+
+.wc-block-grid .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-image img { width: 100%; }
 
 .fb-comments.fb_iframe_widget {
 	text-align: center;
