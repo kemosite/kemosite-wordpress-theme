@@ -40,12 +40,12 @@
 
 /* SMALL AD PROPERTIES */
 .small_ad, .big_ad {
-	background-color: grey;
+	background-color: transparent;
 	margin: 1rem auto;
 }
 .sidebar_ad {
 	display: none;
-	background-color: grey;
+	background-color: transparent;
 	margin: 1rem;
 }
 

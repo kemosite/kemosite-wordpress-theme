@@ -204,7 +204,7 @@
 				
 				<?php
 				if ( is_front_page() || is_home() ):
-					the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+					the_title( '<h1 class="entry-title">', '</h1>' );
 				elseif ( is_single() ):
 					the_title( '<h1 class="entry-title">', '</h1>' );
 				elseif ( is_search() ):

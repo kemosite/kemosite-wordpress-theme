@@ -19,6 +19,8 @@
 	overflow: auto;
 }
 
+div.section { background-image: none; }
+
 .cell { 
 	padding: 0 1rem;
 	flex: 0 1 auto;

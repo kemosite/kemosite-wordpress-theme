@@ -101,6 +101,7 @@ li.menu-item a:hover, li.menu-item.is-active > a, li.menu-item.is-active > a:lin
 }
 
 p a.button, li.product .button, .button, li a.button, li.product a.button, a.button, button, button.button, input.mailpoet_submit, input.pushbutton-wide, a.close-button, .wp-block-button__link, a.wp-block-button__link,
+.wp-block-button, /* Block button */
 .onsale, .woocommerce-pagination span.page-numbers, .woocommerce-pagination a.page-numbers, .woocommerce-pagination a.next.page-numbers, .woocommerce-pagination a.prev.page-numbers, /* WooCommerce */
 div.css-search div.em-search-main .em-search-submit /* Events */ {
 	-webkit-box-shadow: 0 1px 0 #0f0f0f;

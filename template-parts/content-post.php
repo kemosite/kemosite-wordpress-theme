@@ -49,9 +49,16 @@
 					<?php endif; ?>
 
 					<?php
-					the_excerpt();
+					// the_excerpt();
+					get_the_excerpt($post->ID);
 
-					wp_tag_cloud();
+					$args = array(
+						'smallest'                  => 1, 
+						'largest'                   => 1,
+						'unit'                      => 'em'
+					);
+
+					wp_tag_cloud($args);
 
 					the_post_navigation(
 						array(

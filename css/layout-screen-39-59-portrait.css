@@ -105,13 +105,13 @@ ul.products li.product,
 	margin: var(--set_column_margin);
 	float: none;
 	width: 100%;
-	max-width: var(--set_double_column_width);
+	max-width: 39ch;
 	text-align: center;
 }
 
 .media-object {
-	width: 39rem;
-	width: 39ch;
+	max-width: 39rem;
+	max-width: 39ch;
 	margin: auto;
 }
 .media-object .thumbnail {
@@ -121,6 +121,7 @@ ul.products li.product,
     max-width: 9rem;
     max-height: 9rem;
     background-size: cover;
+    margin: 0 auto;
 }
 .media-object .thumbnail img { 
 	min-height:100%;
@@ -129,6 +130,8 @@ ul.products li.product,
 }
 
 .footer-menu li {
-	display: inline-block;
+	display: flex;
+	flex-wrap: wrap;
 	padding: 0 1rem;
+	margin: .5em auto;
 }

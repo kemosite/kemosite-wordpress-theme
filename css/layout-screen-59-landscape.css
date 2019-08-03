@@ -26,8 +26,8 @@ li.display.logo.position { margin: 0; }
 form.search-form { margin-right: 1rem; }
 
 .top-bar input {
-	max-width: 16rem;
-	max-width: 16ch;
+	max-width: 59rem;
+	max-width: 59ch;
 }
 
 .mailpoet_form input.mailpoet_text,
