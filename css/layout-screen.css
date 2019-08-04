@@ -46,6 +46,15 @@ ul.products li.product .button {
 	transition: 125ms ease-in-out;
 }
 
+a.button, a.button:link, a.button:hover, a.button:focus, a.button:active {
+	display: flex;
+	margin: auto;
+	/*
+	margin-left: 1em;
+	margin-right: 1em;
+	*/
+}
+
 .wrap { margin: 1rem auto; }
 
 /* [Control Grid Parameters] */
@@ -76,6 +85,10 @@ select, input:not([type="checkbox"]), textarea, button, .button, .button.expande
 	max-width: 59ch;
 }
 
+button, .button {
+	margin: 1rem;
+}
+
 form.search-form .screen-reader-text {
 	display: none;
 }
@@ -83,7 +96,7 @@ form.search-form .screen-reader-text {
 /* override margin for search input */
 form.search-form input,
 form.search-form button { 
-	margin-top: 0;
+	/* margin-top: 0; */
 	margin-bottom: 0;
 }
 
@@ -113,10 +126,11 @@ ul.page-numbers { text-align: center; }
 .close-button {
 	top: 0;
 	right: 0;
+	position: relative;
 }
 
 .clear-off-canvas-close-button {
-	margin-top: 5rem;
+	/* margin-top: 1rem; */
 }
 
 /** [MENU STYLES] **/
@@ -157,7 +171,7 @@ ul.page-numbers { text-align: center; }
 
 .content {
 	grid-area: content;
-	margin: 0 1rem;
+	margin: 1rem;
 }
 
 /* [Desktop Menu] */

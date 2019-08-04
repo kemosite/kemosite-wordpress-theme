@@ -39,7 +39,7 @@ ol.flex-control-thumbs li {
 
 .woocommerce ul.products,
 .woocommerce-page ul.products,
-.page div.content main .p402_premium ul.products,
+.page div.content main ul.products,
 ul.products,
 .gallery,
 .flex-container
@@ -59,9 +59,8 @@ ul.products,
 }
 
 .woocommerce span.onsale {
-	position: relative;
-	top: -1rem;
-	left: -1rem;
+	background-color: var(--primary_dark_color);
+	z-index: 0;
 }
 
 .card { height: 100%; }
@@ -71,6 +70,9 @@ ul.products,
     background-repeat:no-repeat;
     overflow:hidden;
     margin: 1em auto;
+    background-size: contain;
+    min-width: 256px;
+    min-height: 256px;
 }
 .cropped.image img {
     min-height:100%;

@@ -44,18 +44,18 @@ main .nav-next {
 	margin: 1em auto;
 }
 
-.single div.content main .p402_premium,
+.single div.content main,
 .single div.content main article div.the.content {
 	columns: 39ch auto;
 	margin: 2rem auto;
 	column-gap: 2rem;
 }
 
-.page div.content main .p402_premium p,
-.page div.content main .p402_premium ul,
-.page div.content main .p402_premium ol,
-.page div.content main .p402_premium table,
-.page div.content main .p402_premium blockquote,
+.page div.content main p,
+.page div.content main ul,
+.page div.content main ol,
+.page div.content main table,
+.page div.content main blockquote,
 .page div.content main article .wp-block-button,
 .page div.content main article p,
 .page div.content main article ul,
@@ -73,11 +73,6 @@ main .nav-next {
 	max-width: 39ch;
 	margin-right: auto;
 	margin-left: auto;	
-}
-
-.woocommerce-page.columns-3 ul.products li.product, .woocommerce.columns-3 ul.products li.product {
-	width: 32%;
-	clear: none;
 }
 
 div.columns {
@@ -107,7 +102,8 @@ ul.products li.product,
 	align-self: stretch;
 	margin: var(--set_column_margin);
 	float: none;
-	width: 100%;
+	width: 100% !important;
+	min-width: 256px;
 	max-width: var(--set_double_column_width);
 	text-align: center;
 }

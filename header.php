@@ -114,7 +114,7 @@
 			</div>
 
 			<!-- Start Top Bar -->
-			<div class="top-bar main_screen_menu show-for-large stacked-for-large" id="responsive-menu">
+			<div class="top-bar main_screen_menu show-for-large" id="responsive-menu">
 				<div class="top-bar-left">
 					
 					<nav class="menu-test-menu-container">
@@ -218,7 +218,7 @@
 					</h1>
 					<?php
 				else:
-					the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+					the_title( '<h1 class="entry-title">', '</h1>' );
 				endif;
 				?>
 

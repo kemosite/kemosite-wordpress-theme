@@ -35,10 +35,6 @@ main .nav-next {
 	column-gap: 2rem;
 }
 
-.woocommerce ul.products[class*="columns-"] li.product, .woocommerce-page ul.products[class*="columns-"] li.product {
-	width: 100%;
-}
-
 ul.products li.product,
 .woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product,
@@ -48,7 +44,8 @@ ul.products li.product,
 	align-self: stretch;
 	margin: var(--set_column_margin);
 	float: none;
-	width: 100%;
+	width: 100% !important;
+	min-width: 256px;
 	max-width: var(--set_full_column_width);
 	text-align: center;
 }

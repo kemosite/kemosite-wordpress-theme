@@ -73,6 +73,7 @@ function my_subcategory_thumbnail( $category ) {
     if ( $thumbnail_id ) {
         $image = wp_get_attachment_image_src( $thumbnail_id, $small_thumbnail_size  );
         $image = $image[0];
+        $srcset = wp_get_attachment_image_srcset( $thumbnail_id, $small_thumbnail_size );
     } else {
         $image = wc_placeholder_img_src();
     }
@@ -80,11 +81,11 @@ function my_subcategory_thumbnail( $category ) {
     if ( $image ) {
         // Prevent esc_url from breaking spaces in urls for image embeds
         // Ref: https://core.trac.wordpress.org/ticket/23605
-        $image = str_replace( ' ', '%20', $image );
+        // $image = str_replace( ' ', '%20', $image );
 
         // echo '<div class="cropped image" style="max-width:' . esc_attr( $dimensions['width'] ) . 'px; width: 100%; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $category->name ) . '"></div>';
 
-        echo '<div class="cropped image" style="width: ' . esc_attr( $dimensions['width'] ) . 'px; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $category->name ) . '"></div>';
+        echo '<div class="cropped image" style="width: ' . esc_attr( $dimensions['width'] ) . 'px; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img srcset="' . esc_attr( $srcset ) . '" src="' . esc_url( $image ) . '" alt="' . esc_attr( $category->name ) . '"></div>';
 
     }
 }
@@ -137,6 +138,7 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
         if ( isset($thumbnail_id) ) {
             $image = wp_get_attachment_image_src( $thumbnail_id, $small_thumbnail_size  );
             $image = $image[0];
+            $srcset = wp_get_attachment_image_srcset( $thumbnail_id, $small_thumbnail_size );
         } else {
             $image = wc_placeholder_img_src();
         }
@@ -144,11 +146,11 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
         if ( $image ) {
             // Prevent esc_url from breaking spaces in urls for image embeds
             // Ref: https://core.trac.wordpress.org/ticket/23605
-            $image = str_replace( ' ', '%20', $image );
+            // $image = str_replace( ' ', '%20', $image );
 
             // return '<div class="cropped image" style="max-width:' . esc_attr( $dimensions['width'] ) . 'px; width: 100%; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $props['alt'] ) . '"></div>';
 
-            return '<div class="cropped test image" style="width: ' . esc_attr( $dimensions['width'] ) . 'px; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $props['alt'] ) . '"></div>';
+            return '<div class="cropped image" style="width: ' . esc_attr( $dimensions['width'] ) . 'px; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img srcset="' . esc_attr( $srcset ) . '" src="' . esc_url( $image ) . '" alt="' . esc_attr( $props['alt'] ) . '"></div>';
 
         }
     }
