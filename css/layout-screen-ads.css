@@ -49,6 +49,15 @@
 	margin: 1rem;
 }
 
+/* ADVANCED AD CLASS */
+div.[class*="-big-ad"] {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 /* SMALL/WIDE AD QUERIES */
 @media screen and (min-width: calc(234px + 4rem)) and (min-height: calc(60px * 3)) {
 	.small_ad {
@@ -71,12 +80,21 @@
 	}
 }
 
+/*
 @media screen and (min-width: calc(460px + 4rem)) and (min-height: calc(60px * 3)) {
 	.small_ad {
 		width: 460px;
 		height: 60px;
 	}
 }
+
+@media screen and (min-width: calc(468px + 4rem)) and (min-height: calc(60px * 3)) {
+	.small_ad {
+		width: 468px;
+		height: 60px;
+	}
+}
+*/
 
 @media screen and (min-width: 64em) and (orientation: landscape) {
 	.small_ad {
@@ -134,6 +152,13 @@
 	.big_ad {
 		width: 336px;
 		height: 280px;
+	}
+}
+
+@media screen and (min-width: calc(468px + 4rem)) and (min-height: calc(60px * 3)) {
+	.big_ad {
+		width: 468px;
+		height: 60px;
 	}
 }
 
