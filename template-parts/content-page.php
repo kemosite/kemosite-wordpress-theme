@@ -44,9 +44,14 @@
 						'largest'                   => 1,
 						'unit'                      => 'em'
 					);
+					?>
 
-					wp_tag_cloud($args);
 
+					<div class="tag-cloud">
+					<?php wp_tag_cloud($args); ?>
+					</div>
+
+					<?php
 					the_post_navigation(
 						array(
 				            'prev_text'          => 'Previous page: %title',

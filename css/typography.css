@@ -205,6 +205,8 @@ div.columns p {
     margin-bottom: 1.5em;
 }
 
+ div.tag-cloud { font-style: .875em; }
+
 footer { font-size: 1rem; }
 
 .copyright { 

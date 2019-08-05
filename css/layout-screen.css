@@ -133,6 +133,15 @@ ul.page-numbers { text-align: center; }
 	/* margin-top: 1rem; */
 }
 
+.tag-cloud-link {
+    border-radius: 1em;
+    display: inline-block;
+    margin: .25em;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0em .5em;
+}
+
 /** [MENU STYLES] **/
 
 /* [Mobile Menu] */
@@ -236,6 +245,10 @@ ul.page-numbers { text-align: center; }
 /* [Sharedaddy and Comments Alignment] */
 .sharedaddy {
 	text-align: center;
+}
+
+.sd-content ul {
+	margin: auto !important;
 }
 
 .fb-comments {
