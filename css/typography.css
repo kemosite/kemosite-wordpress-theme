@@ -97,6 +97,14 @@ div.section header h1 { font-size: 2em; }
 p,ul,ol { margin-bottom: .5em; }
 li { margin-top: .5em; margin-bottom: .5em; line-height: 1.4em}
 
+td.label {
+  display: revert;
+  color: revert;
+  background: revert;
+  font-size: revert;
+  font-weight: 600;
+}
+
 /* [DEFAULT LINK FORMATTING] */
 
 /* emails */

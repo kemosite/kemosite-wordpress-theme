@@ -85,8 +85,10 @@ select, input:not([type="checkbox"]), textarea, button, .button, .button.expande
 	max-width: 59ch;
 }
 
-button, .button {
-	margin: 1rem;
+button, .button, 
+.single_add_to_cart_button.button,
+.woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
+	margin: 1rem 0;
 }
 
 form.search-form .screen-reader-text {
@@ -212,6 +214,12 @@ ul.page-numbers { text-align: center; }
     opacity:0;
 }
 
+div.product_meta {
+	margin: 1em 0;
+}
+div.product_meta span {
+	display: block;
+}
 
 /* [Foundation Top-Bar Menu Example] *
 **

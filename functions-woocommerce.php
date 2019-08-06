@@ -32,6 +32,18 @@ if ( ! function_exists( 'kemosite_wordpress_woocommerce_template_loop_add_to_car
         global $product;
 
         if ( $product ) {
+
+            
+            /*
+            $test_object = json_encode($product);
+            echo "<script>console.log(".$test_object.");</script>";
+            */
+            
+            if (!$product->button_text || $product->button_text == ""):
+                $product->set_button_text( "View on Amazon" );
+            endif;
+            
+
             $defaults = array(
                 'quantity'   => 1,
                 'class'      => implode( ' ', array_filter( array(
@@ -70,13 +82,21 @@ function my_subcategory_thumbnail( $category ) {
     $dimensions             = wc_get_image_size( $small_thumbnail_size );
     $thumbnail_id           = get_woocommerce_term_meta( $category->term_id, 'thumbnail_id', true  );
 
-    if ( $thumbnail_id ) {
+    // echo "<script>console.log('my_subcategory_thumbnail');</script>";
+
+    if ( isset($thumbnail_id) ):
         $image = wp_get_attachment_image_src( $thumbnail_id, $small_thumbnail_size  );
         $image = $image[0];
         $srcset = wp_get_attachment_image_srcset( $thumbnail_id, $small_thumbnail_size );
-    } else {
+    
+    elseif ( null !== get_post_meta($post->ID, 'amazon_product_image_large_src') ):
+        $image = get_post_meta($post->ID, 'amazon_product_image_large_src');
+        $image = $image[0];
+
+    else:
         $image = wc_placeholder_img_src();
-    }
+
+    endif;
 
     if ( $image ) {
         // Prevent esc_url from breaking spaces in urls for image embeds
@@ -124,7 +144,7 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
      */
     function woocommerce_get_product_thumbnail( $size = 'shop_catalog', $deprecated1 = 0, $deprecated2 = 0 ) {
         
-        global $post;
+        global $post;        
 
         if ( has_post_thumbnail($post->ID) ) {
 
@@ -135,13 +155,32 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
             $thumbnail_id           = get_post_thumbnail_id();
         }
 
-        if ( isset($thumbnail_id) ) {
+        
+        $test_object = json_encode(array(
+            "size" => $size,
+            "image_size" => $image_size,
+            "small_thumbnail_size" => $small_thumbnail_size,
+            "dimensions" => $dimensions,
+        ));
+        echo "<script>console.log(".$test_object.");</script>";
+        
+
+        if ( isset($thumbnail_id) ):
             $image = wp_get_attachment_image_src( $thumbnail_id, $small_thumbnail_size  );
             $image = $image[0];
             $srcset = wp_get_attachment_image_srcset( $thumbnail_id, $small_thumbnail_size );
-        } else {
+        
+        elseif ( null !== get_post_meta($post->ID, 'amazon_product_image_large_src') ):
+            $image = get_post_meta($post->ID, 'amazon_product_image_large_src');
+            $image = $image[0];
+            $dimensions['width'] = get_option('thumbnail_size_w');
+            $dimensions['height'] = get_option('thumbnail_size_h');
+            $dimensions['crop'] = get_option('thumbnail_crop');
+
+        else:
             $image = wc_placeholder_img_src();
-        }
+
+        endif;
 
         if ( $image ) {
             // Prevent esc_url from breaking spaces in urls for image embeds
@@ -169,15 +208,14 @@ if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
 
         if ( $product ) {
 
-            if (!$product->button_text || $product->button_text == ""):
-                $product->set_button_text( "Buy Product" );
-            endif;
-
             /*
-            echo "<pre><small>";
-            print_r($product->button_text);
-            echo "</small></pre>";
+            $test_object = json_encode($product);
+            echo "<script>console.log(".$test_object.");</script>";
             */
+
+            if (!$product->button_text || $product->button_text == ""):
+                $product->set_button_text( "View on Amazon" );
+            endif;
 
             $defaults = array(
                 'quantity' => 1,

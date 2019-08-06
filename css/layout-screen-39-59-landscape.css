@@ -44,7 +44,7 @@ main .nav-next {
 	margin: 1em auto;
 }
 
-.single div.content main,
+/* .single div.content main, */
 .single div.content main article div.the.content {
 	columns: 39ch auto;
 	margin: 2rem auto;

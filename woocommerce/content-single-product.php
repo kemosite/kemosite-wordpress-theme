@@ -29,7 +29,7 @@ if ( post_password_required() ) {
 
 ?>
 
-<main role="main">
+<!-- <main role="main"> probably this one-->
 
 	<section>
 
@@ -37,7 +37,7 @@ if ( post_password_required() ) {
 
 			<div class="grid-x grid-margin-x">
 			    
-			    <div class="cell small-4">
+			    <div class="cell large-4 the exerpt">
 
 					<?php
 
@@ -58,9 +58,13 @@ if ( post_password_required() ) {
 
 					?>
 
+					<div class="small_ad">
+						<?php if( function_exists('the_ad_placement') ) { the_ad_placement('small-ad'); } ?>
+					</div>
+
 				</div>
 
-			    <div class="the content cell small-8">
+			    <div class="cell large-5">
 
 					<div class="summary entry-summary">
 
@@ -99,6 +103,12 @@ if ( post_password_required() ) {
 
 				</div>
 
+				<div class="cell large-3">
+					<div class="sidebar_ad">
+						<?php if( function_exists('the_ad_placement') ) { the_ad_placement('sidebar-ad'); } ?>
+					</div>
+				</div>
+
 			</div>
 
 		</article>
@@ -107,4 +117,4 @@ if ( post_password_required() ) {
 
 	</section>
 
-</main>
+<!-- </main> -->
