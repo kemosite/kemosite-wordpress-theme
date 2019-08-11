@@ -92,6 +92,9 @@ function my_subcategory_thumbnail( $category ) {
     elseif ( null !== get_post_meta($post->ID, 'amazon_product_image_large_src') ):
         $image = get_post_meta($post->ID, 'amazon_product_image_large_src');
         $image = $image[0];
+        $dimensions['width'] = get_option('thumbnail_size_w');
+        $dimensions['height'] = get_option('thumbnail_size_h');
+        $dimensions['crop'] = get_option('thumbnail_crop');
 
     else:
         $image = wc_placeholder_img_src();
@@ -156,6 +159,7 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
         }
 
         
+        /*
         $test_object = json_encode(array(
             "size" => $size,
             "image_size" => $image_size,
@@ -163,7 +167,7 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
             "dimensions" => $dimensions,
         ));
         echo "<script>console.log(".$test_object.");</script>";
-        
+        */        
 
         if ( isset($thumbnail_id) ):
             $image = wp_get_attachment_image_src( $thumbnail_id, $small_thumbnail_size  );

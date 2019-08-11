@@ -98,12 +98,14 @@ p,ul,ol { margin-bottom: .5em; }
 li { margin-top: .5em; margin-bottom: .5em; line-height: 1.4em}
 
 td.label {
-  display: revert;
-  color: revert;
-  background: revert;
-  font-size: revert;
+  display: table-cell;
+  color: inherit;
+  background: inherit;
+  font-size: inherit;
   font-weight: 600;
 }
+
+label.a-form-label { display: inline-block; }
 
 /* [DEFAULT LINK FORMATTING] */
 
