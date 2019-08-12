@@ -19,14 +19,11 @@
 
 				<div class="cell large-3 the exerpt">
 
-					<?php kemosite_wordpress_theme_post_thumbnail(); ?>
+					<!-- Get a thumbnail later -->
 
 					<?php if ( 'post' === get_post_type() ) : ?>
 					<div class="entry-meta">
-						<?php
-						kemosite_wordpress_theme_posted_on();
-						kemosite_wordpress_theme_posted_by();
-						?>
+						<p>POSTED: <?php the_time('jS F Y') ?></p>
 					</div><!-- .entry-meta -->
 					<?php endif; ?>
 
@@ -46,17 +43,6 @@
 
 					<?php endif; ?>
 
-					<?php 
-					
-					$args = array(
-						'smallest'                  => 1, 
-						'largest'                   => 1,
-						'unit'                      => 'em'
-					);
-
-					wp_tag_cloud($args);
-					?>
-
 					<div class="small_ad"></div>
 
 				</div>
@@ -66,8 +52,8 @@
 					<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 			    	<?php
-					// the_excerpt();
-					get_the_excerpt($post->ID);
+					the_excerpt();
+					// get_the_excerpt($post->ID);
 					
 					wp_link_pages( array(
 						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kemosite-wordpress-theme' ),

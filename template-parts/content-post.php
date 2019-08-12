@@ -49,22 +49,9 @@
 					<?php endif; ?>
 
 					<?php
-					// the_excerpt();
-					get_the_excerpt($post->ID);
-
-					$args = array(
-						'smallest'                  => 1, 
-						'largest'                   => 1,
-						'unit'                      => 'em'
-					);
-					?>
-
-
-					<div class="tag-cloud">
-					<?php wp_tag_cloud($args); ?>
-					</div>
-
-					<?php
+					the_excerpt();
+					//get_the_excerpt($post->ID);
+					
 					the_post_navigation(
 						array(
 				            'prev_text'          => 'Previous article: %title',

@@ -154,6 +154,31 @@ function my_post_function($query) {
 // add_action( 'pre_get_posts', 'my_post_function'); /* NO! THIS BREAKS PRODUCT AND POST RETRIEVALS! */
 
 /**
+ * Looks in Custom Fields for Excerpt data.
+ */
+function kemosite_custom_excerpt( $excerpt  ) {
+
+	global $post;
+  
+  // if (!is_attachment()):
+
+    if (null !== get_post_meta($post->ID, 'page_excerpt')):
+    	$page_excerpt = get_post_meta($post->ID, 'page_excerpt');
+    	$excerpt = $page_excerpt[0];
+    elseif (has_excerpt()):
+		$excerpt = get_the_excerpt($post->ID);
+	endif;
+
+  // endif;
+
+	// $excerpt = "Excerpt received";
+
+  return $excerpt ;
+
+}
+add_filter( 'get_the_excerpt', 'kemosite_custom_excerpt' );
+
+/**
  * Enqueue scripts and styles.
  */
 
