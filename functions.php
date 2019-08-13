@@ -164,7 +164,7 @@ function kemosite_custom_excerpt( $excerpt  ) {
 
     if (null !== get_post_meta($post->ID, 'page_excerpt')):
     	$page_excerpt = get_post_meta($post->ID, 'page_excerpt');
-    	$excerpt = $page_excerpt[0];
+    	$excerpt = esc_textarea($page_excerpt[0]);
     elseif (has_excerpt()):
 		$excerpt = get_the_excerpt($post->ID);
 	endif;
