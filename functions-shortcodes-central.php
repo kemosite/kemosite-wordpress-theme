@@ -130,29 +130,40 @@ function central_latest_post($attributes, $content) {
 	foreach ( $recent_posts as $post ) :
 
 		/*
-		echo "<pre>";
-		print_r($post);
-		echo "</pre>";
-		*/
-
 		$permalink = get_permalink($post['ID']);
 		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post['ID'] ), 'single-post-thumbnail' );
 		$image_src = esc_url($image[0]);
+		*/
 
+		$permalink = get_permalink($post['ID']);
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+		$image_src = esc_url($image[0]);
+		$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
+		$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
+
+		
 		/*
 		echo "<pre>";
 		print_r($image);
+		print_r($image_srcset);
+		print_r($image_sizes);
 		echo "</pre>";
 		*/
+		
 
 		/*
 		echo '<div class="cropped image" style="max-width:' . esc_attr( $dimensions['width'] ) . 'px; width: 100%; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $category->name ) . '"></div>';
+
+		<?php if ($image && $image_srcset && $image_sizes): ?>
+							<div class="featured image"><img style="width: 100%;" src="<?php echo $image[0]; ?>" srcset="<?php echo esc_attr( $image_srcset ); ?>" sizes="<?php echo esc_attr( $image_sizes ); ?>"></div>
+						<?php endif; ?>
+
 		*/
 		
 		$output .= '<div class="media-object stack-for-small">
 		  <div class="media-object-section">
 		    <div class="thumbnail" style="background-image: url(\'' . esc_url( $image_src ) . '\')">
-		      <a href="'.$permalink.'"><img src="' . esc_url( $image_src ) . '" alt="' . $post['post_title'] . '"></a>
+		      <a href="'.$permalink.'"><img src="' . esc_url( $image_src ) . '" srcset="' . esc_attr( $image_srcset ) . '" sizes="' . esc_attr( $image_sizes ) . '" alt="' . $post['post_title'] . '"></a>
 		    </div>
 		  </div>
 		  <div class="media-object-section main-section">

@@ -37,6 +37,10 @@
 </html>
 */ ?>
 
+<div class="big_ad">
+	<?php if( function_exists('the_ad_placement') ) { the_ad_placement('big-ad'); } ?>
+</div>
+
 <div class="tag-cloud">
 	<?php 
 	$args = array(
@@ -45,10 +49,6 @@
 		'unit'                      => 'em'
 	);
 	wp_tag_cloud($args); ?>
-</div>
-
-<div class="big_ad">
-	<?php if( function_exists('the_ad_placement') ) { the_ad_placement('big-ad'); } ?>
 </div>
 
 <footer>
@@ -114,7 +114,7 @@
 <script>
 $( document ).ready(function() {
 	$(document).foundation();
-	console.log("Foundation is loaded.");
+	// console.log("Foundation is loaded.");
 });
 </script>
 
