@@ -141,15 +141,11 @@ function central_latest_post($attributes, $content) {
 		$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post['ID']), 'single-post-thumbnail', wp_get_attachment_metadata($post['ID']) );
 		$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post['ID']), 'single-post-thumbnail', wp_get_attachment_metadata($post['ID']) );
 
-		
 		/*
 		echo "<pre>";
-		print_r($image);
-		print_r($image_srcset);
-		print_r($image_sizes);
-		echo "</pre>";
+		print_r($post);
+		echo "</pre>";		
 		*/
-		
 
 		/*
 		echo '<div class="cropped image" style="max-width:' . esc_attr( $dimensions['width'] ) . 'px; width: 100%; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $category->name ) . '"></div>';
@@ -168,7 +164,7 @@ function central_latest_post($attributes, $content) {
 		  </div>
 		  <div class="media-object-section main-section">
 		    <h4><a href="'.$permalink.'">'.$post['post_title'].'</a></h4>
-		    <p class="span-all-columns">'.get_the_excerpt($post['ID']).'</p>
+		    <p class="span-all-columns">'.kemosite_custom_excerpt($post['ID']).'</p>
 		  </div>
 		</div>
 		<br>';

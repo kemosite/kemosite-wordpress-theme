@@ -156,27 +156,31 @@ function my_post_function($query) {
 /**
  * Looks in Custom Fields for Excerpt data.
  */
-function kemosite_custom_excerpt( $excerpt  ) {
+function kemosite_custom_excerpt( $post_id ) {
 
-	global $post;
-  
-  // if (!is_attachment()):
-
-    if (null !== get_post_meta($post->ID, 'page_excerpt')):
-    	$page_excerpt = get_post_meta($post->ID, 'page_excerpt');
+    if (!empty(get_post_meta($post_id, 'page_excerpt'))):
+    	$page_excerpt = get_post_meta($post_id, 'page_excerpt');
     	$excerpt = esc_textarea($page_excerpt[0]);
-    elseif (has_excerpt()):
-		$excerpt = get_the_excerpt($post->ID);
+    else: //if (has_excerpt()):
+		$excerpt = get_the_excerpt($post_id);
+		// $excerpt = "Excerpt received";
 	endif;
+
+	/*
+	echo "<pre>";
+	print_r($post_id);
+	print_r($excerpt);
+	print_r($page_excerpt);
+	echo "</pre>";
+	*/
 
   // endif;
 
 	// $excerpt = "Excerpt received";
 
-  return $excerpt ;
+  return $excerpt;
 
 }
-add_filter( 'get_the_excerpt', 'kemosite_custom_excerpt' );
 
 /**
  * Enqueue scripts and styles.
