@@ -1,4 +1,4 @@
-# kemosite-wordpress-theme 5.2.2.13
+# kemosite-wordpress-theme 5.2.2.14
 ## A useful theme for Wordpress 5.2
 
 Contributors: Kevin Montgomery
