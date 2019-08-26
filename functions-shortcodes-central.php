@@ -136,10 +136,10 @@ function central_latest_post($attributes, $content) {
 		*/
 
 		$permalink = get_permalink($post['ID']);
-		$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id($post['ID']), 'single-post-thumbnail');
 		$image_src = esc_url($image[0]);
-		$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
-		$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
+		$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post['ID']), 'single-post-thumbnail', wp_get_attachment_metadata($post['ID']) );
+		$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post['ID']), 'single-post-thumbnail', wp_get_attachment_metadata($post['ID']) );
 
 		
 		/*
