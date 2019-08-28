@@ -61,7 +61,8 @@ main .nav-next {
 .page div.content main article ul,
 .page div.content main article ol,
 .page div.content main article table,
-.page div.content main article blockquote {
+.page div.content main article blockquote,
+.sd-content ul {
 	max-width: 39rem;
 	max-width: 39ch;
 	margin-right: auto;

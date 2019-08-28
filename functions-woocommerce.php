@@ -40,7 +40,7 @@ if ( ! function_exists( 'kemosite_wordpress_woocommerce_template_loop_add_to_car
             */
             
             if (!$product->button_text || $product->button_text == ""):
-                $product->set_button_text( "View on Amazon" );
+                $product->set_button_text( "Buy on Amazon" );
             endif;
             
 
@@ -218,7 +218,7 @@ if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
             */
 
             if (!$product->button_text || $product->button_text == ""):
-                $product->set_button_text( "View on Amazon" );
+                $product->set_button_text( "Buy on Amazon" );
             endif;
 
             $defaults = array(

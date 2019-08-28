@@ -23,21 +23,21 @@
 
 			    	// kemosite_wordpress_theme_post_thumbnail();
 
-					if (isset($latest_post)):
-
-						$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
-						$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
-						$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
-						?>
-						<?php if ($image && $image_srcset && $image_sizes): ?>
-							<div class="featured image"><img style="width: 100%;" src="<?php echo $image[0]; ?>" srcset="<?php echo esc_attr( $image_srcset ); ?>" sizes="<?php echo esc_attr( $image_sizes ); ?>"></div>
-						<?php endif; ?>
-
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+					$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
+					$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
+					?>
+					
+					<?php if ($image && $image_srcset && $image_sizes): ?>
+						<div class="featured image">
+							<img style="width: 100%;" src="<?php echo $image[0]; ?>" srcset="<?php echo esc_attr( $image_srcset ); ?>" sizes="<?php echo esc_attr( $image_sizes ); ?>">
+						</div>
 					<?php endif; ?>
 
 					<?php
 					// the_excerpt();
-					get_the_excerpt($post->ID);
+					// get_the_excerpt($post->ID);
+					kemosite_custom_excerpt($post->ID);
 
 					the_post_navigation(
 						array(

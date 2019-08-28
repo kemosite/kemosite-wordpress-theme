@@ -16,6 +16,7 @@
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
 	    	<?php
+
 			the_content( sprintf( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kemosite-wordpress-theme' ), get_the_title() );
 			
 			wp_link_pages( array(

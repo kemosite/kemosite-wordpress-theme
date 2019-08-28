@@ -78,12 +78,15 @@ main .entry-meta {
 .page div.content main article ol,
 .page div.content main article table,
 .page div.content main article blockquote,
-div.content main .term-description {
+div.content main .term-description,
+.sd-content ul {
 	max-width: 59rem;
 	max-width: 59ch;
 	margin-right: auto;
 	margin-left: auto;
 }
+
+
 
 .search div.content main article p {
 	max-width: 59rem;
