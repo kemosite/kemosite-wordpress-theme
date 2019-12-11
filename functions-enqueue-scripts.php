@@ -249,6 +249,8 @@ function resource_hints_method($hints, $relation_type) {
     return $hints;
 
 }
-add_filter( 'wp_resource_hints', 'resource_hints_method', 10, 2 );
+if ( ! is_admin() ):
+	add_filter( 'wp_resource_hints', 'resource_hints_method', 10, 2 );
+endif;
 
 ?>

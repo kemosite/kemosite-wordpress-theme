@@ -27,7 +27,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 <li <?php wc_product_class( '', $product ); ?>>
 
 	<?php
-    $thumbnail_id   = get_woocommerce_term_meta( $product->id, 'thumbnail_id', true );
+    // $thumbnail_id = get_woocommerce_term_meta( $product->id, 'thumbnail_id', true );
+    $thumbnail_id = get_term_meta( $product->get_id(), 'thumbnail_id', true );
     $image = wp_get_attachment_url( $thumbnail_id );
 	?>
 

@@ -20,6 +20,15 @@ function my_theme_wrapper_end() {
 }
 */
 
+add_filter( 'add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );            // < 2.1
+add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );  // 2.1 +
+  
+function woocommerce_custom_product_add_to_cart_text() {
+  
+    return __( 'Buy on Amazon', 'woocommerce' );
+  
+}
+
 if ( ! function_exists( 'kemosite_wordpress_woocommerce_template_loop_add_to_cart' ) ) {
 
     /**
@@ -27,6 +36,7 @@ if ( ! function_exists( 'kemosite_wordpress_woocommerce_template_loop_add_to_car
      *
      * @param array $args Arguments.
      */
+
     function kemosite_wordpress_woocommerce_template_loop_add_to_cart( $args = array() ) {
 
         global $product;
@@ -34,14 +44,9 @@ if ( ! function_exists( 'kemosite_wordpress_woocommerce_template_loop_add_to_car
         if ( $product ) {
 
             
-            /*
+            
             $test_object = json_encode($product);
             echo "<script>console.log(".$test_object.");</script>";
-            */
-            
-            if (!$product->button_text || $product->button_text == ""):
-                $product->set_button_text( "Buy on Amazon" );
-            endif;
             
 
             $defaults = array(
@@ -61,6 +66,9 @@ if ( ! function_exists( 'kemosite_wordpress_woocommerce_template_loop_add_to_car
             );
 
             $args = apply_filters( 'woocommerce_loop_add_to_cart_args', wp_parse_args( $args, $defaults ), $product );
+
+            $test_object = json_encode($args);
+            echo "<script>console.log(".$test_object.");</script>";
 
             if ( isset( $args['attributes']['aria-label'] ) ) {
                 $args['attributes']['aria-label'] = strip_tags( $args['attributes']['aria-label'] );
@@ -167,7 +175,13 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
             "dimensions" => $dimensions,
         ));
         echo "<script>console.log(".$test_object.");</script>";
-        */        
+        */
+
+        /*
+        echo "<pre>";        
+        print_r($thumbnail_id);
+        echo "</pre>";
+        */
 
         if ( isset($thumbnail_id) ):
             $image = wp_get_attachment_image_src( $thumbnail_id, $small_thumbnail_size  );
@@ -186,14 +200,25 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
 
         endif;
 
-        if ( $image ) {
+        /*
+        echo "<pre>";        
+        print_r($image);
+        print_r($srcset);
+        echo "</pre>";
+        */
+
+        if ( isset($image) ) {
+
+            if ( isset($srcset) ): $srcset_output = 'srcset="' . esc_attr( $srcset ) . '"'; else: $srcset_output = ''; endif;
+            if ( isset($props) ): $props_output = 'alt="' . esc_attr( $props['alt'] ) . '"'; else: $props_output = ''; endif;
+
             // Prevent esc_url from breaking spaces in urls for image embeds
             // Ref: https://core.trac.wordpress.org/ticket/23605
             // $image = str_replace( ' ', '%20', $image );
 
             // return '<div class="cropped image" style="max-width:' . esc_attr( $dimensions['width'] ) . 'px; width: 100%; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $props['alt'] ) . '"></div>';
 
-            return '<div class="cropped image" style="width: ' . esc_attr( $dimensions['width'] ) . 'px; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img srcset="' . esc_attr( $srcset ) . '" src="' . esc_url( $image ) . '" alt="' . esc_attr( $props['alt'] ) . '"></div>';
+            return '<div class="cropped image" style="width: ' . esc_attr( $dimensions['width'] ) . 'px; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img ' . $srcset_output . ' src="' . esc_url( $image ) . '" '. $props_output . '></div>';
 
         }
     }
@@ -206,6 +231,7 @@ if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
      *
      * @subpackage  Loop
      */
+
     function woocommerce_template_loop_add_to_cart( $args = array() ) {
 
         global $product;
@@ -216,10 +242,6 @@ if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
             $test_object = json_encode($product);
             echo "<script>console.log(".$test_object.");</script>";
             */
-
-            if (!$product->button_text || $product->button_text == ""):
-                $product->set_button_text( "Buy on Amazon" );
-            endif;
 
             $defaults = array(
                 'quantity' => 1,
@@ -232,6 +254,10 @@ if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
             );
 
             $args = apply_filters( 'woocommerce_loop_add_to_cart_args', wp_parse_args( $args, $defaults ), $product );
+
+            echo "<pre>";
+            print_r($args);
+            echo "<pre>";
 
             wc_get_template( 'loop/add-to-cart.php', $args );
         }

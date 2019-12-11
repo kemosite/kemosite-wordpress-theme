@@ -34,4 +34,5 @@ function add_shortcodes_description_page() {
 	add_theme_page( 'Available Shortcodes', 'Available Shortcodes', 'edit_theme_options', 'kemosite-shortcodes-description', 'kemosite_shortcodes_description_page' );
 }
 add_action( 'admin_menu', 'add_shortcodes_description_page' );
+
 ?>
