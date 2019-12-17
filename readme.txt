@@ -1,4 +1,4 @@
-# kemosite-wordpress-theme 5.3.0.1
+# kemosite-wordpress-theme 5.3.1.1
 ## A useful theme for Wordpress 5.3
 
 Contributors: Kevin Montgomery
@@ -16,12 +16,12 @@ License: GNU General Public License v2 or later
  - Incorporates QODE Central Wordpress theme shortcodes
 
 "dependencies": {
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.3",
     "foundation-icons": "^1.0.1",
-    "foundation-sites": "^6.5.3",
+    "foundation-sites": "^6.6.1",
     "jquery": "^3.4.1",
-    "mediaelement": "^4.2.12",
-    "what-input": "^5.2.3"
+    "mediaelement": "^4.2.14",
+    "what-input": "^5.2.6"
 }
 
 ## Installation

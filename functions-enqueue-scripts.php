@@ -107,6 +107,11 @@ function load_scripts_method() {
 	wp_deregister_script('kemosite-wordpress-theme-skip-link-focus-fix');
 	wp_register_script('kemosite-wordpress-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 	wp_enqueue_script('kemosite-wordpress-theme-skip-link-focus-fix');
+
+	// Gtag
+	wp_deregister_script('kemosite-wordpress-theme-gtag');
+	wp_register_script('kemosite-wordpress-theme-gtag', get_template_directory_uri() . '/js/gtag.js', array(), '20191216', true );
+	wp_enqueue_script('kemosite-wordpress-theme-gtag');
 		
 	// Add menus
 	// add_action( 'init', 'register_my_menus' );	
@@ -140,7 +145,8 @@ function defer_async_scripts( $tag, $handle, $src ) {
     'chart-js',
     'mediaelement',
     'kemosite-wordpress-theme-navigation',
-    'kemosite-wordpress-theme-skip-link-focus-fix'
+    'kemosite-wordpress-theme-skip-link-focus-fix',
+    'kemosite-wordpress-theme-gtag'
   );
 
   $async = array(
