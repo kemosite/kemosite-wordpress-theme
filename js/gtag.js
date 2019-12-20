@@ -18,14 +18,20 @@ if (gtag && typeof gtag === 'function') {
 	}
 
 	var amazon_links = document.querySelectorAll("a.button.product_type_external");
+	var amazon_buttons = document.querySelectorAll("button.single_add_to_cart_button.button");
 
 	if (amazon_links) {
 		amazon_links.forEach( function(amazon_link) {
 			var url = amazon_link.href;
-			amazon_link.setAttribute("onfocus", "getAmazonLink('" + url + "'); return false;");
+			amazon_link.setAttribute("onclick", "getAmazonLink('" + url + "'); return false;");
 		});
 	}
 
-	// console.log(amazon_links);
+	if (amazon_buttons) {
+		amazon_buttons.forEach( function(amazon_button) {
+			var url = amazon_button.form.action;
+			amazon_button.setAttribute("onclick", "getAmazonLink('" + url + "'); return true;");
+		});
+	}
 
 }
