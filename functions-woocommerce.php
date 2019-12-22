@@ -45,8 +45,10 @@ if ( ! function_exists( 'kemosite_wordpress_woocommerce_template_loop_add_to_car
 
             
             
+            /*
             $test_object = json_encode($product);
             echo "<script>console.log(".$test_object.");</script>";
+            */
             
 
             $defaults = array(

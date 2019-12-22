@@ -119,6 +119,7 @@ $( document ).ready(function() {
 </script>
 
 <?php
+/*
 if ( current_user_can( 'administrator' ) ):
 	
 	global $wpdb;
@@ -126,6 +127,7 @@ if ( current_user_can( 'administrator' ) ):
 	echo '<script>console.log('.json_encode($wpdb->queries).');</script>';
 
 endif;
+*/
 ?>
 
 <noscript>
