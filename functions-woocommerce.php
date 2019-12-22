@@ -69,8 +69,10 @@ if ( ! function_exists( 'kemosite_wordpress_woocommerce_template_loop_add_to_car
 
             $args = apply_filters( 'woocommerce_loop_add_to_cart_args', wp_parse_args( $args, $defaults ), $product );
 
+            /*
             $test_object = json_encode($args);
             echo "<script>console.log(".$test_object.");</script>";
+            */
 
             if ( isset( $args['attributes']['aria-label'] ) ) {
                 $args['attributes']['aria-label'] = strip_tags( $args['attributes']['aria-label'] );
