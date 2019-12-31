@@ -54,6 +54,12 @@ ul.products,
 	max-width: 100%;
 }
 
+ul.wc-tabs li {
+	display: inline-block;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
 .wc-block-grid .wc-block-grid__products .wc-block-grid__product {
 	margin: 1em auto;
 }

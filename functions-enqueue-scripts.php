@@ -60,15 +60,15 @@ function load_scripts_method() {
 	wp_enqueue_script('jquery');
 
 	wp_deregister_script('foundation-what-input');
-	wp_register_script('foundation-what-input', get_template_directory_uri().'/js/vendor/what-input.js', '', '5.2.1', 'true');
+	wp_register_script('foundation-what-input', get_template_directory_uri().'/js/vendor/what-input.min.js', '', '5.2.6', 'true');
 	wp_enqueue_script('foundation-what-input');
 
 	wp_deregister_script('foundation');
-	wp_register_script('foundation', get_template_directory_uri().'/js/vendor/foundation.min.js', array('jquery'), '6.5.3', 'true');
+	wp_register_script('foundation', get_template_directory_uri().'/js/vendor/foundation.min.js', array('jquery'), '6.6.1', 'true');
 	wp_enqueue_script('foundation');
 
 	wp_deregister_script('foundation-app');
-	wp_register_script('foundation-app', get_template_directory_uri().'/js/app.js', array('foundation'), '6.5.3', 'true');
+	wp_register_script('foundation-app', get_template_directory_uri().'/js/app.js', array('foundation'), '6.6.1', 'true');
 	wp_enqueue_script('foundation-app');
 
 	// Load Graph.js if declared in page Custom Fields

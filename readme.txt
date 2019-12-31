@@ -1,10 +1,10 @@
-# kemosite-wordpress-theme 5.3.2.3
+# kemosite-wordpress-theme 5.3.2.4
 ## A useful theme for Wordpress 5.3
 
 Contributors: Kevin Montgomery
 Tags: adaptive, javascript, responsive, foundation, less, woocommerce, github, multi-column, custom-colours, custom-menu, custom-logo, custom-background, featured-images, threaded-comments, translation-ready, light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready, flexbox
 Requires at least: 5.3
-Tested up to: 5.3
+Tested up to: 5.3.2
 Requires PHP: 7.3.5
 License: GNU General Public License v2 or later
 
@@ -20,9 +20,12 @@ License: GNU General Public License v2 or later
     "foundation-icons": "^1.0.1",
     "foundation-sites": "^6.6.1",
     "jquery": "^3.4.1",
+    "lighthouse": "^5.6.0",
     "mediaelement": "^4.2.14",
+    "npm": "^6.13.4",
+    "npm-check-updates": "^4.0.1",
     "what-input": "^5.2.6"
-}
+  }
 
 ## Installation
 Method 1 - Use Github Updater

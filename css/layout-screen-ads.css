@@ -58,24 +58,60 @@ div[class*="-big-ad"] {
 }
 
 /* SMALL/WIDE AD QUERIES */
-@media screen and (min-width: calc(234px + 4rem)) and (min-height: calc(60px * 3)) {
-	.small_ad {
-		width: 234px;
-		height: 60px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(234px)) and (min-height: calc(60px * 3)) {
+			.small_ad {
+				width: 234px;
+				height: 60px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(234px + 4rem)) and (min-height: calc(60px * 3)) {
+			.small_ad {
+				width: 234px;
+				height: 60px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(320px + 4rem)) and (min-height: calc(50px * 3)) {
-	.small_ad {
-		width: 320px;
-		height: 50px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(320px)) and (min-height: calc(50px * 3)) {
+			.small_ad {
+				width: 320px;
+				height: 50px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(320px + 4rem)) and (min-height: calc(50px * 3)) {
+			.small_ad {
+				width: 320px;
+				height: 50px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(320px + 4rem)) and (min-height: calc(100px * 3)) {
-	.small_ad {
-		width: 320px;
-		height: 100px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(320px)) and (min-height: calc(100px * 3)) {
+			.small_ad {
+				width: 320px;
+				height: 100px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(320px + 4rem)) and (min-height: calc(100px * 3)) {
+			.small_ad {
+				width: 320px;
+				height: 100px;
+			}
+		}
 	}
 }
 
@@ -103,123 +139,322 @@ div[class*="-big-ad"] {
 }
 
 
-@media screen and (min-width: 64em + 1rem) and (orientation: landscape) {
-	.small_ad {
-		width: 320px;
-		height: 100px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(64em)) and (orientation: landscape) {
+			.small_ad {
+				width: 320px;
+				height: 100px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(64em + 1rem)) and (orientation: landscape) {
+			.small_ad {
+				width: 320px;
+				height: 100px;
+			}
+		}
 	}
 }
-
 
 /* BIG/BOTTOM AD QUERIES */
-@media screen and (min-width: calc(125px + 4rem)) and (min-height: calc(125px + 33vh)) {
-	.big_ad {
-		width: 125px;
-		height: 125px;
+
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(125px)) and (min-height: calc(125px)) {
+			.big_ad {
+				width: 125px;
+				height: 125px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(125px + 4rem)) and (min-height: calc(125px + 33vh)) {
+			.big_ad {
+				width: 125px;
+				height: 125px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(180px + 4rem)) and (min-height: calc(150px + 33vh)) {
-	.big_ad {
-		width: 180px;
-		height: 150px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(180px)) and (min-height: calc(150px)) {
+			.big_ad {
+				width: 180px;
+				height: 150px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(180px + 4rem)) and (min-height: calc(150px + 33vh)) {
+			.big_ad {
+				width: 180px;
+				height: 150px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(200px + 4rem)) and (min-height: calc(200px + 33vh)) {
-	.big_ad {
-		width: 200px;
-		height: 200px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(200px)) and (min-height: calc(200px)) {
+			.big_ad {
+				width: 200px;
+				height: 200px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(200px + 4rem)) and (min-height: calc(200px + 33vh)) {
+			.big_ad {
+				width: 200px;
+				height: 200px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(250px + 4rem)) and (min-height: calc(250px + 33vh)) {
-	.big_ad {
-		width: 250px;
-		height: 250px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(250px)) and (min-height: calc(250px)) {
+			.big_ad {
+				width: 250px;
+				height: 250px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(250px + 4rem)) and (min-height: calc(250px + 33vh)) {
+			.big_ad {
+				width: 250px;
+				height: 250px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(300px + 4rem)) and (min-height: calc(250px + 33vh)) {
-	.big_ad {
-		width: 300px;
-		height: 250px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(300px)) and (min-height: calc(250px)) {
+			.big_ad {
+				width: 300px;
+				height: 250px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(300px + 4rem)) and (min-height: calc(250px + 33vh)) {
+			.big_ad {
+				width: 300px;
+				height: 250px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(336px + 4rem)) and (min-height: calc(280px + 33vh)) {
-	.big_ad {
-		width: 336px;
-		height: 280px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(336px)) and (min-height: calc(280px)) {
+			.big_ad {
+				width: 336px;
+				height: 280px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(336px + 4rem)) and (min-height: calc(280px + 33vh)) {
+			.big_ad {
+				width: 336px;
+				height: 280px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(468px + 4rem)) and (min-height: calc(60px * 3)) {
-	.big_ad {
-		width: 468px;
-		height: 60px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(468px)) and (min-height: calc(60px * 3)) {
+			.big_ad {
+				width: 468px;
+				height: 60px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(468px + 4rem)) and (min-height: calc(60px * 3)) {
+			.big_ad {
+				width: 468px;
+				height: 60px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(728px + 4rem)) and (min-height: calc(90px + 33vh)) {
-	.big_ad {
-		width: 728px;
-		height: 90px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(728px)) and (min-height: calc(90px)) {
+			.big_ad {
+				width: 728px;
+				height: 90px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(728px + 4rem)) and (min-height: calc(90px + 33vh)) {
+			.big_ad {
+				width: 728px;
+				height: 90px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(970px + 4rem)) and (min-height: calc(90px + 33vh)) {
-	.big_ad {
-		width: 970px;
-		height: 90px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(970px)) and (min-height: calc(90px)) {
+			.big_ad {
+				width: 970px;
+				height: 90px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(970px + 4rem)) and (min-height: calc(90px + 33vh)) {
+			.big_ad {
+				width: 970px;
+				height: 90px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(970px + 4rem)) and (min-height: calc(250px + 33vh)) {
-	.big_ad {
-		width: 970px;
-		height: 250px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(970px)) and (min-height: calc(250px)) {
+			.big_ad {
+				width: 970px;
+				height: 250px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(970px + 4rem)) and (min-height: calc(250px + 33vh)) {
+			.big_ad {
+				width: 970px;
+				height: 250px;
+			}
+		}
 	}
 }
+
+/* @supports (-webkit-appearance:none) {} */
 
 /* SIDEBAR AD QUERIES */
-@media screen and (min-width: calc(64em + 120px + 4rem)) and (min-height: calc(240px + 4rem)) {
-	.sidebar_ad {
-		display: block;
-		width: 120px;
-		height: 240px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(64em)) and (min-height: calc(240px)) {
+			.sidebar_ad {
+				display: block;
+				width: 120px;
+				height: 240px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(64em + 120px + 4rem)) and (min-height: calc(240px + 4rem)) {
+			.sidebar_ad {
+				display: block;
+				width: 120px;
+				height: 240px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(64em + 120px + 4rem)) and (min-height: calc(600px + 4rem)) {
-	.sidebar_ad {
-		display: block;
-		width: 120px;
-		height: 600px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(64em)) and (min-height: calc(600px)) {
+			.sidebar_ad {
+				display: block;
+				width: 120px;
+				height: 600px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(64em + 120px + 4rem)) and (min-height: calc(600px + 4rem)) {
+			.sidebar_ad {
+				display: block;
+				width: 120px;
+				height: 600px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(64em + 160px + 4rem)) and (min-height: calc(600px + 4rem)) {
-	.sidebar_ad {
-		display: block;
-		width: 160px;
-		height: 600px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(64em)) and (min-height: calc(600px)) {
+			.sidebar_ad {
+				display: block;
+				width: 160px;
+				height: 600px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(64em + 160px + 4rem)) and (min-height: calc(600px + 4rem)) {
+			.sidebar_ad {
+				display: block;
+				width: 160px;
+				height: 600px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(64em + 300px + 4rem)) and (min-height: calc(600px + 4rem)) {
-	.sidebar_ad {
-		display: block;
-		width: 300px;
-		height: 600px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(64em)) and (min-height: calc(600px)) {
+			.sidebar_ad {
+				display: block;
+				width: 300px;
+				height: 600px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(64em + 300px + 4rem)) and (min-height: calc(600px + 4rem)) {
+			.sidebar_ad {
+				display: block;
+				width: 300px;
+				height: 600px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: calc(64em + 300px + 4rem)) and (min-height: calc(1050px + 4rem)) {
-	.sidebar_ad {
-		display: block;
-		width: 300px;
-		height: 1050px;
+@media screen {
+	@supports (-webkit-appearance:none) {
+		@media (min-width: calc(64em)) and (min-height: calc(1050px)) {
+			.sidebar_ad {
+				display: block;
+				width: 300px;
+				height: 1050px;
+			}
+		}
+	}
+	@supports not (-webkit-appearance:none) {
+		@media (min-width: calc(64em + 300px + 4rem)) and (min-height: calc(1050px + 4rem)) {
+			.sidebar_ad {
+				display: block;
+				width: 300px;
+				height: 1050px;
+			}
+		}
 	}
 }
 

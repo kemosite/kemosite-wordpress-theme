@@ -1,6 +1,7 @@
 package.json
 *.cmd
 *.bat
+*.lnk
 node_modules/
 package-lock.json
 cypress.json
