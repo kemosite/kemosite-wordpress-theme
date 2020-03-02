@@ -4,7 +4,7 @@
 function my_customize_register( $wp_customize ) {
 
 	// Primary
-	$primary = '#ff6f61';  // Colour of the year, 2018
+	$primary = '#004680';  // Colour of the year, 2020
 
 	/* [REMOVE UNNEEDED CONTROLS] */
 	/*
@@ -15,67 +15,116 @@ function my_customize_register( $wp_customize ) {
 	$wp_customize->remove_section("colors");
 	
 
-	// Calculate 70% black
-	$black_70 = round(255 - (255 * .65));
-	$black_70_hex = dechex($black_70);
-	$black = '#'.$black_70_hex.$black_70_hex.$black_70_hex;
+	// Calculate 100% CMY Black
+	$black_78 = round(255 - (255 * .78));
+	$black_78_hex = dechex($black_78);
+	$black = '#'.$black_78_hex.$black_78_hex.$black_78_hex;
 
-	$black_85 = round(255 - (255 * .85));
-	$black_85_hex = dechex($black_85);
-	$dark_black = '#'.$black_85_hex.$black_85_hex.$black_85_hex;
+	// Calculate 100% K Black
+	$black_86 = round(255 - (255 * .86));
+	$black_86_hex = dechex($black_86);
+	$dark_black = '#'.$black_86_hex.$black_86_hex.$black_86_hex;
 
-	$black_15 = round(255 - (255 * .35));
-	$black_15_hex = dechex($black_15);
-	$light_black = '#'.$black_15_hex.$black_15_hex.$black_15_hex;
+	// Minimum 4.54:1 Contrast Black For Accessibility
+	$light_black = '#767676';
+	/*
+	$black_17 = round(255 - (255 * .17));
+	$black_17_hex = dechex($black_17);
+	$light_black = '#'.$black_17_hex.$black_17_hex.$black_17_hex;
+	*/
 
+	/* [GET PRIMARY COLOURS] */
+	$primary_color = get_theme_mod('kemosite_wordpress_colours_primary', $primary);
+	$white_color = '#FFFFFF';
 	
 	// Parse background colour for RGB value. Calculate luminousity. Determine black : white text.
-	$primary_hex = (substr($primary, 0, 1) === "#") ? substr($primary, 1) : $primary;
+	$primary_hex = (substr($primary_color, 0, 1) === "#") ? substr($primary_color, 1) : $primary_color;
+	$white_hex = (substr($white_color, 0, 1) === "#") ? substr($white_color, 1) : $white_color;
 	
 	$primary_parse_r = intval(substr($primary_hex, 0, 2), 16);
 	$primary_parse_g = intval(substr($primary_hex, 2, 2), 16);
 	$primary_parse_b = intval(substr($primary_hex, 4, 2), 16);
 
+	$white_parse_r = intval(substr($white_hex, 0, 2), 16);
+	$white_parse_g = intval(substr($white_hex, 2, 2), 16);
+	$white_parse_b = intval(substr($white_hex, 4, 2), 16);
 
-	$yiq = round((($primary_parse_r*299)+($primary_parse_g*587)+($primary_parse_b*114))/1000);
-	// $bright_threshold = 255 * .85;
-	$brighten_raw_perc = (max(1, 255 - $yiq) / 255);
-	$darken_raw_perc = (max(1, $yiq - 1) / 255);
+	function adjust_contrast($eval_contrast = "", $target_contrast = "", $r_input = "", $g_input = "", $b_input = "") {
+
+		/*
+		INTENT:
+		Brightest should be no lighter than 4.5
+		Darkest should be no lighter than 7
+		*/
+
+		/*
+		- target
+		- actual
+		- difference
+		- Apply correction to LUMINANCE
+		*/
+
+		// ($r * 0.2126) + ($g * 0.7152) + ($b * 0.0722)
+		/*
+		$brighten_primary_r_perc = $brighten_primary_contrast_perc * 0.2126;
+		$brighten_primary_g_perc = $brighten_primary_contrast_perc * 0.7152;
+		$brighten_primary_b_perc = $brighten_primary_contrast_perc * 0.0722;
+		*/
+
+		$luminance = calc_lum($r_input, $g_input, $b_input);
+		$contrast_adjustment = ($target_contrast <= $eval_contrast) ? 1 + (1 - ($target_contrast / $eval_contrast)) : ($eval_contrast / $target_contrast);
+		$adjust_primary_r_hex = str_pad(dechex(min(255, round($r_input * $contrast_adjustment))), 2, '0', STR_PAD_LEFT);
+		$adjust_primary_g_hex = str_pad(dechex(min(255, round($g_input * $contrast_adjustment))), 2, '0', STR_PAD_LEFT);
+		$adjust_primary_b_hex = str_pad(dechex(min(255, round($b_input * $contrast_adjustment))), 2, '0', STR_PAD_LEFT);
+
+		echo '<script>' . 
+		'console.log(' . json_encode("Luminance: ".$luminance) . ');' . 
+		'console.log(' . json_encode("Evaluating Contrast: ".$eval_contrast) . ');' . 
+		'console.log(' . json_encode("Target Contrast: ".$target_contrast) . ');' . 
+		'console.log(' . json_encode("Contrast Adjustment: ".$contrast_adjustment) . ');' . 
+		'console.log(' . json_encode("RR: ".$adjust_primary_r_hex) . ');' . 
+		'console.log(' . json_encode("GG: ".$adjust_primary_g_hex) . ');' . 
+		'console.log(' . json_encode("BB: ".$adjust_primary_b_hex) . ');' . 
+		'</script>';
+
+		return '#'.$adjust_primary_r_hex.$adjust_primary_g_hex.$adjust_primary_b_hex;
+		
+
+	}
+
+	// $primary_lum = round(($primary_parse_r * 0.2126) + ($primary_parse_g * 0.7152) + ($primary_parse_b * 0.0722));
+	$primary_lum = calc_lum($primary_parse_r, $primary_parse_g, $primary_parse_b);
+	$white_lum = calc_lum($white_parse_r, $white_parse_g, $white_parse_b);
+	$primary_lum_contrast = (max($white_lum,$primary_lum) + 5) / (min($primary_lum,$white_lum) + 5); // Minimum 4.5 / 7
+
+	// Correct contrast to 4.5 and 7 for bright and dark variations
+	$bright_primary = adjust_contrast($primary_lum_contrast, 4.5, $primary_parse_r, $primary_parse_g, $primary_parse_b);
+	$dark_primary = adjust_contrast($primary_lum_contrast, max(7, $primary_lum_contrast + 2.5), $primary_parse_r, $primary_parse_g, $primary_parse_b);
+
+	$invert_parse_r = (255 - $primary_parse_r);
+	$invert_parse_g = (255 - $primary_parse_g);
+	$invert_parse_b = (255 - $primary_parse_b);
+	$invert_r_hex = dechex($invert_parse_r);
+	$invert_g_hex = dechex($invert_parse_g);
+	$invert_b_hex = dechex($invert_parse_b);
+	$invert = '#'.$invert_r_hex.$invert_g_hex.$invert_b_hex;
+
+	$invert_lum = calc_lum($invert_parse_r, $invert_parse_g, $invert_parse_b);
+	$invert_lum_contrast = (max($white_lum,$invert_lum) + 5) / (min($invert_lum,$white_lum) + 5); // Minimum 4.5 / 7
+	
+	// Correct contrast to 4.5 and 7 for bright and dark variations
+	$bright_invert = adjust_contrast($invert_lum_contrast, 4.5, $invert_parse_r, $invert_parse_g, $invert_parse_b);
+	$dark_invert = adjust_contrast($invert_lum_contrast, max(7, $invert_lum_contrast + 2.5), $invert_parse_r, $invert_parse_g, $invert_parse_b);
 
 	/*
 	echo '<script>' . 
-	'console.log(' . json_encode("YIQ: ".$yiq) . ');' . 
-	'console.log(' . json_encode("Bright Threshold: ".$bright_threshold) . ');' . 
-	'console.log(' . json_encode("Brighten Raw Perc: ".$brighten_raw_perc) . ');' . 
-	'console.log(' . json_encode("Dark Threshold: ".$bright_threshold) . ');' . 
-	'console.log(' . json_encode("Darken Raw Perc: ".$brighten_raw_perc) . ');' . 
+	'console.log(' . json_encode("Black 86%: ".$black_86) . ');' . 
+	'console.log(' . json_encode("White Luminance: ".$white_lum) . ');' . 
+	'console.log(' . json_encode("Primary Colour: ".$primary_color) . ');' . 
+	'console.log(' . json_encode("Primary Luminance: ".$primary_lum) . ');' . 
+	'console.log(' . json_encode("Primary Luminance Contrast: ".$primary_lum_contrast) . ');' . 
 	'</script>';
 	*/
-
-	$bright_primary_r_hex = dechex(min(255, round($primary_parse_r + ($primary_parse_r * $brighten_raw_perc))));
-	$bright_primary_g_hex = dechex(min(255, round($primary_parse_g + ($primary_parse_g * $brighten_raw_perc))));
-	$bright_primary_b_hex = dechex(min(255, round($primary_parse_b + ($primary_parse_b * $brighten_raw_perc))));
-	$bright_primary = '#'.$bright_primary_r_hex.$bright_primary_g_hex.$bright_primary_b_hex;
-
-	$dark_primary_r_hex = dechex(max(1, round($primary_parse_r - ($primary_parse_r * $darken_raw_perc))));
-	$dark_primary_g_hex = dechex(max(1, round($primary_parse_g - ($primary_parse_g * $darken_raw_perc))));
-	$dark_primary_b_hex = dechex(max(1, round($primary_parse_b - ($primary_parse_b * $darken_raw_perc))));
-	$dark_primary = '#'.$dark_primary_r_hex.$dark_primary_g_hex.$dark_primary_b_hex;
-
-
-	$invert_primary_r_hex = dechex(255 - intval(substr($primary_hex, 0, 2), 16));
-	$invert_primary_g_hex = dechex(255 - intval(substr($primary_hex, 2, 2), 16));
-	$invert_primary_b_hex = dechex(255 - intval(substr($primary_hex, 4, 2), 16));
-	$invert_primary = '#'.$invert_primary_r_hex.$invert_primary_g_hex.$invert_primary_b_hex;
-
-	/*
-	$bright_invert_primary_r_hex = dechex(255 - intval(substr($primary_hex, 0, 2), 16));
-	$bright_invert_primary_g_hex = dechex(255 - intval(substr($primary_hex, 2, 2), 16));
-	$bright_invert_primary_b_hex = dechex(255 - intval(substr($primary_hex, 4, 2), 16));
-	$bright_invert_primary = '#'.$bright_invert_primary_r_hex.$bright_invert_primary_g_hex.$bright_invert_primary_b_hex;
-	*/
-
-	// echo $black_hex;
 
 	$colour_selection = array(
 		'black' => $black,
@@ -84,8 +133,9 @@ function my_customize_register( $wp_customize ) {
 		'primary' => $primary,
 		'bright_primary' => $bright_primary,
 		'dark_primary' => $dark_primary,
-		'invert_primary' => $invert_primary,
-		'bright_invert_primary' => $bright_invert_primary
+		'invert_primary' => $invert,
+		'bright_invert' => $bright_invert,
+		'dark_invert' => $dark_invert
 	);
 
 	$font_selection = array(
@@ -229,7 +279,7 @@ function my_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_primary', array(
 		'priority' => 10, // Within the section.
-		'label' => __( 'Primary Colour', 'kemosite-wordpress-theme' ),
+		'label' => __( 'Primary Colour (Set This First)', 'kemosite-wordpress-theme' ),
 		'section' => 'kemosite_wordpress_colours',
 		'default' => $colour_selection['primary']
 	) ) );
@@ -246,7 +296,7 @@ function my_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_bright_primary', array(
 		'priority' => 10, // Within the section.
-		'label' => __( 'Bright Primary Colour', 'kemosite-wordpress-theme' ),
+		'label' => __( 'Brightest Accessible Primary Colour', 'kemosite-wordpress-theme' ),
 		'section' => 'kemosite_wordpress_colours',
 		'default' => $colour_selection['bright_primary']
 	) ) );
@@ -285,24 +335,39 @@ function my_customize_register( $wp_customize ) {
 		'default' => $colour_selection['invert_primary']
 	) ) );
 
-	/*
-	$wp_customize->add_setting( 'kemosite_wordpress_colours_bright_invert_primary', array(
+	$wp_customize->add_setting( 'kemosite_wordpress_colours_bright_invert', array(
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
-		'default' =>  $colour_selection['bright_invert_primary'],
+		'default' =>  $colour_selection['bright_invert'],
 		'transport' => 'refresh', // or postMessage
 		'sanitize_callback' => '',
 		'sanitize_js_callback' => '', // Basically to_json.
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_bright_invert_primary', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_bright_invert', array(
 		'priority' => 10, // Within the section.
-		'label' => __( 'Bright Invert Primary Colour', 'kemosite-wordpress-theme' ),
+		'label' => __( 'Brightest Accessible Invert Colour', 'kemosite-wordpress-theme' ),
 		'section' => 'kemosite_wordpress_colours',
-		'default' => $colour_selection['bright_invert_primary']
+		'default' => $colour_selection['bright_invert']
 	) ) );
-	*/
+
+	$wp_customize->add_setting( 'kemosite_wordpress_colours_dark_invert', array(
+		'type' => 'theme_mod', // or 'option'
+		'capability' => 'edit_theme_options',
+		'theme_supports' => '', // Rarely needed.
+		'default' =>  $colour_selection['dark_invert'],
+		'transport' => 'refresh', // or postMessage
+		'sanitize_callback' => '',
+		'sanitize_js_callback' => '', // Basically to_json.
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'kemosite_wordpress_colours_dark_invert', array(
+		'priority' => 10, // Within the section.
+		'label' => __( 'Dark Invert Colour', 'kemosite-wordpress-theme' ),
+		'section' => 'kemosite_wordpress_colours',
+		'default' => $colour_selection['dark_invert']
+	) ) );
 
 
 	/* [ADD A FONT OPTIONS SECTIONS] */
@@ -435,6 +500,8 @@ function my_customize_register( $wp_customize ) {
 	   'label'      => __( 'Header Background Image', 'kemosite-wordpress-theme' ),
 	   'section'    => 'kemosite_wordpress_header'
     ) ) );
+
+    // $black_tint = get_theme_mod('kemosite_wordpress_colours_black', '#4d4d4d');
 
 	/*
 	$wp_customize->get_section();

@@ -1,4 +1,4 @@
-# kemosite-wordpress-theme 5.3.2.4
+# kemosite-wordpress-theme 5.3.2.5
 ## A useful theme for Wordpress 5.3
 
 Contributors: Kevin Montgomery
@@ -22,7 +22,7 @@ License: GNU General Public License v2 or later
     "jquery": "^3.4.1",
     "lighthouse": "^5.6.0",
     "mediaelement": "^4.2.14",
-    "npm": "^6.13.4",
+    "npm": "^6.13.7",
     "npm-check-updates": "^4.0.1",
     "what-input": "^5.2.6"
   }

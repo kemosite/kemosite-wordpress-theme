@@ -90,8 +90,7 @@ div.span-all.columns {
 }
 
 .grid-x .cell hr {
-	display: none;
-	margin: 0;
+	margin: 2em;
 }
 
 ul.products li.product,

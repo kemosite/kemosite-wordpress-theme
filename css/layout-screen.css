@@ -109,7 +109,8 @@ form.search-form label {
 .mailpoet_form .mailpoet_text, .mailpoet_form .mailpoet_textarea { width: 100% !important; }
 
 hr,
-.woocommerce-breadcrumb, .woocommerce-pagination {
+.woocommerce-breadcrumb, .woocommerce-pagination,
+canvas {
 	margin: 1.5rem auto;
 	max-width: 59rem;
 }

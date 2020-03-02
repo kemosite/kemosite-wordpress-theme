@@ -76,7 +76,7 @@ function load_scripts_method() {
 
 	if(isset($custom_fields['load-graph-js'][0]) && $custom_fields['load-graph-js'][0] == "true"):
 		wp_deregister_script('chart-js');
-		wp_register_script('chart-js', get_template_directory_uri().'/js/vendor/Chart.min.js', '', '2.8.0');
+		wp_register_script('chart-js', get_template_directory_uri().'/js/vendor/Chart.min.js', '', '2.9.3');
 		wp_enqueue_script('chart-js');
 	endif;
 
@@ -142,7 +142,6 @@ function defer_async_scripts( $tag, $handle, $src ) {
   $defer = array( 
     'foundation-what-input',
     'foundation-app',
-    'chart-js',
     'mediaelement',
     'kemosite-wordpress-theme-navigation',
     'kemosite-wordpress-theme-skip-link-focus-fix',
@@ -150,6 +149,7 @@ function defer_async_scripts( $tag, $handle, $src ) {
   );
 
   $async = array(
+  	'chart-js',
   	'my-jquery'
   );
 

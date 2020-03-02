@@ -55,8 +55,7 @@ ul.products li.product,
 }
 
 .grid-x + hr {
-	display: none;
-	margin: 0;
+	margin: 2em;
 }
 
 .footer-menu li {

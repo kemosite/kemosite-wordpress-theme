@@ -680,18 +680,33 @@ function register_my_menus() {
 }
 add_action( 'after_setup_theme', 'register_my_menus' );
 
+// Per w3.org: For the sRGB colorspace, the relative luminance of a color is defined as L = 0.2126 * R + 0.7152 * G + 0.0722 * B
+function calc_lum ($r_input, $g_input, $b_input) {
+
+	$r_srgb = $r_input / 255;
+	$g_srgb = $g_input / 255;
+	$b_srgb = $b_input / 255;
+
+	$r = ($r_srgb <= 0.03928) ? $r_srgb / 12.92 : pow((($r_srgb + 0.055) / 1.055), 2.4);
+	$g = ($g_srgb <= 0.03928) ? $g_srgb / 12.92 : pow((($g_srgb + 0.055) / 1.055), 2.4);
+	$b = ($b_srgb <= 0.03928) ? $b_srgb / 12.92 : pow((($b_srgb + 0.055) / 1.055), 2.4);
+	
+	return (($r * 0.2126) + ($g * 0.7152) + ($b * 0.0722)) * 100;
+
+}
+
 /* [ADD CUSTOMIZER CSS] */
 add_action( 'wp_head', 'cd_customizer_css');
 function cd_customizer_css() {
 	
 	
-	/* [SET BLACK TINE] */
-	$black_tint = get_theme_mod('kemosite_wordpress_colours_black', '#4d4d4d');
-	$dark_black_tint = get_theme_mod('kemosite_wordpress_colours_dark_black', '#262626');
-	$light_black_tint = get_theme_mod('kemosite_wordpress_colours_light_black', '#d9d9d9');
+	/* [SET BLACK TONE] */
+	$black_tint = get_theme_mod('kemosite_wordpress_colours_black', '#383838');
+	$dark_black_tint = get_theme_mod('kemosite_wordpress_colours_dark_black', '#242424');
+	$light_black_tint = get_theme_mod('kemosite_wordpress_colours_light_black', '#767676');
 
 	/* [SET PRIMARY COLOURS] */
-	$primary_color = get_theme_mod('kemosite_wordpress_colours_primary', '#4d4d4d');
+	$primary_color = get_theme_mod('kemosite_wordpress_colours_primary', $black_tint);
 
 	// Parse background colour for RGB value. Calculate luminousity. Determine black : white text.
 	$hex = (substr($primary_color, 0, 1) === "#") ? substr($primary_color, 1) : $primary_color;
@@ -700,18 +715,18 @@ function cd_customizer_css() {
 	$parse_g = intval(substr($hex, 2, 2), 16);
 	$parse_b = intval(substr($hex, 4, 2), 16);
 
-	$yiq = (($parse_r*299)+($parse_g*587)+($parse_b*114))/1000;
+	$lum = calc_lum($parse_r, $parse_g, $parse_b);
 
-	$primary_font_auto_color = ($yiq >= 128) ? 'black' : 'white';
+	$primary_font_auto_color = ($lum >= 50) ? 'black' : 'white';
 
-	$primary_bright_color = get_theme_mod('kemosite_wordpress_colours_bright_primary', '#4d4d4d');
-	$primary_dark_color = get_theme_mod('kemosite_wordpress_colours_dark_primary', '#4d4d4d');
-
-	$primary_invert_color = get_theme_mod('kemosite_wordpress_colours_invert_primary', '#4d4d4d');
-
+	$primary_bright_color = get_theme_mod('kemosite_wordpress_colours_bright_primary', $light_black_tint);
+	$primary_dark_color = get_theme_mod('kemosite_wordpress_colours_dark_primary', $dark_black_tint);
+	$invert_color = get_theme_mod('kemosite_wordpress_colours_invert_primary', $black_tint);
+	$invert_bright_color = get_theme_mod('kemosite_wordpress_colours_bright_invert', $light_black_tint);
+	$invert_dark_color = get_theme_mod('kemosite_wordpress_colours_dark_invert', $dark_black_tint);
 
 	/* [HEADER BACKGROUND] */
-	$header_background_color = get_theme_mod('kemosite_wordpress_header_bg_color', '#4d4d4d');
+	$header_background_color = get_theme_mod('kemosite_wordpress_header_bg_color', $dark_black_tint);
 	
 	// Parse background colour for RGB value. Calculate luminousity. Determine black : white text.
 	$hex = (substr($header_background_color, 0, 1) === "#") ? substr($header_background_color, 1) : $header_background_color;
@@ -720,9 +735,9 @@ function cd_customizer_css() {
 	$parse_g = intval(substr($hex, 2, 2), 16);
 	$parse_b = intval(substr($hex, 4, 2), 16);
 
-	$yiq = (($parse_r*299)+($parse_g*587)+($parse_b*114))/1000;
+	$lum = calc_lum($parse_r, $parse_g, $parse_b);
 
-	$header_font_color = ($yiq >= 128) ? 'black' : 'white';
+	$header_font_color = ($lum >= 50) ? 'black' : 'white';
 
 	/* [HEADER FONT] */
 	$header_font = get_theme_mod('kemosite_wordpress_header_font');
@@ -776,7 +791,9 @@ function cd_customizer_css() {
 		--primary_font_auto_color: <?php echo $primary_font_auto_color; ?>;
 		--primary_bright_color: <?php echo $primary_bright_color; ?>;
 		--primary_dark_color: <?php echo $primary_dark_color; ?>;
-		--primary_invert_color: <?php echo $primary_invert_color; ?>;
+		--invert_color: <?php echo $invert_color; ?>;
+		--invert_bright_color: <?php echo $invert_bright_color; ?>;
+		--invert_dark_color: <?php echo $invert_dark_color; ?>;
 
 		--header_background_color: <?php echo $header_background_color; ?>;
 		--header_font_color: <?php echo $header_font_color; ?>;
@@ -808,7 +825,15 @@ function cd_customizer_css() {
 
 	<script>
 		var chart_colours = {
-			primary: "<?php echo $primary_color; ?>"
+			black_tint: "<?php echo $black_tint; ?>",
+			light_black_tint: "<?php echo $light_black_tint; ?>",
+			dark_black_tint: "<?php echo $dark_black_tint; ?>",
+			primary: "<?php echo $primary_color; ?>",
+			primary_bright: "<?php echo $primary_bright_color; ?>",
+			primary_dark_color: "<?php echo $primary_dark_color; ?>",
+			invert: "<?php echo $invert_color; ?>",
+			invert_bright: "<?php echo $invert_bright_color; ?>",
+			invert_dark_color: "<?php echo $invert_dark_color; ?>",
 		}
 	</script>
 
