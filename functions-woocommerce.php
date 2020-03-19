@@ -22,29 +22,27 @@ function my_theme_wrapper_end() {
 
 add_filter( 'add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );            // < 2.1
 add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );  // 2.1 +
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );
   
 function woocommerce_custom_product_add_to_cart_text() {
   
-    global $product;
+   global $product;
 
    if ( $product ):
 
         if ($product->get_button_text()):
             return __( $product->get_button_text(), 'woocommerce' );
-        else:
+        elseif ($product->get_type() === 'external'):
             return __( 'Buy on Amazon', 'woocommerce' );
+	    else:
+	    	return __( 'Buy Product', 'woocommerce' );
         endif;
-    
-        /*
-        $test_object = json_encode($product->get_button_text());
-        echo "<script>console.log(".$test_object.");</script>";
-        */
 
     else:
-         return __( 'Buy on Amazon', 'woocommerce' );
-    endif;
 
-    return __( 'Buy on Amazon', 'woocommerce' );
+    	return __( 'Buy Product', 'woocommerce' );
+
+    endif;
   
 }
 
