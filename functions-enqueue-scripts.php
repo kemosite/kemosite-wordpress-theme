@@ -255,7 +255,7 @@ function resource_hints_method($hints, $relation_type) {
     return $hints;
 
 }
-if ( ! is_admin() ):
+if ( ! is_admin() && ! is_login_page() ):
 	add_filter( 'wp_resource_hints', 'resource_hints_method', 10, 2 );
 endif;
 

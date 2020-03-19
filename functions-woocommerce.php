@@ -25,6 +25,25 @@ add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_custom_product_
   
 function woocommerce_custom_product_add_to_cart_text() {
   
+    global $product;
+
+   if ( $product ):
+
+        if ($product->get_button_text()):
+            return __( $product->get_button_text(), 'woocommerce' );
+        else:
+            return __( 'Buy on Amazon', 'woocommerce' );
+        endif;
+    
+        /*
+        $test_object = json_encode($product->get_button_text());
+        echo "<script>console.log(".$test_object.");</script>";
+        */
+
+    else:
+         return __( 'Buy on Amazon', 'woocommerce' );
+    endif;
+
     return __( 'Buy on Amazon', 'woocommerce' );
   
 }
