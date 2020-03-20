@@ -20,6 +20,18 @@ function my_theme_wrapper_end() {
 }
 */
 
+
+/* [ENABLE WOOCOMMERCE GUTENBERG PRODUCTS] */
+function wplook_activate_gutenberg_products($can_edit, $post_type){
+	if($post_type == 'product'){
+		$can_edit = true;
+	}
+	
+	return $can_edit;
+}
+add_filter('use_block_editor_for_post_type', 'wplook_activate_gutenberg_products', 10, 2);
+
+
 add_filter( 'add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );            // < 2.1
 add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );  // 2.1 +
 add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );
