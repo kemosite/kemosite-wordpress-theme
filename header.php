@@ -217,6 +217,12 @@
 						Search Results
 					</h1>
 					<?php
+				elseif ( is_404() ):
+					?>
+					<h1 class="page-title">
+						4...OH...4
+					</h1>
+					<?php
 				else:
 					the_title( '<h1 class="entry-title">', '</h1>' );
 				endif;

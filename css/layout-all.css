@@ -70,6 +70,7 @@ ul.wc-tabs li {
 }
 
 .card { height: 100%; }
+.wp-block-column .card { border: none; }
 
 .cropped.image {
     background-position:center center;

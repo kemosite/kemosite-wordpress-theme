@@ -29,7 +29,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php kemosite_wordpress_theme_post_thumbnail(); ?>
+	<?php // kemosite_wordpress_theme_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

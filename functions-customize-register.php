@@ -25,8 +25,8 @@ function my_customize_register( $wp_customize ) {
 	$black_86_hex = dechex($black_86);
 	$dark_black = '#'.$black_86_hex.$black_86_hex.$black_86_hex;
 
-	// Minimum 4.54:1 Contrast Black For Accessibility
-	$light_black = '#767676';
+	// Minimum 7:1 Contrast For Accessibile Background with "Black"
+	$light_black = '#C9C9C9';
 	/*
 	$black_17 = round(255 - (255 * .17));
 	$black_17_hex = dechex($black_17);

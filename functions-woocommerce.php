@@ -32,11 +32,7 @@ function wplook_activate_gutenberg_products($can_edit, $post_type){
 add_filter('use_block_editor_for_post_type', 'wplook_activate_gutenberg_products', 10, 2);
 
 
-add_filter( 'add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );            // < 2.1
-add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );  // 2.1 +
-add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );
-  
-function woocommerce_custom_product_add_to_cart_text() {
+function woocommerce_custom_product_add_to_cart_text($default_button_text) {
   
    global $product;
 
@@ -47,16 +43,25 @@ function woocommerce_custom_product_add_to_cart_text() {
         elseif ($product->get_type() === 'external'):
             return __( 'Buy on Amazon', 'woocommerce' );
 	    else:
-	    	return __( 'Buy Product', 'woocommerce' );
+	    	return __( $default_button_text, 'woocommerce' );
         endif;
 
     else:
 
-    	return __( 'Buy Product', 'woocommerce' );
+    	/*
+    	$test_object = json_encode($default_button_text);
+	    echo "<script>console.log(".$test_object.");</script>";
+	    */
+
+    	return __( $default_button_text, 'woocommerce' );
 
     endif;
-  
+ 
 }
+add_filter( 'add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );            // < 2.1
+add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );  // 2.1 +
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );
+
 
 if ( ! function_exists( 'kemosite_wordpress_woocommerce_template_loop_add_to_cart' ) ) {
 
