@@ -62,6 +62,17 @@ main .nav-next {
 .page div.content main article ol,
 .page div.content main article table,
 .page div.content main article blockquote,
+.single div.content main p,
+.single div.content main ul,
+.single div.content main ol,
+.single div.content main table,
+.single div.content main blockquote,
+.single div.content main article .wp-block-button,
+.single div.content main article p,
+.single div.content main article ul,
+.single div.content main article ol,
+.single div.content main article table,
+.single div.content main article blockquote,
 .sd-content ul {
 	max-width: 39rem;
 	max-width: 39ch;

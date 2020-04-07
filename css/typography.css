@@ -176,7 +176,10 @@ blockquote p {
      display:inline;
 }
 
-select, input, input[type="search"], textarea, button, a.button, .button { 
+select, input, button, a.button, .button,
+#add_payment_method .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button,
+#add_payment_method table.cart td.actions .coupon .input-text, .woocommerce-cart table.cart td.actions .coupon .input-text, .woocommerce-checkout table.cart td.actions .coupon .input-text, /* WooComerce */
+[type="color"], [type="date"], [type="datetime-local"], [type="datetime"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], textarea { 
     font-size: 1em;
     padding: .5em 1em;
     font-family: var(--button_font_family_name);

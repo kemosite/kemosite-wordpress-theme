@@ -46,14 +46,16 @@ ul.products li.product .button {
 	transition: 125ms ease-in-out;
 }
 
+/*
 a.button, a.button:link, a.button:hover, a.button:focus, a.button:active {
 	display: flex;
 	margin: auto;
 	/*
 	margin-left: 1em;
 	margin-right: 1em;
-	*/
+	**
 }
+*/
 
 .wrap { margin: 1rem auto; }
 
@@ -82,7 +84,12 @@ ul { line-height: 1; }
 	max-width: 59ch;
 }
 
-select, input:not([type="checkbox"]), textarea, button, .button, .button.expanded, .wp-block-button__link, [type="search"] {
+.select2-container .select2-selection--single,
+#add_payment_method .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button,
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
+.woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled],
+select, input:not([type="checkbox"]), button, .button, .button.expanded, .wp-block-button__link,
+[type="color"], [type="date"], [type="datetime-local"], [type="datetime"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], textarea {
 	min-height: 56px;
 	min-width: 80px;
 	margin: 1rem auto;
@@ -92,10 +99,26 @@ select, input:not([type="checkbox"]), textarea, button, .button, .button.expande
 	max-width: 59ch;
 }
 
+.woocommerce .cart-collaterals .cart_totals, .woocommerce-page .cart-collaterals .cart_totals {
+	width: auto;
+}
+
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1,
+.woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2 {
+	float: none;
+	width: 100%;
+}
+
 button, .button, 
 .single_add_to_cart_button.button,
 .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
 	margin: 1rem 0;
+}
+
+#add_payment_method table.cart td.actions .coupon .input-text, .woocommerce-cart table.cart td.actions .coupon .input-text, .woocommerce-checkout table.cart td.actions .coupon .input-text {
+	margin: 1rem;
+	width: auto;
+	max-width: 18ch;
 }
 
 form.search-form .screen-reader-text {
@@ -186,6 +209,7 @@ ul.page-numbers { text-align: center; }
 	font-weight: bold;
 }
 
+.the.exerpt { position: relative; }
 .the.exerpt img { width: 100%; }
 
 .content {

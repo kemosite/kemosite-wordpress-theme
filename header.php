@@ -148,6 +148,20 @@
 							endif;
 							?>
 
+							<li class="menu-item">
+							<?php
+							if (in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ):
+								global $woocommerce;
+								// echo "Cart Count: ".$woocommerce->cart->cart_contents_count;
+								?>
+
+								<?php if ($woocommerce->cart->get_cart_contents_count() > 0): ?>
+									<a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( '%d item in cart', '%d items in cart', $woocommerce->cart->get_cart_contents_count() ), $woocommerce->cart->get_cart_contents_count() ); ?> - <?php echo $woocommerce->cart->get_cart_total(); ?></a>
+								<?php endif; ?>
+
+							<?php endif; ?>
+							</li>
+
 						</ul>
 
 					</nav><!-- #site-navigation -->

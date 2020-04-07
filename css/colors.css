@@ -90,6 +90,10 @@ ul.wc-tabs li a:hover, ul.wc-tabs li a:focus
 	color: var(--primary_color);
 }
 
+.woocommerce ul.products li.product .price {
+	color: var(--primary_bright_color);
+}
+
 table tbody tr:nth-child(2n) {
 	background-color: var(--light_black_tint);
 }
@@ -104,10 +108,12 @@ li.menu-item a:hover, li.menu-item.is-active > a, li.menu-item.is-active > a:lin
 	color: var(--primary_font_auto_color);
 }
 
-p a.button, li.product .button, .button, li a.button, li.product a.button, a.button, button, button.button, input.mailpoet_submit, input.pushbutton-wide, a.close-button, .wp-block-button__link, a.wp-block-button__link,
+p a.button, li.product .button, .button, li a.button, li.product a.button, a.button, button, button.button, input.mailpoet_submit, input.pushbutton-wide, a.close-button, .wp-block-button__link, div.wp-block-button a.wp-block-button__link,
 .wp-block-button, /* Block button */
 .onsale, .woocommerce-pagination span.page-numbers, .woocommerce-pagination a.page-numbers, .woocommerce-pagination a.next.page-numbers, .woocommerce-pagination a.prev.page-numbers,
-.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, /* WooCommerce */
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, /* WooCommerce */
+.woocommerce #respond input#submit.alt, .woocommerce a.button.wc-backward, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, /* WooCommerce */
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, /*WooCommerce */
 div.css-search div.em-search-main .em-search-submit /* Events */ {
 	-webkit-box-shadow: 0 1px 0 #0f0f0f;
 	box-shadow: 0 1px 0 #0f0f0f;
@@ -123,11 +129,15 @@ div.css-search div.em-search-main .em-search-submit /* Events */ {
 }
 
 p a.button:hover, p a.button:focus, li.product .button:hover, li.product .button:focus, .button:hover, .button:focus, a.button:hover, a.button:focus,
-.wp-block-button__link:hover, .wp-block-button__link:focus, a.wp-block-button__link:hover, a.wp-block-button__link:hover,
+.wp-block-button__link:hover, .wp-block-button__link:focus, div.wp-block-button a.wp-block-button__link:hover, div.wp-block-button a.wp-block-button__link:focus,
 button:hover, button:focus, input.mailpoet_submit:hover, input.mailpoet_submit:focus, input.pushbutton-wide:hover, input.pushbutton-wide:focus, button.button:hover, button.button:focus, a.close-button:hover, a.close-button:focus,
 .woocommerce-pagination span.page-numbers:hover, .woocommerce-pagination span.page-numbers:focus, .woocommerce-pagination a.page-numbers:hover, .woocommerce-pagination a.page-numbers:focus,
-.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover,
-.woocommerce #respond input#submit.alt:focus, .woocommerce a.button.alt:focus, .woocommerce button.button.alt:focus, .woocommerce input.button.alt:focus, /* WooCommerce */
+.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, /* WooCommerce */
+.woocommerce #respond input#submit:focus, .woocommerce a.button:focus, .woocommerce button.button:focus, .woocommerce input.button:focus, /* WooCommerce */
+.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.wc-backward:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, /* WooCommerce */
+.woocommerce #respond input#submit.alt:focus, .woocommerce a.button.wc-backward:focus, .woocommerce a.button.alt:focus, .woocommerce button.button.alt:focus, .woocommerce input.button.alt:focus, /* WooCommerce */
+.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, /*WooCommerce */
+.woocommerce #respond input#submit:focus, .woocommerce a.button:focus, .woocommerce button.button:focus, .woocommerce input.button:focus, /*WooCommerce */
 div.css-search div.em-search-main .em-search-submit:hover, div.css-search div.em-search-main .em-search-submit:focus /* Events */ {
 	-webkit-box-shadow: 0 2px 0 #0f0f0f;
 	box-shadow: 0 2px 0 #0f0f0f;
@@ -136,11 +146,35 @@ div.css-search div.em-search-main .em-search-submit:hover, div.css-search div.em
 	color: var(--primary_font_auto_color);
 }
 
+/* Disabled WooCommerce Buttons */
+.woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] {
+	color: white;
+	background-color: var(--invert_dark_color);
+}
+.woocommerce #respond input#submit.disabled:hover, .woocommerce #respond input#submit:disabled:hover, .woocommerce #respond input#submit:disabled[disabled]:hover, .woocommerce a.button.disabled:hover, .woocommerce a.button:disabled:hover, .woocommerce a.button:disabled[disabled]:hover, .woocommerce button.button.disabled:hover, .woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover, .woocommerce input.button.disabled:hover, .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover {
+	color: white;
+	background-color: var(--invert_bright_color);
+}
+
 .dropdown.menu li.is-active > a { color: var(--primary_font_auto_color); }
 .dropdown.menu > li.is-dropdown-submenu-parent > a::after { border-color: var(--primary_dark_color) transparent transparent; }
 
+#add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment {
+	background-color: var(--light_black_tint);
+}
+#add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box {
+	background-color: white;
+}
+#add_payment_method #payment div.payment_box::before, .woocommerce-cart #payment div.payment_box::before, .woocommerce-checkout #payment div.payment_box::before {
+	border: 1em solid white;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	border-top-color: transparent;
+}
+
 .woocommerce-pagination { border-top: 1px solid var(--primary_bright_color); }
 hr, .woocommerce-breadcrumb { border-bottom: 1px solid var(--primary_bright_color); }
+.woocommerce a.remove { line-height: 2ex; }
 
 a.tag-cloud-link {
     background-color: var(--primary_bright_color);
