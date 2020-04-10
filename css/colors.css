@@ -75,6 +75,9 @@ ul.wc-tabs li a, ul.wc-tabs li a:link
 	color: var(--primary_dark_color);
 }
 
+.accordion-title, .accordion-content { border-bottom: 1 }
+.accordion-content { border-top: 0; }
+
 h1 a:hover, h1 a:focus,
 h2 a:hover, h2 a:focus,
 h3 a:hover, h3 a:focus,

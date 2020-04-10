@@ -89,6 +89,8 @@ div.section h6 {
 
 div.section header h1 { font-size: 2em; }
 
+.accordion-title { font-size: 1em; }
+
 .media-object h4 {
     margin-top: 0;
     text-align: left;
@@ -176,7 +178,7 @@ blockquote p {
      display:inline;
 }
 
-select, input, button, a.button, .button,
+select, input, button, a.button, .button, a.wp-block-button__link,
 #add_payment_method .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button,
 #add_payment_method table.cart td.actions .coupon .input-text, .woocommerce-cart table.cart td.actions .coupon .input-text, .woocommerce-checkout table.cart td.actions .coupon .input-text, /* WooComerce */
 [type="color"], [type="date"], [type="datetime-local"], [type="datetime"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], textarea { 

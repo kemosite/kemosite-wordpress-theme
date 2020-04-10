@@ -82,6 +82,7 @@ ul { line-height: 1; }
 	min-width: 80px;
 	height: auto;
 	max-width: 59ch;
+	border-radius: .25rem;
 }
 
 .select2-container .select2-selection--single,
