@@ -188,7 +188,7 @@ add_shortcode('progress_bars', 'progress_bars_shortcode_method');
 
 function progress_bar_shortcode_method($attributes, $content) {
 
-    $output .= "";
+    $output = "";
 
     if ($attributes !== NULL):
         

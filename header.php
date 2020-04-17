@@ -47,7 +47,7 @@
  */
 ?>
 
-<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper" style="display: none;">
 
 	<!--
 	[Define Tablet Top-Bar Menu]

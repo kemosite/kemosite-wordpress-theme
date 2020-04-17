@@ -7,9 +7,10 @@ function kemosite_shortcodes_description_page() {
 	<style>table th, table td { padding: .25em; }</style>
 	<h1>Available Shortcodes</h1>
 	<table>
+		<caption>Available Shortcodes</caption><!-- Caption added for accessibility -->
 		<tr>
-			<th style="text-align: left;">Shortcode</th>
-			<th style="text-align: left;">Description</th>
+			<th scope="col" style="text-align: left;">Shortcode</th>
+			<th scope="col" style="text-align: left;">Description</th>
 		</tr>
 		<tr>
 			<td>[dropcap]</td>
@@ -26,7 +27,7 @@ function kemosite_shortcodes_description_page() {
 		<tr>
 			<td>[accordion_item],<br>
 			[accordion_full_width]</td>
-			<td><?php echo htmlspecialchars('<li class="accordian-item" data-accordion-item><a href="#" class="accordion-title">'.$attributes['title'].'</a><div class="accordion-content" data-tab-content>$content</div></li>'); ?></td>
+			<td><?php echo htmlspecialchars('<li class="accordian-item" data-accordion-item><a href="#" class="accordion-title">$attributes[\'title\']</a><div class="accordion-content" data-tab-content>$content</div></li>'); ?></td>
 		</tr>
 	</table>
 	<?php

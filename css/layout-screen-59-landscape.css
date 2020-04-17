@@ -39,7 +39,7 @@ textarea {
 	max-width: 59ch !important;
 }
 
-img {
+.wp-block-image img, img {
 	max-width: 59em;
 	max-width: 59ch;
 	margin-left: auto;
@@ -78,6 +78,7 @@ main .entry-meta {
 .page div.content main article ol,
 .page div.content main article table,
 .page div.content main article blockquote,
+.page div.content main article figcaption,
 .single div.content main p,
 .single div.content main ul,
 .single div.content main ol,
@@ -89,6 +90,7 @@ main .entry-meta {
 .single div.content main article ol,
 .single div.content main article table,
 .single div.content main article blockquote,
+.single div.content main article figcaption,
 div.content main .term-description,
 .sd-content ul {
 	max-width: 59rem;

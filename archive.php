@@ -21,7 +21,6 @@ get_header();
 
 	<section class="grid-x grid-padding-x align-middle align-center">
 		<header>
-			<!-- <h1><?php bloginfo( 'name' ); ?></h1> -->
 			<?php
 			the_archive_title( '<h1 class="entry-title">', '</h1>' );
 			?>
@@ -65,7 +64,7 @@ get_header();
 					$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($latest_post->object_id), 'single-post-thumbnail', wp_get_attachment_metadata($latest_post->object_id) );
 					?>
 					<?php if ($image && $image_srcset && $image_sizes): ?>
-						<div><img style="width: 100%;" src="<?php echo $image[0]; ?>" srcset="<?php echo esc_attr( $image_srcset ); ?>" sizes="<?php echo esc_attr( $image_sizes ); ?>"></div>
+						<div><img alt="" style="width: 100%;" src="<?php echo $image[0]; ?>" srcset="<?php echo esc_attr( $image_srcset ); ?>" sizes="<?php echo esc_attr( $image_sizes ); ?>"></div>
 					<?php endif; ?>
 
 					<header>

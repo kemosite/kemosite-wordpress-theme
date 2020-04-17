@@ -22,7 +22,7 @@
 
 body { 
     text-rendering: optimizeLegibility;
-    font-family: var(--body_copy_font_family_name);
+    font-family: var(--body_copy_font_family_name), sans-serif;
 }
 body * { font-size: inherit; }
 
@@ -105,6 +105,12 @@ td.label {
   background: inherit;
   font-size: inherit;
   font-weight: 600;
+}
+
+figcaption {
+    text-align: center;
+    font-size: .875em;
+    font-style: oblique;
 }
 
 label.a-form-label { display: inline-block; }

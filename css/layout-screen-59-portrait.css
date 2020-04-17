@@ -36,7 +36,7 @@ textarea {
 	max-width: 59ch !important;
 }
 
-img {
+.wp-block-image img, img {
 	max-width: 59rem;
 	max-width: 59ch;
 	margin-left: auto;
@@ -74,6 +74,7 @@ main .nav-previous {
 .page div.content main article ol,
 .page div.content main article table,
 .page div.content main article blockquote,
+.page div.content main article figcaption,
 .single div.content main p,
 .single div.content main ul,
 .single div.content main ol,
@@ -85,6 +86,7 @@ main .nav-previous {
 .single div.content main article ol,
 .single div.content main article table,
 .single div.content main article blockquote,
+.single div.content main article figcaption,
 .sd-content ul {
 	max-width: 59rem;
 	max-width: 59ch;
