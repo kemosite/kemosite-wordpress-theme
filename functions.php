@@ -785,16 +785,6 @@ function cd_customizer_css() {
 	/* [HEADER IMAGE] */
 	$default_header_image = get_theme_mod('kemosite_wordpress_header_bg_image');
 
-
-
-	/* [COLUMNS] */
-	$thumbnail_column_count = esc_attr( wc_get_loop_prop( 'columns' ) );
-	$thumbnail_column_width = 100 / $thumbnail_column_count;
-	$set_column_margin = 1; // %
-	$set_column_width = $thumbnail_column_width - ($set_column_margin * 2);
-	$set_double_column_width = ($thumbnail_column_width * 2) - ($set_column_margin * 2);
-	$set_full_column_width = 100 - ($set_column_margin * 2);
-
 ?>
 
 	<style type="text/css">
@@ -823,11 +813,6 @@ function cd_customizer_css() {
 
 		--default_header_image: <?php echo $default_header_image; ?>;
 
-		--set_column_margin: <?php echo $set_column_margin; ?>%;
-		--set_column_width: <?php echo $set_column_width; ?>%;
-		--set_double_column_width: <?php echo $set_double_column_width; ?>%;
-		--set_full_column_width: <?php echo $set_full_column_width; ?>%;
-
 	}
 
 	div.section { 
@@ -842,17 +827,55 @@ function cd_customizer_css() {
 	</style>
 
 	<script>
-		var chart_colours = {
+		var kemosite_wordpress_theme_chart_colours = {
+			
 			black_tint: "<?php echo $black_tint; ?>",
 			light_black_tint: "<?php echo $light_black_tint; ?>",
 			dark_black_tint: "<?php echo $dark_black_tint; ?>",
 			primary: "<?php echo $primary_color; ?>",
-			primary_bright: "<?php echo $primary_bright_color; ?>",
+			primary_bright_color: "<?php echo $primary_bright_color; ?>",
 			primary_dark_color: "<?php echo $primary_dark_color; ?>",
 			invert: "<?php echo $invert_color; ?>",
-			invert_bright: "<?php echo $invert_bright_color; ?>",
+			invert_bright_color: "<?php echo $invert_bright_color; ?>",
 			invert_dark_color: "<?php echo $invert_dark_color; ?>",
+
 		}
+
+		var kemosite_chart_default_font = "<?php echo "'" . urldecode($body_copy_font_family_name[0]) . "', serif"; ?>;";
+
+		var pantone_coty_chart_colour_alpha = 0.1;
+
+		// sRGB under D65 "C" Simulation
+		var pantone_coty_chart_colours = [
+		  { year:'2020', value:'rgba(0,70,128,'+pantone_coty_chart_colour_alpha+')' }, // Classic Blue
+		  { year:'2019', value:'rgba(255,109,112,'+pantone_coty_chart_colour_alpha+')' }, // Living Coral
+		  { year:'2018', value:'rgba(101,78,163,'+pantone_coty_chart_colour_alpha+')' }, // Ultra Violet
+		  { year:'2017', value:'rgba(132,189,0,'+pantone_coty_chart_colour_alpha+')' }, // Greenery
+		  { year:'2016', value:'rgba(242,221,222,'+pantone_coty_chart_colour_alpha+')' }, // Rose Quartz
+		  { year:'2016', value:'rgba(137,171,227,'+pantone_coty_chart_colour_alpha+')' }, // Serenity
+		  { year:'2015', value:'rgba(173,101,95,'+pantone_coty_chart_colour_alpha+')' }, // Marsala
+		  { year:'2014', value:'rgba(181,101,167,'+pantone_coty_chart_colour_alpha+')' }, // Radiant Orchid
+		  { year:'2013', value:'rgba(0,153,123,'+pantone_coty_chart_colour_alpha+')' }, // Emerald
+		  { year:'2012', value:'rgba(225,82,61,'+pantone_coty_chart_colour_alpha+')' }, // Tangerine Tango
+		  { year:'2011', value:'rgba(203,101,134,'+pantone_coty_chart_colour_alpha+')' }, // Honeysuckle
+		  { year:'2010', value:'rgba(77,182,173,'+pantone_coty_chart_colour_alpha+')' }, // Turquoise
+		  { year:'2009', value:'rgba(235,191,87,'+pantone_coty_chart_colour_alpha+')' }, // Mimosa
+		  { year:'2008', value:'rgba(99,100,165,'+pantone_coty_chart_colour_alpha+')' }, // Blue Iris
+		  { year:'2007', value:'rgba(157,54,63,'+pantone_coty_chart_colour_alpha+')' }, // Chili Pepper
+		  { year:'2006', value:'rgba(222,206,187,'+pantone_coty_chart_colour_alpha+')' }, // Sand Dollar
+		  { year:'2005', value:'rgba(91,179,176,'+pantone_coty_chart_colour_alpha+')' }, // Blue Turquoise
+		  { year:'2004', value:'rgba(226,101,77,'+pantone_coty_chart_colour_alpha+')' }, // Tigerlily
+		  { year:'2003', value:'rgba(127,201,203,'+pantone_coty_chart_colour_alpha+')' }, // Aqua Sky
+		  { year:'2002', value:'rgba(189,54,69,'+pantone_coty_chart_colour_alpha+')' }, // True Red
+		  { year:'2001', value:'rgba(195,78,124,'+pantone_coty_chart_colour_alpha+')' }, // Fuchsia Rose
+		  { year:'2000', value:'rgba(152,179,209,'+pantone_coty_chart_colour_alpha+')' }, // Cerulean
+		];
+
+		/*
+		console.log(pantone_coty_chart_colours);
+		console.log(pantone_coty_chart_colours.shift().value);
+		*/
+
 	</script>
 
 <?php

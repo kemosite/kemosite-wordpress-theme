@@ -75,9 +75,17 @@ function load_scripts_method() {
 	// print_r($custom_fields['load-graph-js'][0]);
 
 	if(isset($custom_fields['load-graph-js'][0]) && $custom_fields['load-graph-js'][0] == "true"):
+		
+		// Chart JS
 		wp_deregister_script('chart-js');
 		wp_register_script('chart-js', get_template_directory_uri().'/js/vendor/Chart.min.js', '', '2.9.3');
 		wp_enqueue_script('chart-js');
+
+		// Chart JS Config
+		wp_deregister_script('chart-js-config');
+		wp_register_script('chart-js-config', get_template_directory_uri().'/js/chart-js-config.js', '', '2.9.3');
+		wp_enqueue_script('chart-js-config');
+
 	endif;
 
 	// LESS
@@ -145,11 +153,12 @@ function defer_async_scripts( $tag, $handle, $src ) {
     'mediaelement',
     'kemosite-wordpress-theme-navigation',
     'kemosite-wordpress-theme-skip-link-focus-fix',
-    'kemosite-wordpress-theme-gtag'
+    'kemosite-wordpress-theme-gtag',
+    'chart-js-config'
   );
 
   $async = array(
-  	'chart-js',
+  	//'chart-js',
   	'my-jquery'
   );
 
