@@ -780,12 +780,18 @@ function cd_customizer_css() {
 	echo '<link href="https://fonts.googleapis.com/css?family='.$button_font.'" rel="stylesheet">';
 	$button_font_family_name = explode(":", $button_font);
 
-
-
 	/* [HEADER IMAGE] */
 	$default_header_image = get_theme_mod('kemosite_wordpress_header_bg_image');
 
-?>
+	/* [PRODUCT COLUMNS] */
+	$thumbnail_column_count = esc_attr( wc_get_loop_prop( 'columns' ) );
+	$thumbnail_column_width = 100 / $thumbnail_column_count;
+	$set_column_margin = 1; // %
+	$set_column_width = $thumbnail_column_width - ($set_column_margin * 2);
+	$set_double_column_width = ($thumbnail_column_width * 2) - ($set_column_margin * 2);
+	$set_full_column_width = 100 - ($set_column_margin * 2);
+
+	?>
 
 	<style type="text/css">
 
@@ -812,6 +818,11 @@ function cd_customizer_css() {
 		--button_font_family_name: <?php echo "'" . urldecode($button_font_family_name[0]) . "', sans-serif"; ?>;
 
 		--default_header_image: <?php echo $default_header_image; ?>;
+
+		--set_column_margin: <?php echo $set_column_margin; ?>%;
+		--set_column_width: <?php echo $set_column_width; ?>%;
+		--set_double_column_width: <?php echo $set_double_column_width; ?>%;
+		--set_full_column_width: <?php echo $set_full_column_width; ?>%;
 
 	}
 

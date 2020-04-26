@@ -118,9 +118,15 @@ div.span-all.columns {
 	margin: 2em;
 }
 
+ul.wc-block-grid__products {
+	max-width: inherit !important;
+}
+
 ul.products li.product,
 .woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product,
+ul.wc-block-grid__products li.wc-block-grid__product,
+div.wc-block-grid.has-3-columns li.wc-block-grid__product,
 .gallery-item,
 .flex-item {
 	flex: 0 1 auto;

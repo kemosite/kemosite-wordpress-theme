@@ -97,12 +97,16 @@ ul.wc-tabs li a:hover, ul.wc-tabs li a:focus
 	color: var(--primary_bright_color);
 }
 
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+	background-color: white;
+}
+
 table tbody tr:nth-child(2n) {
 	background-color: var(--light_black_tint);
 }
 
-table tbody, table tfoot, table thead {
-	border: 1px solid var(--light_black_tint);
+table, table.wp-block-table.is-style-stripes, table tbody, table tfoot, table thead {
+	border: 1px solid var(--light_black_tint) !important;
 	background-color: white;
 }
 
