@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+:root {
+	--layout: "screen-39-59-landscape";
+}
+
 /* [Define Grid Container] */
 .grid-layout-container {
 	display: grid;
@@ -75,7 +79,9 @@ main .nav-next {
 .single div.content main article table,
 .single div.content main article blockquote,
 .single div.content main article figcaption,
-.sd-content ul {
+.sd-content ul,
+.woocommerce table.shop_table,
+.wc-proceed-to-checkout a.checkout-button {
 	max-width: 39rem;
 	max-width: 39ch;
 	margin-right: auto;

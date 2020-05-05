@@ -117,6 +117,7 @@ li.menu-item a:hover, li.menu-item.is-active > a, li.menu-item.is-active > a:lin
 
 p a.button, li.product .button, .button, li a.button, li.product a.button, a.button, button, button.button, input.mailpoet_submit, input.pushbutton-wide, a.close-button, .wp-block-button__link, div.wp-block-button a.wp-block-button__link,
 .wp-block-button, /* Block button */
+input.search-submit,
 .onsale, .woocommerce-pagination span.page-numbers, .woocommerce-pagination a.page-numbers, .woocommerce-pagination a.next.page-numbers, .woocommerce-pagination a.prev.page-numbers,
 .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, /* WooCommerce */
 .woocommerce #respond input#submit.alt, .woocommerce a.button.wc-backward, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, /* WooCommerce */
@@ -133,10 +134,12 @@ div.css-search div.em-search-main .em-search-submit /* Events */ {
 	background: none;
 	background-color: var(--primary_dark_color);
 	color: var(--primary_font_auto_color);
+	border: 0;
 }
 
 p a.button:hover, p a.button:focus, li.product .button:hover, li.product .button:focus, .button:hover, .button:focus, a.button:hover, a.button:focus,
 .wp-block-button__link:hover, .wp-block-button__link:focus, div.wp-block-button a.wp-block-button__link:hover, div.wp-block-button a.wp-block-button__link:focus,
+input.search-submit:hover, input.search-submit:focus,
 button:hover, button:focus, input.mailpoet_submit:hover, input.mailpoet_submit:focus, input.pushbutton-wide:hover, input.pushbutton-wide:focus, button.button:hover, button.button:focus, a.close-button:hover, a.close-button:focus,
 .woocommerce-pagination span.page-numbers:hover, .woocommerce-pagination span.page-numbers:focus, .woocommerce-pagination a.page-numbers:hover, .woocommerce-pagination a.page-numbers:focus,
 .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, /* WooCommerce */

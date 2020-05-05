@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+:root {
+	--layout: "screen-59-landscape";
+}
+
 .top-bar.stacked-for-large .top-bar-left, .top-bar.stacked-for-large .top-bar-right {
 	flex: 0 1 auto;
 }
@@ -92,7 +96,9 @@ main .entry-meta {
 .single div.content main article blockquote,
 .single div.content main article figcaption,
 div.content main .term-description,
-.sd-content ul {
+.sd-content ul,
+.woocommerce table.shop_table,
+.wc-proceed-to-checkout a.checkout-button {
 	max-width: 59rem;
 	max-width: 59ch;
 	margin-right: auto;
@@ -184,6 +190,11 @@ div.wc-block-grid.has-3-columns li.wc-block-grid__product,
 	float: right;
 }
 */
+
+#add_payment_method table.cart td.actions .coupon .input-text, .woocommerce-cart table.cart td.actions .coupon .input-text, .woocommerce-checkout table.cart td.actions .coupon .input-text {
+	margin: 1rem;
+	width: 18ch;
+}
 
 .footer-menu li {
 	display: inline-block;

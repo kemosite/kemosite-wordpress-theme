@@ -62,6 +62,10 @@
 			<span aria-hidden="true">&times;</span>
 	    </button>
 
+	    <div class="grid-x clear-off-canvas-close-button">
+	    	<div class="cell"><?php get_search_form(); ?></div>
+	    </div>
+
 	    <!--
 	    <ul class="vertical menu">
 	      <li><a href="#">Foundation</a></li>
@@ -86,7 +90,9 @@
 	</div>
 
 	<!-- [Mobile Off-Canvas Menu] -->
-	<div class="off-canvas position-right" id="off_canvas_mobile_search" data-off-canvas>
+	<?php
+	/*
+	<div class="off-canvas position-right" id="off_canvas_cart" data-off-canvas>
 
 		<!-- Close button -->
 	    <button class="close-button" aria-label="Close menu" type="button" data-close>
@@ -94,10 +100,26 @@
 	    </button>
 
 	    <div class="grid-x clear-off-canvas-close-button">
-	    	<div class="cell"><?php get_search_form(); ?></div>
+	    	<div class="cell">
+				<?php
+				if (in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ):
+					
+					global $woocommerce;
+					// echo "Cart Count: ".$woocommerce->cart->cart_contents_count;
+					?>
+
+					<?php if ($woocommerce->cart->get_cart_contents_count() > 0): ?>
+						<a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( '%d item in cart', '%d items in cart', $woocommerce->cart->get_cart_contents_count() ), $woocommerce->cart->get_cart_contents_count() ); ?> - <?php echo $woocommerce->cart->get_cart_total(); ?></a>
+					<?php endif; ?>
+
+				<?php endif; ?>
+	    	</div>
 	    </div>
 
 	</div>
+
+	*/
+	?>
 
 	<div class="off-canvas-content" data-off-canvas-content>
 		
@@ -109,7 +131,7 @@
 
 				<button type="button" class="button large" data-toggle="off_canvas_mobile_menu"><i class="fi-list"></i></button>
 				<div class="mobile logo position"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]; ?>" alt=""></a></div>
-				<button type="button" class="button large float-right" data-toggle="off_canvas_mobile_search"><i class="fi-magnifying-glass"></i></button>
+				<a href="<?php echo wc_get_cart_url(); ?>" class="button large float-right"><i class="fi-shopping-cart"></i></a>
 
 			</div>
 
@@ -217,7 +239,11 @@
 				<!-- <h1><?php bloginfo( 'name' ); ?></h1> -->
 				
 				<?php
-				if ( is_front_page() || is_home() ):
+				if ( is_cart() ):
+					?>
+					<h1 class="page-title"></h1>
+					<?php
+				elseif ( is_front_page() || is_home() ):
 					the_title( '<h1 class="entry-title">', '</h1>' );
 				elseif ( is_single() ):
 					the_title( '<h1 class="entry-title">', '</h1>' );
