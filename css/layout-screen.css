@@ -255,6 +255,8 @@ div.product_meta span {
 	display: block;
 }
 
+iframe.youtube-player { width: 100%; }
+
 /* [Foundation Top-Bar Menu Example] *
 **
 .menu .menu-text { padding: 0; }

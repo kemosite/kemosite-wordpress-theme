@@ -9,6 +9,7 @@
 
 define( 'GITHUB_UPDATER_OVERRIDE_DOT_ORG', true ); // Override Dot Org will skip any updates from wordpress.org for plugins with identical slugs.
 if (!defined( 'SAVEQUERIES' )): define( 'SAVEQUERIES', true ); endif;
+define('DISABLE_NAG_NOTICES', true);
 
 /* [Declare Depedencies] */
 if ( ! function_exists( 'kemosite_wordpress_theme_dependencies' ) ) :

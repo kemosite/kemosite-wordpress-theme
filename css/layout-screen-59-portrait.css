@@ -93,7 +93,8 @@ main .nav-previous {
 .single div.content main article figcaption,
 .sd-content ul,
 .woocommerce table.shop_table,
-.wc-proceed-to-checkout a.checkout-button {
+.wc-proceed-to-checkout a.checkout-button,
+iframe.youtube-player {
 	max-width: 59rem;
 	max-width: 59ch;
 	margin-right: auto;

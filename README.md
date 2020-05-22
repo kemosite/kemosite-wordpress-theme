@@ -1,4 +1,4 @@
-# kemosite-wordpress-theme 5.4.1.1
+# kemosite-wordpress-theme 5.4.1.2
 ## A useful theme for Wordpress 5.4
 
 Contributors: Kevin Montgomery
@@ -18,13 +18,13 @@ License: GNU General Public License v2 or later
 "dependencies": {
     "chart.js": "^2.9.3",
     "foundation-icons": "^1.0.1",
-    "foundation-sites": "^6.6.1",
-    "jquery": "^3.4.1",
-    "lighthouse": "^5.6.0",
+    "foundation-sites": "^6.6.3",
+    "jquery": "^3.5.1",
+    "lighthouse": "^6.0.0",
     "mediaelement": "^4.2.16",
-    "npm": "^6.14.4",
-    "npm-check-updates": "^4.0.6",
-    "what-input": "^5.2.7"
+    "npm": "^6.14.5",
+    "npm-check-updates": "^6.0.1",
+    "what-input": "^5.2.9"
   }
 
 ## Installation
