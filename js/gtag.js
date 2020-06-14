@@ -6,7 +6,7 @@
 * using 'navigator.sendBeacon' in browser that support it.
 */
 
-if (gtag && typeof gtag === 'function') {
+if (gtag !== undefined && gtag !== null && typeof gtag === 'function') {
 	
 	var captureExternalLink = function(url) {
 	  gtag('event', 'click', {

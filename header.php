@@ -34,12 +34,19 @@
     wp_head();	
 	?>
 
+	<style>
+		.off-canvas-wrapper { display: none; }
+	</style>
+	<style amp-boilerplate>
+		html[amp] .off-canvas-wrapper { display: block !important; }
+	</style>
+
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<?
+<?php
 /**
  * Displays the class names for the body element.
  * (string|string[]) (Optional) Space-separated string or array of class names to add to the class list.
@@ -47,7 +54,7 @@
  */
 ?>
 
-<div class="off-canvas-wrapper" style="display: none;">
+<div class="off-canvas-wrapper">
 
 	<!--
 	[Define Tablet Top-Bar Menu]
@@ -236,13 +243,11 @@
 
 			<header>
 				
-				<!-- <h1><?php bloginfo( 'name' ); ?></h1> -->
-				
 				<?php
 				if ( is_cart() ):
-					?>
-					<h1 class="page-title"></h1>
-					<?php
+					?><h1 class="page-title"></h1><?php
+				elseif ( is_shop() || is_product_category() ):
+					?><h1 class="entry-title"><?php woocommerce_page_title(); ?></h1><?php
 				elseif ( is_front_page() || is_home() ):
 					the_title( '<h1 class="entry-title">', '</h1>' );
 				elseif ( is_single() ):

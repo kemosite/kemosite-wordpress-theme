@@ -116,6 +116,11 @@ function load_scripts_method() {
 	wp_register_script('kemosite-wordpress-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 	wp_enqueue_script('kemosite-wordpress-theme-skip-link-focus-fix');
 
+	// Accessibility enhancements
+	wp_deregister_script('kemosite-wordpress-theme-accessibility');
+	wp_register_script('kemosite-wordpress-theme-accessibility', get_template_directory_uri() . '/js/accessibility.js', array(), '20200525', true );
+	wp_enqueue_script('kemosite-wordpress-theme-accessibility');
+
 	// Gtag
 	wp_deregister_script('kemosite-wordpress-theme-gtag');
 	wp_register_script('kemosite-wordpress-theme-gtag', get_template_directory_uri() . '/js/gtag.js', array(), '20191216', true );
@@ -153,6 +158,7 @@ function defer_async_scripts( $tag, $handle, $src ) {
     'mediaelement',
     'kemosite-wordpress-theme-navigation',
     'kemosite-wordpress-theme-skip-link-focus-fix',
+    'kemosite-wordpress-theme-accessibility',
     'kemosite-wordpress-theme-gtag',
     'chart-js-config'
   );

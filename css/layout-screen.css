@@ -209,6 +209,12 @@ ul.page-numbers { text-align: center; }
 	font-weight: bold;
 }
 
+/*
+.section.header .entry-title {
+	columns: auto 1;
+}
+*/
+
 .the.exerpt { position: relative; }
 .the.exerpt img { width: 100%; }
 
@@ -218,7 +224,11 @@ ul.page-numbers { text-align: center; }
 }
 
 /* [Desktop Menu] */
-
+.dropdown.menu,
+.submenu.menu
+{ 
+	margin: 0;
+}
 .menu.nested {margin-left: 0 }
 .menu li { font-weight: bold; }
 .menu .nested li { font-weight: normal; }

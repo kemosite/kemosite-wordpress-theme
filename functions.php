@@ -758,26 +758,26 @@ function cd_customizer_css() {
 
 	$header_font_color = ($lum >= 50) ? 'black' : 'white';
 
+	$default_google_font = 'Quicksand';
+
 	/* [HEADER FONT] */
-	$header_font = get_theme_mod('kemosite_wordpress_header_font');
+	$header_font = get_theme_mod('kemosite_wordpress_header_font', $default_google_font);
 	echo '<link href="https://fonts.googleapis.com/css?family='.$header_font.'" rel="stylesheet">';
 	$header_font_family_name = explode(":", $header_font);
 	// urldecode ( string $str )
 
-
-
 	/* [H1-H6 FONT] */
-	$h1_h6_font = get_theme_mod('kemosite_wordpress_fonts_h1_h6');
+	$h1_h6_font = get_theme_mod('kemosite_wordpress_fonts_h1_h6', $default_google_font);
 	echo '<link href="https://fonts.googleapis.com/css?family='.$h1_h6_font.'" rel="stylesheet">';
 	$h1_h6_font_family_name = explode(":", $h1_h6_font);
 
 	/* [BODY COPY FONT] */
-	$body_copy_font = get_theme_mod('kemosite_wordpress_fonts_body');
+	$body_copy_font = get_theme_mod('kemosite_wordpress_fonts_body', $default_google_font);
 	echo '<link href="https://fonts.googleapis.com/css?family='.$body_copy_font.'" rel="stylesheet">';
 	$body_copy_font_family_name = explode(":", $body_copy_font);
 
 	/* [BUTTON FONT] */
-	$button_font = get_theme_mod('kemosite_wordpress_fonts_buttons');
+	$button_font = get_theme_mod('kemosite_wordpress_fonts_buttons', $default_google_font);
 	echo '<link href="https://fonts.googleapis.com/css?family='.$button_font.'" rel="stylesheet">';
 	$button_font_family_name = explode(":", $button_font);
 
@@ -785,12 +785,14 @@ function cd_customizer_css() {
 	$default_header_image = get_theme_mod('kemosite_wordpress_header_bg_image');
 
 	/* [PRODUCT COLUMNS] */
-	$thumbnail_column_count = esc_attr( wc_get_loop_prop( 'columns' ) );
-	$thumbnail_column_width = 100 / $thumbnail_column_count;
-	$set_column_margin = 1; // %
-	$set_column_width = $thumbnail_column_width - ($set_column_margin * 2);
-	$set_double_column_width = ($thumbnail_column_width * 2) - ($set_column_margin * 2);
-	$set_full_column_width = 100 - ($set_column_margin * 2);
+	if (is_plugin_active('woocommerce/woocommerce.php')):
+		$thumbnail_column_count = esc_attr( wc_get_loop_prop( 'columns' ) );
+		$thumbnail_column_width = 100 / $thumbnail_column_count;
+		$set_column_margin = 1; // %
+		$set_column_width = $thumbnail_column_width - ($set_column_margin * 2);
+		$set_double_column_width = ($thumbnail_column_width * 2) - ($set_column_margin * 2);
+		$set_full_column_width = 100 - ($set_column_margin * 2);
+	endif;
 
 	?>
 

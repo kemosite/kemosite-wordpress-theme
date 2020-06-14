@@ -21,6 +21,7 @@ get_header( 'shop' );
 
 ?>
 
+<!-- [CONSIDERING FOR REMOVAL]
 <div class="section">
 
 	<section class="grid-x grid-padding-x align-middle align-center">
@@ -30,6 +31,7 @@ get_header( 'shop' );
 	</section>
 
 </div>
+-->
 
 <div class="content">
 

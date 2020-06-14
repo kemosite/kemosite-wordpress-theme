@@ -1,10 +1,10 @@
-# kemosite-wordpress-theme 5.4.1.2
+# kemosite-wordpress-theme 5.4.2.1
 ## A useful theme for Wordpress 5.4
 
 Contributors: Kevin Montgomery
 Tags: adaptive, javascript, responsive, foundation, less, woocommerce, github, multi-column, custom-colours, custom-menu, custom-logo, custom-background, featured-images, threaded-comments, translation-ready, light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready, flexbox
 Requires at least: 5.4
-Tested up to: 5.4.1
+Tested up to: 5.4.2
 Requires PHP: 7.3
 License: GNU General Public License v2 or later
 
