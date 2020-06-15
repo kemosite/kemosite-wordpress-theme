@@ -138,7 +138,7 @@
 
 				<button type="button" class="button large" data-toggle="off_canvas_mobile_menu"><i class="fi-list"></i></button>
 				<div class="mobile logo position"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]; ?>" alt=""></a></div>
-				<a href="<?php echo wc_get_cart_url(); ?>" class="button large float-right"><i class="fi-shopping-cart"></i></a>
+				<?php if ( is_plugin_active('woocommerce/woocommerce.php') ): ?><a href="<?php echo wc_get_cart_url(); ?>" class="button large float-right"><i class="fi-shopping-cart"></i></a><?php endif; ?>
 
 			</div>
 
@@ -244,9 +244,9 @@
 			<header>
 				
 				<?php
-				if ( is_cart() ):
+				if ( is_plugin_active('woocommerce/woocommerce.php') && is_cart() ):
 					?><h1 class="page-title"></h1><?php
-				elseif ( is_shop() || is_product_category() ):
+				elseif ( is_plugin_active('woocommerce/woocommerce.php') && ( is_shop() || is_product_category() ) ):
 					?><h1 class="entry-title"><?php woocommerce_page_title(); ?></h1><?php
 				elseif ( is_front_page() || is_home() ):
 					the_title( '<h1 class="entry-title">', '</h1>' );
