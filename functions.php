@@ -792,6 +792,24 @@ function cd_customizer_css() {
 		$set_column_width = $thumbnail_column_width - ($set_column_margin * 2);
 		$set_double_column_width = ($thumbnail_column_width * 2) - ($set_column_margin * 2);
 		$set_full_column_width = 100 - ($set_column_margin * 2);
+
+		?>
+
+		<style type="text/css">
+
+			:root {
+
+				--set_column_margin: <?php echo $set_column_margin; ?>%;
+				--set_column_width: <?php echo $set_column_width; ?>%;
+				--set_double_column_width: <?php echo $set_double_column_width; ?>%;
+				--set_full_column_width: <?php echo $set_full_column_width; ?>%;
+
+			}
+
+		</style>
+
+		<?php
+
 	endif;
 
 	?>
@@ -821,11 +839,6 @@ function cd_customizer_css() {
 		--button_font_family_name: <?php echo "'" . urldecode($button_font_family_name[0]) . "', sans-serif"; ?>;
 
 		--default_header_image: <?php echo $default_header_image; ?>;
-
-		--set_column_margin: <?php echo $set_column_margin; ?>%;
-		--set_column_width: <?php echo $set_column_width; ?>%;
-		--set_double_column_width: <?php echo $set_double_column_width; ?>%;
-		--set_full_column_width: <?php echo $set_full_column_width; ?>%;
 
 	}
 

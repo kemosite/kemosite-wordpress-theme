@@ -27,12 +27,12 @@ body {
 body * { font-size: inherit; }
 
 /* HEADER GROUPS */
-h1 { font-size: 1.75em; font-weight: normal; }	/* Reserve for page titles */ 
-h2 { font-size: 1.5em; font-weight: normal; }	/* Subtitles */
-h3 { font-size: 1.25em; font-weight: normal; }   /* [Section title+] */
-h4 { font-size: 1em; font-weight: bold; }      /* [Normal] */
-h5 { font-size: .875em; font-weight: bold; }	
-h6 { font-size: .75em; font-weight: bold; }    /* [Small] */
+h1 { font-size: 1.75em; font-weight: normal; }	/* [PAGE TITLES] */ 
+h2 { font-size: 1.5em; font-weight: normal; }	/* [SUBTITLES] */
+h3 { font-size: 1.25em; font-weight: normal; }	/* [SECTION TITLES+] */
+h4 { font-size: 1em; font-weight: bold; }		/* [Body Copy Size] */
+h5 { font-size: .875em; font-weight: bold; }	/* [Small] */
+h6 { font-size: .75em; font-weight: bold; }		/* [Smaller] */
 
 h1,h2,h3,h4,h5,h6 { 
     margin-top: 1em;

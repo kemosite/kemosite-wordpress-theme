@@ -6,7 +6,7 @@ function buttons_shortcode_method($attributes, $content) {
 
 	if ($attributes !== NULL):
 
-		if ($attributes['href'] !== NULL):
+		if ( array_key_exists('href', $attributes) && $attributes['href'] !== NULL ):
 			$output .= '<a href="'.$attributes['href'].'" ';
 		elseif ($attributes['link'] !== NULL):
 			$output .= '<a href="'.$attributes['link'].'" ';
@@ -16,11 +16,11 @@ function buttons_shortcode_method($attributes, $content) {
 		
 		$output .= 'class="';
 
-		if ($attributes['type'] == "success"): 
+		if ( array_key_exists('type', $attributes) && $attributes['type'] == "success" ): 
 			$output .= 'success ';
-		elseif ($attributes['type'] == "alert"):
+		elseif ( array_key_exists('type', $attributes) && $attributes['type'] == "alert" ):
 			$output .= 'alert ';
-		elseif ($attributes['type'] == "secondary"):
+		elseif ( array_key_exists('type', $attributes) && $attributes['type'] == "secondary" ):
 			$output .= 'secondary ';
 		endif;
 
@@ -32,35 +32,35 @@ function buttons_shortcode_method($attributes, $content) {
 			$output .= 'large ';
 		endif;
 
-		if ($attributes['expand'] == "true"):
+		if ( array_key_exists('expand', $attributes) && $attributes['expand'] == "true" ):
 			$output .= 'expanded ';
-		elseif ($attributes['expand'] == "expanded"):
+		elseif ( array_key_exists('expand', $attributes) && $attributes['expand'] == "expanded" ):
 			$output .= 'expanded ';
-		elseif ($attributes['expand'] == "small-only-expanded"): // Expand only on small viewport
+		elseif ( array_key_exists('expand', $attributes) && $attributes['expand'] == "small-only-expanded"): // Expand only on small viewport
 			$output .= 'small-only-expanded ';
-		elseif ($attributes['expand'] == "medium-only-expanded"): // Expand only on medium viewport
+		elseif ( array_key_exists('expand', $attributes) && $attributes['expand'] == "medium-only-expanded"): // Expand only on medium viewport
 			$output .= 'medium-only-expanded ';
-		elseif ($attributes['expand'] == "large-only-expanded"): // Expand only on large viewport
+		elseif ( array_key_exists('expand', $attributes) && $attributes['expand'] == "large-only-expanded" ): // Expand only on large viewport
 			$output .= 'large-only-expanded ';
-		elseif ($attributes['expand'] == "medium-expanded"): // Expand on medium and larger
+		elseif ( array_key_exists('expand', $attributes) && $attributes['expand'] == "medium-expanded" ): // Expand on medium and larger
 			$output .= 'medium-expanded ';
-		elseif ($attributes['expand'] == "large-expanded"): // Expand on large and larger
+		elseif ( array_key_exists('expand', $attributes) && $attributes['expand'] == "large-expanded" ): // Expand on large and larger
 			$output .= 'large-expanded ';
-		elseif ($attributes['expand'] == "medium-down-expanded"): // Expand on medium and smaller
+		elseif ( array_key_exists('expand', $attributes) && $attributes['expand'] == "medium-down-expanded" ): // Expand on medium and smaller
 			$output .= 'medium-down-expanded ';
-		elseif ($attributes['expand'] == "large-down-expanded"): // Expand on large and smaller
+		elseif ( array_key_exists('expand', $attributes) && $attributes['expand'] == "large-down-expanded" ): // Expand on large and smaller
 			$output .= 'large-down-expanded ';
 		endif;
 
 		$output .= 'button">' . "\n";
 
-		if ($attributes['text'] !== NULL):
+		if ( array_key_exists('text', $attributes) && $attributes['text'] !== NULL):
 			$output .= $attributes['text'] . "\n";
 		else:
 			$output .= do_shortcode($content) . "\n";
 		endif;
 		
-		if ($attributes['href'] !== NULL || $attributes['link'] !== NULL):
+		if ( (array_key_exists('href', $attributes) && $attributes['href'] !== NULL) || (array_key_exists('link', $attributes) && $attributes['link'] !== NULL) ):
 			$output .= '</a>' . "\n";
 		else: 
 			$output .= '</button>' . "\n";

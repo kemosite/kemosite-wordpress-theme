@@ -77,7 +77,7 @@ function accordion_item_shortcode_method($attributes, $content) {
         $output = "";
         $output .= '<li class="accordian-item" data-accordion-item>' . "\n";
         
-        if ($attributes['title'] !== NULL): $output .= '<a href="#" class="accordion-title">'.$attributes['title'].'</a>' . "\n"; endif;
+        if ( array_key_exists('title', $attributes) && $attributes['title'] !== NULL ): $output .= '<a href="#" class="accordion-title">'.$attributes['title'].'</a>' . "\n"; endif;
         if ($attributes['caption'] !== NULL): $output .= '<a href="#" class="accordion-title">'.$attributes['caption'].'</a>' . "\n"; endif;
 
         $output .= '<div class="accordion-content" data-tab-content>' . "\n";
