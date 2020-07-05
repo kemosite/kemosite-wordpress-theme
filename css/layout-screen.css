@@ -108,6 +108,10 @@ select, input:not([type="checkbox"]), button, .button, .button.expanded, .wp-blo
 	height: auto;
 }
 
+/* Consolidate Wordpress and Foundation button class styles */
+a.wp-block-button__link ~ div.wp-block-button.button { padding: 0; }
+div.wp-block-button.button > a.wp-block-button__link { margin: 0; }
+
 .woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1,
 .woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2 {
 	float: none;
