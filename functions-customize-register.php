@@ -77,6 +77,7 @@ function my_customize_register( $wp_customize ) {
 		$adjust_primary_g_hex = str_pad(dechex(min(255, round($g_input * $contrast_adjustment))), 2, '0', STR_PAD_LEFT);
 		$adjust_primary_b_hex = str_pad(dechex(min(255, round($b_input * $contrast_adjustment))), 2, '0', STR_PAD_LEFT);
 
+		/*
 		echo '<script>' . 
 		'console.log(' . json_encode("Luminance: ".$luminance) . ');' . 
 		'console.log(' . json_encode("Evaluating Contrast: ".$eval_contrast) . ');' . 
@@ -86,6 +87,7 @@ function my_customize_register( $wp_customize ) {
 		'console.log(' . json_encode("GG: ".$adjust_primary_g_hex) . ');' . 
 		'console.log(' . json_encode("BB: ".$adjust_primary_b_hex) . ');' . 
 		'</script>';
+		*/
 
 		return '#'.$adjust_primary_r_hex.$adjust_primary_g_hex.$adjust_primary_b_hex;
 		

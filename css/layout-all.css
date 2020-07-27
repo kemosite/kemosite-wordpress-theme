@@ -121,6 +121,7 @@ footer {
 	align-items: center;
 	margin: 1em 0;
 	justify-content: flex-start;
+	padding: 0 1rem;
 }
 
 footer div.footer {
@@ -135,6 +136,8 @@ footer .jetpack-social-widget-list {
 	padding-left: 0;
 	display: flex;
 	list-style-type: none;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 footer .site-info {

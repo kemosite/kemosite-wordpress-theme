@@ -11,44 +11,50 @@
 
 <main role="main">
 
-	<section>
+	<div class="grid-x grid-margin-x">
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<div class="cell large-3 the exerpt">
 
-			<div class="grid-x grid-margin-x">
+			<!-- Get a thumbnail later -->
 
-				<div class="cell large-3 the exerpt">
+			<?php if ( 'post' === get_post_type() ) : ?>
+			<div class="entry-meta">
+				<p>POSTED: <?php the_time('jS F Y') ?></p>
+			</div><!-- .entry-meta -->
+			<?php endif; ?>
 
-					<!-- Get a thumbnail later -->
+			<?php
 
-					<?php if ( 'post' === get_post_type() ) : ?>
-					<div class="entry-meta">
-						<p>POSTED: <?php the_time('jS F Y') ?></p>
-					</div><!-- .entry-meta -->
-					<?php endif; ?>
+	    	// kemosite_wordpress_theme_post_thumbnail();
 
-					<?php
+			if (isset($latest_post)):
 
-			    	// kemosite_wordpress_theme_post_thumbnail();
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+				$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
+				$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
+				?>
+				<?php if ($image && $image_srcset && $image_sizes): ?>
+					<div class="featured image"><img style="width: 100%;" src="<?php echo $image[0]; ?>" srcset="<?php echo esc_attr( $image_srcset ); ?>" sizes="<?php echo esc_attr( $image_sizes ); ?>"></div>
+				<?php endif; ?>
 
-					if (isset($latest_post)):
+			<?php endif; ?>
 
-						$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
-						$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
-						$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
-						?>
-						<?php if ($image && $image_srcset && $image_sizes): ?>
-							<div class="featured image"><img style="width: 100%;" src="<?php echo $image[0]; ?>" srcset="<?php echo esc_attr( $image_srcset ); ?>" sizes="<?php echo esc_attr( $image_sizes ); ?>"></div>
-						<?php endif; ?>
+			<div class="small_ad"></div>
 
-					<?php endif; ?>
+		</div>
 
-					<div class="small_ad"></div>
+		<div class="cell large-6 the content">
 
-				</div>
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<!--
+			The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry.
+			-->
+	    	
+	    		<section>
+				<!--
+				The HTML <section> element represents a standalone section — which doesn't have a more specific semantic element to represent it — contained within an HTML document. Typically, but not always, sections have a heading.
+				-->
 
-				<div class="cell large-6 the content">
-			    	
 					<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 			    	<?php
@@ -61,40 +67,40 @@
 					) );
 					?>
 
-				</div>
+				</section>
 
-				<div class="cell large-3">
-					<!-- <div class="sidebar_ad"></div> -->
-				</div>
+			</article><!-- #post-<?php the_ID(); ?> -->
 
-		    </div>
+		</div>
 
-			<?php /*
-			if ( get_edit_post_link() ) : ?>
-				<footer class="entry-footer">
-					<?php
-					edit_post_link(
-						sprintf(
-							wp_kses(
-								/* translators: %s: Name of current post. Only visible to screen readers *
-								__( 'Edit <span class="screen-reader-text">%s</span>', 'kemosite-wordpress-theme' ),
-								array(
-									'span' => array(
-										'class' => array(),
-									),
-								)
+		<div class="cell large-3">
+			<!-- <div class="sidebar_ad"></div> -->
+		</div>
+
+    </div>
+
+	<?php /*
+	if ( get_edit_post_link() ) : ?>
+		<footer class="entry-footer">
+			<?php
+			edit_post_link(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers *
+						__( 'Edit <span class="screen-reader-text">%s</span>', 'kemosite-wordpress-theme' ),
+						array(
+							'span' => array(
+								'class' => array(),
 							),
-							get_the_title()
-						),
-						'<span class="edit-link">',
-						'</span>'
-					);
-					?>
-				</footer><!-- .entry-footer -->
-			<?php endif; */ ?>
-
-		</article><!-- #post-<?php the_ID(); ?> -->
-
-	</section>
+						)
+					),
+					get_the_title()
+				),
+				'<span class="edit-link">',
+				'</span>'
+			);
+			?>
+		</footer><!-- .entry-footer -->
+	<?php endif; */ ?>
 
 </main>

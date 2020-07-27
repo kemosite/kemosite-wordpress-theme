@@ -20,17 +20,23 @@ body {
 *, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 .mobile.logo.position {
-	display: inline-block;
-	height: 7rem;
+	display: flex;
 	height: 7ch;
 	width: 100%;
+	justify-content: center;
 	text-align: center;
-	margin: 1rem;
+	margin: 1rem 0;
 }
 
 .logo.position img {
 	height: 5rem;
 	height: 5ch;
+	margin: 0 !important;
+}
+
+.mobile.logo.position a {
+	display: flex;
+	justify-content: center;
 }
 
 .mobile.logo.position img {
@@ -102,7 +108,7 @@ select, input:not([type="checkbox"]), button, .button, .button.expanded, .wp-blo
 [type="color"], [type="date"], [type="datetime-local"], [type="datetime"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], textarea {
 	min-height: 56px;
 	min-width: 80px;
-	margin: 1rem auto;
+	/* margin: 1rem auto; */ /* Candidate for removal */
 	padding: 1rem;
 	border-radius: .25rem;
 	height: auto;
@@ -188,7 +194,7 @@ ul.page-numbers { text-align: center; }
 	width: 100vw;
 	grid-area: menu;
 	background-color: white;
-	z-index: 1;
+	z-index: 10;
 	top: 0;
 	display: flex;
 }
@@ -235,7 +241,10 @@ ul.page-numbers { text-align: center; }
 	margin: 0;
 }
 .menu.nested {margin-left: 0 }
-.menu li { font-weight: bold; }
+.menu li {
+	font-weight: bold;
+	margin: 0 !important;
+}
 .menu .nested li { font-weight: normal; }
 
 .off-canvas-menu > li > a,
@@ -313,4 +322,10 @@ iframe.youtube-player { width: 100%; }
 .fb-comments {
 	margin-right: auto;
 	margin-left: auto;
+}
+
+.footer-menu li {
+	margin: 0 !important;
+	display: inline-block;
+	padding: 0 1rem;
 }

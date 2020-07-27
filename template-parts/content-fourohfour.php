@@ -11,35 +11,41 @@
 
 <main role="main">
 
-	<section>
+	<div class="grid-x grid-margin-x">
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<div class="cell large-3 the exerpt">
 
-			<div class="grid-x grid-margin-x">
+			<?php
+			the_post_navigation(
+				array(
+		            'prev_text'          => 'Previous page: %title',
+		            'next_text'          => 'Next page: %title',
+		            'in_same_term'       => false,
+		            'excluded_terms'     => '',
+		            'taxonomy'           => 'category',
+		            'screen_reader_text' => __( 'Page navigation' ),
+		        )
+			);
+			?>
 
-				<div class="cell large-3 the exerpt">
+			<div class="small_ad">
+				<?php if( function_exists('the_ad_placement') ) { the_ad_placement('small-ad'); } ?>
+			</div>
 
-					<?php
-					the_post_navigation(
-						array(
-				            'prev_text'          => 'Previous page: %title',
-				            'next_text'          => 'Next page: %title',
-				            'in_same_term'       => false,
-				            'excluded_terms'     => '',
-				            'taxonomy'           => 'category',
-				            'screen_reader_text' => __( 'Page navigation' ),
-				        )
-					);
-					?>
+		</div>
 
-					<div class="small_ad">
-						<?php if( function_exists('the_ad_placement') ) { the_ad_placement('small-ad'); } ?>
-					</div>
+		<div class="cell large-6 the content">
 
-				</div>
-
-				<div class="cell large-6 the content">
-			    	
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<!--
+			The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry.
+			-->
+	    	
+	    		<section>
+				<!--
+				The HTML <section> element represents a standalone section — which doesn't have a more specific semantic element to represent it — contained within an HTML document. Typically, but not always, sections have a heading.
+				-->
+	    	
 			    	<h2><?php esc_html_e( 'Oops!', 'kemosite-wordpress-theme' ); ?></h2>
 					
 					<?php
@@ -80,42 +86,42 @@
 					the_widget( 'WP_Widget_Tag_Cloud' );
 					?>
 
-				</div>
+				</section>
 
-				<div class="cell large-3">
-					<div class="sidebar_ad">
-						<?php if( function_exists('the_ad_placement') ) { the_ad_placement('sidebar-ad'); } ?>
-					</div>
-				</div>
+			</article><!-- #post-<?php the_ID(); ?> -->
 
-		    </div>
+		</div>
 
-			<?php /*
-			if ( get_edit_post_link() ) : ?>
-				<footer class="entry-footer">
-					<?php
-					edit_post_link(
-						sprintf(
-							wp_kses(
-								/* translators: %s: Name of current post. Only visible to screen readers *
-								__( 'Edit <span class="screen-reader-text">%s</span>', 'kemosite-wordpress-theme' ),
-								array(
-									'span' => array(
-										'class' => array(),
-									),
-								)
+		<div class="cell large-3">
+			<div class="sidebar_ad">
+				<?php if( function_exists('the_ad_placement') ) { the_ad_placement('sidebar-ad'); } ?>
+			</div>
+		</div>
+
+    </div>
+
+	<?php /*
+	if ( get_edit_post_link() ) : ?>
+		<footer class="entry-footer">
+			<?php
+			edit_post_link(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers *
+						__( 'Edit <span class="screen-reader-text">%s</span>', 'kemosite-wordpress-theme' ),
+						array(
+							'span' => array(
+								'class' => array(),
 							),
-							get_the_title()
-						),
-						'<span class="edit-link">',
-						'</span>'
-					);
-					?>
-				</footer><!-- .entry-footer -->
-			<?php endif; */ ?>
-
-		</article><!-- #post-<?php the_ID(); ?> -->
-
-	</section>
+						)
+					),
+					get_the_title()
+				),
+				'<span class="edit-link">',
+				'</span>'
+			);
+			?>
+		</footer><!-- .entry-footer -->
+	<?php endif; */ ?>
 
 </main>

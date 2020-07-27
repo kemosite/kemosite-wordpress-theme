@@ -8,7 +8,7 @@
 .grid-layout-container {
 	display: grid;
 	grid-template-columns: 100%;
-	grid-template-rows: 6rem calc(33vh - 3rem) 1fr;
+	grid-template-rows: 6rem calc(33vh - 6rem) 1fr;
 	grid-template-areas:	"menu"
 							"section"
 							"content";
@@ -138,7 +138,7 @@ div.wc-block-grid.has-3-columns li.wc-block-grid__product,
 .flex-item {
 	flex: 0 1 auto;
 	align-self: stretch;
-	margin: var(--set_column_margin);
+	margin: 0 var(--set_column_margin) !important;
 	float: none;
 	width: 100% !important;
 	min-width: 256px;

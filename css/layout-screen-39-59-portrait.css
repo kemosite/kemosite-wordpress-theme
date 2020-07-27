@@ -122,7 +122,7 @@ ul.products li.product,
 .flex-item {
 	flex: 0 1 auto;
 	align-self: stretch;
-	margin: var(--set_column_margin);
+	margin: 0 var(--set_column_margin) !important;
 	float: none;
 	width: 100% !important;
 	min-width: 256px;
@@ -160,12 +160,4 @@ ul.products li.product,
 
 #add_payment_method .cart-collaterals .cart_totals table, .woocommerce-cart .cart-collaterals .cart_totals table, .woocommerce-checkout .cart-collaterals .cart_totals table {
 	margin: auto;
-}
-
-.footer-menu li {
-	display: flex;
-	flex-wrap: wrap;
-	padding: 0 1rem;
-	margin: .5em auto;
-	text-align: center;
 }
