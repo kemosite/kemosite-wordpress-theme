@@ -8,7 +8,7 @@
 .grid-layout-container {
 	display: grid;
 	grid-template-columns: 100%;
-	grid-template-rows: 6rem calc(33vh - 6rem) 1fr;
+	grid-template-rows: 6rem 33vh 1fr;
 	grid-template-areas:	"menu"
 							"section"
 							"content";
