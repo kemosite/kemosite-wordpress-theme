@@ -231,7 +231,7 @@ ul.page-numbers { text-align: center; }
 
 .content {
 	grid-area: content;
-	margin: 1rem;
+	margin: 1em;
 }
 
 /* [Desktop Menu] */
