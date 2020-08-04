@@ -4,19 +4,21 @@ document.addEventListener("DOMContentLoaded", function() {
         
         event.preventDefault();
         var url = $(this).attr("href");
+		var offset = $(this).offset();
 
 	    if (url) {
+
 			if (url.substr(0,1) == "#") {
-				
-				
-				$('html, body').animate({
-		            scrollTop: $(url).offset().top,
-		        }, 1500);
-		        
+
+		        $('html, body').animate({
+				    scrollTop: offset.top,
+				});		        
 		        
 			} else {
+
 				$(".off-canvas-wrapper").fadeOut("fast").css("display: none");
 				document.location.href=url;
+				
 			}
 		}
         
