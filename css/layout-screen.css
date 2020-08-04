@@ -93,6 +93,12 @@ a.button, a.button:link, a.button:hover, a.button:focus, a.button:active {
 
 ul { line-height: 1; }
 
+ul.accordian li.accordian-item {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+}
+
 .wp-block-button {
 	min-height: 56px;
 	min-width: 80px;
