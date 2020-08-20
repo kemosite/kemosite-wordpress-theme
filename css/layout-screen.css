@@ -25,11 +25,10 @@ body {
 	width: 100%;
 	justify-content: center;
 	text-align: center;
-	margin: 1rem 0;
+	margin: 1em 0;
 }
 
 .logo.position img {
-	height: 5rem;
 	height: 5ch;
 	margin: 0 !important;
 }
@@ -41,6 +40,7 @@ body {
 
 .mobile.logo.position img {
 	height: 100%;
+	width: inherit;
 }
 
 .is-dropdown-submenu-parent.opens-right > .is-dropdown-submenu {
@@ -73,7 +73,7 @@ a.button, a.button:link, a.button:hover, a.button:focus, a.button:active {
 }
 */
 
-.wrap { margin: 1rem auto; }
+.wrap { margin: 1em auto; }
 
 /* [Control Grid Parameters] */
 .off-canvas-wrapper {
@@ -84,26 +84,26 @@ a.button, a.button:link, a.button:hover, a.button:focus, a.button:active {
 }
 
 .cell { 
-	padding: 0 1rem;
+	padding: 0 1em;
 	flex: 0 1 auto;
 	width: auto;
 }
 
-.grid-x { margin: 2rem auto; }
+.grid-x { margin: 2em auto; }
 
 ul { line-height: 1; }
 
 ul.accordian li.accordian-item {
-	margin-top: 0;
-	margin-bottom: 0;
-	padding-left: 0;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	padding-left: 0 !important;
 }
 
 .wp-block-button {
 	min-height: 56px;
 	min-width: 80px;
 	height: auto;
-	border-radius: .25rem;
+	border-radius: .25em;
 }
 
 .select2-container .select2-selection--single,
@@ -114,9 +114,9 @@ select, input:not([type="checkbox"]), button, .button, .button.expanded, .wp-blo
 [type="color"], [type="date"], [type="datetime-local"], [type="datetime"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], textarea {
 	min-height: 56px;
 	min-width: 80px;
-	/* margin: 1rem auto; */ /* Candidate for removal */
-	padding: 1rem;
-	border-radius: .25rem;
+	/* margin: 1rem auto !important; */
+	padding: 0.5em 1em;
+	border-radius: .25em;
 	height: auto;
 }
 
@@ -134,7 +134,7 @@ div.wp-block-button.button > a.wp-block-button__link:hover { background-color: i
 button, .button, 
 .single_add_to_cart_button.button,
 .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
-	margin: 1rem 0;
+	margin: 1em 0 !important;
 }
 
 .woocommerce table.shop_table,
@@ -160,13 +160,13 @@ form.search-form label {
 hr,
 .woocommerce-breadcrumb, .woocommerce-pagination,
 canvas {
-	margin: 1.5rem auto;
+	margin: 1.5em auto;
 }
 
 ul.page-numbers { text-align: center; }
 
 .callout.secondary {
-	margin: 2rem auto;
+	margin: 2em auto;
 }
 
 .button.expanded {
@@ -333,5 +333,5 @@ iframe.youtube-player { width: 100%; }
 .footer-menu li {
 	margin: 0 !important;
 	display: inline-block;
-	padding: 0 1rem;
+	padding: 0 1em;
 }

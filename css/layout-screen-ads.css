@@ -41,12 +41,12 @@
 /* SMALL AD PROPERTIES */
 .small_ad, .big_ad {
 	background-color: transparent;
-	margin: 1rem auto;
+	margin: 1em auto;
 }
 .sidebar_ad {
 	display: none;
 	background-color: transparent;
-	margin: 1rem;
+	margin: 1em;
 }
 
 /* ADVANCED AD CLASS */
@@ -68,7 +68,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(234px + 4rem)) and (min-height: calc(60px * 3)) {
+		@media (min-width: calc(234px + 4em)) and (min-height: calc(60px * 3)) {
 			.small_ad {
 				width: 234px;
 				height: 60px;
@@ -87,7 +87,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(320px + 4rem)) and (min-height: calc(50px * 3)) {
+		@media (min-width: calc(320px + 4em)) and (min-height: calc(50px * 3)) {
 			.small_ad {
 				width: 320px;
 				height: 50px;
@@ -106,7 +106,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(320px + 4rem)) and (min-height: calc(100px * 3)) {
+		@media (min-width: calc(320px + 4em)) and (min-height: calc(100px * 3)) {
 			.small_ad {
 				width: 320px;
 				height: 100px;
@@ -149,7 +149,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(64em + 1rem)) and (orientation: landscape) {
+		@media (min-width: calc(64em + 1em)) and (orientation: landscape) {
 			.small_ad {
 				width: 320px;
 				height: 100px;
@@ -170,7 +170,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(125px + 4rem)) and (min-height: calc(125px + 33vh)) {
+		@media (min-width: calc(125px + 4em)) and (min-height: calc(125px + 33vh)) {
 			.big_ad {
 				width: 125px;
 				height: 125px;
@@ -189,7 +189,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(180px + 4rem)) and (min-height: calc(150px + 33vh)) {
+		@media (min-width: calc(180px + 4em)) and (min-height: calc(150px + 33vh)) {
 			.big_ad {
 				width: 180px;
 				height: 150px;
@@ -208,7 +208,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(200px + 4rem)) and (min-height: calc(200px + 33vh)) {
+		@media (min-width: calc(200px + 4em)) and (min-height: calc(200px + 33vh)) {
 			.big_ad {
 				width: 200px;
 				height: 200px;
@@ -227,7 +227,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(250px + 4rem)) and (min-height: calc(250px + 33vh)) {
+		@media (min-width: calc(250px + 4em)) and (min-height: calc(250px + 33vh)) {
 			.big_ad {
 				width: 250px;
 				height: 250px;
@@ -246,7 +246,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(300px + 4rem)) and (min-height: calc(250px + 33vh)) {
+		@media (min-width: calc(300px + 4em)) and (min-height: calc(250px + 33vh)) {
 			.big_ad {
 				width: 300px;
 				height: 250px;
@@ -265,7 +265,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(336px + 4rem)) and (min-height: calc(280px + 33vh)) {
+		@media (min-width: calc(336px + 4em)) and (min-height: calc(280px + 33vh)) {
 			.big_ad {
 				width: 336px;
 				height: 280px;
@@ -284,7 +284,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(468px + 4rem)) and (min-height: calc(60px * 3)) {
+		@media (min-width: calc(468px + 4em)) and (min-height: calc(60px * 3)) {
 			.big_ad {
 				width: 468px;
 				height: 60px;
@@ -303,7 +303,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(728px + 4rem)) and (min-height: calc(90px + 33vh)) {
+		@media (min-width: calc(728px + 4em)) and (min-height: calc(90px + 33vh)) {
 			.big_ad {
 				width: 728px;
 				height: 90px;
@@ -322,7 +322,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(970px + 4rem)) and (min-height: calc(90px + 33vh)) {
+		@media (min-width: calc(970px + 4em)) and (min-height: calc(90px + 33vh)) {
 			.big_ad {
 				width: 970px;
 				height: 90px;
@@ -341,7 +341,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(970px + 4rem)) and (min-height: calc(250px + 33vh)) {
+		@media (min-width: calc(970px + 4em)) and (min-height: calc(250px + 33vh)) {
 			.big_ad {
 				width: 970px;
 				height: 250px;
@@ -364,7 +364,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(64em + 120px + 4rem)) and (min-height: calc(240px + 4rem)) {
+		@media (min-width: calc(64em + 120px + 4em)) and (min-height: calc(240px + 4em)) {
 			.sidebar_ad {
 				display: block;
 				width: 120px;
@@ -385,7 +385,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(64em + 120px + 4rem)) and (min-height: calc(600px + 4rem)) {
+		@media (min-width: calc(64em + 120px + 4em)) and (min-height: calc(600px + 4em)) {
 			.sidebar_ad {
 				display: block;
 				width: 120px;
@@ -406,7 +406,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(64em + 160px + 4rem)) and (min-height: calc(600px + 4rem)) {
+		@media (min-width: calc(64em + 160px + 4em)) and (min-height: calc(600px + 4em)) {
 			.sidebar_ad {
 				display: block;
 				width: 160px;
@@ -427,7 +427,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(64em + 300px + 4rem)) and (min-height: calc(600px + 4rem)) {
+		@media (min-width: calc(64em + 300px + 4em)) and (min-height: calc(600px + 4em)) {
 			.sidebar_ad {
 				display: block;
 				width: 300px;
@@ -448,7 +448,7 @@ div[class*="-big-ad"] {
 		}
 	}
 	@supports not (-webkit-appearance:none) {
-		@media (min-width: calc(64em + 300px + 4rem)) and (min-height: calc(1050px + 4rem)) {
+		@media (min-width: calc(64em + 300px + 4em)) and (min-height: calc(1050px + 4em)) {
 			.sidebar_ad {
 				display: block;
 				width: 300px;

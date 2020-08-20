@@ -12,7 +12,7 @@
 .grid-layout-container {
 	display: grid;
 	grid-template-columns: 100%;
-	grid-template-rows: 6rem 33vh 1fr;
+	grid-template-rows: 4em 33vh 1fr;
 	grid-template-areas:	"menu"
 							"section"	
 							"content";
@@ -27,19 +27,15 @@
 
 li.display.logo.position { margin: 0; }
 
-form.search-form { margin-right: 1rem; }
+form.search-form { margin-right: 1em; }
 
-.top-bar input {
-	max-width: 59rem;
-	max-width: 59ch;
-}
+.top-bar input { max-width: 59ch; }
 
 .mailpoet_form input.mailpoet_text,
 form.contact-form,
 .contact-form input[type="email"], .contact-form input[type="text"], .contact-form input[type="url"],
 select,
 textarea {
-	max-width: 59rem !important;
 	max-width: 59ch !important;
 }
 
@@ -54,7 +50,7 @@ textarea {
 .section > section header h1 {
 	margin-top: 0;
 	margin-bottom: 0;
-	padding: .125rem .25rem;
+	padding: .125em .25em;
 }
 
 main .nav-next,
@@ -67,8 +63,8 @@ main .entry-meta {
 /* .single div.content main, */
 .single div.content main article div.the.content {
 	columns: 39ch auto;
-	margin: 2rem auto;
-	column-gap: 2rem;
+	margin: 2em auto;
+	column-gap: 2em;
 }
 
 .page div.content main p,
@@ -100,7 +96,6 @@ div.content main .term-description,
 .woocommerce table.shop_table,
 .wc-proceed-to-checkout a.checkout-button,
 iframe.youtube-player {
-	max-width: 59rem;
 	max-width: 59ch;
 	margin-right: auto;
 	margin-left: auto;
@@ -109,7 +104,6 @@ iframe.youtube-player {
 
 
 .search div.content main article p {
-	max-width: 59rem;
 	max-width: 59ch;
 	margin-right: auto;
 	margin-left: auto;
@@ -117,14 +111,12 @@ iframe.youtube-player {
 
 div.columns {
 	column-count: auto;
-	column-gap: 1rem;
-	column-width: 59rem;
+	column-gap: 1em;
 	column-width: 59ch;
 }
 
 div.span-all.columns {
 	column-count: 1;
-	max-width: 59rem;
 	max-width: 59ch;
 }
 
@@ -150,7 +142,6 @@ div.wc-block-grid.has-3-columns li.wc-block-grid__product,
 }
 
 .media-object {
-	width: 59rem;
 	width: 59ch;
 	margin: auto;
 }
@@ -158,8 +149,8 @@ div.wc-block-grid.has-3-columns li.wc-block-grid__product,
 	background-position:center center;
     background-repeat:no-repeat;
     overflow:hidden;
-    max-width: 9rem;
-    max-height: 9rem;
+    max-width: 9em;
+    max-height: 9em;
     background-size: cover;
 }
 .media-object .thumbnail img { 
@@ -193,6 +184,6 @@ div.wc-block-grid.has-3-columns li.wc-block-grid__product,
 */
 
 #add_payment_method table.cart td.actions .coupon .input-text, .woocommerce-cart table.cart td.actions .coupon .input-text, .woocommerce-checkout table.cart td.actions .coupon .input-text {
-	margin: 1rem;
+	margin: 1em;
 	width: 18ch;
 }

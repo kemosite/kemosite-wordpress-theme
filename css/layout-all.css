@@ -37,7 +37,7 @@ ol.flex-control-thumbs {
 }
 ol.flex-control-thumbs li {
 	list-style-type: none;
-	margin: 1rem;
+	margin: 1em;
 }
 
 .woocommerce ul.products,
@@ -97,7 +97,6 @@ ul.wc-tabs li {
 	display: block;
 }
 .fb-comments.fb_iframe_widget span {
-	max-width: 59rem;
 	max-width: 59ch;
 	width: 100%;
 }
@@ -125,7 +124,7 @@ footer {
 	align-items: center;
 	margin: 1em 0;
 	justify-content: flex-start;
-	padding: 0 1rem;
+	padding: 0 1em;
 }
 
 footer div.footer {
@@ -152,9 +151,7 @@ footer .site-info {
 .widget_text.copyright { margin-top: .5em; }
 
 .jetpack-social-widget-item svg {
-	width: 3rem;
 	width: 3ch;
-	height: 3rem;
 	height: 3ch;
 	border: 1px solid var(--black_tint);
 	border-radius: .25em;
