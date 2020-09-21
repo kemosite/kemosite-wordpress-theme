@@ -38,18 +38,20 @@
 */ ?>
 		<div class="grid-layout-footer">
 
-			<div class="grid_area_big_ad big_ad">
-				<?php if( function_exists('the_ad_placement') ) { the_ad_placement('big-ad'); } ?>
+			<div class="grid_area_big_ad">
+				<div class="big_ad"><?php if( function_exists('the_ad_placement') ) { the_ad_placement('big-ad'); } ?></div>
 			</div>
 
-			<div class="grid_area_tag_cloud tag-cloud">
-				<?php 
-				$args = array(
-					'smallest'                  => 1, 
-					'largest'                   => 1,
-					'unit'                      => 'em'
-				);
-				wp_tag_cloud($args); ?>
+			<div class="grid_area_tag_cloud">
+				<div class="tag-cloud">
+					<?php 
+					$args = array(
+						'smallest'                  => 1, 
+						'largest'                   => 1,
+						'unit'                      => 'em'
+					);
+					wp_tag_cloud($args); ?>
+				</div>
 			</div>
 
 			<footer class="grid_area_footer">
