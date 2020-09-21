@@ -20,6 +20,10 @@
 
 -------------------------------------------------------------------*/
 
+:root {
+	--colour-scheme: "light";
+}
+
 body {
 	color: var(--black_tint);
 }
@@ -207,3 +211,22 @@ footer { background-color: var(--light_black_tint); }
 .jetpack-social-widget-item a[target="new"]::after {
     content: "";
 }
+
+/*
+@media (prefers-color-scheme: dark) {
+
+	:root {
+		--colour-scheme: "dark";
+	}
+
+	body {
+		color: white;
+		background-color: var(--black_tint);
+	}
+
+	.top-bar, .top-bar ul {
+		background-color: var(--black_tint);
+	}
+
+}
+*/

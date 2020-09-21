@@ -9,32 +9,32 @@
 
 ?>
 
-<main role="main">
+<div class="grid-layout-content">
 
-	<div class="grid-x grid-margin-x">
+	<div class="grid_area_exerpt the exerpt">
 
-		<div class="cell large-3 the exerpt">
+		<?php
+		the_post_navigation(
+			array(
+	            'prev_text'          => 'Previous page: %title',
+	            'next_text'          => 'Next page: %title',
+	            'in_same_term'       => false,
+	            'excluded_terms'     => '',
+	            'taxonomy'           => 'category',
+	            'screen_reader_text' => __( 'Page navigation' ),
+	        )
+		);
+		?>
 
-			<?php
-			the_post_navigation(
-				array(
-		            'prev_text'          => 'Previous page: %title',
-		            'next_text'          => 'Next page: %title',
-		            'in_same_term'       => false,
-		            'excluded_terms'     => '',
-		            'taxonomy'           => 'category',
-		            'screen_reader_text' => __( 'Page navigation' ),
-		        )
-			);
-			?>
-
-			<div class="small_ad">
-				<?php if( function_exists('the_ad_placement') ) { the_ad_placement('small-ad'); } ?>
-			</div>
-
+		<div class="small_ad">
+			<?php if( function_exists('the_ad_placement') ) { the_ad_placement('small-ad'); } ?>
 		</div>
 
-		<div class="cell large-6 the content">
+	</div>
+
+	<div class="grid_area_content the content">
+
+		<main>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<!--
@@ -90,38 +90,12 @@
 
 			</article><!-- #post-<?php the_ID(); ?> -->
 
-		</div>
+		</main>
 
-		<div class="cell large-3">
-			<div class="sidebar_ad">
-				<?php if( function_exists('the_ad_placement') ) { the_ad_placement('sidebar-ad'); } ?>
-			</div>
-		</div>
+	</div>
 
-    </div>
+	<div class="grid_area_sidebar">
+		<div class="sidebar_ad"><?php if( function_exists('the_ad_placement') ) { the_ad_placement('sidebar-ad'); } ?></div>
+	</div>
 
-	<?php /*
-	if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
-			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers *
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'kemosite-wordpress-theme' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-			?>
-		</footer><!-- .entry-footer -->
-	<?php endif; */ ?>
-
-</main>
+</div>

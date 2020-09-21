@@ -4,18 +4,6 @@
 	--layout: "screen-39-landscape";
 }
 
-
-/* [Define Grid Container] */
-.grid-layout-container {
-	display: grid;
-	grid-template-columns: 100%;
-	grid-template-rows: 4em 33vh 1fr;
-	grid-template-areas:	"menu"
-							"section"	
-							"content";
-	grid-gap: 0;
-}
-
 .cell { 
 	padding: 0 1em;
 	flex: 0 1 auto;

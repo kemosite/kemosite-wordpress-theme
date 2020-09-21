@@ -4,15 +4,21 @@
 	--layout: "screen-39-59-landscape";
 }
 
-/* [Define Grid Container] */
-.grid-layout-container {
-	display: grid;
-	grid-template-columns: 100%;
-	grid-template-rows: 4em 33vh 1fr;
-	grid-template-areas:	"menu"
-							"section"	
-							"content";
-	grid-gap: 0;
+/*
+** CHROME HAS AN ISSUE WITH USING CALC WITHIN A MEDIA QUERY!! **
+*/
+
+/* [Define Grid Containers] */
+@media screen and ( min-width: 39ch ) {
+
+	.grid-layout-content {
+		grid-template-areas: "grid_area_exerpt grid_area_content";
+		grid-template-columns: 320px 1fr;
+		grid-template-rows: auto;
+		grid-gap: 0 2ch;
+		margin: 3ex 2ch;
+	}	
+
 }
 
 .top-bar input { max-width: 16ch; }

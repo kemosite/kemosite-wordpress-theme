@@ -219,6 +219,7 @@ function resource_hints_method($hints, $relation_type) {
 
     $prefetch_style = array( 
     	'foundation',
+    	'foundation-icons',
 		'kemosite-theme-master-styles'
 	);
 

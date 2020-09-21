@@ -11,7 +11,7 @@ get_header();
 
 ?>
 
-<div class="content">
+<div class="grid-layout-content">
 
 <!-- Display all categories, then display posts by popularity or date published -->
 
@@ -51,5 +51,7 @@ else:
 endif;
 
 ?>
+
+</div>
 
 <?php get_footer(); ?>

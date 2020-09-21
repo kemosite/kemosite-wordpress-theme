@@ -5,23 +5,8 @@
 }
 
 /*
-** Define grid for portrait mode
-** Slide between section and content
-** Menu options remain fixed
-** 
+** Define grid for < 39ch, portrait mode
 */
-
-/* [Define Grid Container] */
-.grid-layout-container {
-	display: grid;
-	grid-template-columns: 100%;
-	grid-template-rows: 4em 33vh 1fr;
-	grid-template-areas:	"menu"
-							"section"
-							"content";
-	grid-gap: 0;
-	overflow: auto;
-}
 
 div.section { background-image: none; }
 

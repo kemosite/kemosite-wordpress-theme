@@ -4,6 +4,60 @@
 	--layout: "screen";
 }
 
+/* [Define Grid Containers] */
+
+.grid-layout-header {
+	display: grid;
+	grid-gap: 0;
+	overflow: clip;
+	grid-template-columns: 100%;
+	grid-template-rows: 14ex 33vh;
+	grid-template-areas:	"grid_area_menu"
+							"grid_area_section";
+}
+.grid-layout-content {
+	margin: 3ex 2ch;
+	display: grid;
+	grid-gap: 0;
+	overflow: clip;
+	grid-template-columns: 100%;
+	grid-template-rows: auto auto;
+	grid-template-areas:	"grid_area_exerpt"
+							"grid_area_content";
+}
+.grid-layout-footer {
+	display: grid;
+	grid-gap: 0;
+	overflow: clip;
+	grid-template-columns: 100%;
+	grid-template-rows: auto auto auto;
+	grid-template-areas:	"grid_area_big_ad"
+							"grid_area_tag_cloud"
+							"grid_area_footer";
+}
+.grid_area_menu { grid-area: grid_area_menu; }
+.grid_area_section { grid-area: grid_area_section; }
+.grid_area_exerpt {
+	grid-area: grid_area_exerpt;
+	margin-top: 3ex;
+	margin-bottom: 3ex;
+}
+.grid_area_content {
+	grid-area: grid_area_content;
+	margin-top: 3ex;
+}
+.grid-layout-content.no-sidebars .grid_area_content {
+	max-width: 59ch;
+	margin: 0 auto;
+}
+.grid_area_sidebar { grid-area: grid_area_sidebar; display: none;}
+.grid_area_big_ad { grid-area: grid_area_big_ad; }
+.grid_area_tag_cloud { 
+	grid-area: grid_area_tag_cloud;
+	padding: 1em;
+}
+.grid_area_footer { grid-area: grid_area_footer; }
+
 /**
  **  MAX-WIDTHS SHOULD BE RESERVED FOR LARGER BREAKPOINTS **
  **/
@@ -84,7 +138,7 @@ a.button, a.button:link, a.button:hover, a.button:focus, a.button:active {
 }
 
 .cell { 
-	padding: 0 1em;
+	/* padding: 0 1em; */
 	flex: 0 1 auto;
 	width: auto;
 }
@@ -114,11 +168,12 @@ select, input:not([type="checkbox"]), button, .button, .button.expanded, .wp-blo
 [type="color"], [type="date"], [type="datetime-local"], [type="datetime"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], textarea {
 	min-height: 56px;
 	min-width: 80px;
-	/* margin: 1rem auto !important; */
 	padding: 0.5em 1em;
 	border-radius: .25em;
 	height: auto;
 }
+
+/* margin: 1ex auto !important; */
 
 /* Consolidate Wordpress and Foundation button class styles */
 div.wp-block-buttons > div.wp-block-button.button { padding: 0; }
@@ -134,7 +189,7 @@ div.wp-block-button.button > a.wp-block-button__link:hover { background-color: i
 button, .button, 
 .single_add_to_cart_button.button,
 .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
-	margin: 1em 0 !important;
+	margin: 1em auto !important;
 }
 
 .woocommerce table.shop_table,
@@ -145,6 +200,10 @@ button, .button,
 #add_payment_method table.cart input, .woocommerce-cart table.cart input, .woocommerce-checkout table.cart input {
 	margin: auto;
 	margin-right: 0;
+}
+
+form.search-form {
+	margin: 1em auto;
 }
 
 form.search-form .screen-reader-text {
@@ -162,6 +221,8 @@ hr,
 canvas {
 	margin: 1.5em auto;
 }
+
+hr.wp-block-separator { column-span: all; }
 
 ul.page-numbers { text-align: center; }
 
@@ -198,7 +259,6 @@ ul.page-numbers { text-align: center; }
 .main_mobile_menu {
 	position: fixed;
 	width: 100vw;
-	grid-area: menu;
 	background-color: white;
 	z-index: 10;
 	top: 0;
@@ -208,7 +268,6 @@ ul.page-numbers { text-align: center; }
 /* [Screen Menu] */
 .main_screen_menu {
 	width: 100%;
-	grid-area: menu;
 	/* z-index: 1; */
 	top: 0;
 }
@@ -216,7 +275,6 @@ ul.page-numbers { text-align: center; }
 .top-bar { padding: 0; }
 
 .section {
-	grid-area: section;
 	display: flex;
 }
 .section { align-items: center; }
@@ -226,19 +284,11 @@ ul.page-numbers { text-align: center; }
 	font-weight: bold;
 }
 
-/*
-.section.header .entry-title {
-	columns: auto 1;
+.section.header {
+	height: 100%;
 }
-*/
 
-.the.exerpt { position: relative; }
 .the.exerpt img { width: 100%; }
-
-.content {
-	grid-area: content;
-	margin: 1em;
-}
 
 /* [Desktop Menu] */
 .dropdown.menu,

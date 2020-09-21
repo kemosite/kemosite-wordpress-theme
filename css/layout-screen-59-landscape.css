@@ -8,20 +8,49 @@
 	flex: 0 1 auto;
 }
 
-/* [Define Grid Container] */
-.grid-layout-container {
-	display: grid;
-	grid-template-columns: 100%;
-	grid-template-rows: 4em 33vh 1fr;
-	grid-template-areas:	"menu"
-							"section"	
-							"content";
-	grid-gap: 0;
+/* [Define Grid Containers] */
+
+/*
+** CHROME HAS AN ISSUE WITH USING CALC WITHIN A MEDIA QUERY!! **
+*/
+
+@media screen and ( min-width: 64em ) {
+	.grid-layout-header { grid-template-rows: auto 33vh; }
+}
+
+@media screen and ( min-width: 117ch ) {
+
+	.grid_area_sidebar { display: block; }
+
+	.grid-layout-content {
+		grid-template-areas: "grid_area_exerpt grid_area_content grid_area_sidebar";
+		grid-template-columns: 320px 1fr 320px;
+		grid-template-rows: auto;
+		grid-gap: 0 2ch;
+		margin: 3ex 2ch;
+	}
+
+}
+
+@media screen and ( min-width: 137ch ) {
+
+	.grid_area_sidebar { display: block; }
+
+	.grid-layout-content {
+		grid-template-areas: "grid_area_exerpt grid_area_content grid_area_sidebar";
+		grid-template-columns: 460px 1fr 460px;
+		grid-template-rows: auto;
+		grid-gap: 0 2ch;
+		margin: 3ex 2ch;
+	}	
+
 }
 
 .dropdown.menu {
 	align-items: center;
 }
+
+.is-dropdown-submenu { min-width: 39ch }
 
 .menu .menu-text { padding: 0; }
 
@@ -30,6 +59,7 @@ li.display.logo.position { margin: 0; }
 form.search-form { margin-right: 1em; }
 
 .top-bar input { max-width: 59ch; }
+/* .top-bar .top-bar-left, .top-bar .top-bar-right { flex: 1 1 auto; } */
 
 .mailpoet_form input.mailpoet_text,
 form.contact-form,

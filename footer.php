@@ -36,76 +36,75 @@
 </body>
 </html>
 */ ?>
+		<div class="grid-layout-footer">
 
-<div class="big_ad">
-	<?php if( function_exists('the_ad_placement') ) { the_ad_placement('big-ad'); } ?>
-</div>
+			<div class="grid_area_big_ad big_ad">
+				<?php if( function_exists('the_ad_placement') ) { the_ad_placement('big-ad'); } ?>
+			</div>
 
-<div class="tag-cloud">
-	<?php 
-	$args = array(
-		'smallest'                  => 1, 
-		'largest'                   => 1,
-		'unit'                      => 'em'
-	);
-	wp_tag_cloud($args); ?>
-</div>
+			<div class="grid_area_tag_cloud tag-cloud">
+				<?php 
+				$args = array(
+					'smallest'                  => 1, 
+					'largest'                   => 1,
+					'unit'                      => 'em'
+				);
+				wp_tag_cloud($args); ?>
+			</div>
 
-<footer>
+			<footer class="grid_area_footer">
 
-	<?php if (has_nav_menu( 'footer-menu' ) || is_active_sidebar( 'copyright_widget' )): ?>
+				<?php if (has_nav_menu( 'footer-menu' ) || is_active_sidebar( 'copyright_widget' )): ?>
 
-	<div class="grid-x expanded footer">
+				<div class="grid-x expanded footer">
 
-		<?php if ( is_active_sidebar( 'copyright_widget' ) ) : ?>
-		<div class="cell">
-			<?php dynamic_sidebar( 'copyright_widget' ); ?>
-    	</div>
-    	<?php endif; ?>
+					<?php if ( is_active_sidebar( 'copyright_widget' ) ) : ?>
+					<div class="cell">
+						<?php dynamic_sidebar( 'copyright_widget' ); ?>
+			    	</div>
+			    	<?php endif; ?>
 
-    	<?php if ( has_nav_menu( 'footer-menu' ) ) : ?>
-		<div class="cell">
-	    	<?php wp_nav_menu( array(
-				'theme_location' => 'footer-menu',
-				'menu_id' => 'footer-menu',
-				'menu_class' => 'footer-menu',
-				'container' => '',
-				'walker' => new footer_menu_walker()
-			) ); ?>
-		</div>
-		<?php endif; ?>
+			    	<?php if ( has_nav_menu( 'footer-menu' ) ) : ?>
+					<div class="cell">
+				    	<?php wp_nav_menu( array(
+							'theme_location' => 'footer-menu',
+							'menu_id' => 'footer-menu',
+							'menu_class' => 'footer-menu',
+							'container' => '',
+							'walker' => new footer_menu_walker()
+						) ); ?>
+					</div>
+					<?php endif; ?>
 
-		<?php if ( is_active_sidebar( 'social_widget' ) ) : ?>
-		<div class="cell">
-			<?php dynamic_sidebar( 'social_widget' ); ?>
-    	</div>
-    	<?php endif; ?>
+					<?php if ( is_active_sidebar( 'social_widget' ) ) : ?>
+					<div class="cell">
+						<?php dynamic_sidebar( 'social_widget' ); ?>
+			    	</div>
+			    	<?php endif; ?>
 
-	</div>
+				</div>
 
-	<?php endif; ?>
+				<?php endif; ?>
 
-	<div class="site-info">
-		<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'kemosite-wordpress-theme' ) ); ?>">
-			<?php
-			/* translators: %s: CMS name, i.e. WordPress. */
-			printf( esc_html__( 'Proudly powered by %s', 'kemosite-wordpress-theme' ), 'WordPress' );
-			?>
-		</a>
-		<span class="sep"> | </span>
-			<?php
-			/* translators: 1: Theme name, 2: Theme author. */
-			printf( esc_html__( 'Theme: %1$s by %2$s.', 'kemosite-wordpress-theme' ), 'kemosite-wordpress-theme', '<a href="https://github.com/kemosite/kemosite-wordpress-theme">Kevin Montgomery</a>' );
-			?>
-	</div><!-- .site-info -->
+				<div class="site-info">
+					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'kemosite-wordpress-theme' ) ); ?>">
+						<?php
+						/* translators: %s: CMS name, i.e. WordPress. */
+						printf( esc_html__( 'Proudly powered by %s', 'kemosite-wordpress-theme' ), 'WordPress' );
+						?>
+					</a>
+					<span class="sep"> | </span>
+						<?php
+						/* translators: 1: Theme name, 2: Theme author. */
+						printf( esc_html__( 'Theme: %1$s by %2$s.', 'kemosite-wordpress-theme' ), 'kemosite-wordpress-theme', '<a href="https://github.com/kemosite/kemosite-wordpress-theme">Kevin Montgomery</a>' );
+						?>
+				</div><!-- .site-info -->
 
-</footer>
+			</footer>
 
-</div><!-- .content -->
+		</div><!-- .grid-layout-footer -->
 
-</div><!-- .grid-layout-container -->
-
-</div><!-- .off-canvas-content -->
+	</div><!-- .off-canvas-content -->
 
 </div><!-- .off-canvas-wrapper -->
 

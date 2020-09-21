@@ -24,11 +24,11 @@ function buttons_shortcode_method($attributes, $content) {
 			$output .= 'secondary ';
 		endif;
 
-		if ($attributes['size'] == "tiny"): 
+		if ( isset($attributes['size']) && $attributes['size'] == "tiny"): 
 			$output .= 'tiny ';
-		elseif ($attributes['size'] == "small"):
+		elseif ( isset($attributes['size']) && $attributes['size'] == "small"):
 			$output .= 'small ';
-		elseif ($attributes['size'] == "large"):
+		elseif ( isset($attributes['size']) && $attributes['size'] == "large"):
 			$output .= 'large ';
 		endif;
 

@@ -8,11 +8,11 @@ function callouts_shortcode_method($attributes, $content) {
 
 	if ($attributes !== NULL && is_array($attributes)):
 
-		if ($attributes['primary'] == "true"): $output .= ' primary'; endif;
-		if ($attributes['secondary'] == "true"): $output .= ' secondary'; endif;
-		if ($attributes['success'] == "true"): $output .= ' success'; endif;
-		if ($attributes['warning'] == "true"): $output .= ' warning'; endif;
-		if ($attributes['alert'] == "true"): $output .= ' alert'; endif;
+		if ( isset($attributes['primary']) && $attributes['primary'] == "true"): $output .= ' primary'; endif;
+		if ( isset($attributes['secondary']) && $attributes['secondary'] == "true"): $output .= ' secondary'; endif;
+		if ( isset($attributes['success']) && $attributes['success'] == "true"): $output .= ' success'; endif;
+		if ( isset($attributes['warning']) && $attributes['warning'] == "true"): $output .= ' warning'; endif;
+		if ( isset($attributes['alert']) && $attributes['alert'] == "true"): $output .= ' alert'; endif;
 
 	endif;
 

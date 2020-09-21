@@ -9,30 +9,38 @@
 
 ?>
 
-<main role="main">
+<div class="grid_area_content">
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<main role="main">
 
-    	<?php
-		the_content( sprintf( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kemosite-wordpress-theme' ), get_the_title() );
-		
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kemosite-wordpress-theme' ),
-			'after'  => '</div>',
-		) );
-		
-		the_post_navigation(
-			array(
-	            'prev_text'          => 'Previous page: %title',
-	            'next_text'          => 'Next page: %title',
-	            'in_same_term'       => false,
-	            'excluded_terms'     => '',
-	            'taxonomy'           => 'category',
-	            'screen_reader_text' => __( 'Page navigation' ),
-	        )
-		);
-		?>
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	</article><!-- #post-<?php the_ID(); ?> -->
+			<section>
 
-</main>
+				<?php
+				the_content( sprintf( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kemosite-wordpress-theme' ), get_the_title() );
+				
+				wp_link_pages( array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kemosite-wordpress-theme' ),
+					'after'  => '</div>',
+				) );
+				
+				the_post_navigation(
+					array(
+			            'prev_text'          => 'Previous page: %title',
+			            'next_text'          => 'Next page: %title',
+			            'in_same_term'       => false,
+			            'excluded_terms'     => '',
+			            'taxonomy'           => 'category',
+			            'screen_reader_text' => __( 'Page navigation' ),
+			        )
+				);
+				?>
+
+			</section>
+
+		</article><!-- #post-<?php the_ID(); ?> -->
+
+	</main>
+
+</div>
