@@ -142,7 +142,7 @@
 			<!-- Layout Grid: Menu -->
 			<div class="grid_area_menu">
 
-				<div class="main_mobile_menu hide-for-large" aria-hidden="true">
+				<div class="main_mobile_menu hide-for-large">
 
 					<button type="button" class="button large" data-toggle="off_canvas_mobile_menu"><i class="fi-list"></i></button>
 					<div class="mobile logo position"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]; ?>" alt=""></a></div>

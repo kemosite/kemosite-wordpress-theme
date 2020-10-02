@@ -42,6 +42,11 @@ body {
 	background-color: #fff;
 }
 
+.woocommerce-store-notice, p.demo_store {
+	background-color: #BF92B6;
+	color: #000;
+}
+
 .callout {
 	background-color: #fff;
 	border: 1px solid var(--primary_color);
@@ -74,7 +79,8 @@ h6 a, h6 a:link,
 p a, p a:link,
 li:not(.accordian-item) a, li:not(.accordian-item) a:link,
 .woocommerce-breadcrumb a:not(img), .woocommerce-breadcrumb a:link:not(img),
-ul.wc-tabs li a, ul.wc-tabs li a:link
+ul.wc-tabs li a, ul.wc-tabs li a:link,
+div a, div a:link
 {
 	color: var(--primary_dark_color);
 }
@@ -92,7 +98,8 @@ p a:hover, p a:focus,
 li a:hover, li a:focus,
 li.product a:hover, li.product a:focus,
 .woocommerce-breadcrumb a:hover:not(img), .woocommerce-breadcrumb a:focus:not(img),
-ul.wc-tabs li a:hover, ul.wc-tabs li a:focus
+ul.wc-tabs li a:hover, ul.wc-tabs li a:focus,
+div a:hover, div a:focus
 {
 	color: var(--primary_color);
 }

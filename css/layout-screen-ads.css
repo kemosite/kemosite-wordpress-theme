@@ -42,17 +42,27 @@
 .small_ad, .big_ad, .sidebar_ad {
 	background-color: transparent; /* #999 */
 	margin: 3ex auto !important;
+	width: auto;
+	height: auto;
+	align-items: center;
+}
+.small_ad, .big_ad {
+	display: flex;
 }
 .sidebar_ad {
 	display: none;
 }
 
 /* ADVANCED AD CLASS */
-div[class*="-big-ad"] {
+div[class*="-small-ad"],
+div[class*="-big-ad"],
+div[class*="-sidebar-ad"]
+{
 	width: 100%;
 	height: 100%;
-	display: block;
+	display: flex;
 	text-align: center;
+	align-items: center;
 }
 
 /* SMALL/WIDE AD QUERIES */
@@ -154,7 +164,7 @@ div[class*="-big-ad"] {
 /* SIDEBAR AD QUERIES */
 @media screen and (min-width: 120px) and (min-height: 240px) {
 	.sidebar_ad {
-		display: block;
+		display: flex;
 		width: 120px;
 		height: 240px;
 	}
@@ -162,7 +172,7 @@ div[class*="-big-ad"] {
 
 @media screen and (min-width: 120px) and (min-height: 600px) {
 	.sidebar_ad {
-		display: block;
+		display: flex;
 		width: 120px;
 		height: 600px;
 	}
@@ -170,7 +180,7 @@ div[class*="-big-ad"] {
 
 @media screen and (min-width: 160px) and (min-height: 600px) {
 	.sidebar_ad {
-		display: block;
+		display: flex;
 		width: 160px;
 		height: 600px;
 	}
@@ -178,7 +188,7 @@ div[class*="-big-ad"] {
 
 @media screen and (min-width: 300px) and (min-height: 600px) {
 	.sidebar_ad {
-		display: block;
+		display: flex;
 		width: 300px;
 		height: 600px;
 	}
@@ -186,7 +196,7 @@ div[class*="-big-ad"] {
 
 @media screen and (min-width: 300px) and (min-height: 1050px) {
 	.sidebar_ad {
-		display: block;
+		display: flex;
 		width: 300px;
 		height: 1050px;
 	}

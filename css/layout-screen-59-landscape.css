@@ -155,15 +155,20 @@ div.span-all.columns {
 }
 
 ul.products li.product,
+ul.products li.product:nth-child(1),
 .woocommerce ul.products li.product,
+.woocommerce ul.products li.product:nth-child(1),
 .woocommerce-page ul.products li.product,
+.woocommerce-page ul.products li.product:nth-child(1),
 ul.wc-block-grid__products li.wc-block-grid__product,
+ul.wc-block-grid__products li.wc-block-grid__product:nth-child(1),
 div.wc-block-grid.has-3-columns li.wc-block-grid__product,
+div.wc-block-grid.has-3-columns li.wc-block-grid__product:nth-child(1),
 .gallery-item,
 .flex-item {
 	flex: 0 1 auto;
 	align-self: stretch;
-	margin: 0 var(--set_column_margin) !important;
+	margin: 3ex 3ch;
 	float: none;
 	width: 100% !important;
 	min-width: 256px;

@@ -13,9 +13,9 @@
 
 	<main role="main">
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<!-- <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> -->
 
-			<section>
+			<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<?php
 				the_content( sprintf( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kemosite-wordpress-theme' ), get_the_title() );
@@ -39,7 +39,7 @@
 
 			</section>
 
-		</article><!-- #post-<?php the_ID(); ?> -->
+		<!-- </article>--><!-- #post-<?php the_ID(); ?> -->
 
 	</main>
 

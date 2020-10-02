@@ -97,6 +97,11 @@ function load_scripts_method() {
 	wp_enqueue_script('less');
 	*/
 
+	// amp-script 
+	wp_deregister_script('amp-script');
+	wp_register_script('amp-script', 'https://cdn.ampproject.org/v0/amp-script-0.1.js', array(), '0.1', 'true');
+	wp_enqueue_script('amp-script');
+
 	// JQuery
 	wp_deregister_script('my-jquery');
 	wp_register_script('my-jquery', get_template_directory_uri().'/js/my-jquery.js', array('jquery'), '3.3.1', 'true');
@@ -150,8 +155,12 @@ add_action('wp_enqueue_scripts', 'load_scripts_method');
 // Defer = A script that will not run until after the page has loaded:
 // Async = A script that will be run asynchronously as soon as it is available:
 
-function defer_async_scripts( $tag, $handle, $src ) {
+function defer_async_amp_scripts( $tag, $handle, $src ) {
   
+	$amp = array( 
+		'amp-script'
+	);
+
   $defer = array( 
     'foundation-what-input',
     'foundation-app',
@@ -168,6 +177,10 @@ function defer_async_scripts( $tag, $handle, $src ) {
   	'my-jquery'
   );
 
+  if ( in_array( $handle, $amp ) ) {
+     return '<script src="' . $src . '" async="async" custom-element="amp-script"></script>' . "\n";
+  }
+
   if ( in_array( $handle, $defer ) ) {
      return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
   }
@@ -178,7 +191,7 @@ function defer_async_scripts( $tag, $handle, $src ) {
     
     return $tag;
 } 
-add_filter( 'script_loader_tag', 'defer_async_scripts', 10, 3 );
+add_filter( 'script_loader_tag', 'defer_async_amp_scripts', 10, 3 );
 
 // add_filter( 'style_loader_tag', 'resource_hints_method', 10, 4;
 

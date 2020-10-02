@@ -37,11 +37,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	  	</div>
 	</div>
 	<?php do_action( 'woocommerce_after_subcategory', $category ); ?>
-	
-	<!--
-	<pre>
-	<?php print_r($category); ?>
-	</pre>
-	-->
 
 </li>
