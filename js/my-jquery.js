@@ -24,8 +24,12 @@ document.addEventListener("DOMContentLoaded", function() {
         
     });
 
+    $(".off-canvas-wrapper").fadeIn().css("display: block");
+
 });
 
+/*
 window.onload = function() {
 	$(".off-canvas-wrapper").fadeIn().css("display: block");
 };
+*/

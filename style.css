@@ -5,9 +5,9 @@ Theme URI: https://github.com/kemosite/kemosite-wordpress-theme
 GitHub Theme URI: https://github.com/kemosite/kemosite-wordpress-theme
 Author: Kevin Montgomery
 Author URI: https://github.com/kemosite/
-Description: A useful theme for Wordpress 5.5
-Requires at least: 5.5.1
-Version: 5.5.1.4
+Description: A useful theme for Wordpress 5.6
+Requires at least: 5.6
+Version: 5.6.0.1
 Requires PHP: 7.3
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -21,14 +21,14 @@ kemosite-wordpress-theme is based on Underscores https://underscores.me/, (C) 20
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 "dependencies": {
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "foundation-icons": "^1.0.1",
     "foundation-sites": "^6.6.3",
     "jquery": "^3.5.1",
-    "lighthouse": "^6.3.0",
+    "lighthouse": "^6.5.0",
     "mediaelement": "^4.2.16",
-    "npm": "^6.14.8",
-    "npm-check-updates": "^9.0.2",
+    "npm": "^6.14.9",
+    "npm-check-updates": "^10.2.2",
     "what-input": "^5.2.10"
   }
 

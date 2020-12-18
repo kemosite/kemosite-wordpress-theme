@@ -45,6 +45,7 @@
 	width: auto;
 	height: auto;
 	align-items: center;
+	overflow: hidden;
 }
 .small_ad, .big_ad {
 	display: flex;
@@ -63,6 +64,7 @@ div[class*="-sidebar-ad"]
 	display: flex;
 	text-align: center;
 	align-items: center;
+	flex-flow: column;
 }
 
 /* SMALL/WIDE AD QUERIES */
