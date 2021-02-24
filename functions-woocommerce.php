@@ -154,7 +154,7 @@ function my_subcategory_thumbnail( $category ) {
 
         // echo '<div class="cropped image" style="max-width:' . esc_attr( $dimensions['width'] ) . 'px; width: 100%; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $category->name ) . '"></div>';
 
-        echo '<div class="cropped image" style="width: ' . esc_attr( $dimensions['width'] ) . 'px; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img srcset="' . esc_attr( $srcset ) . '" src="' . esc_url( $image ) . '" alt="' . esc_attr( $category->name ) . '"></div>';
+        echo '<div class="cropped image" style="width: 100%; max-width: ' . esc_attr( $dimensions['width'] ) . 'px; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img srcset="' . esc_attr( $srcset ) . '" src="' . esc_url( $image ) . '" alt="' . esc_attr( $category->name ) . '"></div>';
 
     }
 }
@@ -256,7 +256,7 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
 
             // return '<div class="cropped image" style="max-width:' . esc_attr( $dimensions['width'] ) . 'px; width: 100%; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img src="' . esc_url( $image ) . '" alt="' . esc_attr( $props['alt'] ) . '"></div>';
 
-            return '<div class="cropped image" style="width: ' . esc_attr( $dimensions['width'] ) . 'px; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img ' . $srcset_output . ' src="' . esc_url( $image ) . '" '. $props_output . '></div>';
+            return '<div class="cropped image" style="width: 100%; max-width: ' . esc_attr( $dimensions['width'] ) . 'px; height:' . esc_attr( $dimensions['width'] ) . 'px; background-image: url(\'' . esc_url( $image ) . '\');"><img ' . $srcset_output . ' src="' . esc_url( $image ) . '" '. $props_output . '></div>';
 
         }
     }

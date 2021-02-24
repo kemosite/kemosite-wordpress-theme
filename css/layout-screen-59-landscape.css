@@ -80,7 +80,7 @@ textarea {
 .section > section header h1 {
 	margin-top: 0;
 	margin-bottom: 0;
-	padding: .125em .25em;
+	padding: 0 .25em;
 }
 
 main .nav-next,
@@ -177,7 +177,7 @@ div.wc-block-grid.has-3-columns li.wc-block-grid__product:nth-child(1),
 }
 
 .media-object {
-	width: 59ch;
+	max-width: 59ch;
 	margin: auto;
 }
 .media-object .thumbnail {

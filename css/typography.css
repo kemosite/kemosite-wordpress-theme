@@ -118,6 +118,11 @@ label.a-form-label { display: inline-block; }
 
 /* [DEFAULT LINK FORMATTING] */
 
+main p > a,
+main li > a:not(.wc-block-grid__product-link) {
+    border-bottom: 1px solid;
+}
+
 /* emails */
 a[href^="mailto:"]:after {
     font-family: 'modern_pictogramsnormal';

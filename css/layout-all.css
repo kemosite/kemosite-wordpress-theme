@@ -72,7 +72,10 @@ ul.wc-tabs li {
 	z-index: 9;
 }
 
-.card { height: 100%; }
+.card { 
+	height: 100%;
+	padding: 1ex 1ch;
+}
 .wp-block-column .card { border: none; }
 
 .cropped.image {
@@ -81,7 +84,7 @@ ul.wc-tabs li {
     overflow:hidden;
     margin: 1em auto;
     background-size: contain;
-    min-width: 256px;
+    min-width: 100%;
     min-height: 256px;
 }
 .cropped.image img {

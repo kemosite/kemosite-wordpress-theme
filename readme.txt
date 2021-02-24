@@ -1,4 +1,4 @@
-# kemosite-wordpress-theme 5.6.0.1
+# kemosite-wordpress-theme 5.6.2.1
 ## A useful theme for Wordpress 5.6
 
 Contributors: Kevin Montgomery
@@ -15,15 +15,14 @@ License: GNU General Public License v2 or later
  - Advanced Ads
  - Incorporates QODE Central Wordpress theme shortcodes
 
-"dependencies": {
+dependencies": {
     "chart.js": "^2.9.4",
     "foundation-icons": "^1.0.1",
     "foundation-sites": "^6.6.3",
     "jquery": "^3.5.1",
-    "lighthouse": "^6.5.0",
     "mediaelement": "^4.2.16",
-    "npm": "^6.14.9",
-    "npm-check-updates": "^10.2.2",
+    "npm": "^7.5.4",
+    "npm-check-updates": "^11.1.4",
     "what-input": "^5.2.10"
   }
 

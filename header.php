@@ -54,6 +54,8 @@
  */
 ?>
 
+<a class="screen-reader-text skip-link" href="#content">Skip to content</a>
+
 <!-- Foundation wrapper around off-canvas and the content. -->
 <div class="off-canvas-wrapper">
 
@@ -297,5 +299,8 @@
 			</div>
 
 		</div><!-- .grid-layout-header -->
+
+		<!-- Skip to content -->
+		<div id="content"></div>
 
 			

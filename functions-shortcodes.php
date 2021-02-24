@@ -333,7 +333,11 @@ function latest_post_method($attributes, $content) {
 
         $permalink = get_permalink($post['ID']);
         $image = wp_get_attachment_image_src( get_post_thumbnail_id($post['ID']), 'single-post-thumbnail');
-        $image_src = esc_url($image[0]);
+
+    	if (is_array($image)):
+    		$image_src = esc_url($image[0]);
+    	endif;
+
         $image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post['ID']), 'single-post-thumbnail', wp_get_attachment_metadata($post['ID']) );
         $image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post['ID']), 'single-post-thumbnail', wp_get_attachment_metadata($post['ID']) );
 
@@ -352,13 +356,16 @@ function latest_post_method($attributes, $content) {
 
         */
         
-        $output .= '<div class="media-object stack-for-small">
-          <div class="media-object-section">
-            <div class="thumbnail" style="background-image: url(\'' . esc_url( $image_src ) . '\')">
-              <a href="'.$permalink.'"><img src="' . esc_url( $image_src ) . '" srcset="' . esc_attr( $image_srcset ) . '" sizes="' . esc_attr( $image_sizes ) . '" alt="' . $post['post_title'] . '"></a>
-            </div>
-          </div>
-          <div class="media-object-section main-section">
+        $output .= '<div class="media-object stack-for-small">'."\n";
+
+       if (is_array($image)):
+            $output .= '<div class="media-object-section">
+                <div class="thumbnail" style="background-image: url(\'' . esc_url( $image_src ) . '\')">
+                <a href="'.$permalink.'"><img src="' . esc_url( $image_src ) . '" srcset="' . esc_attr( $image_srcset ) . '" sizes="' . esc_attr( $image_sizes ) . '" alt="' . $post['post_title'] . '"></a>
+                </div>
+            </div>';
+        endif;
+        $output .= '<div class="media-object-section main-section">
             <h4><a href="'.$permalink.'">'.$post['post_title'].'</a></h4>
             <p class="span-all-columns">'.kemosite_custom_excerpt($post['ID']).'</p>
           </div>

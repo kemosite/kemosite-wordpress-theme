@@ -48,7 +48,7 @@
 }
 .grid-layout-content.no-sidebars .grid_area_content {
 	max-width: 59ch;
-	margin: 0 auto;
+	margin: 0;
 }
 .grid_area_sidebar { grid-area: grid_area_sidebar; display: none;}
 .grid_area_big_ad { grid-area: grid_area_big_ad; }
@@ -159,6 +159,8 @@ ul.accordian li.accordian-item {
 	height: auto;
 	border-radius: .25em;
 }
+
+.wc-block-grid.has-aligned-buttons .wc-block-grid__product > :last-child { padding-bottom: 0; }
 
 .select2-container .select2-selection--single,
 #add_payment_method .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button,
