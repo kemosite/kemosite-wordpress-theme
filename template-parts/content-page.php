@@ -9,6 +9,7 @@
 
 ?>
 
+<?php if ($wp_query->query_vars['post_type'] != 'lp_course'): ?>
 <div class="grid_area_exerpt the exerpt">
 
 	<?php
@@ -27,6 +28,7 @@
 	<?php endif; ?>
 
 	<?php
+
 	// the_excerpt();
 	// get_the_excerpt($post->ID);
 	kemosite_custom_excerpt($post->ID);
@@ -48,6 +50,7 @@
 	</div>
 
 </div>
+<?php endif; ?>
 
 <div class="grid_area_content the content">
 
@@ -69,6 +72,7 @@
 					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kemosite-wordpress-theme' ),
 					'after'  => '</div>',
 				) );
+
 				?>
 
 			</section>
@@ -79,8 +83,12 @@
 
 </div>
 
+<?php if ($wp_query->query_vars['post_type'] != 'lp_course'): ?>
+
 <div class="grid_area_sidebar">
 	<div class="sidebar_ad">
 		<?php if( function_exists('the_ad_placement') ) { the_ad_placement('sidebar-ad'); } ?>
 	</div>
 </div>
+
+<?php endif; ?>

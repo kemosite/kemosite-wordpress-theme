@@ -1,5 +1,12 @@
 <?php
 
+// Determine whether this is an AMP response.
+if (!function_exists('is_amp_detected')):
+	function is_amp_detected() {
+	    return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+	}
+endif;
+
 /* [Load Parent Theme Styles] */
 
 function my_theme_enqueue_styles() {
@@ -47,12 +54,17 @@ function rss_post_thumbnail($content) {
 
 /* [Load Scripts] */
 function load_scripts_method() {
-	
+
 	// Retrieve Custom Fields from post.
 	$custom_fields = get_post_custom();
 
 	// Favicon
 	add_action('wp_head', 'ilc_favicon');
+
+	// amp-script 
+	wp_deregister_script('amp-script');
+	wp_register_script('amp-script', 'https://cdn.ampproject.org/v0/amp-script-0.1.js', '', '0.1', 'true');
+	wp_enqueue_script('amp-script');
 
 	// Foundation JS Files
 	wp_deregister_script('jquery');
@@ -87,20 +99,6 @@ function load_scripts_method() {
 		wp_enqueue_script('chart-js-config');
 
 	endif;
-
-	// LESS
-	// add_action('wp_head', 'less_master_stylesheet');
-
-	/*
-	wp_deregister_script('less');
-	wp_register_script('less', get_template_directory_uri().'/less-2.7.2/less.min.js', '', '2.7.2', 'true');
-	wp_enqueue_script('less');
-	*/
-
-	// amp-script 
-	wp_deregister_script('amp-script');
-	wp_register_script('amp-script', 'https://cdn.ampproject.org/v0/amp-script-0.1.js', array(), '0.1', 'true');
-	wp_enqueue_script('amp-script');
 
 	// JQuery
 	wp_deregister_script('my-jquery');
@@ -196,6 +194,12 @@ add_filter( 'script_loader_tag', 'defer_async_amp_scripts', 10, 3 );
 // add_filter( 'style_loader_tag', 'resource_hints_method', 10, 4;
 
 function resource_hints_method($hints, $relation_type) {
+
+	// Do not load scripts if AMP is detected.
+	// Consider whether an AMP version is possible, or even necessary.
+	if ( is_amp_detected() ) {
+        return $hints = array();
+    }
 	
 	global $wp_styles;
 	global $wp_scripts;
@@ -284,8 +288,11 @@ function resource_hints_method($hints, $relation_type) {
     return $hints;
 
 }
+
 if ( ! is_admin() && ! is_login_page() ):
+	
 	add_filter( 'wp_resource_hints', 'resource_hints_method', 10, 2 );
+
 endif;
 
 ?>

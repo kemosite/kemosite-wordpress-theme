@@ -90,6 +90,11 @@ div.section h6 {
 
 div.section header h1 { font-size: calc(1rem + 3ex); }
 
+.course-curriculum ul.curriculum-sections .section-header .section-title,
+.course-curriculum ul.curriculum-sections .section-header .section-desc {
+    margin: inherit !important;
+}
+
 .accordion-title { font-size: 1em; }
 
 .media-object h4 {
@@ -224,6 +229,7 @@ time.updated:before { content: "Updated: "; }
 .woocommerce-loop-product__title .price { margin-top: 3ex; }
 .woocommerce-Price-amount { font-family: var(--header_font_family_name); }
 .summary .price { font-size: calc(1em + 1ex); }
+p.price { text-align: center; }
 
 .button.small { font-size: .875em; }
 .button.medium { font-size: 1em; }

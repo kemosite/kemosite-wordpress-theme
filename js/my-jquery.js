@@ -24,7 +24,9 @@ document.addEventListener("DOMContentLoaded", function() {
         
     });
 
-    $(".off-canvas-wrapper").fadeIn().css("display: block");
+    document.fonts.ready.then( function() {
+	    $(".off-canvas-wrapper").fadeIn().css("display: block");
+	});
 
 });
 

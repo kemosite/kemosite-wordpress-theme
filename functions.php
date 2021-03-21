@@ -11,6 +11,13 @@ define( 'GITHUB_UPDATER_OVERRIDE_DOT_ORG', true ); // Override Dot Org will skip
 if (!defined( 'SAVEQUERIES' )): define( 'SAVEQUERIES', true ); endif;
 define('DISABLE_NAG_NOTICES', true);
 
+// Determine whether this is an AMP response.
+if (!function_exists('is_amp_detected')):
+	function is_amp_detected() {
+	    return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+	}
+endif;
+
 /* [Declare Depedencies] */
 if ( ! function_exists( 'kemosite_wordpress_theme_dependencies' ) ) :
 	function kemosite_wordpress_theme_dependencies() {
@@ -853,7 +860,10 @@ function cd_customizer_css() {
 
 	</style>
 
+	<?php if (!is_amp_detected() ): ?>
+
 	<script>
+		
 		var kemosite_wordpress_theme_chart_colours = {
 			
 			black_tint: "<?php echo $black_tint; ?>",
@@ -904,6 +914,8 @@ function cd_customizer_css() {
 		*/
 
 	</script>
+
+	<?php endif; ?>
 
 <?php
 }

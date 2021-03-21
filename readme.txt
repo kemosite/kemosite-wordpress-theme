@@ -1,11 +1,11 @@
-# kemosite-wordpress-theme 5.6.2.1
-## A useful theme for Wordpress 5.6
+# kemosite-wordpress-theme 5.7.0.1
+## A useful theme for Wordpress 5.7
 
 Contributors: Kevin Montgomery
 Tags: adaptive, javascript, responsive, foundation, less, woocommerce, github, multi-column, custom-colours, custom-menu, custom-logo, custom-background, featured-images, threaded-comments, translation-ready, light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready, flexbox
-Requires at least: 5.6
-Tested up to: 5.6
-Requires PHP: 7.3
+Requires at least: 5.7
+Tested up to: 5.7
+Requires PHP: 7.4
 License: GNU General Public License v2 or later
 
 ## Features
@@ -15,7 +15,7 @@ License: GNU General Public License v2 or later
  - Advanced Ads
  - Incorporates QODE Central Wordpress theme shortcodes
 
-dependencies": {
+"dependencies": {
     "chart.js": "^2.9.4",
     "foundation-icons": "^1.0.1",
     "foundation-sites": "^6.6.3",

@@ -47,7 +47,7 @@
 	margin-top: 3ex;
 }
 .grid-layout-content.no-sidebars .grid_area_content {
-	max-width: 59ch;
+	/* max-width: 59ch; */
 	margin: 0;
 }
 .grid_area_sidebar { grid-area: grid_area_sidebar; display: none;}
@@ -194,6 +194,21 @@ button, .button,
 	margin: 1em auto !important;
 }
 
+form[name="search-course"] .search-course-button {
+    position: inherit !important;
+    top: inherit !important;
+    right: inherit !important;
+    bottom: inherit !important;
+    padding: inherit !important;
+    height: inherit !important;
+    line-height: inherit !important;
+}
+
+.course-curriculum ul.curriculum-sections .section-header .section-left {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .woocommerce table.shop_table,
 #add_payment_method .cart-collaterals .cart_totals table, .woocommerce-cart .cart-collaterals .cart_totals table, .woocommerce-checkout .cart-collaterals .cart_totals table {
 	margin: 1em auto;
@@ -288,6 +303,9 @@ ul.page-numbers { text-align: center; }
 
 .section.header {
 	height: 100%;
+}
+ul.curriculum-sections li.section {
+	display: block;
 }
 
 .the.exerpt img { width: 100%; }

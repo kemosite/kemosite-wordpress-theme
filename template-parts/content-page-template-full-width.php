@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="grid_area_content">
+<div class="grid_area_content the content">
 
 	<main role="main">
 
