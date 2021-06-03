@@ -98,8 +98,10 @@ body {
 }
 
 .is-dropdown-submenu-parent.opens-right > .is-dropdown-submenu {
+	/*
 	left: 0;
 	top: 100%;
+	*/
 }
 
 a, a:link, a:hover, a:focus, a:active,
@@ -314,7 +316,7 @@ ul.curriculum-sections li.section {
 .dropdown.menu,
 .submenu.menu
 { 
-	margin: 0;
+	/* margin: 0; */
 }
 .menu.nested {margin-left: 0 }
 .menu li {

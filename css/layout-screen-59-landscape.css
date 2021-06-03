@@ -15,7 +15,11 @@
 */
 
 @media screen and ( min-width: 64em ) {
+	
 	.grid-layout-header { grid-template-rows: auto 33vh; }
+
+	.grid-layout-header .grid_area_menu .main_screen_menu .top-bar-left { position: absolute; }
+
 }
 
 @media screen and ( min-width: 117ch ) {

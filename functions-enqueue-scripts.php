@@ -126,7 +126,7 @@ function load_scripts_method() {
 
 	// Gtag
 	wp_deregister_script('kemosite-wordpress-theme-gtag');
-	wp_register_script('kemosite-wordpress-theme-gtag', get_template_directory_uri() . '/js/gtag.js', array(), '20191216', true );
+	wp_register_script('kemosite-wordpress-theme-gtag', get_template_directory_uri() . '/js/gtag.js', array(), '20210515', true );
 	wp_enqueue_script('kemosite-wordpress-theme-gtag');
 		
 	// Add menus

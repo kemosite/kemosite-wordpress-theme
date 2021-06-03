@@ -154,9 +154,10 @@
 
 				<!-- Start Top Bar -->
 				<div class="top-bar main_screen_menu show-for-large" id="responsive-menu">
+					
 					<div class="top-bar-left">
-						
-						<nav class="menu-test-menu-container">
+
+						<nav class="menu-container">
 
 							<ul id="top-bar-menu" class="dropdown menu" data-dropdown-menu>
 
@@ -266,7 +267,7 @@
 							elseif ( is_plugin_active('woocommerce/woocommerce.php') && ( is_shop() || is_product_category() ) ):
 								?><h1 class="entry-title"><?php woocommerce_page_title(); ?></h1><?php
 							elseif ( is_front_page() || is_home() ):
-								the_title( '<h1 class="entry-title">', '</h1>' );
+								echo "<h1>The Front Page</h1>"; // the_title( '<h1 class="entry-title">', '</h1>' );
 							elseif ( is_single() ):
 								the_title( '<h1 class="entry-title">', '</h1>' );
 							elseif ( is_search() ):

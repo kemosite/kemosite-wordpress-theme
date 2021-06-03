@@ -23,8 +23,8 @@ if ( ! function_exists( 'kemosite_wordpress_theme_dependencies' ) ) :
 	function kemosite_wordpress_theme_dependencies() {
 	 
 		// Check for github-updater
-		if (!is_plugin_active('github-updater/github-updater.php')):
-			echo '<div class="error"><p>Warning: This theme needs the github-updater plugin to function.</p></div>';
+		if (!is_plugin_active('git-updater/git-updater.php')):
+			echo '<div class="error"><p>Warning: This theme needs the git-updater plugin to function.</p></div>';
 		endif;
 
 		// Check for kemosite-typography-plugin

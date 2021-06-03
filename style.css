@@ -7,7 +7,7 @@ Author: Kevin Montgomery
 Author URI: https://github.com/kemosite/
 Description: A useful theme for Wordpress 5.7
 Requires at least: 5.7
-Version: 5.7.1.1
+Version: 5.7.2.1
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -21,13 +21,13 @@ kemosite-wordpress-theme is based on Underscores https://underscores.me/, (C) 20
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 "dependencies": {
-    "chart.js": "^3.2.1",
+    "chart.js": "^3.3.2",
     "foundation-icons": "^1.0.1",
     "foundation-sites": "^6.6.3",
     "jquery": "^3.6.0",
     "mediaelement": "^4.2.16",
-    "npm": "^7.12.1",
-    "npm-check-updates": "^11.5.11",
+    "npm": "^7.15.0",
+    "npm-check-updates": "^11.6.0",
     "what-input": "^5.2.10"
   }
 
