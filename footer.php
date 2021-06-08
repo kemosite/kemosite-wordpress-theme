@@ -131,11 +131,5 @@ endif;
 */
 ?>
 
-<noscript>
-<style>
-.off-canvas-wrapper { display: block; }
-</style>
-</noscript>
-
 </body>
 </html>

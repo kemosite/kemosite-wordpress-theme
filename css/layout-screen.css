@@ -225,7 +225,7 @@ form.search-form {
 	margin: 1em auto;
 }
 
-form.search-form .screen-reader-text {
+.screen-reader-text.skip-link {
 	display: none;
 }
 

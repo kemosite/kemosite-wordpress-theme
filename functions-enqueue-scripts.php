@@ -191,15 +191,18 @@ function defer_async_amp_scripts( $tag, $handle, $src ) {
 } 
 add_filter( 'script_loader_tag', 'defer_async_amp_scripts', 10, 3 );
 
-// add_filter( 'style_loader_tag', 'resource_hints_method', 10, 4;
+add_filter( 'style_loader_tag', 'resource_hints_method', 10, 4);
 
 function resource_hints_method($hints, $relation_type) {
 
 	// Do not load scripts if AMP is detected.
 	// Consider whether an AMP version is possible, or even necessary.
+	// This is breaking WordPress styles. Re-evaluate.
+	/*
 	if ( is_amp_detected() ) {
         return $hints = array();
     }
+    */
 	
 	global $wp_styles;
 	global $wp_scripts;
@@ -227,6 +230,7 @@ function resource_hints_method($hints, $relation_type) {
 	<link rel="dns-prefetch" href="//widget.com">
 	<link rel="preconnect" href="//cdn.example.com">
 	<link rel="prefetch" href="//example.com/logo-hires.jpg" as="image">
+	<link rel="preload" href="//example.com/foundation-icons.css" as="style">
 	<link rel="prerender" href="//example.com/next-page.html">
 	*/
 
@@ -284,6 +288,13 @@ function resource_hints_method($hints, $relation_type) {
     	endforeach;
 
     endif;
+
+    /*
+    echo "<pre>";
+    print_r($hints);
+    print_r($relation_type);
+    echo "</pre>";
+    */
 
     return $hints;
 

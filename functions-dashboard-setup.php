@@ -29,8 +29,9 @@ function kemosite_wordpress_nextsteps_widget_display() {
 	<h3><strong>iThemes SSL</strong></h3>
 	<p>Do not force site to use iThemes Security SSL feature. It's breaking pages with infinite redirects!</p>
 	<h1>Accessibility</h1>
-	<h3><strong>Menu</strong></h3>
-	<p>Limit navigation and other choices to seven at a time.</p>
+	<h3><strong>WCAG 2.0 Level AA</strong></h3>
+	<p>This theme is regularly tested for WCAG 2.0 Level AA compliance</p>
+	<p>For more info: <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">https://www.w3.org/WAI/standards-guidelines/wcag/</a></p>
 	<h1>Plug-Ins</h1>
 	<h3><strong>Required Plugins</strong></h3>
 	<p>kemosite typography plug-in for Wordpress<br>
@@ -41,7 +42,7 @@ function kemosite_wordpress_nextsteps_widget_display() {
 	<p>GitHub Updater<br>
 	<?php
 	/* [DETECT GITHUB UPDATER PLUGIN] */
-	if ( is_plugin_active( 'github-updater/github-updater.php' ) ): ?><em>Active</em><?php else: ?><em>Inactive</em><?php endif; ?>
+	if ( is_plugin_active( 'git-updater/git-updater.php' ) ): ?><em>Active</em><?php else: ?><em>Inactive</em><?php endif; ?>
 	</p>
 	<h3><strong>Suggested Plugins</strong></h3>
 	<p>WooCommerce<br>

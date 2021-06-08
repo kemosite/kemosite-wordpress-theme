@@ -34,13 +34,6 @@
     wp_head();	
 	?>
 
-	<style>
-		.off-canvas-wrapper { display: none; }
-	</style>
-	<style amp-boilerplate>
-		html[amp] .off-canvas-wrapper { display: block !important; }
-	</style>
-
 </head>
 
 <body <?php body_class(); ?>>
@@ -267,7 +260,7 @@
 							elseif ( is_plugin_active('woocommerce/woocommerce.php') && ( is_shop() || is_product_category() ) ):
 								?><h1 class="entry-title"><?php woocommerce_page_title(); ?></h1><?php
 							elseif ( is_front_page() || is_home() ):
-								echo "<h1>The Front Page</h1>"; // the_title( '<h1 class="entry-title">', '</h1>' );
+								?><h1 class="entry-title"><?php bloginfo('name'); ?></h1><?php
 							elseif ( is_single() ):
 								the_title( '<h1 class="entry-title">', '</h1>' );
 							elseif ( is_search() ):
