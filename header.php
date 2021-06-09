@@ -154,7 +154,7 @@
 
 							<ul id="top-bar-menu" class="dropdown menu" data-dropdown-menu>
 
-								<li class="menu-text display logo position" aria-label="Image of website logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="Return to home page"><img src="<?php echo wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]; ?>" alt=""></a></li>
+								<li class="menu-text display logo position" aria-label="Image of website logo"><a tabindex="0" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="Return to home page"><img src="<?php echo wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]; ?>" alt=""></a></li>
 						
 								<?php
 								if ( has_nav_menu( 'top-bar-menu' ) ) :

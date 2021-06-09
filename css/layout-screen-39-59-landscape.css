@@ -13,7 +13,7 @@
 
 	.grid-layout-content {
 		grid-template-areas: "grid_area_exerpt grid_area_content";
-		grid-template-columns: 320px 1fr;
+		grid-template-columns: minmax(auto, 320px) minmax(39ch, 1fr);
 		grid-template-rows: auto;
 		grid-gap: 0 2ch;
 		margin: 3ex 2ch;

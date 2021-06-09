@@ -312,7 +312,7 @@ class off_canvas_menu_walker extends Walker_Nav_Menu {
 	    $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
  
 	    $item_output = $args->before;
-	    $item_output .= '<a'. $attributes .'>';
+	    $item_output .= '<a tabindex="0"'. $attributes .'>';
 	    $item_output .= $args->link_before . $title . $args->link_after;
 	    $item_output .= '</a>';	    
 	    $item_output .= $args->after;
@@ -460,7 +460,7 @@ class mega_menu_walker extends Walker_Nav_Menu {
 	    $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
  
 	    $item_output = $args->before;
-	    $item_output .= '<a'. $attributes .'>';
+	    $item_output .= '<a tabindex="0"'. $attributes .'>';
 	    $item_output .= $args->link_before . $title . $args->link_after;
 	    $item_output .= '</a>';	    
 	    $item_output .= $args->after;
@@ -602,7 +602,7 @@ class footer_menu_walker extends Walker_Nav_Menu {
 	    $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
  
 	    $item_output = $args->before;
-	    $item_output .= '<a'. $attributes .'>';
+	    $item_output .= '<a tabindex="0"'. $attributes .'>';
 	    $item_output .= $args->link_before . $title . $args->link_after;
 	    $item_output .= '</a>';	    
 	    $item_output .= $args->after;
@@ -769,23 +769,23 @@ function cd_customizer_css() {
 
 	/* [HEADER FONT] */
 	$header_font = get_theme_mod('kemosite_wordpress_header_font', $default_google_font);
-	echo '<link href="https://fonts.googleapis.com/css?family='.$header_font.'" rel="stylesheet">';
+	echo '<link href="https://fonts.googleapis.com/css?family='.$header_font.'&display=swap" rel="stylesheet">';
 	$header_font_family_name = explode(":", $header_font);
 	// urldecode ( string $str )
 
 	/* [H1-H6 FONT] */
 	$h1_h6_font = get_theme_mod('kemosite_wordpress_fonts_h1_h6', $default_google_font);
-	echo '<link href="https://fonts.googleapis.com/css?family='.$h1_h6_font.'" rel="stylesheet">';
+	echo '<link href="https://fonts.googleapis.com/css?family='.$h1_h6_font.'&display=swap" rel="stylesheet">';
 	$h1_h6_font_family_name = explode(":", $h1_h6_font);
 
 	/* [BODY COPY FONT] */
 	$body_copy_font = get_theme_mod('kemosite_wordpress_fonts_body', $default_google_font);
-	echo '<link href="https://fonts.googleapis.com/css?family='.$body_copy_font.'" rel="stylesheet">';
+	echo '<link href="https://fonts.googleapis.com/css?family='.$body_copy_font.'&display=swap" rel="stylesheet">';
 	$body_copy_font_family_name = explode(":", $body_copy_font);
 
 	/* [BUTTON FONT] */
 	$button_font = get_theme_mod('kemosite_wordpress_fonts_buttons', $default_google_font);
-	echo '<link href="https://fonts.googleapis.com/css?family='.$button_font.'" rel="stylesheet">';
+	echo '<link href="https://fonts.googleapis.com/css?family='.$button_font.'&display=swap" rel="stylesheet">';
 	$button_font_family_name = explode(":", $button_font);
 
 	/* [HEADER IMAGE] */

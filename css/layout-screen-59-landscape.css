@@ -28,7 +28,7 @@
 
 	.grid-layout-content {
 		grid-template-areas: "grid_area_exerpt grid_area_content grid_area_sidebar";
-		grid-template-columns: 320px 1fr 320px;
+		grid-template-columns: minmax(auto, 320px) minmax(59ch, 1fr) minmax(auto, 320px);
 		grid-template-rows: auto;
 		grid-gap: 0 2ch;
 		margin: 3ex 2ch;
@@ -42,7 +42,7 @@
 
 	.grid-layout-content {
 		grid-template-areas: "grid_area_exerpt grid_area_content grid_area_sidebar";
-		grid-template-columns: 460px 1fr 460px;
+		grid-template-columns: minmax(auto, 460px) minmax(59ch, 1fr) minmax(auto, 460px);
 		grid-template-rows: auto;
 		grid-gap: 0 2ch;
 		margin: 3ex 2ch;

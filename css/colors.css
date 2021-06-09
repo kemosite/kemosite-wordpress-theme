@@ -121,7 +121,10 @@ table, table.wp-block-table.is-style-stripes, table tbody, table tfoot, table th
 	background-color: white;
 }
 
-li.menu-item a:hover, li.menu-item.is-active > a, li.menu-item.is-active > a:link {
+li.menu-item a:hover,
+li.menu-item.is-active > a,
+li.menu-item.is-active > a:link,
+footer a:hover {
 	background-color: var(--primary_bright_color);
 	color: var(--primary_font_auto_color);
 }

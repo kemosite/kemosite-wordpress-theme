@@ -11,7 +11,7 @@
 	grid-gap: 0;
 	overflow: clip;
 	grid-template-columns: 100%;
-	grid-template-rows: 14ex 33vh;
+	grid-template-rows: 14ex auto;
 	grid-template-areas:	"grid_area_menu"
 							"grid_area_section";
 }
@@ -111,6 +111,7 @@ button, button:link, button:hover, button:focus, button:active,
 .wp-block-button__link, .wp-block-button__link:link, .wp-block-button__link:hover, .wp-block-button__link:focus, .wp-block-button__link:active,
 ul.products li.product .button {
 	transition: 125ms ease-in-out;
+
 }
 
 .wc-block-grid__products {
@@ -276,7 +277,7 @@ ul.page-numbers { text-align: center; }
 
 /* [Mobile Menu] */
 .main_mobile_menu {
-	position: fixed;
+	/* position: fixed; */
 	width: 100vw;
 	background-color: white;
 	z-index: 10;

@@ -124,7 +124,9 @@ label.a-form-label { display: inline-block; }
 /* [DEFAULT LINK FORMATTING] */
 
 main p > a,
-main li > a:not(.wc-block-grid__product-link) {
+main li > a:not(.wc-block-grid__product-link),
+a[rel="bookmark"],
+footer a {
     border-bottom: 1px solid;
 }
 
