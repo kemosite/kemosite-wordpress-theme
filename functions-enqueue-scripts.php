@@ -235,7 +235,15 @@ function resource_hints_method($hints, $relation_type) {
 	*/
 
     $dns_prefetch_domains = array( 
-    	'https://fonts.googleapis.com/'
+    	// 'https://fonts.googleapis.com'
+	);
+
+	$preconnect_domains = array( 
+    	'https://fonts.googleapis.com'
+	);
+
+	$preconnect_domains_cors = array( 
+    	'https://fonts.gstatic.com'
 	);
 
     $prefetch_style = array( 
@@ -251,43 +259,70 @@ function resource_hints_method($hints, $relation_type) {
     	'my-jquery'
 	);
 
-   if ($relation_type === 'dns-prefetch'):
+	switch ($relation_type) {
 
-    	foreach($dns_prefetch_domains as $tag):
+		case 'dns-prefetch':
 
-    		$hints[] = array(
-	    		'href' => $tag
+			foreach($dns_prefetch_domains as $tag):
+
+	    		$hints[] = array(
+		    		'href' => $tag
+		    	);
+
+	    	endforeach;
+
+			break;
+
+		case 'preconnect':
+
+			foreach($preconnect_domains as $tag):
+
+	    		$hints[] = array(
+		    		'href' => $tag
+		    	);
+
+	    	endforeach;
+
+	    	foreach($preconnect_domains_cors as $tag):
+
+	    		$hints[] = array(
+		    		'href' => $tag,
+		    		'crossorigin' => 'same-origin'
+		    	);
+
+	    	endforeach;
+			
+			break;
+
+		case 'prefetch':
+
+			// Prefetch theme logo
+	    	$hints[] = array(
+	    		'as' => 'image',
+	    		'href' => wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]
 	    	);
 
-    	endforeach;
+	    	foreach($prefetch_style as $tag):
 
-	elseif ($relation_type === 'prefetch'):
-    	
-    	// Prefetch theme logo
-    	$hints[] = array(
-    		'as' => 'image',
-    		'href' => wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]
-    	);
+	    		$hints[] = array(
+		    		'as' => 'style',
+		    		'href' => $wp_styles->registered[$tag]->src
+		    	);
 
-    	foreach($prefetch_style as $tag):
+	    	endforeach;
 
-    		$hints[] = array(
-	    		'as' => 'style',
-	    		'href' => $wp_styles->registered[$tag]->src
-	    	);
+	    	foreach($prefetch_script as $tag):
 
-    	endforeach;
+	    		$hints[] = array(
+		    		'as' => 'script',
+		    		'href' => $wp_scripts->registered[$tag]->src
+		    	);
 
-    	foreach($prefetch_script as $tag):
+	    	endforeach;
 
-    		$hints[] = array(
-	    		'as' => 'script',
-	    		'href' => $wp_scripts->registered[$tag]->src
-	    	);
+			break;
 
-    	endforeach;
-
-    endif;
+	}
 
     /*
     echo "<pre>";

@@ -141,10 +141,13 @@ function my_customize_register( $wp_customize ) {
 	);
 
 	$font_selection = array(
-		'EB+Garamond:400' => 'EB Garamond, Regular 400',
-		'Open+Sans:300' => 'Open Sans, Light 300',
+		'EB+Garamond' => 'EB Garamond, Regular 400',
+		'Open+Sans:wght@300' => 'Open Sans, Light 300',
+		'Roboto:wght@300' => 'Roboto, Light 300',
 		'Roboto+Condensed' => 'Roboto Condensed, Regular 400',
-		'Roboto+Condensed:700' => 'Roboto Condensed, Bold 700'
+		'Roboto+Condensed:wght@700' => 'Roboto Condensed, Bold 700',
+		'Oswald:wght@300' => 'Oswald, Light 300',
+		'Oswald:wght@600' => 'Oswald, Semi-Bold 600'
 	);
 
 	$font_stretch = array(
@@ -384,7 +387,7 @@ function my_customize_register( $wp_customize ) {
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
-		'default' => $font_selection['Roboto+Condensed'],
+		'default' => $font_selection[$default_google_font],
 		'transport' => 'refresh', // or postMessage
 		'sanitize_callback' => '',
 		'sanitize_js_callback' => '', // Basically to_json.
@@ -404,7 +407,7 @@ function my_customize_register( $wp_customize ) {
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
-		'default' => $font_selection['Open+Sans:300'],
+		'default' => $font_selection[$default_google_font],
 		'transport' => 'refresh', // or postMessage
 		'sanitize_callback' => '',
 		'sanitize_js_callback' => '', // Basically to_json.
@@ -424,7 +427,7 @@ function my_customize_register( $wp_customize ) {
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
-		'default' => $font_selection['Roboto+Condensed'],
+		'default' => $font_selection[$default_google_font],
 		'transport' => 'refresh', // or postMessage
 		'sanitize_callback' => '',
 		'sanitize_js_callback' => '', // Basically to_json.
@@ -454,7 +457,7 @@ function my_customize_register( $wp_customize ) {
 		'type' => 'theme_mod', // or 'option'
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
-		'default' => $font_selection['Roboto+Condensed:700'],
+		'default' => $font_selection[$default_google_font],
 		'transport' => 'refresh', // or postMessage
 		'sanitize_callback' => '',
 		'sanitize_js_callback' => '' // Basically to_json.
