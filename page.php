@@ -22,27 +22,49 @@ get_header();
 
 <div class="grid-layout-content">
 
-<!-- Display all categories, then display posts by popularity or date published -->
+	<div class="grid_area_exerpt the exerpt">
 
-<?php 
+	    <?php if ( is_home() ) : ?>
+	    
+		    <?php wp_list_categories( array(
+		      'title_li' => '<h3>' . __( 'Categories', 'textdomain' ) . '</h3>'
+		    ) ); ?>
 
-while ( have_posts() ) : the_post();
+	    <?php endif; ?>
 
-	/*
-	 * Include the Post-Type-specific template for the content.
-	 * If you want to override this in a child theme, then include a file
-	 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-	 */
-	get_template_part( 'template-parts/content', 'page' );
+	    <div class="small_ad"><?php if( function_exists('the_ad_placement') ) { the_ad_placement('small-ad'); } ?></div>
 
-	// If comments are open or we have at least one comment, load up the comment template.
-	/*
-	if ( comments_open() || get_comments_number() ) :
-		comments_template();
-	endif;
-	*/
+    
+	</div>
 
-endwhile; ?>
+	<div class="grid_area_content the content">
+
+	    <main role="main">
+
+	    	<!-- Display all categories, then display posts by popularity or date published -->
+
+	    	<?php while ( have_posts() ) : the_post();
+
+	    		get_template_part( 'template-parts/content', 'page' );
+
+	        // echo "<pre>" . get_post_type() . "</pre>";
+
+	    		// If comments are open or we have at least one comment, load up the comment template.
+	    		/*
+	    		if ( comments_open() || get_comments_number() ) :
+	    			comments_template();
+	    		endif;
+	    		*/
+
+	    	endwhile; ?>
+
+	    </main>
+    
+	</div>
+
+	<div class="grid_area_sidebar">
+	    <div class="sidebar_ad"><?php if( function_exists('the_ad_placement') ) { the_ad_placement('sidebar-ad'); } ?></div>
+	</div>
 
 </div>
 

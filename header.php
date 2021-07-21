@@ -261,8 +261,10 @@
 								?><h1 class="entry-title"><?php woocommerce_page_title(); ?></h1><?php
 							elseif ( is_front_page() && is_page() ):
 								the_title( '<h1 class="entry-title">', '</h1>' );
-							elseif ( is_front_page() || is_home() ):
+							elseif ( is_front_page() ):
 								?><h1 class="entry-title"><?php bloginfo('name'); ?></h1><?php
+							elseif (  is_home() ):
+								?><h1 class="entry-title">Posts</h1><?php
 							elseif ( is_single() ):
 								the_title( '<h1 class="entry-title">', '</h1>' );
 							elseif ( is_search() ):

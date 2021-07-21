@@ -26,7 +26,52 @@ get_header( 'shop' ); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php wc_get_template_part( 'content', 'single-product' ); ?>
+		<!-- <main role="main"> probably this one-->
+
+		<div class="grid_area_exerpt the exerpt">
+
+			<?php
+
+			/**
+			 * Hook: woocommerce_before_single_product.
+			 *
+			 * @hooked wc_print_notices - 10
+			 */
+			do_action( 'woocommerce_before_single_product' );
+
+			/**
+			 * Hook: woocommerce_before_single_product_summary.
+			 *
+			 * @hooked woocommerce_show_product_sale_flash - 10
+			 * @hooked woocommerce_show_product_images - 20
+			 */
+			do_action( 'woocommerce_before_single_product_summary' );
+
+			?>
+
+			<div class="small_ad">
+				<?php if( function_exists('the_ad_placement') ) { the_ad_placement('small-ad'); } ?>
+			</div>
+
+		</div>
+
+		<div class="grid_area_content the content">
+
+			<main role="main">
+
+				<?php wc_get_template_part( 'content', 'single-product' ); ?>
+
+			</main>
+
+		</div>
+
+		<div class="grid_area_sidebar">
+			<div class="sidebar_ad"><?php if( function_exists('the_ad_placement') ) { the_ad_placement('sidebar-ad'); } ?></div>
+		</div>
+
+		<?php do_action( 'woocommerce_after_single_product' ); ?>
+
+		<!-- </main> -->
 
 	<?php endwhile; // end of the loop. ?>
 

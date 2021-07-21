@@ -1,4 +1,4 @@
-# kemosite-wordpress-theme 5.7.2.5
+# kemosite-wordpress-theme 5.7.2.6
 ## A useful theme for Wordpress 5.7
 
 Contributors: Kevin Montgomery
