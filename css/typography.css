@@ -158,6 +158,10 @@ a[target="new"]:after {
     content: "";
 }
 
+li.categories {
+    list-style: none;
+}
+
 li.jetpack-social-widget-item {
     list-style: none;
     display: inline-block;
