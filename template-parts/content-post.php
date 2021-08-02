@@ -10,6 +10,7 @@
 
 ?>
 
+<!-- content-post.php -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <!--
 The HTML <article> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry.
@@ -21,7 +22,7 @@ The HTML <article> element represents a self-contained composition in a document
 	-->
 
     	<?php
-    	// the_title( '<h2 class="entry-title">', '</h2>' );
+    	// the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );		
 		the_content( sprintf( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kemosite-wordpress-theme' ), get_the_title() );
 		wp_link_pages();
 		?>

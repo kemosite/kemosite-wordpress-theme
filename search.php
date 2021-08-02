@@ -51,6 +51,13 @@ get_header();
 
 			<!-- Display all categories, then display posts by popularity or date published -->
 
+			<section><h2>
+				<?php
+				/* translators: %s: search query. */
+				printf( esc_html__( 'Showing search results for: "%s"', 'kemosite-wordpress-theme' ), '<span>' . get_search_query() . '</span>' );
+				?>
+			</h2></section>
+
 			<?php  if ( have_posts() ):
 
 				while ( have_posts() ) : the_post();

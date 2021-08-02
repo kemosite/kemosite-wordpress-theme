@@ -22,20 +22,49 @@ get_header();
 
 <div class="grid-layout-content">
 
+	
+	<?php if ($wp_query->query_vars['post_type'] != 'lp_course'): ?>
 	<div class="grid_area_exerpt the exerpt">
 
-	    <?php if ( is_home() ) : ?>
-	    
-		    <?php wp_list_categories( array(
-		      'title_li' => '<h3>' . __( 'Categories', 'textdomain' ) . '</h3>'
-		    ) ); ?>
+		<?php
 
-	    <?php endif; ?>
+		// kemosite_wordpress_theme_post_thumbnail();
 
-	    <div class="small_ad"><?php if( function_exists('the_ad_placement') ) { the_ad_placement('small-ad'); } ?></div>
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+		$image_srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
+		$image_sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id($post->ID), 'single-post-thumbnail', wp_get_attachment_metadata($post->ID) );
+		?>
+		
+		<?php if ($image && $image_srcset && $image_sizes): ?>
+			<div class="featured image">
+				<img style="width: 100%;" src="<?php echo $image[0]; ?>" srcset="<?php echo esc_attr( $image_srcset ); ?>" sizes="<?php echo esc_attr( $image_sizes ); ?>">
+			</div>
+		<?php endif; ?>
 
-    
+		<?php
+
+		// the_excerpt();
+		// get_the_excerpt($post->ID);
+		kemosite_custom_excerpt($post->ID);
+
+		the_post_navigation(
+			array(
+	            'prev_text'          => 'Previous page: %title',
+	            'next_text'          => 'Next page: %title',
+	            'in_same_term'       => false,
+	            'excluded_terms'     => '',
+	            'taxonomy'           => 'category',
+	            'screen_reader_text' => __( 'Page navigation' ),
+	        )
+		);
+		?>
+
+		<div class="small_ad">
+			<?php if( function_exists('the_ad_placement') ) { the_ad_placement('small-ad'); } ?>
+		</div>
+
 	</div>
+	<?php endif; ?>
 
 	<div class="grid_area_content the content">
 
@@ -43,6 +72,7 @@ get_header();
 
 	    	<!-- Display all categories, then display posts by popularity or date published -->
 
+	    	<!-- page.php -->
 	    	<?php while ( have_posts() ) : the_post();
 
 	    		get_template_part( 'template-parts/content', 'page' );
@@ -62,9 +92,15 @@ get_header();
     
 	</div>
 
+	<?php if ($wp_query->query_vars['post_type'] != 'lp_course'): ?>
+
 	<div class="grid_area_sidebar">
-	    <div class="sidebar_ad"><?php if( function_exists('the_ad_placement') ) { the_ad_placement('sidebar-ad'); } ?></div>
+		<div class="sidebar_ad">
+			<?php if( function_exists('the_ad_placement') ) { the_ad_placement('sidebar-ad'); } ?>
+		</div>
 	</div>
+
+	<?php endif; ?>
 
 </div>
 

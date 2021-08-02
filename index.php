@@ -10,8 +10,8 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package kemosite-wordpress-theme
- * @since 5.7
- * @version 5.7.2.6
+ * @since 5.8
+ * @version 5.8.0.1
  *
  * REST API Documentation
  * https://developer.wordpress.org/rest-api/
@@ -37,14 +37,6 @@ endif;
 
 ?>
 
-<?php
-
-/**
- * This will be our first test of using the REST API
- */
-
-if (have_posts()) : ?>
-
 <div class="grid-layout-content">
 
   <div class="grid_area_exerpt the exerpt">
@@ -66,26 +58,41 @@ if (have_posts()) : ?>
 
     <main role="main">
 
-    	<!-- Display all categories, then display posts by popularity or date published -->
+      <?php if (have_posts()) : ?>
 
-    	<?php while ( have_posts() ) : the_post();
+      	<!-- Display all categories, then display posts by popularity or date published -->
 
-        the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+        <!-- index.php -->
+      	<?php while ( have_posts() ) : the_post();
 
-    		get_template_part( 'template-parts/content', get_post_type() );
+          the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 
-        // echo "<pre>" . get_post_type() . "</pre>";
+      		get_template_part( 'template-parts/content', get_post_type() );
 
-    		// If comments are open or we have at least one comment, load up the comment template.
-    		/*
-    		if ( comments_open() || get_comments_number() ) :
-    			comments_template();
-    		endif;
-    		*/
+          // echo "<pre>" . get_post_type() . "</pre>";
 
-    	endwhile; ?>
+      		// If comments are open or we have at least one comment, load up the comment template.
+      		/*
+      		if ( comments_open() || get_comments_number() ) :
+      			comments_template();
+      		endif;
+      		*/
 
-    	<?php the_posts_navigation(); ?>
+      	endwhile;
+
+      else: ?>
+
+        <section><h2>
+          <?php
+          esc_html_e( 'Nothing Found', 'kemosite-wordpress-theme' );
+          ?>
+        </h2></section>
+
+        <?php get_template_part( 'template-parts/content', 'none' );
+
+      endif; ?>
+
+      	<?php the_posts_navigation(); ?>
 
     </main>
     
@@ -96,7 +103,5 @@ if (have_posts()) : ?>
   </div>
 
 </div>
-
-<?php else: get_template_part( 'template-parts/content', 'none' ); endif; ?>
 
 <?php get_footer(); ?>

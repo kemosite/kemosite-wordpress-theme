@@ -22,6 +22,7 @@
 
 :root {
 	--colour-scheme: "light";
+	--transition-time: 130ms;
 }
 
 body {
@@ -81,7 +82,8 @@ li:not(.accordian-item) a, li:not(.accordian-item) a:link,
 .woocommerce-breadcrumb a:not(img), .woocommerce-breadcrumb a:link:not(img),
 ul.wc-tabs li a, ul.wc-tabs li a:link,
 div a, div a:link
-{
+{	
+	transition: all var(--transition-time) ease;
 	color: var(--primary_dark_color);
 }
 
@@ -101,7 +103,8 @@ li.product a:hover, li.product a:focus,
 ul.wc-tabs li a:hover, ul.wc-tabs li a:focus,
 div a:hover, div a:focus
 {
-	color: var(--primary_color);
+	background-color: var(--primary_dark_color);
+	color:  white;
 }
 
 .woocommerce ul.products li.product .price {
@@ -139,10 +142,10 @@ input.search-submit,
 div.css-search div.em-search-main .em-search-submit /* Events */ {
 	-webkit-box-shadow: 0 1px 0 #0f0f0f;
 	box-shadow: 0 1px 0 #0f0f0f;
-	-webkit-transition: -webkit-box-shadow ease-in-out 130ms;
-	transition: -webkit-box-shadow ease-in-out 130ms;
-	transition: box-shadow ease-in-out 130ms;
-	transition: box-shadow ease-in-out 130ms,-webkit-box-shadow ease-in-out 130ms;
+	-webkit-transition: -webkit-box-shadow ease-in-out var(--transition-time);
+	transition: -webkit-box-shadow ease-in-out var(--transition-time);
+	transition: box-shadow ease-in-out var(--transition-time);
+	transition: box-shadow ease-in-out var(--transition-time),-webkit-box-shadow ease-in-out var(--transition-time);
 	text-transform: uppercase;
 	line-height: 1.5em;
 	background: none;

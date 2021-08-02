@@ -24,18 +24,18 @@ if ( ! function_exists( 'kemosite_wordpress_theme_dependencies' ) ) :
 	 
 		// Check for github-updater
 		if (!is_plugin_active('git-updater/git-updater.php')):
-			echo '<div class="error"><p>Warning: This theme needs the git-updater plugin to function.</p></div>';
+			echo '<div class="notice notice-warning"><p>Warning: This theme needs the git-updater plugin to keep up-to-date.</p></div>';
 		endif;
 
 		// Check for kemosite-typography-plugin
 		if (!is_plugin_active('kemosite-typography-plugin/index.php')):
-			echo '<div class="error"><p>Warning: This theme needs the kemosite-typography-plugin to function.</p></div>';
+			echo '<div class="notice notice-warning"><p>Warning: This theme needs the kemosite-typography-plugin to optimize website typography.</p></div>';
 		endif;
 		//plugin is activated
 
 		// Check for Woocommerce
 		if (!is_plugin_active('woocommerce/woocommerce.php')):
-			echo '<div class="error"><p>Warning: WooCommerce not detected. WooCommerce features might not work as expected.</p></div>';
+			echo '<div class="notice notice-info is-dismissible"><p>This theme supports WooCommerce.</p></div>';
 		endif;
 
 	}
@@ -164,14 +164,15 @@ function my_post_function($query) {
 /**
  * Looks in Custom Fields for Excerpt data.
  */
-function kemosite_custom_excerpt( $post_id ) {
+function kemosite_custom_excerpt( $post_id = null) {
 
     if (!empty(get_post_meta($post_id, 'page_excerpt'))):
     	$page_excerpt = get_post_meta($post_id, 'page_excerpt');
     	$excerpt = esc_textarea($page_excerpt[0]);
-    else: //if (has_excerpt()):
+    elseif ( has_excerpt($post_id) ):
 		$excerpt = get_the_excerpt($post_id);
-		// $excerpt = "Excerpt received";
+	else:
+		$excerpt = the_excerpt();
 	endif;
 
 	/*

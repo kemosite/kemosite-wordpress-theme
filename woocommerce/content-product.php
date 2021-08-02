@@ -24,6 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
+<!-- content-product.php -->
 <li <?php wc_product_class( '', $product ); ?>>
 
 	<?php

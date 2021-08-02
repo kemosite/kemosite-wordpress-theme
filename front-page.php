@@ -20,7 +20,23 @@ get_header();
 
 ?>
 
-<div class="grid-layout-content no-sidebars">
+<!-- front-page.php -->
+<div class="grid-layout-content">
+
+	<div class="grid_area_exerpt the exerpt">
+
+	    <?php if ( is_home() ) : ?>
+	    
+		    <?php wp_list_categories( array(
+		      'title_li' => '<h3>' . __( 'Categories', 'textdomain' ) . '</h3>'
+		    ) ); ?>
+
+	    <?php endif; ?>
+
+	    <div class="small_ad"><?php if( function_exists('the_ad_placement') ) { the_ad_placement('small-ad'); } ?></div>
+
+    
+	</div>
 
 	<div class="grid_area_content the content">
 
@@ -45,6 +61,10 @@ get_header();
 
 	    </main>
     
+	</div>
+
+	<div class="grid_area_sidebar">
+	    <div class="sidebar_ad"><?php if( function_exists('the_ad_placement') ) { the_ad_placement('sidebar-ad'); } ?></div>
 	</div>
 
 </div>

@@ -29,7 +29,7 @@ endif;
 
 ?>
 
-
+<!-- content-single-product.php -->
 <article id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
 	<section>

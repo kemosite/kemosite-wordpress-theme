@@ -17,7 +17,12 @@
 		grid-template-rows: auto;
 		grid-gap: 0 2ch;
 		margin: 3ex 2ch;
-	}	
+	}
+
+	.grid-layout-content.no-sidebars {
+		grid-template-areas: "grid_area_content";
+		grid-template-columns: minmax(39ch, 1fr);
+	}
 
 }
 

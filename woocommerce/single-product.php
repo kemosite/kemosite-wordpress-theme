@@ -22,13 +22,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
+<style>
+.woocommerce span.onsale {
+	top: 1em;
+	right: -1em;
+	left: unset;
+}
+</style>
+
 <div class="grid-layout-content">
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
 		<!-- <main role="main"> probably this one-->
 
-		<div class="grid_area_exerpt the exerpt">
+		<div class="grid_area_exerpt the exerpt" style="position: relative;">
 
 			<?php
 

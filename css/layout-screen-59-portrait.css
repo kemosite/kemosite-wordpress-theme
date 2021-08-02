@@ -26,6 +26,11 @@
 		margin: 3ex 2ch;
 	}
 
+	.grid-layout-content.no-sidebars {
+		grid-template-areas: "grid_area_content";
+		grid-template-columns: minmax(59ch, 1fr);
+	}
+
 }
 
 @media screen and ( min-width: 137ch ) {

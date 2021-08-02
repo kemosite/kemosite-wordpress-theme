@@ -222,7 +222,7 @@
 						  -->
 
 						<!--
-						  -- [EXAMPLES]
+						  -- [Wordpress Conditional Tags]
 						  --
 							is_404 — Is the query a 404 (returns no results)?
 							is_archive — Is the query for an existing archive page?
@@ -252,21 +252,60 @@
 							is_tax — Is the query for an existing custom taxonomy archive page? 
 						  -->
 
+						<!--
+						  -- [Woocommerce Conditional Tags]
+						  --
+							is_woocommerce() - Returns true if on a page which uses WooCommerce templates (cart and checkout are standard pages with shortcodes and thus are not included).
+							is_shop() - Returns true when on the product archive page (shop).
+							is_product_category() - Returns true when viewing a product category archive.
+							is_product_category( 'shirts' ) - When the product category page for the ‘shirts’ category is being displayed.
+							is_product_category( array( 'shirts', 'games' ) ) - When the product category page for the ‘shirts’ or ‘games’ category is being displayed.
+							is_product_tag() - Returns true when viewing a product tag archive
+							is_product_tag( 'shirts' ) - When the product tag page for the ‘shirts’ tag is being displayed.
+							is_product_tag( array( 'shirts', 'games' ) ) - When the product tag page for the ‘shirts’ or ‘games’ tags is being displayed.
+							is_product() - Returns true on a single product page. Wrapper for is_singular.
+							is_cart() - Returns true on the cart page.
+							is_checkout() - Returns true on the checkout page.
+							is_account_page() - Returns true on the customer’s account pages.
+							is_wc_endpoint_url() - Returns true when viewing a WooCommerce endpoint
+							is_wc_endpoint_url( 'order-pay' ) - When the endpoint page for order pay is being displayed.
+							is_wc_endpoint_url( 'order-received' ) - When the endpoint page for order received is being displayed.
+							is_wc_endpoint_url( 'view-order' ) - When the endpoint page for view order is being displayed.
+							is_wc_endpoint_url( 'edit-account' ) - When the endpoint page for edit account is being displayed.
+							is_wc_endpoint_url( 'edit-address' ) - When the endpoint page for edit address is being displayed.
+							is_wc_endpoint_url( 'lost-password' ) - When the endpoint page for lost password is being displayed.
+							is_wc_endpoint_url( 'customer-logout' ) - When the endpoint page for customer logout  is being displayed.
+							is_wc_endpoint_url( 'add-payment-method' ) - When the endpoint page for add payment method is being displayed.
+							is_ajax() - Returns true when the page is loaded via ajax. 
+						  -->
+
 						<header>
 							
 							<?php
 							if ( is_plugin_active('woocommerce/woocommerce.php') && is_cart() ):
 								?><h1 class="page-title"></h1><?php
 							elseif ( is_plugin_active('woocommerce/woocommerce.php') && ( is_shop() || is_product_category() ) ):
-								?><h1 class="entry-title"><?php woocommerce_page_title(); ?></h1><?php
+								?><h1 class="page-title"><?php woocommerce_page_title(); ?></h1><?php
+							elseif ( is_plugin_active('woocommerce/woocommerce.php') && is_woocommerce() ):
+								the_title( '<h1 class="product_title entry-title">', '</h1>' );
 							elseif ( is_front_page() && is_page() ):
-								the_title( '<h1 class="entry-title">', '</h1>' );
-							elseif ( is_front_page() ):
-								?><h1 class="entry-title"><?php bloginfo('name'); ?></h1><?php
+								the_title( '<h1 class="page-title">', '</h1>' );
+							elseif ( is_front_page() && is_home() ):
+								?><h1 class="page-title"><?php bloginfo('name'); ?></h1><?php
 							elseif (  is_home() ):
-								?><h1 class="entry-title">Posts</h1><?php
+								?><h1 class="page-title">Posts</h1><?php
 							elseif ( is_single() ):
-								the_title( '<h1 class="entry-title">', '</h1>' );
+								the_title( '<h1 class="page-title screen-reader-text">', '</h1>' );
+							elseif ( is_tag() ):
+								?>
+								<h1 class="page-title">
+									<?php
+									/* translators: %s: search query. */
+									// printf( esc_html__( 'Search Results for: %s', 'kemosite-wordpress-theme' ), '<span>' . get_search_query() . '</span>' );
+									?>
+									Results For Tag: <?php single_tag_title(); ?>
+								</h1>
+								<?php
 							elseif ( is_search() ):
 								?>
 								<h1 class="page-title">
