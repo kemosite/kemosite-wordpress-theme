@@ -36,8 +36,8 @@ The HTML <article> element represents a self-contained composition in a document
 		if ( 'post' === get_post_type() ) : ?>
 			<div class="entry-meta">
 				<?php
-				kemosite_wordpress_theme_posted_on();
-				kemosite_wordpress_theme_posted_by();
+				// kemosite_wordpress_theme_posted_on();
+				// kemosite_wordpress_theme_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif;

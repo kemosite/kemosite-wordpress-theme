@@ -1,4 +1,4 @@
-# kemosite-wordpress-theme 5.8.0.3
+# kemosite-wordpress-theme 5.8.0.4
 ## A useful theme for Wordpress 5.8
 
 Contributors: Kevin Montgomery

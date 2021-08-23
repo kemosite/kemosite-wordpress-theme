@@ -27,9 +27,10 @@ body {
 body * { font-size: inherit; }
 
 /* HEADER GROUPS */
-h1 { font-size: calc(1em + 3ex); font-weight: normal; }	/* [PAGE TITLES] */ 
-h2 { font-size: calc(1em + 2ex); font-weight: normal; }	/* [SUBTITLES] */
-h3 { font-size: calc(1em + 1ex); font-weight: normal; }	/* [SECTION TITLES+] */
+/* vh units seem to work better than ex units in Google Chrome on Android. */
+h1 { font-size: calc(1em + 3vh); font-weight: normal; }	/* [PAGE TITLES] */ 
+h2 { font-size: calc(1em + 2vh); font-weight: normal; }	/* [SUBTITLES] */
+h3 { font-size: calc(1em + 1vh); font-weight: normal; }	/* [SECTION TITLES+] */
 h4 { font-size: 1em; font-weight: bold; }		/* [Body Copy Size] */
 h5 { font-size: .875em; font-weight: bold; }	/* [Small] */
 h6 { font-size: .75em; font-weight: bold; }		/* [Smaller] */
@@ -88,7 +89,7 @@ div.section h6 {
     margin: 0;
 }
 
-div.section header h1 { font-size: calc(1rem + 3ex); }
+div.section header h1 { font-size: calc(1rem + 3vh); }
 
 .course-curriculum ul.curriculum-sections .section-header .section-title,
 .course-curriculum ul.curriculum-sections .section-header .section-desc {
@@ -234,12 +235,12 @@ time.updated:before { content: "Updated: "; }
 
 .woocommerce-loop-product__title .price { margin-top: 3ex; }
 .woocommerce-Price-amount { font-family: var(--header_font_family_name); }
-.summary .price { font-size: calc(1em + 1ex); }
+.summary .price { font-size: calc(1em + 1vh); }
 p.price { text-align: center; }
 
 .button.small { font-size: .875em; }
 .button.medium { font-size: 1em; }
-.button.large { font-size: calc(1em + 1ex); }
+.button.large { font-size: calc(1em + 1vh); }
 
 div.columns p {
     line-height: 3ex;

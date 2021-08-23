@@ -295,7 +295,7 @@
 							elseif (  is_home() ):
 								?><h1 class="page-title">Posts</h1><?php
 							elseif ( is_single() ):
-								the_title( '<h1 class="page-title screen-reader-text">', '</h1>' );
+								the_title( '<h1 class="page-title">', '</h1>' );
 							elseif ( is_tag() ):
 								?>
 								<h1 class="page-title">
