@@ -1,6 +1,3 @@
-'use strict';
-
-import $ from 'jquery';
 import { GetYoDigits } from './foundation.core.utils';
 
 // Abstract class for providing lifecycle hooks. Expect plugins to define AT LEAST
@@ -32,7 +29,9 @@ class Plugin {
          */
         .trigger(`destroyed.zf.${pluginName}`);
     for(var prop in this){
-      this[prop] = null;//clean up script to prep for garbage collection.
+      if (this.hasOwnProperty(prop)) {
+        this[prop] = null; //clean up script to prep for garbage collection.
+      }
     }
   }
 }

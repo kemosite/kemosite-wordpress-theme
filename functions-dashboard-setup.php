@@ -23,11 +23,6 @@ function register_my_dashboard_widget() {
 /* [Next Steps Widget] */
 function kemosite_wordpress_nextsteps_widget_display() {
     ?>
-    <h1>Security</h1>
-    <h3><strong>wp-config.php</strong></h3>
-	<p>If you ever need to regenerate the secret keys, you can visit the official generator provided by WordPress.org at <a href="https://api.wordpress.org/secret-key/1.1/salt/">https://api.wordpress.org/secret-key/1.1/salt/</a>.</p>
-	<h3><strong>iThemes SSL</strong></h3>
-	<p>Do not force site to use iThemes Security SSL feature. It's breaking pages with infinite redirects!</p>
 	<h1>Accessibility</h1>
 	<h3><strong>WCAG 2.0 Level AA</strong></h3>
 	<p>This theme is regularly tested for WCAG 2.0 Level AA compliance</p>
@@ -50,6 +45,16 @@ function kemosite_wordpress_nextsteps_widget_display() {
 	/* [DETECT GITHUB UPDATER PLUGIN] */
 	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ): ?><em>Active</em><?php else: ?><em>Inactive</em><?php endif; ?>
 	</p>
+	<p>LearnPress<br>
+	<?php
+	/* [DETECT GITHUB UPDATER PLUGIN] */
+	if ( is_plugin_active( 'learnpress/learnpress.php' ) ): ?><em>Active</em><?php else: ?><em>Inactive</em><?php endif; ?>
+	</p>
+	<h1>Security</h1>
+    <h3><strong>wp-config.php</strong></h3>
+	<p>If you ever need to regenerate the secret keys, you can visit the official generator provided by WordPress.org at <a href="https://api.wordpress.org/secret-key/1.1/salt/">https://api.wordpress.org/secret-key/1.1/salt/</a>.</p>
+	<h3><strong>iThemes SSL</strong></h3>
+	<p>Do not force site to use iThemes Security SSL feature. It's breaking pages with infinite redirects!</p>
     <?php
 }
 add_action( 'wp_dashboard_setup', 'register_my_dashboard_widget' );

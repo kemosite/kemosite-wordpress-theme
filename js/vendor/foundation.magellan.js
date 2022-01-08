@@ -1,6 +1,3 @@
-'use strict';
-
-
 import $ from 'jquery';
 import { Plugin } from './foundation.core.plugin';
 import { onLoad, GetYoDigits } from './foundation.core.utils';
@@ -42,7 +39,6 @@ class Magellan extends Plugin {
    */
   _init() {
     var id = this.$element[0].id || GetYoDigits(6, 'magellan');
-    var _this = this;
     this.$targets = $('[data-magellan-target]');
     this.$links = this.$element.find('a');
     this.$element.attr({
@@ -108,7 +104,7 @@ class Magellan extends Plugin {
         });
     });
 
-    this._deepLinkScroll = function(e) {
+    this._deepLinkScroll = function() {
       if(_this.options.deepLinking) {
         _this.scrollToLoc(window.location.hash);
       }
@@ -162,12 +158,12 @@ class Magellan extends Plugin {
 
     let activeIdx;
     // Before the first point: no link
-    if(newScrollPos < this.points[0]){ /* do nothing */ }
+    if(newScrollPos < this.points[0] - this.options.offset - (isScrollingUp ? this.options.threshold : 0)){ /* do nothing */ }
     // At the bottom of the page: last link
     else if(newScrollPos + this.winHeight === this.docHeight){ activeIdx = this.points.length - 1; }
     // Otherwhise, use the last visible link
     else{
-      const visibleLinks = this.points.filter((p, i) => {
+      const visibleLinks = this.points.filter((p) => {
         return (p - this.options.offset - (isScrollingUp ? this.options.threshold : 0)) <= newScrollPos;
       });
       activeIdx = visibleLinks.length ? visibleLinks.length - 1 : 0;

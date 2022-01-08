@@ -1,5 +1,3 @@
-'use strict';
-
 import $ from 'jquery';
 import { Plugin } from './foundation.core.plugin';
 import { onLoad } from './foundation.core.utils';
@@ -55,7 +53,7 @@ class Reveal extends Plugin {
     this.$anchor = $(`[data-open="${this.id}"]`).length ? $(`[data-open="${this.id}"]`) : $(`[data-toggle="${this.id}"]`);
     this.$anchor.attr({
       'aria-controls': this.id,
-      'aria-haspopup': true,
+      'aria-haspopup': 'dialog',
       'tabindex': 0
     });
 
@@ -181,7 +179,7 @@ class Reveal extends Plugin {
    * Handles modal methods on back/forward button clicks or any other event that triggers hashchange.
    * @private
    */
-  _handleState(e) {
+  _handleState() {
     if(window.location.hash === ( '#' + this.id) && !this.isActive){ this.open(); }
     else{ this.close(); }
   }
@@ -203,7 +201,7 @@ class Reveal extends Plugin {
   * @param {number} scrollTop - Scroll to restore, html "top" property by default (as set by `_disableScroll`)
   */
   _enableScroll(scrollTop) {
-    scrollTop = scrollTop || parseInt($("html").css("top"));
+    scrollTop = scrollTop || parseInt($("html").css("top"), 10);
     if ($(document).height() > $(window).height()) {
       $("html")
         .css("top", "");
@@ -438,7 +436,7 @@ class Reveal extends Plugin {
       // Get the current top before the modal is closed and restore the scroll after.
       // TODO: use component properties instead of HTML properties
       // See https://github.com/foundation/foundation-sites/pull/10786
-      var scrollTop = parseInt($("html").css("top"));
+      var scrollTop = parseInt($("html").css("top"), 10);
 
       if ($('.reveal:visible').length  === 0) {
         _this._removeGlobalClasses(); // also remove .is-reveal-open from the html element when there is no opened reveal

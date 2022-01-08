@@ -14,6 +14,10 @@
 
 	<h2>Content.php</h2>
 
+	<p>You're probably seeing this because there wasn't an assigned content-type.php page associated with this post type.</p>
+
+	<p><?php echo get_post_type(); ?></p>
+
 	<?php
 	the_content( sprintf(
 		wp_kses(

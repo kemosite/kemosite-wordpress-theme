@@ -35,6 +35,16 @@ function my_theme_enqueue_styles() {
 	/* [Mediaelement CSS] */
     wp_enqueue_style( 'mediaelement-css', get_template_directory_uri() . '/css/mediaelementplayer.min.css' );
 
+	/* [Add Woocommerce Styles if plugin active] */
+	if ( defined(KEMOSITE_WOOCOMMERCE_ACTIVE) && KEMOSITE_WOOCOMMERCE_ACTIVE == true):
+	    wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/css/woocommerce.css' );
+	endif;
+
+	/* [Add Learnpress Styles if plugin active] */
+	if ( defined(KEMOSITE_LEARNPRESS_ACTIVE) && KEMOSITE_LEARNPRESS_ACTIVE == true):
+	    wp_enqueue_style( 'learnpress', get_template_directory_uri() . '/css/learnpress.css' );
+	endif;
+
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
@@ -68,46 +78,46 @@ function load_scripts_method() {
 
 	// Foundation JS Files
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', get_template_directory_uri().'/js/vendor/jquery.min.js', '', '3.3.1', 'true');
+	wp_register_script('jquery', get_template_directory_uri().'/js/vendor/jquery.min.js', '', '3.6.0', 'true');
 	wp_enqueue_script('jquery');
 
 	wp_deregister_script('foundation-what-input');
-	wp_register_script('foundation-what-input', get_template_directory_uri().'/js/vendor/what-input.min.js', '', '5.2.6', 'true');
+	wp_register_script('foundation-what-input', get_template_directory_uri().'/js/vendor/what-input.min.js', '', '5.2.10', 'true');
 	wp_enqueue_script('foundation-what-input');
 
 	wp_deregister_script('foundation');
-	wp_register_script('foundation', get_template_directory_uri().'/js/vendor/foundation.min.js', array('jquery'), '6.6.1', 'true');
+	wp_register_script('foundation', get_template_directory_uri().'/js/vendor/foundation.min.js', array('jquery'), '6.7.4', 'true');
 	wp_enqueue_script('foundation');
 
 	wp_deregister_script('foundation-app');
-	wp_register_script('foundation-app', get_template_directory_uri().'/js/app.js', array('foundation'), '6.6.1', 'true');
+	wp_register_script('foundation-app', get_template_directory_uri().'/js/app.js', array('foundation'), '6.7.4', 'true');
 	wp_enqueue_script('foundation-app');
 
 	// Load Graph.js if declared in page Custom Fields
 	// print_r($custom_fields['load-graph-js'][0]);
 
-	if(isset($custom_fields['load-graph-js'][0]) && $custom_fields['load-graph-js'][0] == "true"):
+	if(isset($custom_fields['load-chart-js'][0]) && $custom_fields['load-chart-js'][0] == "true"):
 		
 		// Chart JS
 		wp_deregister_script('chart-js');
-		wp_register_script('chart-js', get_template_directory_uri().'/js/vendor/Chart.min.js', '', '2.9.3');
+		wp_register_script('chart-js', get_template_directory_uri().'/js/vendor/Chart.min.js', '', '3.6.1');
 		wp_enqueue_script('chart-js');
 
 		// Chart JS Config
 		wp_deregister_script('chart-js-config');
-		wp_register_script('chart-js-config', get_template_directory_uri().'/js/chart-js-config.js', '', '2.9.3');
+		wp_register_script('chart-js-config', get_template_directory_uri().'/js/chart-js-config.js', '', '3.6.1');
 		wp_enqueue_script('chart-js-config');
 
 	endif;
 
 	// JQuery
 	wp_deregister_script('my-jquery');
-	wp_register_script('my-jquery', get_template_directory_uri().'/js/my-jquery.js', array('jquery'), '3.3.1', 'true');
+	wp_register_script('my-jquery', get_template_directory_uri().'/js/my-jquery.js', array('jquery'), '3.6.0', 'true');
 	wp_enqueue_script('my-jquery');
 
 	// Mediaelement
 	wp_deregister_script('mediaelement');
-	wp_register_script('mediaelement', get_template_directory_uri().'/js/vendor/mediaelement-and-player.min.js', '', '4.2.9', 'true');
+	wp_register_script('mediaelement', get_template_directory_uri().'/js/vendor/mediaelement-and-player.min.js', '', '5.0.4', 'true');
 	wp_enqueue_script('mediaelement');
 
 	// Underscores Navigation
@@ -248,15 +258,15 @@ function resource_hints_method($hints, $relation_type) {
 
     $prefetch_style = array( 
     	'foundation',
-    	'foundation-icons',
-		'kemosite-theme-master-styles'
+    	// 'foundation-icons',
+		'kemosite-theme-master-styles',
 	);
 
     // Make sure JS declarations are not already declared assets for deferred or async loading.
 	$prefetch_script = array( 
     	'jquery',
     	'foundation',
-    	'my-jquery'
+    	'my-jquery',
 	);
 
 	switch ($relation_type) {
@@ -296,10 +306,16 @@ function resource_hints_method($hints, $relation_type) {
 
 		case 'prefetch':
 
+		if (!wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]):
+			define("KEMOSITE_THEME_LOGO", wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0] );
+		else:
+			define("KEMOSITE_THEME_LOGO", "" );
+		endif;
+
 			// Prefetch theme logo
 	    	$hints[] = array(
 	    		'as' => 'image',
-	    		'href' => wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]
+	    		'href' => KEMOSITE_THEME_LOGO
 	    	);
 
 	    	foreach($prefetch_style as $tag):

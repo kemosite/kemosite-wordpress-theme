@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+:root {
+	--golden_ratio: 1.618;
+}
+
 .speech {
 
 	position:absolute;
@@ -19,6 +23,12 @@ div.css-search div.em-search-main .em-search-submit img {
 .woocommerce-page #primary,
 .has-sidebar.woocommerce-page:not(.error404) #primary { 
 	width: 100%;
+}
+
+form { text-align: center; }
+select {
+	padding: 1em !important;
+	background-position:  right 1em center;
 }
 
 ul, ol {
@@ -119,6 +129,11 @@ a.button {
 	display: flex !important;
 	justify-content: center;
 	align-items: center;
+}
+
+canvas {
+	width: 100%;
+	height: calc(100% / var(--golden_ratio));
 }
 
 footer {

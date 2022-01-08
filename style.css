@@ -7,12 +7,12 @@ Author: Kevin Montgomery
 Author URI: https://github.com/kemosite/
 Description: A useful theme for Wordpress 5.8
 Requires at least: 5.8
-Version: 5.8.0.4
+Version: 5.8.2.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: kemosite-wordpress-theme
-Tags: adaptive, javascript, responsive, foundation, less, woocommerce, github, multi-column, custom-colours, custom-menu, custom-logo, custom-background, featured-images, threaded-comments, translation-ready, light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready, flexbox
+Tags: adaptive, javascript, responsive, foundation, less, woocommerce, learnpress, github, multi-column, custom-colours, custom-menu, custom-logo, custom-background, featured-images, threaded-comments, translation-ready, light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready, flexbox
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -21,13 +21,12 @@ kemosite-wordpress-theme is based on Underscores https://underscores.me/, (C) 20
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Dependencies:
-"chart.js": "^3.5.0",
+(Check functions-enqueue-scripts.php for versions)
+"chart.js": "^3.6.1",
 "foundation-icons": "^1.0.1",
-"foundation-sites": "^6.6.3",
+"foundation-sites": "^6.7.4",
 "jquery": "^3.6.0",
-"mediaelement": "^4.2.16",
-"npm": "^7.20.2",
-"npm-check-updates": "^11.8.3",
+"mediaelement": "^5.0.4",
 "what-input": "^5.2.10"
 
 */

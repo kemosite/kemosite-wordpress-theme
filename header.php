@@ -17,13 +17,26 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-	<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+	<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<!-- favicon.ico in the root directory -->
 	
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="screen" />
-	<link rel="pingback" href="<?php get_bloginfo('pingback_url'); ?>" />
+	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="screen">
+	<link rel="pingback" href="<?php get_bloginfo('pingback_url'); ?>">
+	<link rel="canonical" href="<?php echo esc_html( site_url() ); ?>">
+
+	<?php
+	if ( get_the_excerpt() ):
+		$kemosite_wordpress_theme_description = esc_html( get_the_excerpt() );
+	elseif ( category_description() ):
+		$kemosite_wordpress_theme_description = esc_html( category_description() );
+	elseif ( get_bloginfo('description') ):
+		$kemosite_wordpress_theme_description = esc_html( get_bloginfo('description') );
+	endif;
+	?>
+
+	<meta name="description" content="<?php echo $kemosite_wordpress_theme_description; ?>">
 
 	<?php 
 	/* Always have wp_head() just before the closing </head>
@@ -140,7 +153,7 @@
 				<div class="main_mobile_menu hide-for-large">
 
 					<button type="button" class="button large" data-toggle="off_canvas_mobile_menu"><i class="fi-list"></i></button>
-					<div class="mobile logo position"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]; ?>" alt=""></a></div>
+					<div class="mobile logo position"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo KEMOSITE_THEME_LOGO; ?>" alt=""></a></div>
 					<?php if ( is_plugin_active('woocommerce/woocommerce.php') ): ?><a href="<?php echo wc_get_cart_url(); ?>" class="button large float-right"><i class="fi-shopping-cart"></i></a><?php endif; ?>
 
 				</div>
@@ -154,7 +167,7 @@
 
 							<ul id="top-bar-menu" class="dropdown menu" data-dropdown-menu>
 
-								<li class="menu-text display logo position" aria-label="Image of website logo"><a tabindex="0" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="Return to home page"><img src="<?php echo wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]; ?>" alt=""></a></li>
+								<li class="menu-text display logo position" aria-label="Image of website logo"><a tabindex="0" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="Return to home page"><img src="<?php echo KEMOSITE_THEME_LOGO; ?>" alt=""></a></li>
 						
 								<?php
 								if ( has_nav_menu( 'top-bar-menu' ) ) :
@@ -294,6 +307,10 @@
 								?><h1 class="page-title"><?php bloginfo('name'); ?></h1><?php
 							elseif (  is_home() ):
 								?><h1 class="page-title">Posts</h1><?php
+							elseif ( is_post_type_archive() ):
+								?><h1 class="page-title"><?php post_type_archive_title(); ?></h1><?php
+							elseif ( is_archive() ):
+								?><h1 class="page-title">Archive</h1><?php
 							elseif ( is_single() ):
 								the_title( '<h1 class="page-title">', '</h1>' );
 							elseif ( is_tag() ):

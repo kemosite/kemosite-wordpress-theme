@@ -28,12 +28,12 @@ body * { font-size: inherit; }
 
 /* HEADER GROUPS */
 /* vh units seem to work better than ex units in Google Chrome on Android. */
-h1 { font-size: calc(1em + 3vh); font-weight: normal; }	/* [PAGE TITLES] */ 
-h2 { font-size: calc(1em + 2vh); font-weight: normal; }	/* [SUBTITLES] */
-h3 { font-size: calc(1em + 1vh); font-weight: normal; }	/* [SECTION TITLES+] */
-h4 { font-size: 1em; font-weight: bold; }		/* [Body Copy Size] */
-h5 { font-size: .875em; font-weight: bold; }	/* [Small] */
-h6 { font-size: .75em; font-weight: bold; }		/* [Smaller] */
+h1 { font-size: calc(1em + 3vh); font-weight: normal; } /* [PAGE TITLES] */ 
+h2 { font-size: calc(1em + 2vh); font-weight: normal; } /* [SUBTITLES] */
+h3 { font-size: calc(1em + 1vh); font-weight: normal; } /* [SECTION TITLES+] */
+h4 { font-size: 1em; font-weight: bold; }       /* [Body Copy Size] */
+h5 { font-size: .875em; font-weight: bold; }    /* [Small] */
+h6 { font-size: .75em; font-weight: bold; }     /* [Smaller] */
 
 h1,h2,h3,h4,h5,h6 { 
     margin-top: 3ex;
@@ -127,8 +127,10 @@ label.a-form-label { display: inline-block; }
 main p > a,
 main li > a:not(.wc-block-grid__product-link),
 a[rel="bookmark"],
+.nav-links a,
 footer a {
     border-bottom: 1px solid;
+    font-weight: 600;
 }
 
 /* emails */

@@ -1,5 +1,3 @@
-'use strict';
-
 import { Box } from './foundation.util.box';
 import { Plugin } from './foundation.core.plugin';
 import { rtl as Rtl } from './foundation.core.utils';
@@ -99,7 +97,7 @@ class Positionable extends Plugin {
   }
 
   _alignmentsExhausted(position) {
-    return this.triedPositions[position] && this.triedPositions[position].length == ALIGNMENTS[position].length;
+    return this.triedPositions[position] && this.triedPositions[position].length === ALIGNMENTS[position].length;
   }
 
 

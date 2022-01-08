@@ -1,6 +1,3 @@
-'use strict';
-
-
 import $ from 'jquery';
 import { Keyboard } from './foundation.util.keyboard';
 import { Nest } from './foundation.util.nest';
@@ -54,7 +51,6 @@ class AccordionMenu extends Plugin {
 
     this.$element.find('[data-submenu]').not('.is-active').slideUp(0);//.find('a').css('padding-left', '1rem');
     this.$element.attr({
-      'role': 'tree',
       'aria-multiselectable': this.options.multiOpen
     });
 
@@ -88,9 +84,6 @@ class AccordionMenu extends Plugin {
         'id': subId
       });
     });
-    this.$element.find('li').attr({
-      'role': 'treeitem'
-    });
     var initPanes = this.$element.find('.is-active');
     if (initPanes.length) {
       initPanes.each(function() {
@@ -112,7 +105,7 @@ class AccordionMenu extends Plugin {
 
       if ($submenu.length) {
         if (_this.options.submenuToggle) {
-          $(this).children('.submenu-toggle').off('click.zf.accordionMenu').on('click.zf.accordionMenu', function(e) {
+          $(this).children('.submenu-toggle').off('click.zf.accordionMenu').on('click.zf.accordionMenu', function() {
             _this.toggle($submenu);
           });
         } else {

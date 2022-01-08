@@ -20,27 +20,45 @@
 
 -------------------------------------------------------------------*/
 
+/*
+ * Custom Properties are ideal for working with prefers-color-scheme
+ * https://stuffandnonsense.co.uk/blog/redesigning-your-product-and-website-for-dark-mode
+ */
+
+/* No preferences */
 :root {
-	--colour-scheme: "light";
 	--transition-time: 130ms;
 }
 
+@media (prefers-reduced-motion: reduce) {
+
+	:root {
+		--transition-time: 0ms;
+	}
+
+}
+
 body {
-	color: var(--black_tint);
+	background-color: var(--body-background-color);
+	color: var(--body-color);
 }
 
 *::selection {
-	background-color: var(--invert_bright_color);
-	color: white;
+	background-color: var(--selection-background-color);
+	color: var(--selection-color);
+}
+
+*::placeholder {
+	color: var(--placement-color);
 }
 
 .off-canvas {
 	/* filter: brightness(120%); */
-	background-color: var(--light_black_tint);
+	background-color: var(--placement-color);
 }
 
 .top-bar, .top-bar ul {
-	background-color: #fff;
+	background-color: var(--body-background-color);
 }
 
 .woocommerce-store-notice, p.demo_store {
@@ -48,15 +66,16 @@ body {
 	color: #000;
 }
 
-.callout {
-	background-color: #fff;
-	border: 1px solid var(--primary_color);
+.callout, .callout.primary {
+	background-color: var(--body-background-color);
+	border: 1px solid var(--primary-block-color);
 	border-radius: .25rem;
+	color: var(--body-color);
 }
 
 .callout.secondary {
 	background-color: #fff;
-	border: 1px solid var(--primary_bright_color);
+	border: 1px solid var(--primary-block-color);
 }
 
 div.section { 
@@ -69,7 +88,7 @@ div.section header {
 	background-color: var(--header_background_color);
 }
 
-h1,h2,h3,h4,h5,h6 { color: var(--primary_color); }
+h1,h2,h3,h4,h5,h6 { color: var(--primary-block-color); }
 
 h1 a, h1 a:link,
 h2 a, h2 a:link,
@@ -84,7 +103,7 @@ ul.wc-tabs li a, ul.wc-tabs li a:link,
 div a, div a:link
 {	
 	transition: all var(--transition-time) ease;
-	color: var(--primary_dark_color);
+	color: var(--primary-block-color);
 }
 
 .accordion-title, .accordion-content { border-bottom: 1px }
@@ -129,7 +148,7 @@ li.menu-item a:hover,
 li.menu-item.is-active > a,
 li.menu-item.is-active > a:link,
 footer a:hover {
-	background-color: var(--primary_bright_color);
+	background-color: var(--primary-block-background-hover-color);
 	color: var(--primary_font_auto_color);
 }
 
@@ -141,8 +160,8 @@ input.search-submit,
 .woocommerce #respond input#submit.alt, .woocommerce a.button.wc-backward, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, /* WooCommerce */
 .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, /*WooCommerce */
 div.css-search div.em-search-main .em-search-submit /* Events */ {
-	-webkit-box-shadow: 0 1px 0 #0f0f0f;
-	box-shadow: 0 1px 0 #0f0f0f;
+	-webkit-box-shadow: 0 1px 0 var(--block-shadow-color);
+	box-shadow: 0 1px 0 var(--block-shadow-color);
 	-webkit-transition: -webkit-box-shadow ease-in-out var(--transition-time);
 	transition: -webkit-box-shadow ease-in-out var(--transition-time);
 	transition: box-shadow ease-in-out var(--transition-time);
@@ -150,7 +169,7 @@ div.css-search div.em-search-main .em-search-submit /* Events */ {
 	text-transform: uppercase;
 	line-height: 1.5em;
 	background: none;
-	background-color: var(--primary_dark_color);
+	background-color: var(--primary-block-background-color);
 	color: var(--primary_font_auto_color);
 	border: 0;
 }
@@ -167,10 +186,10 @@ button:hover, button:focus, input.mailpoet_submit:hover, input.mailpoet_submit:f
 .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, /*WooCommerce */
 .woocommerce #respond input#submit:focus, .woocommerce a.button:focus, .woocommerce button.button:focus, .woocommerce input.button:focus, /*WooCommerce */
 div.css-search div.em-search-main .em-search-submit:hover, div.css-search div.em-search-main .em-search-submit:focus /* Events */ {
-	-webkit-box-shadow: 0 2px 0 #0f0f0f;
-	box-shadow: 0 2px 0 #0f0f0f;
+	-webkit-box-shadow: 0 2px 0 var(--block-shadow-color);
+	box-shadow: 0 2px 0 var(--block-shadow-color);
 	background: none;
-	background-color: var(--primary_bright_color);
+	background-color: var(--primary-block-background-hover-color);
 	color: var(--primary_font_auto_color);
 }
 
@@ -185,7 +204,8 @@ div.css-search div.em-search-main .em-search-submit:hover, div.css-search div.em
 }
 
 .dropdown.menu li.is-active > a { color: var(--primary_font_auto_color); }
-.dropdown.menu > li.is-dropdown-submenu-parent > a::after { border-color: var(--primary_dark_color) transparent transparent; }
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after { border-color: var(--primary-block-color) transparent transparent; }
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after { border-color: transparent transparent transparent var(--primary-block-color); }
 
 #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment {
 	background-color: var(--light_black_tint);
@@ -219,28 +239,11 @@ div.tag-cloud a.tag-cloud-link:focus {
     color: var(--primary_bright_color);
 }
 
-footer { background-color: var(--light_black_tint); }
+footer {
+	background-color: var(--footer-background-color);
+}
 
 .jetpack-social-widget-item a[target="_blank"]::after,
 .jetpack-social-widget-item a[target="new"]::after {
     content: "";
 }
-
-/*
-@media (prefers-color-scheme: dark) {
-
-	:root {
-		--colour-scheme: "dark";
-	}
-
-	body {
-		color: white;
-		background-color: var(--black_tint);
-	}
-
-	.top-bar, .top-bar ul {
-		background-color: var(--black_tint);
-	}
-
-}
-*/

@@ -1,0 +1,11 @@
+@charset "utf-8";
+/*-------------------------------------------------------------------
+[ADMIN CSS]
+---------------------------------------------------------------------*/
+
+#wpbody-content table th, table td { padding: .25em; }
+#wpbody-contenth3 { font-style: oblique; }
+#wpbody-content ul li { 
+	list-style: disc;
+	list-style-position: inside;
+}

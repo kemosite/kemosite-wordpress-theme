@@ -1,5 +1,3 @@
-'use strict';
-
 import $ from 'jquery';
 import { Keyboard } from './foundation.util.keyboard';
 import { Motion } from './foundation.util.motion';
@@ -132,7 +130,6 @@ class Orbit extends Plugin {
   * @private
   */
   _prepareForOrbit() {
-    var _this = this;
     this._setWrapperHeight();
   }
 
@@ -268,7 +265,7 @@ class Orbit extends Plugin {
    */
   _reset() {
     // Don't do anything if there are no slides (first run)
-    if (typeof this.$slides == 'undefined') {
+    if (typeof this.$slides === 'undefined') {
       return;
     }
 

@@ -1,32 +1,34 @@
-# kemosite-wordpress-theme 5.8.0.4
+# kemosite-wordpress-theme 5.8.2.0
 ## A useful theme for Wordpress 5.8
 
 Contributors: Kevin Montgomery
 
-Tags: adaptive, javascript, responsive, foundation, less, woocommerce, github, multi-column, custom-colours, custom-menu, custom-logo, custom-background, featured-images, threaded-comments, translation-ready, light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready, flexbox
+Tags: adaptive, javascript, responsive, foundation, less, woocommerce, learnpress, github, multi-column, custom-colours, custom-menu, custom-logo, custom-background, featured-images, threaded-comments, translation-ready, light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready, flexbox
 
-Requires at least: 5.8
+- Version: 5.8.2.0
+- Requires at least: 5.8
+- Tested up to: 5.8
+- Requires PHP: 7.4
+- License: GNU General Public License v2 or later
 
-Tested up to: 5.8
-
-Requires PHP: 7.4
-
-License: GNU General Public License v2 or later
+### Version Confirmation Files
+- index.php
+- style.css
+- functions-enqueue-scripts.php
+- README
 
 ## Features
  - Foundation Framework
  - Woocommerce Support
+ - LearnPress Support
  - Advanced Ads
- - (Depricated) Incorporates QODE Central Wordpress theme shortcodes
 
-Dependencies:
-"chart.js": "^3.5.0",
+## Dependencies
+"chart.js": "^3.6.1",
 "foundation-icons": "^1.0.1",
-"foundation-sites": "^6.6.3",
+"foundation-sites": "^6.7.4",
 "jquery": "^3.6.0",
-"mediaelement": "^4.2.16",
-"npm": "^7.20.2",
-"npm-check-updates": "^11.8.3",
+"mediaelement": "^5.0.4",
 "what-input": "^5.2.10"
 
 ## Installation

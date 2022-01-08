@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+/*-------------------------------------------------------------------
+[WOOCOMMERCE MASTER STYLESHEET OVERRIDE CONTENTS]
+---------------------------------------------------------------------
+
+// Original idea from Smashing Magazine //
+https://www.smashingmagazine.com/2008/05/improving-code-readability-with-css-styleguides/
+
+// Augmented by principles of CSS Guidelines //
+https://cssguidelin.es/#table-of-contents
+
+# TO DO #
+Organize contents into structure and skin, in the order of:
+- Block: The root of a component (Layout).
+- Element: A component part of a Block (Typography, Forms, Buttons).
+- Modifier: A variant or extension of a Block (Colours).
+
+-------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------
+[MIXINS]
+// Not yet defined //
+-------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------
+[COLOURS]
+-------------------------------------------------------------------*/
+@import "colors.css";
+
+/*-------------------------------------------------------------------
+[TYPOGRAPHY]
+-------------------------------------------------------------------*/
+@import "woocommerce-typography.css";
+
+/*-------------------------------------------------------------------
+[SPEECH]
+-------------------------------------------------------------------*/
+@import "speech.css" speech;
+
+/*-------------------------------------------------------------------
+[LAYOUTS]
+-------------------------------------------------------------------*/
+
+/*
+# LAYOUT AND FLEXBOX NOTES #
+CSS Grids are for LAYOUT, 2 dimensions
+Define layouts, then place box content into them.
+Layouts might need to change according to media query. Grids are better suited for this. Grid can change, as can relationship between box to grid according to media query.
+
+CSS Flexbox is for a BOX, either row or column.
+Place into a layout grid.
+
+# https://css-tricks.com/snippets/css/complete-guide-grid/
+# https://medium.com/flexbox-and-grids/how-to-efficiently-master-the-css-grid-in-a-jiffy-585d0c213577
+
+*/
+
+/*
+# TEMPLATE HIERARCHY #
+# https://developer.wordpress.org/themes/basics/template-hierarchy/
+
+# Front Page
+# Home
+# Page
+# Index
+
+
+# LAYOUT TABLE OF CONTENTS #
+
+# menu
+# section_name
+# content
+
+
+# BOX TABLE OF CONTENTS #
+
+# html, body
+# accessibility
+# header
+# navigation
+# content
+# forms
+# media
+# widgets
+# rss
+# search
+# ads
+# footer
+
+# VIEWS AND BREAKPOINTS #
+
+# All
+# Print
+# Screen
+# 39 characters wide, portrait mode
+# 39 characters wide, landscape mode
+# 39-59 characters wide, portrait mode
+# 39-59 characters wide, landscape mode
+# 59+ characters wide, portrait mode
+# 59+ characters wide, landscape mode
+
+-------------------------------------------------------------------*/
+
+/* # ALL # */
+@import "layout-all.css" all;
+
+/* # PRINT # */
+@import "layout-print.css" print;
+
+/* # SCREEN # */
+@import "layout-screen.css" screen;
+
+
+
+/* # DEVICE, PORTRAIT ORIENTATION # */
+@import "layout-screen-39-portrait.css" screen and (max-width: 39ch) and (orientation: portrait);
+@import "layout-screen-39-landscape.css" screen and (max-width: 39ch) and (orientation: landscape);
+@import "layout-screen-39-59-portrait.css" screen and (min-width: 39ch) and (max-width: 59ch) and (orientation: portrait);
+@import "layout-screen-39-59-landscape.css" screen and (min-width: 39ch) and (max-width: 59ch) and (orientation: landscape);
+@import "layout-screen-59-portrait.css" screen and (min-width: 59ch) and (orientation: portrait);
+@import "layout-screen-59-landscape.css" screen and (min-width: 59ch) and (orientation: landscape);
+
+/* # ADS # */
+@import "layout-screen-ads.css" screen;

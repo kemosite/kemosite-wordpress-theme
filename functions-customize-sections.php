@@ -4,7 +4,7 @@
 // add_theme_page( string $page_title, string $menu_title, string $capability, string $menu_slug, callable $function = '' )
 function kemosite_shortcodes_description_page() {
 	?>
-	<style>table th, table td { padding: .25em; }</style>
+	<style>@import url("<?php echo get_template_directory_uri() . '/style.css' ?>/admin-css.css"); </style>
 	<h1>Available Shortcodes</h1>
 	<table>
 		<caption>Available Shortcodes</caption><!-- Caption added for accessibility -->
@@ -47,7 +47,7 @@ add_action( 'admin_menu', 'add_shortcodes_description_page' );
 // add_theme_page( string $page_title, string $menu_title, string $capability, string $menu_slug, callable $function = '' )
 function kemosite_howtouse_description_page() {
 	?>
-	<style>table th, table td { padding: .25em; }</style>
+	<style>@import url("<?php echo get_template_directory_uri(); ?>/admin-css.css"); </style>
 	<h1>How To Use This Theme</h1>
 	<h2>General Layout</h2>
 		<p>Self-serve Header vs. Seek Assistance Footer.</p>
@@ -73,7 +73,7 @@ function kemosite_howtouse_description_page() {
 			<li>Buttons</li>
 			<li>Lists</li>
 			<li>Colours</li>
-			<li>Graphs (using <a href="https://www.chartjs.org/" target="graph_documentation">graph.js</a>)</li>
+			<li>Charts (using <a href="https://www.chartjs.org/" target="graph_documentation">graph.js</a>). Use custom field load-chart-js = true.</li>
 		</ul>
 
 	<?php

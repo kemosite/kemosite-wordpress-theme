@@ -11,6 +11,21 @@ define( 'GITHUB_UPDATER_OVERRIDE_DOT_ORG', true ); // Override Dot Org will skip
 if (!defined( 'SAVEQUERIES' )): define( 'SAVEQUERIES', true ); endif;
 define('DISABLE_NAG_NOTICES', true);
 
+if ( !function_exists('kemosite_debug_to_console') ) :
+    
+    function kemosite_debug_to_console($data) {
+        $output = json_encode($data);
+        echo "<script>console.log(".$output.");</script>";
+    }
+
+endif;
+
+// Check for Woocommerce, Define Woocommerce constant, append appropriate styles
+if (is_plugin_active('woocommerce/woocommerce.php')): define('KEMOSITE_WOOCOMMERCE_ACTIVE', true); endif;
+
+// Check for Learnpress, Define Learnpress constant, append appropriate styles
+if (is_plugin_active('learnpress/learnpress.php')): define('KEMOSITE_LEARNPRESS_ACTIVE', true); endif;
+
 // Determine whether this is an AMP response.
 if (!function_exists('is_amp_detected')):
 	function is_amp_detected() {
@@ -34,8 +49,13 @@ if ( ! function_exists( 'kemosite_wordpress_theme_dependencies' ) ) :
 		//plugin is activated
 
 		// Check for Woocommerce
-		if (!is_plugin_active('woocommerce/woocommerce.php')):
+		if ( !defined(KEMOSITE_WOOCOMMERCE_ACTIVE) ):
 			echo '<div class="notice notice-info is-dismissible"><p>This theme supports WooCommerce.</p></div>';
+		endif;
+
+		// Check for Learnpress
+		if ( !defined(KEMOSITE_LEARNPRESS_ACTIVE) ):
+			echo '<div class="notice notice-info is-dismissible"><p>This theme supports Learnpress.</p></div>';
 		endif;
 
 	}
@@ -854,6 +874,52 @@ function cd_customizer_css() {
 		--button_font_family_name: <?php echo "'" . urldecode($button_font_family_name[0]) . "', sans-serif"; ?>;
 
 		--default_header_image: <?php echo $default_header_image; ?>;
+
+	}
+
+	/*
+	 * Custom Properties are ideal for working with prefers-color-scheme
+	 * https://stuffandnonsense.co.uk/blog/redesigning-your-product-and-website-for-dark-mode
+	 */
+
+	/* No preferences */
+	:root {
+		--colour-scheme: "no preference (light)";
+		--body-background-color: white;
+		--body-color: <?php echo $black_tint; ?>;
+		--selection-background-color: <?php echo $invert_bright_color; ?>;
+		--selection-color: white;
+		--placement-color: <?php echo $light_black_tint; ?>;
+		--primary-block-color: <?php echo $primary_dark_color; ?>;
+		--primary-block-background-color: <?php echo $primary_dark_color; ?>;
+		--primary-block-background-hover-color: <?php echo $primary_bright_color; ?>;
+		--block-shadow-color: <?php echo $light_black_tint; ?>;
+		--footer-background-color: hsl(0, 0%, 85%);
+	}
+
+	@media (prefers-color-scheme: light) {
+
+		:root {
+			--colour-scheme: "light";
+		}
+
+	}
+
+	@media (prefers-color-scheme: dark) {
+
+		:root {
+			--colour-scheme: "dark";
+			--body-background-color: <?php echo $black_tint; ?>;
+			--body-color: <?php echo $light_black_tint; ?>;
+			--selection-background-color: <?php echo $invert_bright_color; ?>;
+			--selection-color: white;
+			--placement-color: <?php echo $black_tint; ?>;
+			--primary-block-color: white;
+			--primary-block-background-color: <?php echo $primary_bright_color; ?>;
+			--primary-block-background-hover-color: <?php echo $primary_dark_color; ?>;
+			--block-shadow-color: <?php echo $dark_black_tint; ?>;
+			--footer-background-color: hsl(0, 0%, 15%);
+		}
 
 	}
 
