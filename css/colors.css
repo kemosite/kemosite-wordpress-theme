@@ -159,7 +159,7 @@ table, table.wp-block-table.is-style-stripes, table tbody, table tfoot, table th
 	background-color: white;
 }
 
-table { color: var(--placement-color); }
+table { color: var(--body-color); }
 
 li.menu-item a:hover,
 li.menu-item.is-active > a,

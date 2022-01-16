@@ -18,7 +18,6 @@ window.addEventListener("DOMContentLoaded", function() {
 				// Look for local link
 				if (url.substr(0,1) == "#") {
 					var local_link = document.querySelector("a[name='"+url.substr(1)+"']");
-					console.log(local_link);
 					window.scrollTo({
 					  top: local_link.offsetTop,
 					  behavior: 'smooth'

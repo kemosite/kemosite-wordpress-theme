@@ -25,6 +25,7 @@ body {
     font-family: var(--body_copy_font_family_name), sans-serif;
     font-variant-ligatures: none;
     font-kerning: auto;
+    hyphens: none;
 }
 body * { font-size: inherit; }
 

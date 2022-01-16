@@ -1,11 +1,11 @@
-# kemosite-wordpress-theme 5.8.3.0
+# kemosite-wordpress-theme 5.8.3.1
 ## A useful theme for Wordpress 5.8
 
 Contributors: Kevin Montgomery
 
 Tags: adaptive, javascript, responsive, foundation, less, woocommerce, learnpress, github, multi-column, custom-colours, custom-menu, custom-logo, custom-background, featured-images, threaded-comments, light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready, flexbox
 
-- Version: 5.8.3.0
+- Version: 5.8.3.1
 - Requires at least: 5.8
 - Tested up to: 5.8
 - Requires PHP: 7.4
@@ -14,7 +14,6 @@ Tags: adaptive, javascript, responsive, foundation, less, woocommerce, learnpres
 ### Version Confirmation Files
 - index.php
 - style.css
-- functions-enqueue-scripts.php
 - README
 
 ## Features

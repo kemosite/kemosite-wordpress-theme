@@ -145,6 +145,8 @@ canvas {
 	height: calc(100% / var(--golden_ratio));
 }
 
+meter { width: 100%; }
+
 footer {
 	display: flex;
 	flex-flow: row wrap;

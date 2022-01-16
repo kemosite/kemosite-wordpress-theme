@@ -11,7 +11,7 @@
  *
  * @package kemosite-wordpress-theme
  * @since 5.8
- * @version 5.8.3.0
+ * @version 5.8.3.1
  *
  * REST API Documentation
  * https://developer.wordpress.org/rest-api/
