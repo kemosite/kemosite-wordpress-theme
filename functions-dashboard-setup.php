@@ -6,7 +6,7 @@ function register_my_dashboard_widget() {
 
 	wp_add_dashboard_widget(
 		'kemosite_wordpress_nextsteps',
-		'Blank Theme, Next Steps',
+		'kemosite-wordpress-theme',
 		'kemosite_wordpress_nextsteps_widget_display'
 	);
 

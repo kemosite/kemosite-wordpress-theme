@@ -21,10 +21,10 @@ if ( !function_exists('kemosite_debug_to_console') ) :
 endif;
 
 // Check for Woocommerce, Define Woocommerce constant, append appropriate styles
-if (is_plugin_active('woocommerce/woocommerce.php')): define('KEMOSITE_WOOCOMMERCE_ACTIVE', true); endif;
+if (is_plugin_active('woocommerce/woocommerce.php')): define('KEMOSITE_WOOCOMMERCE_ACTIVE', true); else: define('KEMOSITE_WOOCOMMERCE_ACTIVE', false); endif;
 
 // Check for Learnpress, Define Learnpress constant, append appropriate styles
-if (is_plugin_active('learnpress/learnpress.php')): define('KEMOSITE_LEARNPRESS_ACTIVE', true); endif;
+if (is_plugin_active('learnpress/learnpress.php')): define('KEMOSITE_LEARNPRESS_ACTIVE', true); else: define('KEMOSITE_LEARNPRESS_ACTIVE', false); endif;
 
 // Determine whether this is an AMP response.
 if (!function_exists('is_amp_detected')):

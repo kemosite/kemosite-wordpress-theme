@@ -23,6 +23,8 @@
 body { 
     text-rendering: optimizeLegibility;
     font-family: var(--body_copy_font_family_name), sans-serif;
+    font-variant-ligatures: none;
+    font-kerning: auto;
 }
 body * { font-size: inherit; }
 
@@ -131,6 +133,10 @@ a[rel="bookmark"],
 footer a {
     border-bottom: 1px solid;
     font-weight: 600;
+}
+
+a[name] {
+    border-bottom: 0;
 }
 
 /* emails */
@@ -258,4 +264,10 @@ footer { font-size: 1rem; }
 
 .copyright { 
     text-align: center;
+}
+
+.mailpoet_form_html * {
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    font-size: inherit !important;
 }

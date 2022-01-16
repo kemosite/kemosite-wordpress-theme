@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		a_elements.forEach( function(a_element) {
 
 			if (a_element.getAttribute("aria-label") === null) {
-				a_element.setAttribute("aria-label", "Read more about " + a_element.innerText);
+				a_element.setAttribute("aria-label", "Get more information about " + a_element.innerText);
+			}
+
+			if (a_element.getAttribute("tabindex") === null) {
+				a_element.setAttribute("tabindex", "0");
 			}
 			
 		});

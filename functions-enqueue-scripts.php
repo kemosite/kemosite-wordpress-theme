@@ -76,6 +76,16 @@ function load_scripts_method() {
 	wp_register_script('amp-script', 'https://cdn.ampproject.org/v0/amp-script-0.1.js', '', '0.1', 'true');
 	wp_enqueue_script('amp-script');
 
+	// Accessibility enhancements
+	wp_deregister_script('kemosite-wordpress-theme-accessibility');
+	wp_register_script('kemosite-wordpress-theme-accessibility', get_template_directory_uri() . '/js/accessibility.js', array(), '20200525', true );
+	wp_enqueue_script('kemosite-wordpress-theme-accessibility');
+
+	// URL Handler
+	wp_deregister_script('kemosite-url-handler');
+	wp_register_script('kemosite-url-handler', get_template_directory_uri().'/js/kemosite-url-handler.js', '', '20220113', 'true');
+	wp_enqueue_script('kemosite-url-handler');
+
 	// Foundation JS Files
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', get_template_directory_uri().'/js/vendor/jquery.min.js', '', '3.6.0', 'true');
@@ -110,11 +120,6 @@ function load_scripts_method() {
 
 	endif;
 
-	// JQuery
-	wp_deregister_script('my-jquery');
-	wp_register_script('my-jquery', get_template_directory_uri().'/js/my-jquery.js', array('jquery'), '3.6.0', 'true');
-	wp_enqueue_script('my-jquery');
-
 	// Mediaelement
 	wp_deregister_script('mediaelement');
 	wp_register_script('mediaelement', get_template_directory_uri().'/js/vendor/mediaelement-and-player.min.js', '', '5.0.4', 'true');
@@ -128,11 +133,6 @@ function load_scripts_method() {
 	wp_deregister_script('kemosite-wordpress-theme-skip-link-focus-fix');
 	wp_register_script('kemosite-wordpress-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 	wp_enqueue_script('kemosite-wordpress-theme-skip-link-focus-fix');
-
-	// Accessibility enhancements
-	wp_deregister_script('kemosite-wordpress-theme-accessibility');
-	wp_register_script('kemosite-wordpress-theme-accessibility', get_template_directory_uri() . '/js/accessibility.js', array(), '20200525', true );
-	wp_enqueue_script('kemosite-wordpress-theme-accessibility');
 
 	// Gtag
 	wp_deregister_script('kemosite-wordpress-theme-gtag');
@@ -169,21 +169,23 @@ function defer_async_amp_scripts( $tag, $handle, $src ) {
 		'amp-script'
 	);
 
-  $defer = array( 
-    'foundation-what-input',
-    'foundation-app',
-    'mediaelement',
-    'kemosite-wordpress-theme-navigation',
-    'kemosite-wordpress-theme-skip-link-focus-fix',
-    'kemosite-wordpress-theme-accessibility',
-    'kemosite-wordpress-theme-gtag',
-    'chart-js-config'
+	// file gets downloaded asynchronously, but executed only when the document parsing is completed
+	$defer = array( 
+	    'kemosite-wordpress-theme-accessibility',
+	    'foundation-app',
+	    'kemosite-wordpress-theme-gtag',
+	    'chart-js-config',
+	    'kemosite-url-handler'
   );
 
-  $async = array(
-  	//'chart-js',
-  	'my-jquery'
-  );
+	// file gets downloaded asynchronously and then executed as soon as it's downloaded
+	$async = array(
+	  	//'chart-js',
+	  	'mediaelement',
+	  	'kemosite-wordpress-theme-navigation',
+	  	'kemosite-wordpress-theme-skip-link-focus-fix',
+	  	'foundation-what-input',
+	);
 
   if ( in_array( $handle, $amp ) ) {
      return '<script src="' . $src . '" async="async" custom-element="amp-script"></script>' . "\n";
@@ -266,7 +268,7 @@ function resource_hints_method($hints, $relation_type) {
 	$prefetch_script = array( 
     	'jquery',
     	'foundation',
-    	'my-jquery',
+    	'kemosite-url-handler',
 	);
 
 	switch ($relation_type) {
@@ -306,11 +308,11 @@ function resource_hints_method($hints, $relation_type) {
 
 		case 'prefetch':
 
-		if (!wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0]):
-			define("KEMOSITE_THEME_LOGO", wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0] );
-		else:
-			define("KEMOSITE_THEME_LOGO", "" );
-		endif;
+			if ( get_theme_mod('custom_logo') ):
+				define("KEMOSITE_THEME_LOGO", wp_get_attachment_image_src(get_theme_mod('custom_logo'))[0] );
+			else:
+				define("KEMOSITE_THEME_LOGO", "" );
+			endif;
 
 			// Prefetch theme logo
 	    	$hints[] = array(

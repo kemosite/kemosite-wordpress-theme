@@ -124,6 +124,7 @@ remove_action( 'woocommerce_before_subcategory_title', 'woocommerce_subcategory_
 add_action( 'woocommerce_before_subcategory_title', 'my_subcategory_thumbnail', 10 );
 
 function my_subcategory_thumbnail( $category ) {
+    
     $small_thumbnail_size   = apply_filters( 'subcategory_archive_thumbnail_size', 'shop_catalog' );
     $dimensions             = wc_get_image_size( $small_thumbnail_size );
     $thumbnail_id           = get_woocommerce_term_meta( $category->term_id, 'thumbnail_id', true  );
@@ -204,23 +205,6 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
             $thumbnail_id           = get_post_thumbnail_id();
         }
 
-        
-        /*
-        $test_object = json_encode(array(
-            "size" => $size,
-            "image_size" => $image_size,
-            "small_thumbnail_size" => $small_thumbnail_size,
-            "dimensions" => $dimensions,
-        ));
-        echo "<script>console.log(".$test_object.");</script>";
-        */
-
-        /*
-        echo "<pre>";        
-        print_r($thumbnail_id);
-        echo "</pre>";
-        */
-
         if ( isset($thumbnail_id) ):
             $image = wp_get_attachment_image_src( $thumbnail_id, $small_thumbnail_size  );
             $image = $image[0];
@@ -232,18 +216,12 @@ if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
             $dimensions['width'] = get_option('thumbnail_size_w');
             $dimensions['height'] = get_option('thumbnail_size_h');
             $dimensions['crop'] = get_option('thumbnail_crop');
+            $props['alt'] = "Image thumbnail for " . $post->post_title;
 
         else:
             $image = wc_placeholder_img_src();
 
         endif;
-
-        /*
-        echo "<pre>";        
-        print_r($image);
-        print_r($srcset);
-        echo "</pre>";
-        */
 
         if ( isset($image) ) {
 

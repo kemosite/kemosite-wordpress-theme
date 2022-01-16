@@ -4,6 +4,10 @@
 	--golden_ratio: 1.618;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 .speech {
 
 	position:absolute;
@@ -87,6 +91,7 @@ ul.wc-tabs li {
 	padding: 1ex 1ch;
 }
 .wp-block-column .card { border: none; }
+.wp-block-column img { width: 100%; }
 
 .cropped.image {
     background-position:center center;
@@ -129,6 +134,10 @@ a.button {
 	display: flex !important;
 	justify-content: center;
 	align-items: center;
+}
+
+a[name] {
+	cursor: auto;
 }
 
 canvas {

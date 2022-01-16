@@ -60,7 +60,7 @@
  */
 ?>
 
-<a class="screen-reader-text skip-link" href="#content">Skip to content</a>
+<a class="screen-reader-text skip-link" href="#content" tabindex="0">Skip to content</a>
 
 <!-- Foundation wrapper around off-canvas and the content. -->
 <div class="off-canvas-wrapper">
@@ -167,7 +167,7 @@
 
 							<ul id="top-bar-menu" class="dropdown menu" data-dropdown-menu>
 
-								<li class="menu-text display logo position" aria-label="Image of website logo"><a tabindex="0" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="Return to home page"><img src="<?php echo KEMOSITE_THEME_LOGO; ?>" alt=""></a></li>
+								<li tabindex="0" class="menu-text display logo position" aria-label="Image of website logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="Return to home page"><img tabindex="0" src="<?php echo KEMOSITE_THEME_LOGO; ?>" alt=""></a></li>
 						
 								<?php
 								if ( has_nav_menu( 'top-bar-menu' ) ) :
@@ -355,6 +355,6 @@
 		</div><!-- .grid-layout-header -->
 
 		<!-- Skip to content -->
-		<div id="content"></div>
+		<a name="content" id="content"></a>
 
 			

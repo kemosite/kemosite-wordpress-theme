@@ -231,10 +231,6 @@ form.search-form {
 	margin: 1em auto;
 }
 
-.screen-reader-text.skip-link {
-	display: none;
-}
-
 form.search-form label {
 	display: inline-block;
 }
