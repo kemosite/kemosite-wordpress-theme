@@ -40,60 +40,61 @@
 
 body,
 .help-text {
-	background-color: var(--body-background-color);
-	color: var(--body-color);
+	background-color: var(--kemosite_wordpress_body_background_color);
+	color: var(--kemosite_wordpress_body_color);
 }
 
 *::selection {
-	background-color: var(--selection-background-color);
-	color: var(--selection-color);
+	background-color: var(--kemosite_wordpress_selection_colour);
+	color: var(--kemosite_wordpress_selection_font_colour);
 }
 
 *::placeholder {
-	color: var(--placement-color);
+	color: var(--kemosite_wordpress_placeholder_color);
 }
 
 .off-canvas {
 	/* filter: brightness(120%); */
-	background-color: var(--placement-color);
+	background-color: var(--kemosite_wordpress_placeholder_color);
 }
 
 .top-bar, .top-bar ul {
-	background-color: var(--body-background-color);
+	background-color: var(--kemosite_wordpress_body_background_color);
 }
 
 .woocommerce-store-notice, p.demo_store {
-	background-color: #BF92B6;
-	color: #000;
+	background-color: var(--kemosite_wordpress_component_warning_colour);
+	color: var(--kemosite_wordpress_component_warning_font_colour);
 }
 
 .callout, .callout.primary {
-	background-color: var(--body-background-color);
-	border: 1px solid var(--primary-block-color);
+	background-color: var(--kemosite_wordpress_body_background_color);
+	border: 1px solid var(--kemosite_wordpress_component_colour);
 	border-radius: .25rem;
-	color: var(--body-color);
+	color: var(--kemosite_wordpress_body_color);
 }
 
 .callout.secondary {
 	background-color: #fff;
-	border: 1px solid var(--primary-block-color);
+	border: 1px solid var(--kemosite_wordpress_component_colour);
 }
 
-div.section { 
-	/* background-color: var(--header_background_color); */
-	color: var(--header_font_color);
-	background-color: var(--header_background_color);
+div.section.header { 
+	color: var(--kemosite_wordpress_header_font_color);
+	background-color: var(--kemosite_wordpress_header_bg_color);
 }
 
-div.section header {
-	background-color: var(--header_background_color);
+div.section.header header {
+	background-color: var(--kemosite_wordpress_header_bg_color);
 }
 
-.woocommerce .woocommerce-breadcrumb { color: var(--primary-block-color); }
+div.section.header header h1 {  color: var(--kemosite_wordpress_header_font_color); }
 
-h1,h2,h3,h4,h5,h6 { color: var(--primary-block-color); }
+.woocommerce .woocommerce-breadcrumb { color: var(--kemosite_wordpress_component_colour); }
 
-.card h1, .card h2, .card h3, .card h4, .card h5, .card h6 { color: var(--placement-color); }
+h1,h2,h3,h4,h5,h6 { color: var(--kemosite_wordpress_component_colour); }
+
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6 { color: var(--kemosite_wordpress_placeholder_color); }
 
 h1 a, h1 a:link,
 h2 a, h2 a:link,
@@ -101,19 +102,21 @@ h3 a, h3 a:link,
 h4 a, h4 a:link,
 h5 a, h5 a:link,
 h6 a, h6 a:link,
-p a, p a:link,
+p a:not(.button), p a:link:not(.button),
 li:not(.accordian-item) a, li:not(.accordian-item) a:link,
 .woocommerce-breadcrumb a:not(img), .woocommerce-breadcrumb a:link:not(img),
+.woocommerce .woocommerce-breadcrumb a, .woocommerce .woocommerce-breadcrumb a:link,
 ul.wc-tabs li a, ul.wc-tabs li a:link,
-div a, div a:link
+div a:not(.button), div a:link:not(.button)
 {	
 	transition: all var(--transition-time) ease;
-	color: var(--primary-block-color);
+	color: var(--kemosite_wordpress_component_colour);
+	filter: saturate(100%) brightness(100%); /* Something is wonky with the "Sale" WooCommerce button */
 }
 
 .woocommerce-tabs.wc-tabs-wrapper a,
 .woocommerce-tabs.wc-tabs-wrapper a:link {
-	color: var(--placement-color);
+	color: var(--kemosite_wordpress_placeholder_color);
 }
 
 .accordion-title, .accordion-content { border-bottom: 1px }
@@ -125,17 +128,19 @@ h3 a:hover, h3 a:focus,
 h4 a:hover, h4 a:focus,
 h5 a:hover, h5 a:focus,
 h6 a:hover, h6 a:focus,
-p a:hover, p a:focus,
+p a:not(.button):hover, p a:not(.button):focus,
 li a:hover, li a:focus,
 li:not(.accordian-item) a:hover, li:not(.accordian-item) a:focus,
 li.product a:hover, li.product a:focus,
 .woocommerce-breadcrumb a:hover:not(img), .woocommerce-breadcrumb a:focus:not(img),
+.woocommerce .woocommerce-breadcrumb a:hover, .woocommerce .woocommerce-breadcrumb a:focus,
 ul.wc-tabs li a:hover, ul.wc-tabs li a:focus,
-div a:hover, div a:focus,
+div a:not(.button):hover, div a:not(.button):focus,
 .woocommerce-tabs.wc-tabs-wrapper a:hover, .woocommerce-tabs.wc-tabs-wrapper a:focus
 {
-	background-color: var(--primary_dark_color);
-	color:  white;
+	background-color: var(--kemosite_wordpress_component_colour);
+	color: var(--kemosite_wordpress_base_black);
+	filter: saturate(50%) brightness(150%);
 }
 
 a[name]:hover, a[name]:focus {
@@ -143,42 +148,50 @@ a[name]:hover, a[name]:focus {
 }
 
 .woocommerce ul.products li.product .price {
-	color: var(--primary_bright_color);
+	color: var(--kemosite_wordpress_component_colour);
 }
 
-.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
-	background-color: white;
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd),
+.woocommerce-product-attributes tbody tr:nth-child(odd) {
+	background-color: hsla(0,0%,50%,0.49);
 }
 
-table tbody tr:nth-child(2n) {
-	background-color: var(--light_black_tint);
+.wp-block-table.is-style-stripes tbody tr:nth-child(2n),
+.woocommerce-product-attributes tbody tr:nth-child(2n) {
+	background-color: hsla(0,0%,0%,0);
 }
 
-table, table.wp-block-table.is-style-stripes, table tbody, table tfoot, table thead {
-	border: 1px solid var(--light_black_tint) !important;
-	background-color: white;
+.wp-block-table.is-style-regular tbody tr {
+	background-color: hsla(0,0%,0%,0);
 }
 
-table { color: var(--body-color); }
+.tabs, .card, table, table tbody, table tfoot, table thead {
+	border: 1px solid var(--kemosite_wordpress_body_color) !important;
+	background-color: hsla(0,0%,0%,0);
+	color: var(--kemosite_wordpress_body_color);
+}
 
 li.menu-item a:hover,
 li.menu-item.is-active > a,
-li.menu-item.is-active > a:link,
-footer a:hover {
-	background-color: var(--primary-block-background-hover-color);
-	color: var(--primary_font_auto_color);
+li.menu-item.is-active > a:link {
+	background-color: var(--kemosite_wordpress_component_colour);
+	color: var(--kemosite_wordpress_base_black);
+	filter: saturate(50%) brightness(150%);
 }
 
-p a.button, li.product .button, .button, li a.button, li.product a.button, a.button, button, button.button, button.close-button, input.mailpoet_submit, input.pushbutton-wide, a.close-button, .wp-block-button__link, div.wp-block-button a.wp-block-button__link,
-.wp-block-button, /* Block button */
+p a.button, li.product .button, li a.button, li.product a.button, a.button, button, button.button, button.close-button, input.mailpoet_submit, input.pushbutton-wide, a.close-button,
+.wp-block-button__link, div.wp-block-button a.wp-block-button__link, .wp-block-button, /* Block button */
 input.search-submit,
 .onsale, .woocommerce-pagination span.page-numbers, .woocommerce-pagination a.page-numbers, .woocommerce-pagination a.next.page-numbers, .woocommerce-pagination a.prev.page-numbers,
 .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, /* WooCommerce */
 .woocommerce #respond input#submit.alt, .woocommerce a.button.wc-backward, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, /* WooCommerce */
 .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, /*WooCommerce */
-div.css-search div.em-search-main .em-search-submit /* Events */ {
-	-webkit-box-shadow: 0 1px 0 var(--block-shadow-color);
-	box-shadow: 0 1px 0 var(--block-shadow-color);
+.wc-tabs a, .wc-tabs a:link, /* WooCommerce Tabs */
+div.css-search div.em-search-main .em-search-submit, /* Events */
+.woocommerce span.onsale /* WooCommerce On Sale Button */
+{
+	-webkit-box-shadow: 0 1px 0 var(--kemosite_wordpress_component_shadow_colour);
+	box-shadow: 0 1px 0 var(--kemosite_wordpress_component_shadow_colour);
 	-webkit-transition: -webkit-box-shadow ease-in-out var(--transition-time);
 	transition: -webkit-box-shadow ease-in-out var(--transition-time);
 	transition: box-shadow ease-in-out var(--transition-time);
@@ -186,8 +199,8 @@ div.css-search div.em-search-main .em-search-submit /* Events */ {
 	text-transform: uppercase;
 	line-height: 1.5em;
 	background: none;
-	background-color: var(--primary-block-background-color);
-	color: var(--primary_font_auto_color);
+	background-color: var(--kemosite_wordpress_component_colour);
+	color: var(--kemosite_wordpress_component_font_colour);
 	border: 0;
 }
 
@@ -202,35 +215,128 @@ button:hover, button:focus, input.mailpoet_submit:hover, input.mailpoet_submit:f
 .woocommerce #respond input#submit.alt:focus, .woocommerce a.button.wc-backward:focus, .woocommerce a.button.alt:focus, .woocommerce button.button.alt:focus, .woocommerce input.button.alt:focus, /* WooCommerce */
 .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, /*WooCommerce */
 .woocommerce #respond input#submit:focus, .woocommerce a.button:focus, .woocommerce button.button:focus, .woocommerce input.button:focus, /*WooCommerce */
+.wc-tabs a:hover, .wc-tabs a:focus, /* WooCommerce Tabs */
 div.css-search div.em-search-main .em-search-submit:hover, div.css-search div.em-search-main .em-search-submit:focus /* Events */ {
-	-webkit-box-shadow: 0 2px 0 var(--block-shadow-color);
-	box-shadow: 0 2px 0 var(--block-shadow-color);
+	-webkit-box-shadow: 0 2px 0 var(--kemosite_wordpress_component_shadow_colour);
+	box-shadow: 0 2px 0 var(--kemosite_wordpress_component_shadow_colour);
 	background: none;
-	background-color: var(--primary-block-background-hover-color);
-	color: var(--primary_font_auto_color);
+	background-color: var(--kemosite_wordpress_component_colour);
+	filter: saturate(50%) brightness(150%);
+	/* filter: invert(100%); */
+	color: var(--kemosite_wordpress_base_black);
 }
 
-label { color: var(--primary-block-color) }
+/* [HOLLOW / OUTLINE BUTTONS */
+.button.hollow,
+.button.hollow.disabled, .button.hollow.disabled:focus, .button.hollow.disabled:hover,
+.button.hollow[disabled], .button.hollow[disabled]:focus, .button.hollow[disabled]:hover,
+.is-style-outline .wp-block-button__link, div.wp-block-button.is-style-outline a.wp-block-button__link, .wp-block-button.is-style-outline /* Block button */ {
+	background: none;
+	border: 1px solid var(--kemosite_wordpress_component_colour);
+	color: var(--kemosite_wordpress_component_colour);
+}
+
+.button.hollow:focus, .button.hollow:hover,
+.is-style-outline .wp-block-button__link:hover, div.wp-block-button.is-style-outline a.wp-block-button__link:hover,
+.is-style-outline .wp-block-button__link:focus, div.wp-block-button.is-style-outline a.wp-block-button__link:focus /* Block button */ {
+	background: none;
+	border: 1px solid var(--kemosite_wordpress_component_colour);
+	color: var(--kemosite_wordpress_component_colour);
+	filter: saturate(50%) brightness(150%);
+}
+
+
+/* [STATUS COLOURS] */
+
+/* secondary */
+.button.secondary,
+a.button.secondary,
+button.secondary, button.button.secondary,
+.wp-block-button.secondary .wp-block-button__link { 
+	background-color: var(--kemosite_wordpress_secondary_colour);
+	color: var(--kemosite_wordpress_secondary_font_colour);
+}
+.button.secondary:hover,
+a.button.secondary:hover,
+button.secondary:hover, button.button.secondary:hover,
+.wp-block-button.secondary .wp-block-button__link:hover { 
+	background-color: var(--kemosite_wordpress_secondary_colour);
+	color: var(--kemosite_wordpress_base_black);
+	filter: saturate(50%) brightness(150%);
+}
+
+/* success */
+.button.success,
+a.button.success,
+button.success, button.button.success,
+.wp-block-button.success .wp-block-button__link { 
+	background-color: var(--kemosite_wordpress_component_success_colour);
+	color: var(--kemosite_wordpress_component_success_font_colour);
+}
+.button.success:hover,
+a.button.success:hover,
+button.success:hover, button.button.success:hover,
+.wp-block-button.success .wp-block-button__link:hover { 
+	background-color: var(--kemosite_wordpress_component_success_colour);
+	color: var(--kemosite_wordpress_base_black);
+	filter: saturate(50%) brightness(150%);
+}
+
+/* warning */
+.button.warning,
+a.button.warning,
+button.warning, button.button.warning,
+.wp-block-button.warning .wp-block-button__link { 
+	background-color: var(--kemosite_wordpress_component_warning_colour);
+	color: var(--kemosite_wordpress_component_warning_font_colour);
+}
+.button.warning:hover,
+a.button.warning:hover,
+button.warning:hover, button.button.warning:hover,
+.wp-block-button.warning .wp-block-button__link:hover { 
+	background-color: var(--kemosite_wordpress_component_warning_colour);
+	color: var(--kemosite_wordpress_base_black);
+	filter: saturate(50%) brightness(150%);
+}
+
+/* alert */
+.button.alert,
+a.button.alert,
+button.alert, button.button.alert,
+.wp-block-button.alert .wp-block-button__link { 
+	background-color: var(--kemosite_wordpress_component_alert_colour);
+	color: var(--kemosite_wordpress_component_alert_font_colour);
+}
+.button.alert:hover,
+a.button.alert:hover,
+button.alert:hover, button.button.alert:hover,
+.wp-block-button.alert .wp-block-button__link:hover { 
+	background-color: var(--kemosite_wordpress_component_alert_colour);
+	color: var(--kemosite_wordpress_base_black);
+	filter: saturate(50%) brightness(150%);
+}
+
+label { color: var(--kemosite_wordpress_component_colour) }
 
 /* Disabled WooCommerce Buttons */
 .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] {
-	color: white;
-	background-color: var(--invert_dark_color);
+	color: var(--kemosite_wordpress_cool_white);
+	background-color: var(--kemosite_wordpress_secondary_colour);
 }
 .woocommerce #respond input#submit.disabled:hover, .woocommerce #respond input#submit:disabled:hover, .woocommerce #respond input#submit:disabled[disabled]:hover, .woocommerce a.button.disabled:hover, .woocommerce a.button:disabled:hover, .woocommerce a.button:disabled[disabled]:hover, .woocommerce button.button.disabled:hover, .woocommerce button.button:disabled:hover, .woocommerce button.button:disabled[disabled]:hover, .woocommerce input.button.disabled:hover, .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover {
-	color: white;
-	background-color: var(--invert_bright_color);
+	color: var(--kemosite_wordpress_cool_white);
+	background-color: var(--kemosite_wordpress_secondary_colour);
 }
 
-.dropdown.menu li.is-active > a { color: var(--primary_font_auto_color); }
-.dropdown.menu > li.is-dropdown-submenu-parent > a::after { border-color: var(--primary-block-color) transparent transparent; }
-.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after { border-color: transparent transparent transparent var(--primary-block-color); }
+.dropdown.menu li.is-active > a { color: var(--kemosite_wordpress_component_font_colour); }
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after { border-color: var(--kemosite_wordpress_component_colour) transparent transparent; }
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after { border-color: transparent transparent transparent var(--kemosite_wordpress_component_colour); }
 
 #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment {
-	background-color: var(--light_black_tint);
+	background-color: var(--kemosite_wordpress_cool_white);
 }
 #add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box {
-	background-color: white;
+	background-color: var(--kemosite_wordpress_cool_white);
 }
 #add_payment_method #payment div.payment_box::before, .woocommerce-cart #payment div.payment_box::before, .woocommerce-checkout #payment div.payment_box::before {
 	border: 1em solid white;
@@ -239,27 +345,37 @@ label { color: var(--primary-block-color) }
 	border-top-color: transparent;
 }
 
-.woocommerce-pagination { border-top: 1px solid var(--primary_bright_color); }
-hr, .woocommerce-breadcrumb { border-bottom: 1px solid var(--primary_bright_color); }
+.woocommerce-pagination { border-top: 1px solid var(--kemosite_wordpress_component_colour); }
+hr, .woocommerce-breadcrumb { border-bottom: 1px solid var(--kemosite_wordpress_component_colour); }
 .woocommerce a.remove { line-height: 2ex; }
 
 div.tag-cloud a.tag-cloud-link {
-    background-color: var(--primary_bright_color);
+    background-color: var(--kemosite_wordpress_component_colour);
     border: 2px solid;
-    border-color: var(--primary_bright_color);
-    color: white;
+    border-color: var(--kemosite_wordpress_component_colour);
+    color: var(--kemosite_wordpress_cool_white);
 }
 
 div.tag-cloud a.tag-cloud-link:hover,
 div.tag-cloud a.tag-cloud-link:focus {
-    background-color: white;
+    background-color: var(--kemosite_wordpress_component_colour);
     border: 2px solid;
-    border-color: var(--primary_bright_color);
-    color: var(--primary_bright_color);
+    border-color: var(--kemosite_wordpress_component_colour);
+    color: var(--kemosite_wordpress_base_black);
+    filter: saturate(50%) brightness(150%);
 }
 
-footer {
-	background-color: var(--footer-background-color);
+footer.grid_area_footer {
+	background-color: var(--kemosite_wordpress_footer_bg_color);
+	color: var(--kemosite_wordpress_footer_font_color);
+}
+footer.grid_area_footer a, footer.grid_area_footer a:link {
+	color: var(--kemosite_wordpress_footer_font_color);
+}
+footer.grid_area_footer a:hover, footer.grid_area_footer a:focus {
+	background-color: var(--kemosite_wordpress_component_colour);
+	color: var(--kemosite_wordpress_base_black);
+	filter: saturate(50%) brightness(150%);
 }
 
 .jetpack-social-widget-item a[target="_blank"]::after,

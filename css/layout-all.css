@@ -82,8 +82,8 @@ ul.wc-tabs li {
 }
 
 .woocommerce span.onsale {
-	background-color: var(--primary_dark_color);
 	z-index: 9;
+	line-height: 250%;
 }
 
 .card { 

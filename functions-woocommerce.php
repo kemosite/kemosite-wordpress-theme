@@ -127,18 +127,16 @@ function my_subcategory_thumbnail( $category ) {
     
     $small_thumbnail_size   = apply_filters( 'subcategory_archive_thumbnail_size', 'shop_catalog' );
     $dimensions             = wc_get_image_size( $small_thumbnail_size );
-    $thumbnail_id           = get_woocommerce_term_meta( $category->term_id, 'thumbnail_id', true  );
+    $thumbnail_id           = get_term_meta( $category->term_id, 'thumbnail_id', true  );
 
     // echo "<script>console.log('my_subcategory_thumbnail');</script>";
 
     if ( isset($thumbnail_id) ):
-        $image = wp_get_attachment_image_src( $thumbnail_id, $small_thumbnail_size  );
-        $image = $image[0];
+        if ( $image = wp_get_attachment_image_src( $thumbnail_id, $small_thumbnail_size  ) ): $image = $image[0]; endif;
         $srcset = wp_get_attachment_image_srcset( $thumbnail_id, $small_thumbnail_size );
     
     elseif ( null !== get_post_meta($post->ID, 'amazon_product_image_large_src') ):
-        $image = get_post_meta($post->ID, 'amazon_product_image_large_src');
-        $image = $image[0];
+        if ( $image = get_post_meta($post->ID, 'amazon_product_image_large_src') ) : $image = $image[0]; endif;
         $dimensions['width'] = get_option('thumbnail_size_w');
         $dimensions['height'] = get_option('thumbnail_size_h');
         $dimensions['crop'] = get_option('thumbnail_crop');

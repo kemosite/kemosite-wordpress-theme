@@ -21,3 +21,13 @@
 	<li>Unsubscribe page (Confirmation and Success): When your subscribers click the "Unsubscribe" link, they will be directed to a confirmation page. These pages must contain the [mailpoet_page] shortcode.</li>
 	<li>Re-Engagement Page: Thank your subscribers reactivated by the Re-engagement email for their continued interest in your emails. Page must contain the [mailpoet_page] shortcode.</li>
 </ol>
+
+<hr>
+
+<h2>Shortcodes</h2>
+<p><a href="<?php echo admin_url( 'themes.php?page=kemosite-shortcodes-description', 'https' ); ?>">See shortcodes page</a>.</p>
+
+<hr>
+
+<h2>Design System</h2>
+<p><a href="<?php echo admin_url( 'themes.php?page=kemosite-designsystem-description', 'https' ); ?>">See design system page</a>.</p>

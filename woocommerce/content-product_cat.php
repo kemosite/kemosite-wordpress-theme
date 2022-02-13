@@ -24,7 +24,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <li <?php wc_product_cat_class( '', $category ); ?>>
 
 	<?php
-    $thumbnail_id   = get_woocommerce_term_meta( $category->term_id, 'thumbnail_id', true );
+    // $thumbnail_id   = get_woocommerce_term_meta( $category->term_id, 'thumbnail_id', true );
+    $thumbnail_id   = get_term_meta( $category->term_id, 'thumbnail_id', true );
     $image = wp_get_attachment_url( $thumbnail_id );
 	?>
 

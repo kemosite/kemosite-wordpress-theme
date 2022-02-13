@@ -174,7 +174,8 @@ ul.accordian li.accordian-item {
 #add_payment_method .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button,
 .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
 .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled],
-select, input:not([type="checkbox"]), button, .button, .button.expanded, .wp-block-button__link,
+.wc-tabs a, .wc-tabs a:link,
+select, /* input:not([type="checkbox"]):not([type="radio"])*/ [type="checkbox"], [type="radio"] , button, .button, .button.expanded, .wp-block-button__link,
 [type="color"], [type="date"], [type="datetime-local"], [type="datetime"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], textarea {
 	min-height: 56px;
 	min-width: 80px;
@@ -199,7 +200,7 @@ div.wp-block-button.button > a.wp-block-button__link:hover { background-color: i
 button, .button, 
 .single_add_to_cart_button.button,
 .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
-	margin: 1em auto !important;
+	margin: 1em auto; /* Do not use !important. Breaks typography plug-in! */
 }
 
 form[name="search-course"] .search-course-button {
@@ -305,7 +306,6 @@ div.tag-cloud {
 .section { align-items: center; }
 .section h1 {
 	text-align: center;
-	color: white;
 	font-weight: bold;
 }
 
