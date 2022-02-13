@@ -20,6 +20,11 @@ if ( !function_exists('kemosite_debug_to_console') ) :
 
 endif;
 
+// Define is_plugin_active
+if ( !function_exists('is_plugin_active') ):
+    include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+endif;
+
 // Check for Woocommerce, Define Woocommerce constant, append appropriate styles
 if (is_plugin_active('woocommerce/woocommerce.php')): define('KEMOSITE_WOOCOMMERCE_ACTIVE', true); else: define('KEMOSITE_WOOCOMMERCE_ACTIVE', false); endif;
 
