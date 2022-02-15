@@ -4,21 +4,21 @@ if (!isset($kemosite_wordpress_base_primary_colour)):
 		
 	$kemosite_wordpress_base_primary_colour		=	( get_theme_mod('kemosite_wordpress_colours_primary') ) ? 
 													get_theme_mod('kemosite_wordpress_colours_primary') : 
-													get_theme_mod('kemosite_wordpress_base_primary_colour', kemosite_rgb_to_hex( $pantone_coty_colour_this_year ) );
-
-	set_theme_mod( 'kemosite_wordpress_base_primary_colour', $kemosite_wordpress_base_primary_colour );
-	remove_theme_mod('kemosite_wordpress_colours_primary');
-	remove_theme_mod('kemosite_wordpress_colours_bright_primary');
-	remove_theme_mod('kemosite_wordpress_colours_dark_primary');
+													get_theme_mod('kemosite_wordpress_base_primary_colour', $pantone_coty_colour_this_year_hex );
 
 endif;
+
+set_theme_mod( 'kemosite_wordpress_base_primary_colour', $kemosite_wordpress_base_primary_colour );
+remove_theme_mod('kemosite_wordpress_colours_primary');
+remove_theme_mod('kemosite_wordpress_colours_bright_primary');
+remove_theme_mod('kemosite_wordpress_colours_dark_primary');
 
 // Base Colour
 $wp_customize->add_setting( 'kemosite_wordpress_base_primary_colour', array(
 	'type' => 'theme_mod', // or 'option'
 	'capability' => 'edit_theme_options',
 	'theme_supports' => '', // Rarely needed.
-	'default' => $kemosite_wordpress_base_primary_colour,
+	'default' => $pantone_coty_colour_this_year_hex,
 	'transport' => 'refresh', // or postMessage
 	'sanitize_callback' => '',
 	'sanitize_js_callback' => '' // Basically to_json.
@@ -48,12 +48,12 @@ if (!isset($kemosite_wordpress_default_secondary_colour)):
 														get_theme_mod('kemosite_wordpress_colours_invert_primary') : 
 														kemosite_hsl_to_hex( $kemosite_wordpress_default_secondary_colour_hsl );
 
-	set_theme_mod( 'kemosite_wordpress_secondary_colour', $kemosite_wordpress_default_secondary_colour );
-	remove_theme_mod('kemosite_wordpress_colours_invert_primary');
-	remove_theme_mod('kemosite_wordpress_colours_bright_invert');
-	remove_theme_mod('kemosite_wordpress_colours_dark_invert');
-
 endif;
+
+set_theme_mod( 'kemosite_wordpress_secondary_colour', $kemosite_wordpress_default_secondary_colour );
+remove_theme_mod('kemosite_wordpress_colours_invert_primary');
+remove_theme_mod('kemosite_wordpress_colours_bright_invert');
+remove_theme_mod('kemosite_wordpress_colours_dark_invert');
 
 $wp_customize->add_setting( 'kemosite_wordpress_secondary_colour', array(
 	'type' => 'theme_mod', // or 'option'
@@ -82,13 +82,13 @@ if (!isset($kemosite_wordpress_base_black)):
 	$kemosite_wordpress_base_black	=	( get_theme_mod('kemosite_wordpress_colours_black') ) ? 
 										get_theme_mod('kemosite_wordpress_colours_black') : 
 										$kemosite_wordpress_base_black_default;
-
-	set_theme_mod( 'kemosite_wordpress_base_black', $kemosite_wordpress_base_black );
-	remove_theme_mod('kemosite_wordpress_colours_light_black');
-	remove_theme_mod('kemosite_wordpress_colours_dark_black');
-	remove_theme_mod('kemosite_wordpress_colours_black');
 	
 endif;
+
+set_theme_mod( 'kemosite_wordpress_base_black', $kemosite_wordpress_base_black );
+remove_theme_mod('kemosite_wordpress_colours_light_black');
+remove_theme_mod('kemosite_wordpress_colours_dark_black');
+remove_theme_mod('kemosite_wordpress_colours_black');
 
 $wp_customize->add_setting( 'kemosite_wordpress_base_black', array(
 	'type' => 'theme_mod', // or 'option'

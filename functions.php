@@ -54,12 +54,12 @@ if ( ! function_exists( 'kemosite_wordpress_theme_dependencies' ) ) :
 		//plugin is activated
 
 		// Check for Woocommerce
-		if ( !defined(KEMOSITE_WOOCOMMERCE_ACTIVE) ):
+		if ( KEMOSITE_WOOCOMMERCE_ACTIVE == false ):
 			echo '<div class="notice notice-info is-dismissible"><p>This theme supports WooCommerce.</p></div>';
 		endif;
 
 		// Check for Learnpress
-		if ( !defined(KEMOSITE_LEARNPRESS_ACTIVE) ):
+		if ( KEMOSITE_LEARNPRESS_ACTIVE == false ):
 			echo '<div class="notice notice-info is-dismissible"><p>This theme supports Learnpress.</p></div>';
 		endif;
 
