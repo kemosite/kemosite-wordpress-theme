@@ -31,6 +31,7 @@ main .nav-next {
 }
 
 div.content {
+	margin-top: 3ex;
 	margin-left: 1em;
 	margin-right: 1em;
 }

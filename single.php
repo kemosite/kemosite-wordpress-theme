@@ -62,7 +62,11 @@ get_header();
     );
     ?>
 
-    <div class="small_ad"><?php if( function_exists('the_ad_placement') ) { the_ad_placement('small-ad'); } ?></div>
+    <?php
+      /* <!-- Hide ad if empty --> */
+      if( function_exists('the_ad_placement') ): ?>
+        <div class="small_ad"><?php the_ad_placement('small-ad'); ?></div>
+    <?php endif; ?>
 
     
   </div>

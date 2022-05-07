@@ -7,7 +7,7 @@ Author: Kevin Montgomery
 Author URI: https://github.com/kemosite/
 Description: A useful theme for Wordpress 5.9
 Requires at least: 5.9
-Version: 5.9.1.4
+Version: 5.9.4.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -22,12 +22,12 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Dependencies:
 (Check functions-enqueue-scripts.php for versions)
-"chart.js": "^3.6.1",
-"foundation-icons": "^1.0.1",
-"foundation-sites": "^6.7.4",
-"jquery": "^3.6.0",
-"mediaelement": "^5.0.4",
-"what-input": "^5.2.10"
+- "chart.js": "^3.7.1",
+- "foundation-icons": "^1.0.1",
+- "foundation-sites": "^6.7.4",
+- "jquery": "^3.6.0",
+- "mediaelement": "^5.0.5",
+- "what-input": "^5.2.11"
 
 */
 

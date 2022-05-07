@@ -1,11 +1,13 @@
 <?php
 
 // Determine whether this is an AMP response.
+/*
 if (!function_exists('is_amp_detected')):
 	function is_amp_detected() {
 	    return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
 	}
 endif;
+*/
 
 /* [Load Parent Theme Styles] */
 
@@ -19,6 +21,10 @@ function my_theme_enqueue_styles() {
         wp_get_theme()->get('Version')
     );
     */
+
+    /* [Dequeue scripts we don't need yet] */
+    wp_dequeue_style( 'wc-blocks-style' );
+    wp_deregister_style( 'wc-blocks-style' );
     
     wp_enqueue_style( 'kemosite-blank-theme', get_template_directory_uri() . '/style.css' );
 
@@ -72,9 +78,11 @@ function load_scripts_method() {
 	add_action('wp_head', 'ilc_favicon');
 
 	// amp-script 
+	/*
 	wp_deregister_script('amp-script');
 	wp_register_script('amp-script', 'https://cdn.ampproject.org/v0/amp-script-0.1.js', '', '0.1', 'true');
 	wp_enqueue_script('amp-script');
+	*/
 
 	// Accessibility enhancements
 	wp_deregister_script('kemosite-wordpress-theme-accessibility');
@@ -92,7 +100,7 @@ function load_scripts_method() {
 	wp_enqueue_script('jquery');
 
 	wp_deregister_script('foundation-what-input');
-	wp_register_script('foundation-what-input', get_template_directory_uri().'/js/vendor/what-input.min.js', '', '5.2.10', 'true');
+	wp_register_script('foundation-what-input', get_template_directory_uri().'/js/vendor/what-input.min.js', '', '5.2.11', 'true');
 	wp_enqueue_script('foundation-what-input');
 
 	wp_deregister_script('foundation');
@@ -110,19 +118,19 @@ function load_scripts_method() {
 		
 		// Chart JS
 		wp_deregister_script('chart-js');
-		wp_register_script('chart-js', get_template_directory_uri().'/js/vendor/Chart.min.js', '', '3.6.1');
+		wp_register_script('chart-js', get_template_directory_uri().'/js/vendor/Chart.min.js', '', '3.7.1');
 		wp_enqueue_script('chart-js');
 
 		// Chart JS Config
 		wp_deregister_script('chart-js-config');
-		wp_register_script('chart-js-config', get_template_directory_uri().'/js/chart-js-config.js', '', '3.6.1');
+		wp_register_script('chart-js-config', get_template_directory_uri().'/js/chart-js-config.js', '', '3.7.1');
 		wp_enqueue_script('chart-js-config');
 
 	endif;
 
 	// Mediaelement
 	wp_deregister_script('mediaelement');
-	wp_register_script('mediaelement', get_template_directory_uri().'/js/vendor/mediaelement-and-player.min.js', '', '5.0.4', 'true');
+	wp_register_script('mediaelement', get_template_directory_uri().'/js/vendor/mediaelement-and-player.min.js', '', '5.0.5', 'true');
 	wp_enqueue_script('mediaelement');
 
 	// Underscores Navigation
@@ -165,9 +173,11 @@ add_action('wp_enqueue_scripts', 'load_scripts_method');
 
 function defer_async_amp_scripts( $tag, $handle, $src ) {
   
+	/*
 	$amp = array( 
 		'amp-script'
 	);
+	*/
 
 	// file gets downloaded asynchronously, but executed only when the document parsing is completed
 	$defer = array( 
@@ -187,9 +197,11 @@ function defer_async_amp_scripts( $tag, $handle, $src ) {
 	  	'foundation-what-input',
 	);
 
+  /*
   if ( in_array( $handle, $amp ) ) {
      return '<script src="' . $src . '" async="async" custom-element="amp-script"></script>' . "\n";
   }
+  */
 
   if ( in_array( $handle, $defer ) ) {
      return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
@@ -218,6 +230,11 @@ function resource_hints_method($hints, $relation_type) {
 	
 	global $wp_styles;
 	global $wp_scripts;
+
+	kemosite_debug_to_console( "wp_styles:" );
+	kemosite_debug_to_console( $wp_styles );
+	kemosite_debug_to_console( "wp_scripts:" );
+	kemosite_debug_to_console( $wp_scripts );
 
 	/* IN ORDER OF COMMMITMENT */
 	// dns-prefetch - used to indicate an origin that will be used to fetch required resources, and that the user agent SHOULD resolve as early as possible. Helpful when you know you’ll connect to a domain soon, and you want to speed up the initial connection.

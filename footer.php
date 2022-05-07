@@ -38,9 +38,11 @@
 */ ?>
 		<div class="grid-layout-footer">
 
+			<?php if( function_exists('the_ad_placement') ): ?>
 			<div class="grid_area_big_ad">
-				<div class="big_ad"><?php if( function_exists('the_ad_placement') ) { the_ad_placement('big-ad'); } ?></div>
+				<div class="big_ad"><?php the_ad_placement('big-ad'); ?></div>
 			</div>
+			<?php endif; ?>
 
 			<div class="grid_area_tag_cloud">
 				<div class="tag-cloud">

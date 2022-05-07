@@ -2,6 +2,9 @@
 
 /* [Customizations] */
 function my_customize_register( $wp_customize ) {
+
+	/* [DEFAULT THEME FONT] */
+	$kemosite_wordpress_default_google_font = 'Roboto:wght@300';
 	
 	/*
 	** [REMOVE UNNEEDED SECTIONS AND CONTROLS] **

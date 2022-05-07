@@ -42,15 +42,8 @@
 }
 .grid_area_menu { grid-area: grid_area_menu; }
 .grid_area_section { grid-area: grid_area_section; }
-.grid_area_exerpt {
-	grid-area: grid_area_exerpt;
-	margin-top: 3ex;
-	margin-bottom: 3ex;
-}
-.grid_area_content {
-	grid-area: grid_area_content;
-	margin-top: 3ex;
-}
+.grid_area_exerpt { grid-area: grid_area_exerpt; }
+.grid_area_content { grid-area: grid_area_content; }
 .grid-layout-content.no-sidebars .grid_area_content {
 	/* max-width: 59ch; */
 	margin: 0;

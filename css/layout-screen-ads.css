@@ -38,10 +38,17 @@
 
 */
 
+/* COLLAPSE EMPTY ADS */
+.small_ad:empty, .big_ad:empty, .sidebar_ad:empty {
+	height: 0;
+	width: 0;
+	margin: 0;
+}
+
 /* SMALL AD PROPERTIES */
 .small_ad, .big_ad, .sidebar_ad {
 	background-color: transparent; /* #999 */
-	margin: 3ex auto !important;
+	margin: 3ex auto;
 	width: auto;
 	height: auto;
 	align-items: center;
