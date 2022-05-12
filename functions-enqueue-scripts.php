@@ -231,10 +231,12 @@ function resource_hints_method($hints, $relation_type) {
 	global $wp_styles;
 	global $wp_scripts;
 
+	/*
 	kemosite_debug_to_console( "wp_styles:" );
 	kemosite_debug_to_console( $wp_styles );
 	kemosite_debug_to_console( "wp_scripts:" );
 	kemosite_debug_to_console( $wp_scripts );
+	*/
 
 	/* IN ORDER OF COMMMITMENT */
 	// dns-prefetch - used to indicate an origin that will be used to fetch required resources, and that the user agent SHOULD resolve as early as possible. Helpful when you know you’ll connect to a domain soon, and you want to speed up the initial connection.
