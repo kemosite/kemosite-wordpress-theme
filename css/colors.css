@@ -166,7 +166,7 @@ table tbody tr,
 table tbody tr:nth-child(odd),
 table tbody tr:nth-child(even),
 wp-block-table.is-style-regular tbody tr {
-	background-color: hsla(0,0%,0%,0) !important;
+	background-color: hsla(0,0%,0%,0);
 }
 
 .tabs, .card, table, table tbody, table tfoot, table thead {

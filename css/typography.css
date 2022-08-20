@@ -106,7 +106,15 @@ div.section header h1 { font-size: calc(1rem + 3vh); }
     text-align: left;
 }
 
-p,ul,ol { margin-bottom: 3ex; }
+* p, * ul, * ol {
+    margin-top: 3ex;
+    margin-bottom: 0;
+}
+
+* p:first-child, * ul:first-child, * ol:first-child {
+    margin-top: 0;
+}
+
 li { margin-top: 3ex; margin-bottom: 3ex; line-height: 3ex}
 
 td.label {

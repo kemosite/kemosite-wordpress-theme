@@ -96,7 +96,7 @@ function load_scripts_method() {
 
 	// Foundation JS Files
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', get_template_directory_uri().'/js/vendor/jquery.min.js', '', '3.6.0', 'true');
+	wp_register_script('jquery', get_template_directory_uri().'/js/vendor/jquery.min.js', '', '3.7.1', 'true');
 	wp_enqueue_script('jquery');
 
 	wp_deregister_script('foundation-what-input');

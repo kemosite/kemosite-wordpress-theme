@@ -160,6 +160,21 @@ function kemosite_wordpress_theme_content_width() {
 }
 add_action( 'after_setup_theme', 'kemosite_wordpress_theme_content_width', 0 );
 
+// Add kemosite-wordpress-theme class to body tag for specificity if needed
+add_filter( 'body_class','kemosite_wordpress_theme_classes' );
+
+if ( !function_exists('kemosite_typography_classes') ) :
+	
+	function kemosite_typography_classes( $classes ) {
+
+		$classes[] = 'kemosite_wordpress_theme';
+	 
+	    return $classes;
+	     
+	}
+
+endif;
+
 /**
  * Register widget area.
  *
