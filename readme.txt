@@ -1,13 +1,13 @@
-# kemosite-wordpress-theme 6.0.1.1
+# kemosite-wordpress-theme 6.0.1.2
 ## A useful theme for Wordpress 6.0
 
 Contributors: Kevin Montgomery
 
 Tags: adaptive, javascript, responsive, foundation, less, woocommerce, learnpress, github, multi-column, custom-colours, custom-menu, custom-logo, custom-background, featured-images, threaded-comments, light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready, flexbox
 
-- Version: 6.0.1.1
+- Version: 6.0.1.2
 - Requires at least: 6.0
-- Tested up to: 6.0
+- Tested up to: 6.0.1
 - Requires PHP: 7.4
 - License: GNU General Public License v2 or later
 
