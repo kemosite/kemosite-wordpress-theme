@@ -11,7 +11,7 @@
 
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<div style="text-align: center; max-width: 59ch;">
+	<div style="text-align: center; max-width: 59ch; margin-left: auto; margin-right: auto;">
 	
 	<?php
 	the_content( sprintf( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kemosite-wordpress-theme' ), get_the_title() );
