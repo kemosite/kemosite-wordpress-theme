@@ -1,6 +1,9 @@
 <?php
 /**
  * kemosite-wordpress-theme functions and definitions
+ * 
+ * When refactoring, try to reserve this script "controller" level functions only. Define the function "models" in appended scripts.
+ * Action functions can be saved here, for now.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -203,6 +206,11 @@ function my_post_function($query) {
 }
 // add_action( 'pre_get_posts', 'my_post_function'); /* NO! THIS BREAKS PRODUCT AND POST RETRIEVALS! */
 
+/*
+** [HELPER FUNCTIONS] **
+*/
+require_once get_template_directory() . '/inc/function-helpers/function-helpers-colours.php';
+
 /**
  * Looks in Custom Fields for Excerpt data.
  */
@@ -233,6 +241,16 @@ function kemosite_custom_excerpt( $post_id = null) {
 
 }
 
+function kemosite_check_post_for_thumbnail( $post_id ) {
+
+	// If post has no thumbnail defined
+
+	// create one, save to media, and append to post.
+	// kemosite_create_thumbnail_for_post();
+
+}
+add_action( 'save_post', 'kemosite_check_post_for_thumbnail' );
+
 /**
  * Check to see if the current page is the login/register page.
  *
@@ -259,11 +277,6 @@ endif;
 ** [UNIVERAL THEME COLOURS] **
 */
 require_once get_template_directory() . '/inc/customize-register/customize-register-universal-colours.php'; // returns $kemosite_wordpress_universal_colours
-
-/*
-** [HELPER FUNCTIONS] **
-*/
-require_once get_template_directory() . '/inc/function-helpers/function-helpers-colours.php';
 
 /* [Includes] */
 // require_once ("functions-headless.php"); // Depricate

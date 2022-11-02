@@ -36,7 +36,9 @@
 	endif;
 	?>
 
+	<?php if ( !is_plugin_active('wordpress-seo/wp-seo.php') ): ?>
 	<meta name="description" content="<?php echo $kemosite_wordpress_theme_description; ?>">
+	<?php endif; ?>
 
 	<?php 
 	/* Always have wp_head() just before the closing </head>

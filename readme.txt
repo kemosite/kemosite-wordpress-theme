@@ -1,13 +1,13 @@
-# kemosite-wordpress-theme 6.0.1.3
+# kemosite-wordpress-theme 6.0.3.1
 ## A useful theme for Wordpress 6.0
 
 Contributors: Kevin Montgomery
 
 Tags: adaptive, javascript, responsive, foundation, less, woocommerce, learnpress, github, multi-column, custom-colours, custom-menu, custom-logo, custom-background, featured-images, threaded-comments, light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready, flexbox
 
-- Version: 6.0.1.3
+- Version: 6.0.3.1
 - Requires at least: 6.0
-- Tested up to: 6.0.1
+- Tested up to: 6.0.3
 - Requires PHP: 7.4
 - License: GNU General Public License v2 or later
 
@@ -24,12 +24,12 @@ Tags: adaptive, javascript, responsive, foundation, less, woocommerce, learnpres
  - Mailpoet Support
 
 ## Dependencies (Check functions-enqueue-scripts.php for versions)
-- "chart.js": "^3.7.1",
+- "chart.js": "^3.9.1",
 - "foundation-icons": "^1.0.1",
-- "foundation-sites": "^6.7.4",
-- "jquery": "^3.6.0",
-- "mediaelement": "^5.0.5",
-- "what-input": "^5.2.11"
+- "foundation-sites": "^6.7.5",
+- "jquery": "^3.6.1",
+- "mediaelement": "^5.1.0",
+- "what-input": "^5.2.12"
 
 ## Installation
 Method 1 - Use Github Updater

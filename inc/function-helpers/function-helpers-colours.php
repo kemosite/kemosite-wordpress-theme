@@ -469,4 +469,12 @@ function kemosite_adjust_hsl_l_contrast( $hsl = array(), $eval_contrast = "", $t
 }
 endif;
 
+if ( !function_exists('kemosite_create_thumbnail_for_post') ) :
+function kemosite_create_thumbnail_for_post(  ) {
+
+	// function code.
+
+}
+endif;
+
 ?>

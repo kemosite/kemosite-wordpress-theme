@@ -1,7 +1,7 @@
 <style>@import url("<?php echo get_template_directory_uri() . '/admin-css.css' ?>"); </style>
 
 <h1>Colour Variations</h1>
-<p>From your selection of base colour in the <a href="<?php echo admin_url( 'customize.php', 'https' ); ?>">theme customizer</a>, colour variations are proposed here using a variety of colour and neutral schemes. Colours are adjusted for accessible contrast targets. These are targets, that doesn't always mean they'll be 100% accurate. Be sure to confirm with the <a href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Contrast Checker</a>.</p>
+<p>From your selection of base colour in the <a href="<?php echo admin_url( 'customize.php', 'https' ); ?>">theme customizer</a>, colour variations are proposed here using a variety of colour and neutral schemes. Colours are adjusted for accessible contrast targets. These are targets, that doesn't always mean they'll be 100% accurate. Be sure to confirm with the <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">WebAIM Contrast Checker</a>.</p>
 
 <?php
 

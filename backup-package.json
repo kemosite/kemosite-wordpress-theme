@@ -1,0 +1,55 @@
+{
+  "description": "A useful theme for Wordpress 6.0",
+  "main": "index.php",
+  "dependencies": {
+    "chart.js": "^3.9.1",
+    "foundation-icons": "^1.0.1",
+    "foundation-sites": "^6.7.5",
+    "jquery": "^3.6.1",
+    "mediaelement": "^5.1.0",
+    "npm": "^8.19.2",
+    "npm-check-updates": "^16.3.8",
+    "what-input": "^5.2.12"
+  },
+  "devDependencies": {
+    "cypress": "^10.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "updates": "npm install npm@latest && npm audit fix --force && npm install -g npm-check-updates@latest && npm install npm-check-updates@latest && ncu -u && npm -g update && npm update && npm install && npm -g prune && npm prune",
+    "deploy:jquery": "copy node_modules\\jquery\\dist\\jquery.min.js js\\vendor\\jquery.min.js",
+    "deploy:chart:js": "copy /Y node_modules\\chart.js\\dist\\*.js js\\vendor",
+    "deploy:chart": "npm run deploy:chart:js",
+    "deploy:foundation:js": "copy /Y node_modules\\foundation-sites\\dist\\js js\\vendor && copy /Y node_modules\\foundation-sites\\js\\*.js js\\vendor",
+    "deploy:foundation:css": "copy /Y node_modules\\foundation-sites\\dist\\css css",
+    "deploy:foundation:icons": "copy /Y node_modules\\foundation-icons css\\foundation-icons\\",
+    "deploy:foundation": "npm run deploy:foundation:js && npm run deploy:foundation:css && npm run deploy:foundation:icons",
+    "deploy:whatinput:js": "copy node_modules\\what-input\\dist\\what-input.min.js js\\vendor\\what-input.min.js",
+    "deploy:whatinput:map": "copy node_modules\\what-input\\dist\\what-input.min.js.map js\\vendor\\what-input.min.js.map",
+    "deploy:whatinput": "npm run deploy:whatinput:js && npm run deploy:whatinput:map",
+    "deploy:mediaelement:js": "copy /Y node_modules\\mediaelement\\build\\*.js js\\vendor\\",
+    "deploy:mediaelement:css": "copy /Y node_modules\\mediaelement\\build\\*.css css",
+    "deploy:mediaelement": "npm run deploy:mediaelement:js && npm run deploy:mediaelement:css",
+    "deploy": "npm run deploy:jquery && npm run deploy:chart && npm run deploy:foundation && npm run deploy:whatinput && npm run deploy:mediaelement"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kemosite/kemosite-wordpress-theme.git"
+  },
+  "keywords": [
+    "adaptive",
+    "javascript",
+    "responsive",
+    "foundation",
+    "less",
+    "woocommerce",
+    "github"
+  ],
+  "author": "Kevin Montgomery",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/kemosite/kemosite-wordpress-theme/issues"
+  },
+  "homepage": "https://github.com/kemosite/kemosite-wordpress-theme#readme"
+}

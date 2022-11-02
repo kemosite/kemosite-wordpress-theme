@@ -63,9 +63,8 @@ function ilc_favicon() { echo '<link rel="shortcut icon" href="' . get_template_
 /* [RSS Thumbnail] */
 function rss_post_thumbnail($content) {
     global $post;
-    if( has_post_thumbnail($post->ID) )
-        $content = '<p>' . get_the_post_thumbnail($post->ID, 'thumbnail') . '</p>' . $content;
-    return $content;
+    if( has_post_thumbnail($post->ID) ): $content = '<p>' . get_the_post_thumbnail($post->ID, 'thumbnail') . '</p>' . $content; endif;
+	return $content;
 }
 
 /* [Load Scripts] */
@@ -95,8 +94,10 @@ function load_scripts_method() {
 	wp_enqueue_script('kemosite-url-handler');
 
 	// Foundation JS Files
+
+	$jquery_version = '3.7.1';
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', get_template_directory_uri().'/js/vendor/jquery.min.js', '', '3.7.1', 'true');
+	wp_register_script('jquery', get_template_directory_uri().'/js/vendor/jquery.min.js', '', $jquery_version, 'true');
 	wp_enqueue_script('jquery');
 
 	wp_deregister_script('foundation-what-input');
@@ -116,14 +117,16 @@ function load_scripts_method() {
 
 	if(isset($custom_fields['load-chart-js'][0]) && $custom_fields['load-chart-js'][0] == "true"):
 		
+		$chart_js_version = '3.7.1';
+
 		// Chart JS
 		wp_deregister_script('chart-js');
-		wp_register_script('chart-js', get_template_directory_uri().'/js/vendor/Chart.min.js', '', '3.7.1');
+		wp_register_script('chart-js', get_template_directory_uri().'/js/vendor/Chart.min.js', '', $chart_js_version);
 		wp_enqueue_script('chart-js');
 
 		// Chart JS Config
 		wp_deregister_script('chart-js-config');
-		wp_register_script('chart-js-config', get_template_directory_uri().'/js/chart-js-config.js', '', '3.7.1');
+		wp_register_script('chart-js-config', get_template_directory_uri().'/js/chart-js-config.js', '', $chart_js_version);
 		wp_enqueue_script('chart-js-config');
 
 	endif;
